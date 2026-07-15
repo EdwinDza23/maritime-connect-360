@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bunker Quantity Survey (BQS) — MaritimeConnect360</title>
+  <meta name="description" content="Manage every bunker quantity survey from planning to final report using one centralized enterprise platform. BQS by MaritimeConnect360 — built for ship owners, managers, and marine surveyors." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="BQS — Enterprise Bunker Survey Management | MC360" />
+  <meta property="og:description" content="End-to-end bunker quantity survey management. Create, track, and publish surveys across your entire fleet from one platform." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <style>
+
+/* =============================================
+   DESIGN TOKENS (verbatim from index.html)
+   ============================================= */
+:root {
+  --blue:        #0057B8;
+  --blue-dark:   #00429A;
+  --blue-light:  #1A6DC6;
+  --cyan:        #00B4D8;
+  --cyan-light:  #90E0EF;
+  --indigo:      #4338CA;
+  --teal:        #0D9488;
+  --surface:          #FFFFFF;
+  --surface-2:        #F7F9FD;
+  --surface-3:        #EEF4FF;
+  --surface-dark:     #060E1C;
+  --surface-dark-2:   #0B1527;
+  --surface-dark-3:   #101D33;
+  --text-1:   #0A1628;
+  --text-2:   #3D5166;
+  --text-3:   #7A90A6;
+  --text-inv: rgba(255,255,255,0.88);
+  --text-inv-dim: rgba(255,255,255,0.50);
+  --border:       #E2EAFA;
+  --border-2:     #C8D7EF;
+  --border-dark:  rgba(255,255,255,0.07);
+  --green:        #059669;
+  --green-bg:     #ECFDF5;
+  --amber:        #D97706;
+  --amber-bg:     #FFFBEB;
+  --red:          #DC2626;
+  --red-bg:       #FEF2F2;
+  --grad-primary:  linear-gradient(135deg, #0057B8 0%, #4338CA 100%);
+  --grad-accent:   linear-gradient(135deg, #00B4D8 0%, #0057B8 100%);
+  --grad-dark:     linear-gradient(135deg, #060E1C 0%, #0B1527 100%);
+  --sh-sm:  0 1px 4px rgba(10,22,40,.06);
+  --sh-md:  0 4px 18px rgba(10,22,40,.09);
+  --sh-lg:  0 16px 52px rgba(10,22,40,.11);
+  --sh-xl:  0 32px 96px rgba(10,22,40,.14);
+  --sh-blue: 0 8px 32px rgba(0,87,184,.26);
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-xl: 24px;
+  --r-2xl: 32px;
+  --r-pill: 9999px;
+  --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ease-fast: 150ms cubic-bezier(.4,0,.2,1);
+  --ease-base: 260ms cubic-bezier(.4,0,.2,1);
+  --ease-slow: 420ms cubic-bezier(.4,0,.2,1);
+  --ease-spring: 500ms cubic-bezier(.34,1.56,.64,1);
+  --ease-out: 600ms cubic-bezier(.16,1,.3,1);
+  --section: 120px;
+}
+
+/* BASE RESET */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+body{font-family:var(--font);color:var(--text-1);background:var(--surface);overflow-x:hidden;line-height:1.6}
+img,svg{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;background:none;outline:none}
+ul{list-style:none}
+
+/* LAYOUT */
+.container{width:100%;max-width:1280px;margin:0 auto;padding:0 48px}
+.container-sm{width:100%;max-width:960px;margin:0 auto;padding:0 48px}
+
+/* TYPOGRAPHY */
+.display-xl{font-size:clamp(54px,7.5vw,92px);font-weight:800;line-height:.98;letter-spacing:-.035em}
+.display-lg{font-size:clamp(40px,5vw,64px);font-weight:800;line-height:1.04;letter-spacing:-.028em}
+.display-md{font-size:clamp(32px,4vw,50px);font-weight:800;line-height:1.08;letter-spacing:-.022em}
+.heading{font-size:clamp(22px,2.5vw,28px);font-weight:700;line-height:1.2;letter-spacing:-.015em}
+.body-lg{font-size:clamp(16px,1.8vw,19px);line-height:1.7;font-weight:400}
+.body{font-size:16px;line-height:1.65}
+.sm{font-size:14px;line-height:1.5}
+.grad-text{background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;font-size:15px;font-weight:600;font-family:var(--font);border-radius:var(--r-pill);transition:all var(--ease-base);cursor:pointer;white-space:nowrap;letter-spacing:-.01em;border:none}
+.btn-lg{padding:16px 36px;font-size:16px}
+.btn-sm{padding:10px 22px;font-size:14px}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 4px 16px rgba(0,87,184,.32),inset 0 1px 0 rgba(255,255,255,.12)}
+.btn-primary:hover{background:var(--blue-dark);box-shadow:0 8px 32px rgba(0,87,184,.44),inset 0 1px 0 rgba(255,255,255,.12);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--text-1);border:1.5px solid var(--border-2)}
+.btn-outline:hover{background:var(--surface-3);border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
+.btn-ghost-dark{background:rgba(255,255,255,.07);color:#fff;border:1.5px solid rgba(255,255,255,.11);backdrop-filter:blur(8px)}
+.btn-ghost-dark:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.2);transform:translateY(-2px)}
+
+/* EYEBROW */
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;background:var(--surface-3);border:1px solid var(--border);border-radius:var(--r-pill);font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--blue);margin-bottom:20px}
+.eyebrow-dark{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.09);color:var(--cyan-light)}
+.eyebrow-dot{width:6px;height:6px;background:var(--cyan);border-radius:50%;animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s var(--ease-out),transform .75s var(--ease-out)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+.d4{transition-delay:.32s}.d5{transition-delay:.40s}
+
+/* KEYFRAMES */
+@keyframes fadeDown{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes floatA{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+@keyframes floatB{0%,100%{transform:translateY(0)}50%{transform:translateY(9px)}}
+@keyframes floatC{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes panelFadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes progressLine{from{height:0}to{height:100%}}
+
+/* BROWSER FRAME */
+.browser{background:#fff;border-radius:var(--r-xl);border:1px solid var(--border);box-shadow:0 2px 4px rgba(10,22,40,.04),0 10px 36px rgba(10,22,40,.09),0 40px 100px rgba(10,22,40,.13);overflow:hidden}
+.browser-chrome{display:flex;align-items:center;gap:14px;padding:13px 20px;background:#F7F9FD;border-bottom:1px solid var(--border)}
+.b-dots{display:flex;gap:6px}
+.b-dot{width:10px;height:10px;border-radius:50%}
+.b-dot:nth-child(1){background:#FF5F57}.b-dot:nth-child(2){background:#FFBD2E}.b-dot:nth-child(3){background:#28CA41}
+.b-url{flex:1;background:#fff;border:1px solid var(--border);border-radius:var(--r-sm);padding:5px 12px;font-size:12px;color:var(--text-3);display:flex;align-items:center;gap:6px}
+.browser-screenshot img{width:100%;height:auto;display:block}
+.browser-video video{width:100%;display:block}
+
+/* ============================================================
+   NAVIGATION (verbatim from index.html)
+   ============================================================ */
+.nav-outer{position:fixed;top:16px;inset-inline:0;z-index:1000;display:flex;justify-content:center;padding:0 32px;pointer-events:none}
+.nav{display:flex;align-items:center;width:100%;max-width:1200px;background:rgba(255,255,255,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(226,234,250,.9);border-radius:100px;padding:8px 12px 8px 20px;box-shadow:0 8px 32px rgba(10,22,40,.10),0 2px 8px rgba(10,22,40,.06);pointer-events:all;transition:background var(--ease-base),box-shadow var(--ease-base)}
+.nav.scrolled{background:rgba(255,255,255,.96);box-shadow:0 12px 40px rgba(10,22,40,.14),0 3px 10px rgba(10,22,40,.07)}
+.nav-logo{display:flex;align-items:center;gap:9px;flex-shrink:0;text-decoration:none}
+.nav-logo img{height:28px;width:auto;display:block}
+.nav-logo-text{font-size:15px;font-weight:700;color:var(--text-1);letter-spacing:-.02em;white-space:nowrap}
+.nav-logo-text .brand-connect{color:var(--text-1)}
+.nav-logo-text .brand-num{color:var(--blue)}
+.nav-links{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:2px}
+.nav-active-pill{position:absolute;background:rgba(0,87,184,.07);border:1px solid rgba(0,87,184,.10);border-radius:100px;transition:all 0.32s cubic-bezier(0.16,1,0.3,1);z-index:0;pointer-events:none;opacity:0}
+.nav-link{position:relative;z-index:1;display:inline-flex;align-items:center;gap:5px;padding:7px 14px;font-size:14px;font-weight:500;color:var(--text-2);border-radius:100px;cursor:pointer;background:transparent;border:none;font-family:var(--font);transition:background 140ms ease,color 140ms ease;white-space:nowrap}
+.nav-link:hover,.nav-link.active{background:rgba(0,87,184,.07);color:var(--text-1)}
+.nav-link.dd-open{background:rgba(0,87,184,.07);color:var(--text-1)}
+.nav-chevron{display:inline-flex;flex-shrink:0;transition:transform 0.2s ease}
+.nav-link.dd-open .nav-chevron{transform:rotate(180deg)}
+.nav-actions{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0}
+.nav-demo{display:inline-flex;align-items:center;padding:8px 22px;font-size:14px;font-weight:600;color:var(--text-1);background:transparent;border:1.5px solid var(--border-2);border-radius:100px;font-family:var(--font);cursor:pointer;transition:border-color 160ms ease,background 160ms ease,color 160ms ease}
+.nav-demo:hover{border-color:var(--blue);color:var(--blue);background:rgba(0,87,184,.05)}
+.nav-trial{display:inline-flex;align-items:center;gap:6px;padding:8px 22px;font-size:14px;font-weight:600;color:#fff;background:var(--blue);border:none;border-radius:100px;font-family:var(--font);cursor:pointer;box-shadow:0 2px 10px rgba(0,87,184,.30);transition:background 160ms ease,box-shadow 160ms ease,transform 160ms ease}
+.nav-trial:hover{background:var(--blue-dark);box-shadow:0 4px 18px rgba(0,87,184,.42);transform:translateY(-1px)}
+.nav-dd-wrap{position:relative;display:inline-flex}
+.nav-dropdown{position:absolute;top:calc(100% + 8px);left:0;background:#fff;border-radius:12px;border:1px solid rgba(0,0,0,0.08);box-shadow:0 8px 32px rgba(0,0,0,0.12),0 2px 8px rgba(0,0,0,0.06);padding:8px;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);transition:opacity 0.18s ease,transform 0.18s ease,visibility 0s linear 0.18s;z-index:900}
+.nav-dropdown.dd-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0);transition:opacity 0.18s ease,transform 0.18s ease,visibility 0s linear 0s}
+.dd-products{width:520px}
+.dd-section-label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#9ca3af;padding:4px 10px 8px}
+.dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.dd-product-card{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:8px;cursor:pointer;text-decoration:none;transition:background 130ms ease}
+.dd-product-card:hover{background:#f8f9fa}
+.dd-product-card.active-product{background:rgba(0,87,184,.05);border:1px solid rgba(0,87,184,.08)}
+.dd-product-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.dd-product-icon svg{width:16px;height:16px}
+.dd-product-name{font-size:13.5px;font-weight:600;color:#111;margin-bottom:2px;line-height:1.3}
+.dd-product-desc{font-size:12px;color:#6b7280;line-height:1.4}
+.dd-customers{width:200px}
+.dd-list-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;font-size:13.5px;font-weight:500;color:#374151;cursor:pointer;text-decoration:none;transition:background 130ms ease}
+.dd-list-item:hover{background:#f8f9fa;color:#111}
+.dd-list-icon{width:28px;height:28px;border-radius:6px;background:#f3f4f6;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.dd-list-icon svg{width:14px;height:14px;color:#6b7280}
+.nav-hamburger{display:none;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:transparent;border:1px solid #e5e7eb;cursor:pointer;margin-left:auto;transition:background 140ms ease}
+.nav-hamburger:hover{background:#f5f5f5}
+.nav-hamburger svg{width:18px;height:18px;color:#374151}
+.nav-mobile-panel{display:none;position:fixed;top:72px;left:16px;right:16px;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(226,234,250,.9);border-radius:20px;box-shadow:0 12px 40px rgba(10,22,40,.14);padding:12px 20px 20px;z-index:999;overflow-y:auto;max-height:calc(100vh - 80px)}
+.nav-mobile-panel.mob-open{display:block}
+.mob-link{display:flex;align-items:center;justify-content:space-between;padding:11px 4px;font-size:15px;font-weight:500;color:var(--text-2);border-bottom:1px solid var(--border);text-decoration:none;cursor:pointer}
+.mob-link:last-child{border-bottom:none}
+.mob-link:hover{color:var(--text-1)}
+.mob-subsection{display:none;padding:4px 0 4px 12px}
+.mob-subsection.mob-sub-open{display:block}
+.mob-sub-item{display:flex;align-items:center;gap:8px;padding:8px 4px;font-size:14px;color:var(--text-3);text-decoration:none;border-radius:6px}
+.mob-sub-item:hover{color:var(--text-1)}
+.mob-ctas{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.mob-ctas .nav-demo,.mob-ctas .nav-trial{justify-content:center;width:100%;border-radius:100px;padding:11px;font-size:15px}
+@media(max-width:768px){.nav-links,.nav-actions{display:none}.nav-hamburger{display:flex}.nav{padding:8px 12px 8px 16px}}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{background:var(--surface-dark);border-top:1px solid rgba(255,255,255,.05);padding:64px 0 40px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}
+.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.footer-logo-mark{width:34px;height:34px;background:var(--grad-primary);border-radius:9px;display:flex;align-items:center;justify-content:center}
+.footer-logo-text{font-size:16px;font-weight:800;color:#fff;letter-spacing:-.02em}
+.footer-brand-desc{font-size:13px;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:22px}
+.footer-socials{display:flex;gap:8px;margin-bottom:20px}
+.footer-soc{width:34px;height:34px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;transition:all var(--ease-fast);color:rgba(255,255,255,.5)}
+.footer-soc:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.15);color:#fff}
+.footer-compliance-row{display:flex;gap:7px;flex-wrap:wrap}
+.footer-cert{padding:4px 10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:6px;font-size:9.5px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.04em}
+.footer-col-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.45);margin-bottom:16px}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-link{font-size:13px;color:rgba(255,255,255,.5);transition:color var(--ease-fast)}
+.footer-link:hover{color:rgba(255,255,255,.9)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:28px;display:flex;align-items:center;justify-content:space-between}
+.footer-copy{font-size:13px;color:rgba(255,255,255,.28)}
+.footer-legal{display:flex;gap:24px}
+.footer-legal-link{font-size:13px;color:rgba(255,255,255,.28);transition:color var(--ease-fast)}
+.footer-legal-link:hover{color:rgba(255,255,255,.6)}
+
+/* BACK TO TOP */
+#back-to-top{position:fixed;bottom:28px;left:28px;z-index:990;display:inline-flex;align-items:center;gap:7px;padding:9px 18px 9px 14px;background:rgba(255,255,255,0.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(0,87,184,0.13);border-radius:var(--r-pill);box-shadow:0 4px 18px rgba(10,22,40,0.09);font-family:var(--font);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity 280ms,transform 280ms,box-shadow 220ms,color 160ms;will-change:transform,opacity}
+#back-to-top.btt-visible{opacity:1;pointer-events:auto;transform:translateY(0)}
+#back-to-top:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 8px 28px rgba(0,87,184,0.16);color:var(--blue)}
+#back-to-top .btt-arrow{display:flex;align-items:center;justify-content:center;width:20px;height:20px;background:var(--blue);border-radius:50%;flex-shrink:0;transition:background 160ms,transform 220ms}
+#back-to-top:hover .btt-arrow{background:var(--blue-dark);transform:translateY(-1px)}
+
+/* ============================================================
+   BQS-SPECIFIC STYLES
+   ============================================================ */
+
+/* BREADCRUMB */
+.breadcrumb-bar{padding:106px 0 0;background:linear-gradient(170deg,#E8F0FC 0%,#D0E4F8 30%,#B8D4F5 60%,#A8C8F0 100%)}
+.breadcrumb-inner{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--text-3);padding-bottom:20px}
+.breadcrumb-link{color:var(--text-2);font-weight:500;transition:color var(--ease-fast)}
+.breadcrumb-link:hover{color:var(--blue)}
+.breadcrumb-sep{opacity:.5;font-size:12px}
+.breadcrumb-current{color:var(--blue);font-weight:600}
+
+/* HERO */
+.bqs-hero{position:relative;padding:0 0 80px;background:linear-gradient(170deg,#E8F0FC 0%,#D0E4F8 30%,#B8D4F5 60%,#A8C8F0 100%);overflow:hidden}
+.hero-glow{position:absolute;inset:0;pointer-events:none;z-index:0}
+.hero-glow::before{content:'';position:absolute;top:-5%;left:50%;transform:translateX(-50%);width:1100px;height:700px;background:radial-gradient(ellipse at 50% 35%,rgba(0,87,184,.15) 0%,rgba(0,180,216,.06) 50%,transparent 75%)}
+.hero-grid{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(0,87,184,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(0,87,184,.06) 1px,transparent 1px);background-size:80px 80px;transform:perspective(900px) rotateX(22deg) scaleY(1.4);transform-origin:50% 100%;mask-image:linear-gradient(to top,rgba(0,0,0,.35) 0%,transparent 55%);bottom:-10%;top:auto;height:65%}
+.bqs-hero-content{position:relative;z-index:2;text-align:center;max-width:900px;margin:0 auto;padding:52px 48px 0}
+.bqs-hero-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 16px 5px 8px;background:rgba(255,255,255,.78);border:1px solid rgba(226,234,250,.9);border-radius:var(--r-pill);backdrop-filter:blur(10px);font-size:13px;font-weight:500;color:var(--text-2);box-shadow:0 2px 10px rgba(10,22,40,.06);margin-bottom:36px;animation:fadeDown .9s var(--ease-out) both}
+.bqs-badge-pill{padding:3px 11px;background:var(--grad-primary);color:#fff;border-radius:var(--r-pill);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.bqs-h1{font-size:clamp(44px,6.5vw,82px);font-weight:800;line-height:1.0;letter-spacing:-.038em;color:var(--text-1);margin-bottom:28px;animation:fadeIn .95s .12s var(--ease-out) both}
+.bqs-hero-sub{font-size:clamp(16px,1.9vw,20px);color:var(--text-2);max-width:620px;margin:0 auto 44px;line-height:1.7;font-weight:400;animation:fadeUp .95s .22s var(--ease-out) both}
+.bqs-hero-ctas{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:40px;animation:fadeUp .95s .32s var(--ease-out) both}
+.bqs-hero-proof{display:flex;align-items:center;justify-content:center;gap:24px;font-size:13px;color:var(--text-3);font-weight:500;animation:fadeUp .95s .42s var(--ease-out) both;margin-bottom:72px}
+.proof-div{width:1px;height:14px;background:var(--border-2)}
+
+/* Hero visual */
+.bqs-hero-visual{position:relative;z-index:2;width:100%;max-width:1140px;margin:0 auto;padding:0 48px;animation:fadeUp 1.1s .55s var(--ease-out) both}
+.bqs-hero-visual-inner{position:relative}
+.bqs-float{position:absolute;z-index:500}
+.bqs-float-a{top:-28px;right:-40px;width:220px;background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:16px 18px;box-shadow:var(--sh-lg);animation:floatA 6.5s ease-in-out infinite}
+.bqs-float-b{bottom:60px;left:-44px;width:210px;background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:14px 16px;box-shadow:var(--sh-lg);animation:floatB 7s ease-in-out infinite}
+.bqs-float-c{top:38%;right:-44px;width:175px;background:var(--grad-primary);border-radius:var(--r-lg);padding:16px 18px;box-shadow:var(--sh-blue);animation:floatC 8s ease-in-out infinite}
+.fc-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:7px}
+.fc-value{font-size:32px;font-weight:800;color:var(--text-1);letter-spacing:-.03em;line-height:1}
+.fc-sub{font-size:11px;color:var(--text-3);margin-top:4px}
+.fc-stat-val{font-size:32px;font-weight:800;color:#fff;letter-spacing:-.03em;line-height:1}
+.fc-stat-lbl{font-size:11px;color:rgba(255,255,255,.65);font-weight:500;margin-top:4px}
+.fc-stat-badge{display:inline-block;margin-top:10px;padding:3px 10px;background:rgba(255,255,255,.15);border-radius:var(--r-pill);font-size:10px;font-weight:700;color:rgba(255,255,255,.9)}
+
+/* Hero video play overlay */
+.hero-vid-wrap{position:relative}
+.hero-vid-wrap video{width:100%;max-height:520px;object-fit:cover;display:block}
+.vid-play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.18);transition:background var(--ease-base)}
+.vid-play-overlay:hover{background:rgba(0,0,0,.28)}
+.vid-play-btn{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.92);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,87,184,.32);transition:all var(--ease-spring);backdrop-filter:blur(8px)}
+.vid-play-btn:hover{transform:scale(1.12);box-shadow:0 16px 48px rgba(0,87,184,.48);background:#fff}
+.vid-play-btn svg{width:28px;height:28px;fill:var(--blue);margin-left:4px}
+.vid-play-overlay.playing{background:rgba(0,0,0,0);pointer-events:none}
+
+/* TRUSTED BY */
+.s-trusted{padding:64px 0;background:#fff;border-bottom:1px solid var(--border)}
+.trusted-label{text-align:center;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text-3);margin-bottom:32px}
+.trusted-logos{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;margin-bottom:52px}
+.trusted-logo{height:30px;width:auto;opacity:.5;filter:grayscale(1);transition:all var(--ease-base)}
+.trusted-logo:hover{opacity:.85;filter:grayscale(0)}
+.trusted-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);border:1px solid var(--border);border-radius:var(--r-xl);overflow:hidden;max-width:960px;margin:0 auto}
+.trusted-stat{background:#fff;padding:40px 32px;text-align:center}
+.trusted-stat-val{font-size:clamp(36px,4.5vw,52px);font-weight:800;color:var(--blue);letter-spacing:-.03em;line-height:1;margin-bottom:7px}
+.trusted-stat-lbl{font-size:14px;color:var(--text-2);font-weight:500}
+
+/* WHY BQS */
+.s-why{padding:var(--section) 0;background:var(--surface-2)}
+.why-hd{text-align:center;margin-bottom:60px}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.why-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-xl);padding:36px;position:relative;overflow:hidden;transition:border-color var(--ease-slow),box-shadow var(--ease-slow),transform var(--ease-slow);cursor:default}
+.why-card::after{content:'';position:absolute;inset:0;border-radius:var(--r-xl);background:linear-gradient(135deg,transparent,rgba(0,87,184,.025));opacity:0;transition:opacity var(--ease-slow)}
+.why-card:hover{border-color:rgba(0,87,184,.22);box-shadow:var(--sh-lg),0 0 0 1px rgba(0,87,184,.08);transform:translateY(-5px)}
+.why-card:hover::after{opacity:1}
+.why-icon{width:52px;height:52px;border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:22px}
+.why-icon-blue{background:rgba(0,87,184,.08)}
+.why-icon-cyan{background:rgba(0,180,216,.09)}
+.why-icon-indigo{background:rgba(67,56,202,.08)}
+.why-icon-teal{background:rgba(13,148,136,.08)}
+.why-num{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:9px}
+.why-title{font-size:22px;font-weight:700;color:var(--text-1);letter-spacing:-.02em;margin-bottom:10px;line-height:1.2}
+.why-desc{font-size:14px;color:var(--text-2);line-height:1.65;margin-bottom:18px}
+.why-chips{display:flex;flex-wrap:wrap;gap:6px}
+.why-chip{padding:4px 12px;background:var(--surface-3);border:1px solid var(--border);border-radius:var(--r-pill);font-size:11px;font-weight:600;color:var(--text-2)}
+
+/* PRODUCT TOUR */
+.s-tour{padding:var(--section) 0;background:var(--surface)}
+.tour-hd{text-align:center;margin-bottom:52px}
+.tour-nav-sticky-wrap{position:sticky;top:80px;z-index:100;margin-bottom:56px;pointer-events:none}
+.tour-nav{display:flex;align-items:center;justify-content:center;gap:4px;background:rgba(255,255,255,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(226,234,250,.95);border-radius:var(--r-pill);padding:6px;box-shadow:0 8px 32px rgba(10,22,40,.10),0 2px 8px rgba(10,22,40,.06);width:fit-content;margin:0 auto;pointer-events:all}
+.tour-tab{padding:9px 22px;font-size:13.5px;font-weight:600;color:var(--text-2);border-radius:var(--r-pill);cursor:pointer;background:transparent;border:none;font-family:var(--font);transition:all var(--ease-base);white-space:nowrap}
+.tour-tab:hover{color:var(--text-1);background:rgba(0,87,184,.06)}
+.tour-tab.active{background:var(--blue);color:#fff;box-shadow:0 3px 12px rgba(0,87,184,.28)}
+.tour-panels{position:relative;min-height:500px}
+.tour-panel{display:none;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.tour-panel.active{display:grid;animation:panelFadeIn .4s var(--ease-out) both}
+.tour-panel-eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+.tour-panel-eyebrow-dot{width:6px;height:6px;background:var(--cyan);border-radius:50%;animation:blink 2s infinite}
+.tour-panel-title{font-size:clamp(26px,3vw,36px);font-weight:800;color:var(--text-1);letter-spacing:-.022em;line-height:1.1;margin-bottom:16px}
+.tour-panel-desc{font-size:15.5px;color:var(--text-2);line-height:1.7;margin-bottom:28px}
+.tour-benefits{display:flex;flex-direction:column;gap:12px;margin-bottom:36px}
+.tour-benefit{display:flex;align-items:flex-start;gap:12px}
+.tour-benefit-check{width:22px;height:22px;border-radius:50%;background:var(--green-bg);border:1px solid rgba(5,150,105,.2);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--green);flex-shrink:0;margin-top:1px}
+.tour-benefit-text{font-size:14px;color:var(--text-2);line-height:1.5}
+.tour-visual .browser{max-height:490px;overflow:hidden}
+.tour-visual .browser-screenshot{overflow:hidden;max-height:448px}
+.tour-visual .browser-screenshot img{object-fit:cover;object-position:top;width:100%}
+.tour-visual .browser-video{overflow:hidden;max-height:448px;background:#000}
+.tour-visual .browser-video video{width:100%;max-height:448px;object-fit:cover}
+.img-lightbox-trigger{cursor:zoom-in}
+
+/* SURVEY WORKFLOW */
+.s-workflow{padding:var(--section) 0;background:var(--surface-dark);position:relative;overflow:hidden}
+.s-workflow::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,87,184,.15) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 90% 80%,rgba(0,180,216,.08) 0%,transparent 70%)}
+.s-workflow::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:52px 52px;pointer-events:none}
+.workflow-hd{text-align:center;margin-bottom:72px;position:relative;z-index:2}
+.workflow-timeline{position:relative;z-index:2;max-width:780px;margin:0 auto}
+.workflow-step{display:flex;gap:32px;align-items:flex-start}
+.workflow-step-left{display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:56px}
+.wf-circle{width:56px;height:56px;border-radius:50%;border:2px solid rgba(0,180,216,.3);background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;transition:all .5s var(--ease-out);position:relative;z-index:2}
+.workflow-step.reveal.in .wf-circle{border-color:var(--cyan);background:rgba(0,180,216,.12);box-shadow:0 0 0 8px rgba(0,180,216,.06)}
+.wf-line{width:2px;background:linear-gradient(to bottom,rgba(0,180,216,.3),rgba(0,180,216,.1));min-height:48px;margin:6px auto 6px;border-radius:1px;position:relative;overflow:hidden}
+.wf-line::after{content:'';position:absolute;top:0;left:0;right:0;height:0%;background:var(--cyan);transition:height 1.2s var(--ease-out) .3s}
+.workflow-step.reveal.in .wf-line::after{height:100%}
+.workflow-step:last-child .wf-line{display:none}
+.wf-body{flex:1;padding:8px 0 48px}
+.wf-step-num{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.28);margin-bottom:5px}
+.wf-step-title{font-size:20px;font-weight:700;color:#fff;letter-spacing:-.015em;margin-bottom:8px}
+.wf-step-desc{font-size:14px;color:var(--text-inv-dim);line-height:1.65}
+
+/* FEATURE DEEP DIVE */
+.s-features{padding:var(--section) 0;background:var(--surface)}
+.feature-hd{text-align:center;margin-bottom:80px}
+.feature-section{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-bottom:96px;padding-bottom:80px;border-bottom:1px solid var(--border)}
+.feature-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.feature-section.alt{direction:rtl}
+.feature-section.alt > *{direction:ltr}
+.feature-eyebrow-row{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+.feature-num{width:28px;height:28px;border-radius:7px;background:var(--surface-3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--blue);flex-shrink:0}
+.feature-eyebrow-text{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+.feature-title{font-size:clamp(28px,3.5vw,40px);font-weight:800;color:var(--text-1);letter-spacing:-.025em;line-height:1.08;margin-bottom:18px}
+.feature-desc{font-size:16px;color:var(--text-2);line-height:1.75;margin-bottom:32px}
+.feature-benefits{display:flex;flex-direction:column;gap:14px;margin-bottom:40px}
+.feature-benefit{display:flex;align-items:flex-start;gap:13px}
+.feature-benefit-check{width:22px;height:22px;border-radius:6px;background:var(--green-bg);border:1px solid rgba(5,150,105,.2);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--green);flex-shrink:0;margin-top:3px}
+.feature-benefit-text{font-size:14px;color:var(--text-2);line-height:1.55}
+.feature-benefit-text strong{color:var(--text-1);font-weight:600;display:block;margin-bottom:2px}
+.feature-visual{position:relative}
+.feature-visual .browser{box-shadow:0 2px 4px rgba(10,22,40,.04),0 14px 44px rgba(10,22,40,.10),0 56px 128px rgba(10,22,40,.12)}
+.feature-visual .browser-screenshot img{width:100%;height:auto;display:block;object-fit:cover;object-position:top;max-height:400px}
+.feature-glow{position:absolute;width:240px;height:240px;border-radius:50%;pointer-events:none;z-index:-1}
+.feature-glow-1{background:radial-gradient(circle,rgba(0,87,184,.07) 0%,transparent 70%);bottom:-40px;right:-50px}
+.feature-glow-2{background:radial-gradient(circle,rgba(0,180,216,.05) 0%,transparent 70%);top:-40px;left:-50px}
+
+/* PRODUCT VIDEO */
+.s-product-video{padding:var(--section) 0;background:var(--surface-dark-2);position:relative;overflow:hidden}
+.s-product-video::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 75% 90% at 50% 50%,rgba(0,87,184,.18) 0%,transparent 72%),radial-gradient(ellipse 40% 45% at 82% 15%,rgba(0,180,216,.1) 0%,transparent 65%)}
+.s-product-video::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:52px 52px;pointer-events:none}
+.pvideo-hd{text-align:center;margin-bottom:52px;position:relative;z-index:2}
+.pvideo-wrap{position:relative;z-index:2;max-width:1040px;margin:0 auto;padding:0 48px}
+.pvideo-wrap .browser{position:relative;box-shadow:0 8px 40px rgba(0,0,0,.4),0 32px 96px rgba(0,0,0,.3)}
+.pvideo-inner{position:relative}
+.pvideo-inner video{width:100%;max-height:580px;object-fit:cover;display:block}
+.pvideo-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:88px;height:88px;background:rgba(255,255,255,.92);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 40px rgba(0,87,184,.32);transition:all var(--ease-spring);backdrop-filter:blur(8px);z-index:10}
+.pvideo-play-btn:hover{transform:translate(-50%,-50%) scale(1.1);box-shadow:0 16px 56px rgba(0,87,184,.48);background:#fff}
+.pvideo-play-btn svg{width:34px;height:34px;fill:var(--blue);margin-left:5px}
+.pvideo-play-btn.hidden{opacity:0;pointer-events:none}
+.pvideo-cta-row{display:flex;justify-content:center;gap:12px;margin-top:44px;position:relative;z-index:2}
+
+/* ENTERPRISE FEATURES */
+.s-enterprise{padding:var(--section) 0;background:var(--surface-2)}
+.ent-hd{text-align:center;margin-bottom:60px}
+.ent-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.ent-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:28px 24px;transition:border-color var(--ease-slow),box-shadow var(--ease-slow),transform var(--ease-slow)}
+.ent-card:hover{border-color:rgba(0,87,184,.2);box-shadow:var(--sh-md);transform:translateY(-4px)}
+.ent-icon{width:44px;height:44px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:20px}
+.ent-title{font-size:15px;font-weight:700;color:var(--text-1);margin-bottom:7px;letter-spacing:-.012em}
+.ent-desc{font-size:13px;color:var(--text-2);line-height:1.6}
+
+/* FAQ */
+.s-faq{padding:var(--section) 0;background:var(--surface)}
+.faq-hd{text-align:center;margin-bottom:60px}
+.faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:border-color var(--ease-base),box-shadow var(--ease-base)}
+.faq-item.open{border-color:rgba(0,87,184,.22);box-shadow:0 4px 20px rgba(0,87,184,.07)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:22px 26px;cursor:pointer;gap:16px;user-select:none}
+.faq-q-text{font-size:16px;font-weight:600;color:var(--text-1);line-height:1.4}
+.faq-icon{width:28px;height:28px;border-radius:50%;background:var(--surface-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all var(--ease-base)}
+.faq-item.open .faq-icon{background:var(--blue);border-color:var(--blue);transform:rotate(45deg)}
+.faq-icon svg{width:14px;height:14px;color:var(--text-3);transition:color var(--ease-base)}
+.faq-item.open .faq-icon svg{color:#fff}
+.faq-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.16,1,.3,1)}
+.faq-item.open .faq-body{max-height:500px}
+.faq-a{padding:0 26px 24px;font-size:15px;color:var(--text-2);line-height:1.75}
+
+/* FINAL CTA */
+.s-cta{padding:110px 0;text-align:center;background:linear-gradient(145deg,#08111F 0%,#0B1527 50%,#121D36 100%);position:relative;overflow:hidden}
+.s-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 75% 90% at 50% 50%,rgba(0,87,184,.22) 0%,transparent 72%),radial-gradient(ellipse 40% 45% at 82% 15%,rgba(0,180,216,.1) 0%,transparent 65%),radial-gradient(ellipse 35% 40% at 15% 80%,rgba(67,56,202,.1) 0%,transparent 65%)}
+.cta-wrap{position:relative;z-index:2}
+.cta-h2{font-size:clamp(42px,6vw,72px);font-weight:800;color:#fff;letter-spacing:-.035em;line-height:.97;margin-bottom:20px;max-width:780px;margin-left:auto;margin-right:auto}
+.cta-sub{font-size:clamp(16px,1.8vw,18px);color:rgba(255,255,255,.6);margin-bottom:48px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.7}
+.cta-btns{display:flex;justify-content:center;gap:12px;margin-bottom:44px}
+.cta-trust{display:flex;justify-content:center;align-items:center;gap:28px;font-size:13px;color:rgba(255,255,255,.35);font-weight:500;flex-wrap:wrap}
+.cta-trust-item{display:flex;align-items:center;gap:6px}
+
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s var(--ease-out)}
+.lightbox.open{opacity:1;pointer-events:auto}
+.lightbox-inner{position:relative;max-width:90vw;max-height:90vh}
+.lightbox-inner img{max-width:90vw;max-height:90vh;border-radius:var(--r-lg);box-shadow:0 32px 96px rgba(0,0,0,.6);display:block}
+.lightbox-close{position:absolute;top:-16px;right:-16px;width:40px;height:40px;border-radius:50%;background:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-lg);font-size:18px;color:var(--text-1);font-weight:700;transition:all var(--ease-fast)}
+.lightbox-close:hover{transform:scale(1.1);background:var(--surface-2)}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .bqs-float-a,.bqs-float-b,.bqs-float-c{display:none}
+  .tour-panel{grid-template-columns:1fr;gap:40px}
+  .feature-section{grid-template-columns:1fr;gap:40px}
+  .feature-section.alt{direction:ltr}
+  .ent-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .trusted-stats{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:960px){
+  :root{--section:80px}
+  .tour-nav{flex-wrap:wrap;border-radius:var(--r-xl);padding:8px}
+  .tour-tab{padding:7px 16px;font-size:13px}
+  .why-grid{grid-template-columns:1fr}
+  .trusted-logos{gap:24px}
+}
+@media(max-width:700px){
+  :root{--section:64px}
+  .container,.container-sm{padding:0 20px}
+  .bqs-hero-ctas{flex-direction:column;align-items:stretch}
+  .bqs-hero-ctas .btn{justify-content:center}
+  .bqs-hero-proof{flex-direction:column;gap:8px}
+  .proof-div{display:none}
+  .ent-grid{grid-template-columns:1fr 1fr}
+  .trusted-stats{grid-template-columns:1fr 1fr}
+  .cta-btns{flex-direction:column;align-items:center}
+  .cta-trust{flex-direction:column;gap:12px}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:16px;text-align:center}
+  .footer-legal{justify-content:center}
+  .wf-body{padding-bottom:32px}
+  .pvideo-wrap{padding:0 20px}
+  .bqs-hero-visual{padding: 20px}
+  
+}
+
+  </style>
+</head>
+<body>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+<!-- =============================================
+     NAVIGATION
+     ============================================= -->
+<header class="nav-outer" role="banner">
+  <nav class="nav" id="main-nav" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="MC360 Home">
+      <img src="assets/MC360logo.png" alt="MC360" style="height:28px;width:auto">
+      <span class="nav-logo-text"><span class="brand-connect">MaritimeConnect</span>&nbsp;<span class="brand-num">360</span></span>
+    </a>
+    <div class="nav-links" id="nav-links">
+      <div class="nav-active-pill" id="nav-active-pill"></div>
+      <div class="nav-dd-wrap" id="dd-products-wrap">
+        <button class="nav-link active" id="dd-products-btn" aria-haspopup="true" aria-expanded="false">
+          Products
+          <span class="nav-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </button>
+        <div class="nav-dropdown dd-products" id="dd-products" role="menu">
+          <div class="dd-section-label">Modules</div>
+          <div class="dd-grid">
+            <a href="bqs.html" class="dd-product-card active-product" role="menuitem">
+              <span class="dd-product-icon" style="background:#e8f4fd"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22V8a2 2 0 012-2h8a2 2 0 012 2v14"/><path d="M3 22h12M9 6V3M15 8h2a2 2 0 012 2v3a2 2 0 01-2 2h-2"/><path d="M19 15v4a2 2 0 01-2 2"/><rect x="6" y="10" width="6" height="4" rx="1"/></svg></span>
+              <div><div class="dd-product-name">Bunker Quantity Survey</div><div class="dd-product-desc">Measurement, quantity verification and reports</div></div>
+            </a>
+            <a href="#" class="dd-product-card" role="menuitem">
+              <span class="dd-product-icon" style="background:#eef4ff"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3C50E0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 3V2a1 1 0 011-1h4a1 1 0 011 1v1"/><path d="M9 12l2 2 4-4"/><path d="M9 17h4"/></svg></span>
+              <div><div class="dd-product-name">Vessel Inspection</div><div class="dd-product-desc">Digital checklists, photo evidence, compliance reports</div></div>
+            </a>
+            <a href="#" class="dd-product-card" role="menuitem">
+              <span class="dd-product-icon" style="background:#fff3e8"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e67e22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V10l7-7 7 7v10"/><path d="M9 20v-5h6v5"/></svg></span>
+              <div><div class="dd-product-name">Vessel Condition Survey</div><div class="dd-product-desc">Deficiency tracking and corrective action workflows</div></div>
+            </a>
+            <a href="#" class="dd-product-card" role="menuitem">
+              <span class="dd-product-icon" style="background:#eef4ff"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4338CA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></span>
+              <div><div class="dd-product-name">Global Sanctions</div><div class="dd-product-desc">Real-time OFAC, EU, UN screening across 50+ lists</div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-dd-wrap" id="dd-customers-wrap">
+        <button class="nav-link" id="dd-customers-btn" aria-haspopup="true" aria-expanded="false">
+          Customers
+          <span class="nav-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </button>
+        <div class="nav-dropdown dd-customers" id="dd-customers" role="menu">
+          <a href="index.html#proof" class="dd-list-item" role="menuitem"><span class="dd-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span>Case studies</a>
+          <a href="index.html#proof" class="dd-list-item" role="menuitem"><span class="dd-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>Testimonials</a>
+        </div>
+      </div>
+      <a href="index.html#compliance" class="nav-link">Security</a>
+      <a href="index.html#pricing" class="nav-link">Pricing</a>
+    </div>
+    <div class="nav-actions" id="nav-actions">
+      <a href="#" class="nav-demo" id="nav-demo-btn">Book Demo</a>
+      <a href="#" class="nav-trial" id="nav-trial-btn">Start Free Trial</a>
+    </div>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </nav>
+</header>
+
+<div class="nav-mobile-panel" id="nav-mobile-panel" aria-hidden="true">
+  <div class="mob-link" id="mob-products-btn"><span>Products</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="mob-products-chevron" style="transition:transform 0.2s"><polyline points="6 9 12 15 18 9"/></svg></div>
+  <div class="mob-subsection" id="mob-products-sub">
+    <a href="bqs.html" class="mob-sub-item">Bunker Quantity Survey</a>
+    <a href="#" class="mob-sub-item">Vessel Inspection</a>
+    <a href="#" class="mob-sub-item">Vessel Condition Survey</a>
+    <a href="#" class="mob-sub-item">Global Sanctions</a>
+  </div>
+  <div class="mob-link" id="mob-customers-btn"><span>Customers</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="mob-customers-chevron" style="transition:transform 0.2s"><polyline points="6 9 12 15 18 9"/></svg></div>
+  <div class="mob-subsection" id="mob-customers-sub">
+    <a href="index.html#proof" class="mob-sub-item">Case studies</a>
+    <a href="index.html#proof" class="mob-sub-item">Testimonials</a>
+  </div>
+  <a href="index.html#compliance" class="mob-link">Security</a>
+  <a href="index.html#pricing" class="mob-link">Pricing</a>
+  <div class="mob-ctas">
+    <a href="#" class="nav-demo">Book Demo</a>
+    <a href="#" class="nav-trial">Start Free Trial</a>
+  </div>
+</div>
+
+<main>
+
+<!-- =============================================
+     BREADCRUMB + HERO
+     ============================================= -->
+<div class="breadcrumb-bar">
+  <div class="container">
+    <div class="breadcrumb-inner">
+      <a href="index.html" class="breadcrumb-link">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-link" style="cursor:default">Products</span>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">Bunker Quantity Survey (BQS)</span>
+    </div>
+  </div>
+</div>
+
+<section class="bqs-hero" id="hero" aria-labelledby="bqs-h1">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+
+  <!-- <div class="bqs-hero-content">
+    <div class="bqs-hero-badge">
+      <span class="bqs-badge-pill">BQS</span>
+      Enterprise Bunker Survey Platform
+    </div>
+    <h1 class="bqs-h1" id="bqs-h1">
+      Manage Every Bunker Survey.<br>
+      <span class="grad-text">From Planning to Final Report.</span>
+    </h1>
+    <p class="bqs-hero-sub">
+      MaritimeConnect360's BQS gives ship owners, managers and marine surveyors one centralized enterprise platform to create, track and publish every bunker quantity survey across the entire fleet.
+    </p>
+    <div class="bqs-hero-ctas">
+      <a href="#" class="btn btn-primary btn-lg" id="hero-trial-btn">
+        Start Free Trial
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M7.5 1.5l6 6-6 6M13.5 7.5H1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#" class="btn btn-outline btn-lg" id="hero-demo-btn">Book Demo</a>
+    </div>
+    <div class="bqs-hero-proof">
+      <span>No credit card required</span>
+      <span class="proof-div" aria-hidden="true"></span>
+      <span>30-day free trial</span>
+      <span class="proof-div" aria-hidden="true"></span>
+      <span>Setup in 24 hours</span>
+    </div>
+  </div> -->
+
+  <!-- Hero Video -->
+  <div class="bqs-hero-visual">
+    <div class="bqs-hero-visual-inner">
+      <!-- Floating stats -->
+      <!-- <div class="bqs-float bqs-float-a" aria-hidden="true">
+        <div class="fc-tag">⚡ Surveys This Month</div>
+        <div class="fc-value">142</div>
+        <div class="fc-sub" style="color:var(--green);font-weight:600">↑ 23% from last month</div>
+      </div> -->
+      <!-- <div class="bqs-float bqs-float-b" aria-hidden="true">
+        <div class="fc-tag">✓ Fleet Completion Rate</div>
+        <div class="fc-value" style="color:var(--green)">98.6%</div>
+        <div class="fc-sub">Across all vessels</div>
+      </div>
+      <div class="bqs-float bqs-float-c" aria-hidden="true">
+        <div class="fc-stat-val">73%</div>
+        <div class="fc-stat-lbl">Faster Reporting</div>
+        <div class="fc-stat-badge">vs. manual process</div>
+      </div> -->
+
+      <!-- Browser frame -->
+      <div class="browser">
+        <div class="browser-chrome">
+          <div class="b-dots"><div class="b-dot"></div><div class="b-dot"></div><div class="b-dot"></div></div>
+          <div class="b-url">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1"/><path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1"/></svg>
+            app.mc360.io/bqs
+          </div>
+        </div>
+        <div class="hero-vid-wrap">
+          <video id="hero-vid" autoplay muted loop playsinline style="width:100%;max-height:520px;object-fit:cover;display:block">
+            <source src="assets/BQS/BQSdemovideo.mp4" type="video/mp4">
+          </video>
+          <div class="vid-play-overlay playing" id="hero-vid-overlay">
+            <button class="vid-play-btn" id="hero-vid-btn" aria-label="Play / Pause">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     TRUSTED BY
+     ============================================= -->
+<!-- <section class="s-trusted" id="trusted" aria-label="Trusted by maritime companies">
+  <div class="container">
+    <p class="trusted-label reveal">Trusted by leading maritime companies worldwide</p>
+    <div class="trusted-logos reveal d1">
+      <img src="assets/logos/1.png" alt="Client logo" class="trusted-logo">
+      <img src="assets/logos/2.png" alt="Client logo" class="trusted-logo">
+      <img src="assets/logos/3.png" alt="Client logo" class="trusted-logo">
+      <img src="assets/logos/4.png" alt="Client logo" class="trusted-logo">
+      <img src="assets/logos/5.png" alt="Client logo" class="trusted-logo">
+      <img src="assets/logos/6.png" alt="Client logo" class="trusted-logo">
+      <img src="assets/logos/7.png" alt="Client logo" class="trusted-logo">
+      <img src="assets/logos/8.png" alt="Client logo" class="trusted-logo">
+    </div>
+    <div class="trusted-stats reveal d2">
+      <div class="trusted-stat">
+        <div class="trusted-stat-val" data-count="500" data-suffix="+">500+</div>
+        <div class="trusted-stat-lbl">Surveys Per Year</div>
+      </div>
+      <div class="trusted-stat">
+        <div class="trusted-stat-val" data-count="40" data-suffix="+">40+</div>
+        <div class="trusted-stat-lbl">Active Vessels</div>
+      </div>
+      <div class="trusted-stat">
+        <div class="trusted-stat-val" data-count="73" data-suffix="%">73%</div>
+        <div class="trusted-stat-lbl">Faster Reporting</div>
+      </div>
+      <div class="trusted-stat">
+        <div class="trusted-stat-val" data-count="99" data-decimal=".9" data-suffix="%">99.9%</div>
+        <div class="trusted-stat-lbl">Platform Uptime</div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- =============================================
+     WHY CHOOSE BQS
+     ============================================= -->
+<section class="s-why" id="why-bqs" aria-labelledby="why-h2">
+  <div class="container">
+    <div class="why-hd reveal">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>Why Choose BQS</div>
+      <h2 class="display-md" id="why-h2">The enterprise survey platform<br>built for maritime.</h2>
+      <p class="body-lg" style="color:var(--text-2);max-width:520px;margin:18px auto 0">Replace manual processes and disconnected spreadsheets with a structured, standardized workflow that scales with your fleet.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal d1">
+        <div class="why-icon why-icon-blue">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><path d="M12 12v4M10 14h4"/></svg>
+        </div>
+        <div class="why-num">01 — Why BQS</div>
+        <h3 class="why-title">Enterprise Workflow</h3>
+        <p class="why-desc">Structured, role-based workflows from survey creation through final report publication. Every step is defined, tracked, and documented automatically — no manual follow-ups, no lost data.</p>
+        <div class="why-chips">
+          <span class="why-chip">Role-based access</span><span class="why-chip">Audit trail</span><span class="why-chip">Multi-step approval</span>
+        </div>
+      </div>
+      <div class="why-card reveal d2">
+        <div class="why-icon why-icon-cyan">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="why-num">02 — Why BQS</div>
+        <h3 class="why-title">Multi-Vessel Management</h3>
+        <p class="why-desc">Manage surveys across your entire fleet simultaneously from a single dashboard. Track every active survey, assign surveyors, and view consolidated fleet-wide reports — regardless of fleet size.</p>
+        <div class="why-chips">
+          <span class="why-chip">Fleet dashboard</span><span class="why-chip">Bulk assignment</span><span class="why-chip">Fleet analytics</span>
+        </div>
+      </div>
+      <div class="why-card reveal d3">
+        <div class="why-icon why-icon-indigo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4338CA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="why-num">03 — Why BQS</div>
+        <h3 class="why-title">Faster Reporting</h3>
+        <p class="why-desc">Generate preliminary and final survey reports in minutes, not days. Auto-populated templates, digital approvals, and one-click PDF distribution reduce report turnaround time by 73%.</p>
+        <div class="why-chips">
+          <span class="why-chip">Auto-generated PDFs</span><span class="why-chip">Email distribution</span><span class="why-chip">73% faster</span>
+        </div>
+      </div>
+      <div class="why-card reveal d4">
+        <div class="why-icon why-icon-teal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="why-num">04 — Why BQS</div>
+        <h3 class="why-title">Standardized Surveys</h3>
+        <p class="why-desc">Pre-configured templates ensure every survey follows the same rigorous methodology. Eliminate errors, inconsistencies and disputes with fully standardized data capture across every vessel in your fleet.</p>
+        <div class="why-chips">
+          <span class="why-chip">Survey templates</span><span class="why-chip">Data validation</span><span class="why-chip">IMO compliant</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     INTERACTIVE PRODUCT TOUR
+     ============================================= -->
+<section class="s-tour" id="tour" aria-labelledby="tour-h2">
+  <div class="container">
+    <div class="tour-hd reveal">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>Interactive Product Tour</div>
+      <h2 class="display-md" id="tour-h2">See every feature of BQS.</h2>
+      <p class="body-lg" style="color:var(--text-2);max-width:480px;margin:18px auto 0">Explore the platform from survey creation through final report distribution.</p>
+    </div>
+
+    <!-- Sticky nav -->
+    <div class="tour-nav-sticky-wrap" id="tour-nav-sticky">
+      <div class="tour-nav" role="tablist" aria-label="BQS feature tour navigation">
+        <button class="tour-tab active" data-panel="overview" role="tab" aria-selected="true" id="ttab-overview">Overview</button>
+        <button class="tour-tab" data-panel="create" role="tab" aria-selected="false" id="ttab-create">Create Survey</button>
+        <button class="tour-tab" data-panel="ongoing" role="tab" aria-selected="false" id="ttab-ongoing">Ongoing Surveys</button>
+        <button class="tour-tab" data-panel="published" role="tab" aria-selected="false" id="ttab-published">Published Surveys</button>
+        <button class="tour-tab" data-panel="master" role="tab" aria-selected="false" id="ttab-master">Master Data</button>
+        <button class="tour-tab" data-panel="reports" role="tab" aria-selected="false" id="ttab-reports">Reports</button>
+      </div>
+    </div>
+
+    <!-- Panels -->
+    <div class="tour-panels" id="tour-panels">
+
+      <!-- Overview -->
+      <div class="tour-panel active" data-panel="overview" role="tabpanel" aria-labelledby="ttab-overview">
+        <div class="tour-panel-copy">
+          <div class="tour-panel-eyebrow"><span class="tour-panel-eyebrow-dot"></span>Platform Overview</div>
+          <h3 class="tour-panel-title">Complete Survey Management in One Platform</h3>
+          <p class="tour-panel-desc">BQS provides end-to-end management of every bunker quantity survey — from initial setup through final report distribution — all in one centralized enterprise platform.</p>
+          <div class="tour-benefits">
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Multi-vessel fleet management from a single dashboard</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Real-time survey tracking and progress monitoring</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Automated preliminary and final PDF report generation</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Centralized records with complete audit trail</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Role-based access control for enterprise teams</span></div>
+          </div>
+          <a href="#" class="btn btn-primary">Start Free Trial →</a>
+        </div>
+        <div class="tour-visual">
+          <div class="browser">
+            <div class="browser-chrome">
+              <div class="b-dots"><div class="b-dot"></div><div class="b-dot"></div><div class="b-dot"></div></div>
+              <div class="b-url"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1"/><path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1"/></svg>app.mc360.io/bqs</div>
+            </div>
+            <div class="browser-video" style="background:#000">
+              <video autoplay muted loop playsinline style="width:100%;max-height:430px;object-fit:cover">
+                <source src="assets/BQS/BQSdemovideo.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Create Survey -->
+      <div class="tour-panel" data-panel="create" role="tabpanel" aria-labelledby="ttab-create">
+        <div class="tour-panel-copy">
+          <div class="tour-panel-eyebrow"><span class="tour-panel-eyebrow-dot"></span>Create Survey</div>
+          <h3 class="tour-panel-title">Create Any Survey in Minutes</h3>
+          <p class="tour-panel-desc">Structured survey creation with pre-configured templates, automatic vessel data population, and instant surveyor assignment. Start any survey in minutes, not hours.</p>
+          <div class="tour-benefits">
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Template-based creation for all survey types</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Auto-populate vessel and port data from master records</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Assign certified surveyors from your roster instantly</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Automatic email notification to assigned surveyor</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Multi-step validation prevents incomplete submissions</span></div>
+          </div>
+          <a href="#" class="btn btn-primary">Try Create Survey →</a>
+        </div>
+        <div class="tour-visual">
+          <div class="browser">
+            <div class="browser-chrome">
+              <div class="b-dots"><div class="b-dot"></div><div class="b-dot"></div><div class="b-dot"></div></div>
+              <div class="b-url"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1"/><path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1"/></svg>app.mc360.io/bqs/create</div>
+            </div>
+            <div class="browser-screenshot img-lightbox-trigger" data-lightbox="assets/BQS/Create survey.png" title="Click to expand">
+              <img src="assets/BQS/Create survey.png" alt="BQS Create Survey Interface" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ongoing Surveys -->
+      <div class="tour-panel" data-panel="ongoing" role="tabpanel" aria-labelledby="ttab-ongoing">
+        <div class="tour-panel-copy">
+          <div class="tour-panel-eyebrow"><span class="tour-panel-eyebrow-dot"></span>Ongoing Surveys</div>
+          <h3 class="tour-panel-title">Real-Time Visibility Across Your Fleet</h3>
+          <p class="tour-panel-desc">See the live status of every active survey across your entire fleet. Know exactly where each survey stands — from initiation to final sign-off — without chasing updates.</p>
+          <div class="tour-benefits">
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Live fleet-wide survey status dashboard</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Surveyor progress and activity tracking</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Instant alert notifications for delays or issues</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Filter by vessel, port, date range, or status</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Completion percentage tracking per survey</span></div>
+          </div>
+          <a href="#" class="btn btn-primary">Explore Tracking →</a>
+        </div>
+        <div class="tour-visual">
+          <div class="browser">
+            <div class="browser-chrome">
+              <div class="b-dots"><div class="b-dot"></div><div class="b-dot"></div><div class="b-dot"></div></div>
+              <div class="b-url"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1"/><path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1"/></svg>app.mc360.io/bqs/ongoing</div>
+            </div>
+            <div class="browser-screenshot img-lightbox-trigger" data-lightbox="assets/BQS/Ongoing serveys.png" title="Click to expand">
+              <img src="assets/BQS/Ongoing serveys.png" alt="BQS Ongoing Surveys Interface" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Published Surveys -->
+      <div class="tour-panel" data-panel="published" role="tabpanel" aria-labelledby="ttab-published">
+        <div class="tour-panel-copy">
+          <div class="tour-panel-eyebrow"><span class="tour-panel-eyebrow-dot"></span>Published Surveys</div>
+          <h3 class="tour-panel-title">Your Complete Survey Repository</h3>
+          <p class="tour-panel-desc">All completed surveys stored in a searchable, organized enterprise repository. Instant access to historical records, downloadable PDF reports, and full audit trails.</p>
+          <div class="tour-benefits">
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Searchable published survey archive</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Download PDF reports instantly on demand</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Share reports via email to any stakeholder</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Immutable audit trail and version history</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Filter by vessel, date, port, or surveyor</span></div>
+          </div>
+          <a href="#" class="btn btn-primary">View Repository →</a>
+        </div>
+        <div class="tour-visual">
+          <div class="browser">
+            <div class="browser-chrome">
+              <div class="b-dots"><div class="b-dot"></div><div class="b-dot"></div><div class="b-dot"></div></div>
+              <div class="b-url"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1"/><path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1"/></svg>app.mc360.io/bqs/published</div>
+            </div>
+            <div class="browser-screenshot img-lightbox-trigger" data-lightbox="assets/BQS/Published Surveys.png" title="Click to expand">
+              <img src="assets/BQS/Published Surveys.png" alt="BQS Published Surveys Interface" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Master Data -->
+      <div class="tour-panel" data-panel="master" role="tabpanel" aria-labelledby="ttab-master">
+        <div class="tour-panel-copy">
+          <div class="tour-panel-eyebrow"><span class="tour-panel-eyebrow-dot"></span>Master Data</div>
+          <h3 class="tour-panel-title">Centralized Master Data Management</h3>
+          <p class="tour-panel-desc">Manage all vessel, port, and surveyor data from one centralized location. Master data ensures consistency and accuracy across every survey, every time — eliminating manual re-entry and discrepancies.</p>
+          <div class="tour-benefits">
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Complete vessel registry with full specifications</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Tank configurations and calibration tables</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Port and berth database</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Surveyor profiles and certifications</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Single source of truth for all reference data</span></div>
+          </div>
+          <a href="#" class="btn btn-primary">Explore Master Data →</a>
+        </div>
+        <div class="tour-visual">
+          <div class="browser">
+            <div class="browser-chrome">
+              <div class="b-dots"><div class="b-dot"></div><div class="b-dot"></div><div class="b-dot"></div></div>
+              <div class="b-url"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1"/><path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1"/></svg>app.mc360.io/bqs/master-data</div>
+            </div>
+            <div class="browser-screenshot img-lightbox-trigger" data-lightbox="assets/BQS/Master Details.png" title="Click to expand">
+              <img src="assets/BQS/Master Details.png" alt="BQS Master Data Interface" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reports -->
+      <div class="tour-panel" data-panel="reports" role="tabpanel" aria-labelledby="ttab-reports">
+        <div class="tour-panel-copy">
+          <div class="tour-panel-eyebrow"><span class="tour-panel-eyebrow-dot"></span>Reports</div>
+          <h3 class="tour-panel-title">Professional Survey Reports in One Click</h3>
+          <p class="tour-panel-desc">Generate, review, and distribute preliminary and final survey reports instantly. Professional formatting, digital approvals, and automatic email distribution to all stakeholders.</p>
+          <div class="tour-benefits">
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">One-click PDF report generation</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Automatic email distribution to all recipients</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Multi-recipient distribution lists per vessel</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">IMO-compliant professional formatting</span></div>
+            <div class="tour-benefit"><div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Digital approval and signing workflow</span></div>
+          </div>
+          <a href="#" class="btn btn-primary">See Reporting →</a>
+        </div>
+        <div class="tour-visual">
+          <div class="browser">
+            <div class="browser-chrome">
+              <div class="b-dots"><div class="b-dot"></div><div class="b-dot"></div><div class="b-dot"></div></div>
+              <div class="b-url"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1"/><path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1"/></svg>app.mc360.io/bqs/reports</div>
+            </div>
+            <div class="browser-screenshot img-lightbox-trigger" data-lightbox="assets/BQS/Prelim report survey.png" title="Click to expand">
+              <img src="assets/BQS/Prelim report survey.png" alt="BQS Preliminary Report Interface" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /tour-panels -->
+  </div>
+</section>
+
+<!-- =============================================
+     COMPLETE SURVEY WORKFLOW
+     ============================================= -->
+<section class="s-workflow" id="workflow" aria-labelledby="workflow-h2">
+  <div class="container">
+    <div class="workflow-hd reveal">
+      <div class="eyebrow eyebrow-dark"><span class="eyebrow-dot"></span>Survey Workflow</div>
+      <h2 class="display-md" id="workflow-h2" style="color:#fff">From master data to<br><span style="background:linear-gradient(135deg,#00B4D8,#90E0EF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">shared report</span> — fully structured.</h2>
+      <p class="body-lg" style="color:var(--text-inv-dim);max-width:520px;margin:18px auto 0">Every bunker quantity survey follows a consistent, traceable 8-step workflow. No steps skipped. No data lost. Every action documented.</p>
+    </div>
+    <div class="workflow-timeline">
+
+      <div class="workflow-step reveal d1">
+        <div class="workflow-step-left">
+          <div class="wf-circle">🗃️</div>
+          <div class="wf-line"></div>
+        </div>
+        <div class="wf-body">
+          <div class="wf-step-num">Step 01</div>
+          <div class="wf-step-title">Master Data</div>
+          <div class="wf-step-desc">Configure vessel specifications, tank calibration tables, port data, and surveyor profiles — the foundation of every accurate, consistent survey.</div>
+        </div>
+      </div>
+
+      <div class="workflow-step reveal d2">
+        <div class="workflow-step-left">
+          <div class="wf-circle">📝</div>
+          <div class="wf-line"></div>
+        </div>
+        <div class="wf-body">
+          <div class="wf-step-num">Step 02</div>
+          <div class="wf-step-title">Create Survey</div>
+          <div class="wf-step-desc">Initiate a new survey using pre-configured templates. Vessel and port data are auto-populated. Set the survey date, port of call, and delivery parameters in minutes.</div>
+        </div>
+      </div>
+
+      <div class="workflow-step reveal d3">
+        <div class="workflow-step-left">
+          <div class="wf-circle">👤</div>
+          <div class="wf-line"></div>
+        </div>
+        <div class="wf-body">
+          <div class="wf-step-num">Step 03</div>
+          <div class="wf-step-title">Assign Surveyor</div>
+          <div class="wf-step-desc">Assign the designated marine surveyor from your certified roster. The surveyor receives an automatic email notification with full survey details and secure access credentials.</div>
+        </div>
+      </div>
+
+      <div class="workflow-step reveal d4">
+        <div class="workflow-step-left">
+          <div class="wf-circle">⚓</div>
+          <div class="wf-line"></div>
+        </div>
+        <div class="wf-body">
+          <div class="wf-step-num">Step 04</div>
+          <div class="wf-step-title">Execute Survey</div>
+          <div class="wf-step-desc">The surveyor conducts the bunker quantity measurement using structured digital forms. All readings, calculations, and observations are captured in real time — no paper, no re-entry.</div>
+        </div>
+      </div>
+
+      <div class="workflow-step reveal d5">
+        <div class="workflow-step-left">
+          <div class="wf-circle">📊</div>
+          <div class="wf-line"></div>
+        </div>
+        <div class="wf-body">
+          <div class="wf-step-num">Step 05</div>
+          <div class="wf-step-title">Track Progress</div>
+          <div class="wf-step-desc">Operations managers and ship owners monitor every survey in real time from the ongoing surveys dashboard. Status updates, completion percentages, and delay alerts — all live.</div>
+        </div>
+      </div>
+
+      <div class="workflow-step reveal d1">
+        <div class="workflow-step-left">
+          <div class="wf-circle">📄</div>
+          <div class="wf-line"></div>
+        </div>
+        <div class="wf-body">
+          <div class="wf-step-num">Step 06</div>
+          <div class="wf-step-title">Generate Report</div>
+          <div class="wf-step-desc">The platform automatically generates a professionally formatted preliminary report from all survey data. Review, annotate, and approve before final publication.</div>
+        </div>
+      </div>
+
+      <div class="workflow-step reveal d2">
+        <div class="workflow-step-left">
+          <div class="wf-circle">✅</div>
+          <div class="wf-line"></div>
+        </div>
+        <div class="wf-body">
+          <div class="wf-step-num">Step 07</div>
+          <div class="wf-step-title">Publish Survey</div>
+          <div class="wf-step-desc">Once approved, the survey is published to the centralized repository. The final report is locked, timestamped, and added to the vessel's permanent digital survey record.</div>
+        </div>
+      </div>
+
+      <div class="workflow-step reveal d3">
+        <div class="workflow-step-left">
+          <div class="wf-circle">📧</div>
+        </div>
+        <div class="wf-body">
+          <div class="wf-step-num">Step 08</div>
+          <div class="wf-step-title">Share Report</div>
+          <div class="wf-step-desc">Distribute the final report via automated email to all designated recipients — ship owners, charterers, P&amp;I clubs, operators, and any other stakeholders — with delivery confirmation.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     FEATURE DEEP DIVE
+     ============================================= -->
+<section class="s-features" id="features" aria-labelledby="features-h2">
+  <div class="container">
+    <div class="feature-hd reveal">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>Feature Deep Dive</div>
+      <h2 class="display-md" id="features-h2">Every feature built for<br>maritime professionals.</h2>
+      <p class="body-lg" style="color:var(--text-2);max-width:520px;margin:18px auto 0">Designed specifically for ship owners, ship managers, and marine surveyors — not a generic form builder adapted for maritime.</p>
+    </div>
+
+    <!-- Feature 1 — Image Left -->
+    <div class="feature-section reveal">
+      <div class="feature-visual">
+        <div class="browser">
+          <div class="browser-chrome">
+            <div class="b-dots"><div class="b-dot"></div><div class="b-dot"></div><div class="b-dot"></div></div>
+            <div class="b-url"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1"/><path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1"/></svg>app.mc360.io/bqs/create</div>
+          </div>
+          <div class="browser-screenshot img-lightbox-trigger" data-lightbox="assets/BQS/Create survey.png">
+            <img src="assets/BQS/Create survey.png" alt="Smart Survey Creation" loading="lazy">
+          </div>
+        </div>
+        <div class="feature-glow feature-glow-1"></div>
+      </div>
+      <div class="feature-copy">
+        <div class="feature-eyebrow-row">
+          <div class="feature-num">01</div>
+          <span class="feature-eyebrow-text">Smart Survey Creation</span>
+        </div>
+        <h3 class="feature-title">Create any bunker survey in minutes, not hours.</h3>
+        <p class="feature-desc">Eliminate blank-form surveys and manual data entry. BQS pre-populates forms using your master data — vessel specs, port details, and measurement parameters — so surveyors focus on the measurement, not the paperwork.</p>
+        <div class="feature-benefits">
+          <div class="feature-benefit"><div class="feature-benefit-check">✓</div><div class="feature-benefit-text"><strong>Template-based creation</strong>Pre-configured survey templates for different vessel types and measurement methods ensure every survey follows the same rigorous methodology.</div></div>
+          <div class="feature-benefit"><div class="feature-benefit-check">✓</div><div class="feature-benefit-text"><strong>Auto-populated data fields</strong>Vessel specifications, tank configurations, and port parameters are automatically populated from your centralized master data.</div></div>
+          <div class="feature-benefit"><div class="feature-benefit-check">✓</div><div class="feature-benefit-text"><strong>Instant surveyor assignment</strong>Assign certified surveyors from your roster with automated email notification and immediate access provisioning.</div></div>
+          <div class="feature-benefit"><div class="feature-benefit-check">✓</div><div class="feature-benefit-text"><strong>Built-in validation</strong>Multi-step validation prevents incomplete or inconsistent data from progressing through the workflow.</div></div>
+        </div>
+        <a href="#" class="btn btn-outline">Explore Survey Creation →</a>
+      </div>
+    </div>
+
+    <!-- Feature 2 — Text Left (reversed) -->
+    <div class="feature-section alt reveal">
+      <div class="feature-visual">
+        <div class="browser">
+          <div class="browser-chrome">
+            <div class="b-dots"><div class="b-dot"></div><div class="b-dot"></div><div class="b-dot"></div></div>
+            <div class="b-url"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1"/><path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1"/></svg>app.mc360.io/bqs/ongoing</div>
+          </div>
+          <div class="browser-screenshot img-lightbox-trigger" data-lightbox="assets/BQS/Ongoing serveys.png">
+            <img src="assets/BQS/Ongoing serveys.png" alt="Ongoing Survey Tracking" loading="lazy">
+          </div>
+        </div>
+        <div class="feature-glow feature-glow-2"></div>
+      </div>
+      <div class="feature-copy">
+        <div class="feature-eyebrow-row">
+          <div class="feature-num">02</div>
+          <span class="feature-eyebrow-text">Ongoing Survey Tracking</span>
+        </div>
+        <h3 class="feature-title">Real-time visibility across every active survey.</h3>
+        <p class="feature-desc">Stop chasing updates by phone and email. The ongoing surveys dashboard gives you a live view of every survey in progress across your entire fleet — status indicators, completion percentages, and instant alerts.</p>
+        <div class="feature-benefits">
+          <div class="feature-benefit"><div class="feature-benefit-check">✓</div><div class="feature-benefit-text"><strong>Live fleet-wide dashboard</strong>See all active surveys across every vessel in a single consolidated view, with real-time status updates.</div></div>
+          <div class="feature-benefit"><div class="feature-benefit-check">✓</div><div class="feature-benefit-text"><strong>Progress indicators</strong>Track completion percentage, current workflow step, and time elapsed for every survey in progress.</div></div>
+          <div class="feature-benefit"><div class="feature-benefit-check">✓</div><div class="feature-benefit-text"><strong>Automated delay alerts</strong>Receive instant notifications when surveys fall behind schedule or require management attention.</div></div>
+          <div class="feature-benefit"><div class="feature-benefit-check">✓</div><div class="feature-benefit-text"><strong>Advanced filtering</strong>Filter by vessel, port, surveyor, date range, or status to find exactly what you need instantly.</div></div>
+        </div>
+        <a href="#" class="btn btn-outline">Explore Survey Tracking →</a>
+      </div>
+    </div>
+
+    <!-- Feature 3 — Image Left -->
+    <div class="feature-section reveal">
+      <div class="feature-visual">
+        <div class="browser">
+          <div class="browser-chrome">
+            <div class="b-dots"><div class="b-dot"></div><div class="b-dot"></div><div class="b-dot"></div></div>
+            <div class="b-url"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1"/><path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1"/></svg>app.mc360.io/bqs/master-data</div>
+          </div>
+          <div class="browser-screenshot img-lightbox-trigger" data-lightbox="assets/BQS/Master Details.png">
+            <img src="assets/BQS/Master Details.png" alt="Master Data Management" loading="lazy">
+          </div>
+        </div>
+        <div class="feature-glow feature-glow-1"></div>
+      </div>
+      <div class="feature-copy">
+        <div class="feature-eyebrow-row">
+          <div class="feature-num">03</div>
+          <span class="feature-eyebrow-text">Master Data Management</span>
+        </div>
+        <h3 class="feature-title">One centralized source of truth for all survey data.</h3>
+        <p class="feature-desc">Accurate surveys require accurate reference data. BQS centralizes all vessel specifications, tank calibration tables, port databases, and surveyor credentials — eliminating inconsistencies that cause disputes.</p>
+        <div class="feature-benefits">
+          <div class="feature-benefit"><div class="feature-benefit-check">✓</div><div class="feature-benefit-text"><strong>Complete vessel registry</strong>Full vessel specifications including IMO number, flag, vessel type, and tank configurations for every ship in your fleet.</div></div>
+          <div class="feature-benefit"><div class="feature-benefit-check">✓</div><div class="feature-benefit-text"><strong>Tank calibration tables</strong>Store and manage calibration tables for each vessel's tanks, ensuring measurement accuracy and consistency.</div></div>
+          <div class="feature-benefit"><div class="feature-benefit-check">✓</div><div class="feature-benefit-text"><strong>Port and berth database</strong>Comprehensive port and berth data for accurate location-based survey setup across all ports of call.</div></div>
+          <div class="feature-benefit"><div class="feature-benefit-check">✓</div><div class="feature-benefit-text"><strong>Surveyor certification tracking</strong>Maintain surveyor profiles, certifications, and availability for accurate assignment and compliance.</div></div>
+        </div>
+        <a href="#" class="btn btn-outline">Explore Master Data →</a>
+      </div>
+    </div>
+
+    <!-- Feature 4 — Text Left (reversed) -->
+    <div class="feature-section alt reveal">
+      <div class="feature-visual">
+        <div class="browser">
+          <div class="browser-chrome">
+            <div class="b-dots"><div class="b-dot"></div><div class="b-dot"></div><div class="b-dot"></div></div>
+            <div class="b-url"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1"/><path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1"/></svg>app.mc360.io/bqs/published</div>
+          </div>
+          <div class="browser-screenshot img-lightbox-trigger" data-lightbox="assets/BQS/Published Surveys.png">
+            <img src="assets/BQS/Published Surveys.png" alt="Published Survey Repository" loading="lazy">
+          </div>
+        </div>
+        <div class="feature-glow feature-glow-2"></div>
+      </div>
+      <div class="feature-copy">
+        <div class="feature-eyebrow-row">
+          <div class="feature-num">04</div>
+          <span class="feature-eyebrow-text">Published Reports</span>
+        </div>
+        <h3 class="feature-title">Your complete survey history — searchable, secure, always available.</h3>
+        <p class="feature-desc">Published surveys are permanently stored in a secure, organized repository with full audit trails. Find any survey instantly, download the PDF, or share it with any stakeholder — from anywhere, at any time.</p>
+        <div class="feature-benefits">
+          <div class="feature-benefit"><div class="feature-benefit-check">✓</div><div class="feature-benefit-text"><strong>Enterprise-grade archive</strong>Secure, organized storage for every published survey with multi-level role-based access controls.</div></div>
+          <div class="feature-benefit"><div class="feature-benefit-check">✓</div><div class="feature-benefit-text"><strong>Advanced search and filtering</strong>Find any survey by vessel, date, port, surveyor, or any combination of parameters instantly.</div></div>
+          <div class="feature-benefit"><div class="feature-benefit-check">✓</div><div class="feature-benefit-text"><strong>Instant PDF download</strong>Download professionally formatted survey reports on demand for any published survey.</div></div>
+          <div class="feature-benefit"><div class="feature-benefit-check">✓</div><div class="feature-benefit-text"><strong>Immutable audit trail</strong>Every published survey is locked with a timestamp, ensuring data integrity for dispute resolution and audits.</div></div>
+        </div>
+        <a href="#" class="btn btn-outline">Explore Repository →</a>
+      </div>
+    </div>
+
+    <!-- Feature 5 — Image Left -->
+    <div class="feature-section reveal">
+      <div class="feature-visual">
+        <div class="browser">
+          <div class="browser-chrome">
+            <div class="b-dots"><div class="b-dot"></div><div class="b-dot"></div><div class="b-dot"></div></div>
+            <div class="b-url"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1"/><path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1"/></svg>app.mc360.io/bqs/reports</div>
+          </div>
+          <div class="browser-screenshot img-lightbox-trigger" data-lightbox="assets/BQS/Prelim report survey.png">
+            <img src="assets/BQS/Prelim report survey.png" alt="Report Distribution" loading="lazy">
+          </div>
+        </div>
+        <div class="feature-glow feature-glow-1"></div>
+      </div>
+      <div class="feature-copy">
+        <div class="feature-eyebrow-row">
+          <div class="feature-num">05</div>
+          <span class="feature-eyebrow-text">Report Distribution</span>
+        </div>
+        <h3 class="feature-title">Professional reports distributed automatically.</h3>
+        <p class="feature-desc">Eliminate manual report distribution forever. BQS automatically generates professionally formatted preliminary and final reports and distributes them to all designated recipients the moment a survey is complete.</p>
+        <div class="feature-benefits">
+          <div class="feature-benefit"><div class="feature-benefit-check">✓</div><div class="feature-benefit-text"><strong>Preliminary report generation</strong>Instant preliminary report available as soon as survey data entry is complete, for immediate stakeholder review.</div></div>
+          <div class="feature-benefit"><div class="feature-benefit-check">✓</div><div class="feature-benefit-text"><strong>Automated email distribution</strong>Configure recipient lists and the platform handles all distribution automatically on survey publication.</div></div>
+          <div class="feature-benefit"><div class="feature-benefit-check">✓</div><div class="feature-benefit-text"><strong>IMO-compliant formatting</strong>All reports follow standardized maritime survey formats accepted by classification societies and regulators.</div></div>
+          <div class="feature-benefit"><div class="feature-benefit-check">✓</div><div class="feature-benefit-text"><strong>Multi-stakeholder distribution</strong>Send to owners, charterers, P&amp;I clubs, and any party — with delivery confirmation for every recipient.</div></div>
+        </div>
+        <a href="#" class="btn btn-outline">See Reporting Features →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =============================================
+     PRODUCT VIDEO
+     ============================================= -->
+<section class="s-product-video" id="product-video" aria-labelledby="pvideo-h2">
+  <div class="container">
+    <div class="pvideo-hd reveal">
+      <div class="eyebrow eyebrow-dark"><span class="eyebrow-dot"></span>Product Demo</div>
+      <h2 class="display-md" id="pvideo-h2" style="color:#fff">See BQS in a complete<br><span style="background:linear-gradient(135deg,#00B4D8,#90E0EF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">platform walkthrough.</span></h2>
+      <p class="body-lg" style="color:var(--text-inv-dim);max-width:500px;margin:18px auto 0">Watch the full BQS platform demo — from initial setup through survey execution, report generation, and final distribution.</p>
+    </div>
+    <div class="pvideo-wrap reveal d1">
+      <div class="browser">
+        <div class="browser-chrome">
+          <div class="b-dots"><div class="b-dot"></div><div class="b-dot"></div><div class="b-dot"></div></div>
+          <div class="b-url"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1"/><path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1"/></svg>app.mc360.io/bqs/demo</div>
+        </div>
+        <div class="pvideo-inner">
+          <video id="pvideo-main" style="width:100%;max-height:580px;object-fit:cover;display:block" poster="assets/BQS/Published Surveys.png">
+            <source src="assets/BQS/BQSdemovideo.mp4" type="video/mp4">
+          </video>
+          <button class="pvideo-play-btn" id="pvideo-play-btn" aria-label="Play demo video">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="pvideo-cta-row reveal d2">
+      <a href="#" class="btn btn-primary btn-lg">
+        Start Free Trial →
+      </a>
+      <a href="#" class="btn btn-ghost-dark btn-lg">Book a Live Demo</a>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     ENTERPRISE FEATURES
+     ============================================= -->
+<section class="s-enterprise" id="enterprise" aria-labelledby="ent-h2">
+  <div class="container">
+    <div class="ent-hd reveal">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>Enterprise Ready</div>
+      <h2 class="display-md" id="ent-h2">Everything an enterprise maritime<br>operation needs. Right out of the box.</h2>
+      <p class="body-lg" style="color:var(--text-2);max-width:520px;margin:18px auto 0">BQS is built for enterprise maritime operations — scalable, secure, and designed for multi-vessel fleet management from day one.</p>
+    </div>
+    <div class="ent-grid">
+      <div class="ent-card reveal d1">
+        <div class="ent-icon" style="background:rgba(0,180,216,.09)">🚢</div>
+        <div class="ent-title">Multi-Vessel Support</div>
+        <div class="ent-desc">Manage surveys across your entire fleet — from a single vessel to hundreds — from one centralized platform with no extra configuration.</div>
+      </div>
+      <div class="ent-card reveal d2">
+        <div class="ent-icon" style="background:rgba(0,87,184,.08)">🏢</div>
+        <div class="ent-title">Enterprise Workflow</div>
+        <div class="ent-desc">Structured, role-based workflows that match how your organization operates. Every step tracked, documented, and auditable.</div>
+      </div>
+      <div class="ent-card reveal d3">
+        <div class="ent-icon" style="background:rgba(5,150,105,.09)">✅</div>
+        <div class="ent-title">Audit Ready</div>
+        <div class="ent-desc">Complete, immutable audit trails for every survey. Ready for port state control, classification society, and flag state audits on demand.</div>
+      </div>
+      <div class="ent-card reveal d4">
+        <div class="ent-icon" style="background:rgba(67,56,202,.08)">☁️</div>
+        <div class="ent-title">Secure Cloud</div>
+        <div class="ent-desc">Enterprise-grade cloud infrastructure with 99.9% uptime SLA, AES-256 encryption at rest and TLS 1.3 in transit.</div>
+      </div>
+      <div class="ent-card reveal d1">
+        <div class="ent-icon" style="background:rgba(217,119,6,.09)">🔐</div>
+        <div class="ent-title">Role Permissions</div>
+        <div class="ent-desc">Granular role-based access control — Ship Owner, Manager, Surveyor, Operator — ensuring the right people see the right data.</div>
+      </div>
+      <div class="ent-card reveal d2">
+        <div class="ent-icon" style="background:rgba(0,87,184,.06)">📂</div>
+        <div class="ent-title">Centralized Records</div>
+        <div class="ent-desc">All survey records, reports, and documents stored centrally. Searchable, organized, and accessible from anywhere at any time.</div>
+      </div>
+      <div class="ent-card reveal d3">
+        <div class="ent-icon" style="background:rgba(13,148,136,.08)">📊</div>
+        <div class="ent-title">Advanced Reporting</div>
+        <div class="ent-desc">Preliminary and final survey reports auto-generated in professional, IMO-compliant formats. Download as PDF with one click.</div>
+      </div>
+      <div class="ent-card reveal d4">
+        <div class="ent-icon" style="background:rgba(0,180,216,.09)">📧</div>
+        <div class="ent-title">Email Distribution</div>
+        <div class="ent-desc">Automatically distribute reports to owners, charterers, P&amp;I clubs, and any recipients on survey publication — with delivery confirmation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     FAQ
+     ============================================= -->
+<section class="s-faq" id="faq" aria-labelledby="faq-h2">
+  <div class="container">
+    <div class="faq-hd reveal">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>FAQ</div>
+      <h2 class="display-md" id="faq-h2">Frequently asked questions.</h2>
+      <p class="body-lg" style="color:var(--text-2);max-width:480px;margin:18px auto 0">Everything you need to know about BQS. Can't find what you're looking for? Our maritime experts are ready to help.</p>
+    </div>
+    <div class="faq-list reveal d1">
+
+      <div class="faq-item" id="faq-1">
+        <div class="faq-q" data-faq="faq-1"><span class="faq-q-text">How does BQS handle surveys across multiple vessels simultaneously?</span><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+        <div class="faq-body"><div class="faq-a">BQS is designed for multi-vessel operations. The ongoing surveys dashboard shows all active surveys across your entire fleet simultaneously, with real-time status, progress indicators, and individual survey details. You can assign different surveyors to different vessels, track all surveys from one central view, and generate fleet-wide reports — regardless of fleet size.</div></div>
+      </div>
+
+      <div class="faq-item" id="faq-2">
+        <div class="faq-q" data-faq="faq-2"><span class="faq-q-text">What types of bunker surveys does BQS support?</span><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+        <div class="faq-body"><div class="faq-a">BQS supports the full range of bunker quantity surveys including on-hire, off-hire, bunkering, on-delivery, and off-delivery surveys. Pre-configured templates for each survey type are available out of the box, with the ability to create custom templates to match your organization's specific requirements and methodologies.</div></div>
+      </div>
+
+      <div class="faq-item" id="faq-3">
+        <div class="faq-q" data-faq="faq-3"><span class="faq-q-text">How is report generation and distribution handled?</span><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+        <div class="faq-body"><div class="faq-a">BQS automatically generates professionally formatted PDF reports from survey data. Preliminary reports are available immediately after data entry is complete. Final reports are generated on publication approval. Email distribution is fully automated — configure recipient lists for each vessel or survey type, and reports are automatically sent to all designated parties when a survey is published, with delivery confirmation.</div></div>
+      </div>
+
+      <div class="faq-item" id="faq-4">
+        <div class="faq-q" data-faq="faq-4"><span class="faq-q-text">Is BQS accessible offline or in areas with poor connectivity?</span><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+        <div class="faq-body"><div class="faq-a">Yes. BQS is designed with the maritime environment in mind. Surveyors can access and complete surveys with limited or intermittent internet connectivity. Data entered offline is cached locally and automatically synchronized to the central platform once connectivity is restored — ensuring surveys can be conducted even in remote ports or anchorages with poor connectivity.</div></div>
+      </div>
+
+      <div class="faq-item" id="faq-5">
+        <div class="faq-q" data-faq="faq-5"><span class="faq-q-text">How does the role-based access control work?</span><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+        <div class="faq-body"><div class="faq-a">BQS supports granular role-based permissions including Ship Owner, Ship Manager, Marine Surveyor, Fleet Operator, and Administrator roles. Each role has configurable access to specific features, surveys, and vessels. For example, a surveyor can only access surveys assigned to them, while a fleet manager has visibility across all vessels. Custom roles can be configured to match your organization's structure.</div></div>
+      </div>
+
+      <div class="faq-item" id="faq-6">
+        <div class="faq-q" data-faq="faq-6"><span class="faq-q-text">How quickly can we get BQS set up and running?</span><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+        <div class="faq-body"><div class="faq-a">BQS can be fully configured and operational within 24 hours. Our onboarding process includes guided vessel data import, master data setup, user account creation, and role configuration. We provide hands-on onboarding support and team training. Unlike traditional enterprise software, there is no months-long implementation — you'll be conducting digital surveys on day one.</div></div>
+      </div>
+
+      <div class="faq-item" id="faq-7">
+        <div class="faq-q" data-faq="faq-7"><span class="faq-q-text">Is historical survey data migrated from existing systems?</span><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+        <div class="faq-body"><div class="faq-a">Yes. Our team provides data migration support to import existing survey records from spreadsheets, legacy systems, or other formats into BQS. Historical surveys can be uploaded as PDF documents and linked to vessel records, maintaining your complete survey history in one place from day one.</div></div>
+      </div>
+
+      <div class="faq-item" id="faq-8">
+        <div class="faq-q" data-faq="faq-8"><span class="faq-q-text">What security standards does BQS comply with?</span><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+        <div class="faq-body"><div class="faq-a">BQS is built on enterprise-grade cloud infrastructure complying with SOC 2 Type II, ISO 27001, and GDPR requirements. All data is encrypted at rest with AES-256 and in transit with TLS 1.3. Regular penetration testing, vulnerability assessments, and independent security audits are conducted. The platform maintains a 99.9% uptime SLA backed by multi-region redundant architecture.</div></div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:52px" class="reveal d2">
+      <p style="font-size:15px;color:var(--text-2);margin-bottom:20px">Still have questions? Our maritime experts are ready to help.</p>
+      <a href="#" class="btn btn-primary">Talk to an Expert →</a>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     FINAL CTA
+     ============================================= -->
+<section class="s-cta" id="cta" aria-labelledby="cta-h2">
+  <div class="container">
+    <div class="cta-wrap reveal">
+      <div class="eyebrow eyebrow-dark" style="margin:0 auto 24px"><span class="eyebrow-dot"></span>Get Started Today</div>
+      <h2 class="cta-h2" id="cta-h2">Ready to modernize your<br>bunker surveys?</h2>
+      <p class="cta-sub">Join maritime companies worldwide who have replaced manual survey processes with BQS — the enterprise platform built for bunker quantity surveys.</p>
+      <div class="cta-btns">
+        <a href="#" class="btn btn-primary btn-lg">
+          Start Free Trial
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1.5l6 6-6 6M13.5 7.5H1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#" class="btn btn-ghost-dark btn-lg">Contact Sales</a>
+      </div>
+      <div class="cta-trust">
+        <span class="cta-trust-item"><span>🔒</span><span>Enterprise security</span></span>
+        <span class="cta-trust-item"><span>⚡</span><span>Setup in 24 hours</span></span>
+        <span class="cta-trust-item"><span>🚢</span><span>Built for maritime</span></span>
+        <span class="cta-trust-item"><span>✓</span><span>No credit card required</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =============================================
+     FOOTER
+     ============================================= -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="assets/MC360logo.png" alt="MC360" style="height:34px;width:auto">
+          <span class="footer-logo-text">MC360</span>
+        </div>
+        <p class="footer-brand-desc">The enterprise platform for maritime survey management. BQS, vessel inspections, condition surveys, and global sanctions compliance — unified in one connected platform.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-soc" aria-label="LinkedIn">in</a>
+          <a href="#" class="footer-soc" aria-label="Twitter">𝕏</a>
+          <a href="#" class="footer-soc" aria-label="YouTube">▶</a>
+        </div>
+        <div class="footer-compliance-row">
+          <span class="footer-cert">SOC 2</span>
+          <span class="footer-cert">ISO 27001</span>
+          <span class="footer-cert">GDPR</span>
+          <span class="footer-cert">IMO</span>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Products</div>
+        <div class="footer-links">
+          <a href="bqs.html" class="footer-link" style="color:rgba(255,255,255,.75)">Bunker Quantity Survey</a>
+          <a href="#" class="footer-link">Vessel Inspection</a>
+          <a href="#" class="footer-link">Vessel Condition Survey</a>
+          <a href="#" class="footer-link">Global Sanctions</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <div class="footer-links">
+          <a href="#" class="footer-link">About</a>
+          <a href="#" class="footer-link">Blog</a>
+          <a href="#" class="footer-link">Careers</a>
+          <a href="#" class="footer-link">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Customers</div>
+        <div class="footer-links">
+          <a href="index.html#proof" class="footer-link">Case Studies</a>
+          <a href="index.html#proof" class="footer-link">Testimonials</a>
+          <a href="#" class="footer-link">Enterprise</a>
+          <a href="#" class="footer-link">Partners</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Resources</div>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Documentation</a>
+          <a href="#" class="footer-link">API Reference</a>
+          <a href="#" class="footer-link">Platform Status</a>
+          <a href="#" class="footer-link">Help Center</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2024 MaritimeConnect360. All rights reserved.</span>
+      <div class="footer-legal">
+        <a href="#" class="footer-legal-link">Privacy Policy</a>
+        <a href="#" class="footer-legal-link">Terms of Service</a>
+        <a href="#" class="footer-legal-link">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="back-to-top" aria-label="Back to top">
+  <div class="btt-arrow">
+    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 8V2M2 5l3-3 3 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+  Back to top
+</button>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <div class="lightbox-inner">
+    <img id="lightbox-img" src="" alt="Screenshot preview">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+  </div>
+</div>
+
+<script>
+/* =============================================
+   NAVIGATION
+   ============================================= */
+(function() {
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+
+  function initDropdown(btnId, ddId) {
+    const btn = document.getElementById(btnId);
+    const dd = document.getElementById(ddId);
+    if (!btn || !dd) return;
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = dd.classList.contains('dd-visible');
+      document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('dd-visible'));
+      document.querySelectorAll('.nav-link').forEach(b => { b.classList.remove('dd-open'); b.setAttribute('aria-expanded', 'false'); });
+      if (!isOpen) { dd.classList.add('dd-visible'); btn.classList.add('dd-open'); btn.setAttribute('aria-expanded', 'true'); }
+    });
+  }
+  initDropdown('dd-products-btn', 'dd-products');
+  initDropdown('dd-customers-btn', 'dd-customers');
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('dd-visible'));
+    document.querySelectorAll('.nav-link').forEach(b => { b.classList.remove('dd-open'); b.setAttribute('aria-expanded', 'false'); });
+  });
+
+  const hamburger = document.getElementById('nav-hamburger');
+  const mobilePanel = document.getElementById('nav-mobile-panel');
+  if (hamburger && mobilePanel) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobilePanel.classList.contains('mob-open');
+      mobilePanel.classList.toggle('mob-open');
+      hamburger.setAttribute('aria-expanded', String(!isOpen));
+      mobilePanel.setAttribute('aria-hidden', String(isOpen));
+    });
+    ['mob-products', 'mob-customers'].forEach(prefix => {
+      const btn = document.getElementById(prefix + '-btn');
+      const sub = document.getElementById(prefix + '-sub');
+      const chev = document.getElementById(prefix + '-chevron');
+      if (btn && sub) {
+        btn.addEventListener('click', () => {
+          sub.classList.toggle('mob-sub-open');
+          if (chev) chev.style.transform = sub.classList.contains('mob-sub-open') ? 'rotate(180deg)' : '';
+        });
+      }
+    });
+  }
+})();
+
+/* =============================================
+   SCROLL REVEAL
+   ============================================= */
+(function() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+})();
+
+/* =============================================
+   HERO VIDEO TOGGLE
+   ============================================= */
+(function() {
+  const vid = document.getElementById('hero-vid');
+  const overlay = document.getElementById('hero-vid-overlay');
+  const btn = document.getElementById('hero-vid-btn');
+  if (!vid) return;
+  function updateOverlay() {
+    if (vid.paused) { overlay.classList.remove('playing'); } else { overlay.classList.add('playing'); }
+  }
+  if (overlay) {
+    overlay.addEventListener('click', () => {
+      if (vid.paused) { vid.play(); } else { vid.pause(); }
+      updateOverlay();
+    });
+  }
+  vid.addEventListener('play', updateOverlay);
+  vid.addEventListener('pause', updateOverlay);
+})();
+
+/* =============================================
+   PRODUCT TOUR TABS
+   ============================================= */
+(function() {
+  const tabs = document.querySelectorAll('.tour-tab');
+  const panels = document.querySelectorAll('.tour-panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.panel;
+      tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+      panels.forEach(p => { p.classList.remove('active'); p.style.display = 'none'; });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      const panel = document.querySelector(`.tour-panel[data-panel="${target}"]`);
+      if (panel) {
+        panel.style.display = '';
+        // rAF to allow display to apply before animation class
+        requestAnimationFrame(() => requestAnimationFrame(() => panel.classList.add('active')));
+      }
+    });
+  });
+})();
+
+/* =============================================
+   PRODUCT VIDEO PLAY/PAUSE
+   ============================================= */
+(function() {
+  const video = document.getElementById('pvideo-main');
+  const playBtn = document.getElementById('pvideo-play-btn');
+  if (!video || !playBtn) return;
+  playBtn.addEventListener('click', () => {
+    if (video.paused) { video.play(); playBtn.classList.add('hidden'); }
+    else { video.pause(); playBtn.classList.remove('hidden'); }
+  });
+  video.addEventListener('click', () => {
+    if (video.paused) { video.play(); playBtn.classList.add('hidden'); }
+    else { video.pause(); playBtn.classList.remove('hidden'); }
+  });
+  video.addEventListener('ended', () => { playBtn.classList.remove('hidden'); });
+})();
+
+/* =============================================
+   IMAGE LIGHTBOX
+   ============================================= */
+(function() {
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  const lbClose = document.getElementById('lightbox-close');
+  document.querySelectorAll('.img-lightbox-trigger').forEach(el => {
+    el.addEventListener('click', () => {
+      const src = el.dataset.lightbox;
+      if (!src) return;
+      lbImg.src = src;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  if (lbClose) lbClose.addEventListener('click', closeLb);
+  lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+})();
+
+/* =============================================
+   FAQ ACCORDION
+   ============================================= */
+(function() {
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const faqId = q.dataset.faq;
+      const item = document.getElementById(faqId);
+      if (!item) return;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+})();
+
+/* =============================================
+   COUNTER ANIMATION
+   ============================================= */
+(function() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.dataset.count);
+      const decimal = el.dataset.decimal || '';
+      const suffix = el.dataset.suffix || '';
+      const duration = 1800;
+      const startTime = performance.now();
+      const step = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(ease * target);
+        el.textContent = current.toLocaleString() + decimal + suffix;
+        if (progress < 1) { requestAnimationFrame(step); }
+        else { el.textContent = target.toLocaleString() + decimal + suffix; }
+      };
+      requestAnimationFrame(step);
+      obs.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-count]').forEach(el => obs.observe(el));
+})();
+
+/* =============================================
+   BACK TO TOP
+   ============================================= */
+(function() {
+  const btt = document.getElementById('back-to-top');
+  if (!btt) return;
+  window.addEventListener('scroll', () => { btt.classList.toggle('btt-visible', window.scrollY > 600); }, { passive: true });
+  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+})();
+</script>
+
+</body>
+</html>
