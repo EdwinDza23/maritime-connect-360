@@ -8,7 +8,7 @@
 **Tagline:** One Platform. Total Maritime Intelligence.
 
 ### Vision
-Build the world's most trusted AI-first operating system for maritime companies by unifying inspections, surveys, bunker operations and compliance into one connected platform.
+Build the world's most trusted All in One operating system for maritime companies by unifying inspections, surveys, bunker operations and compliance into one connected platform.
 
 ### Mission
 Eliminate fragmented maritime software by providing one intelligent platform that connects teams, workflows and data.
@@ -71,7 +71,7 @@ Future AI
 Primary CTA: Start Free Trial
 Secondary CTA: Book Demo
 
-Position MC360 as the most modern AI-first maritime enterprise platform.
+Position MC360 as the most modern All in One maritime enterprise platform.
 
 ## UX Principles
 - Product-first storytelling
