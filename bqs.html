@@ -1509,120 +1509,165 @@
       font-weight: 500
     }
 
-    /* WHY BQS */
+    /* WHY BQS — matches Platform (bento) card style */
     .s-why {
       padding: var(--section) 0;
-      background: var(--surface-2)
+      background: #090B0F;
+      position: relative;
+    }
+    .s-why::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 55% 45% at 12% 18%, rgba(59,130,246,.04) 0%, transparent 70%),
+        radial-gradient(ellipse 45% 35% at 88% 80%, rgba(99,102,241,.03) 0%, transparent 70%);
+      pointer-events: none;
     }
 
     .why-hd {
       text-align: center;
-      margin-bottom: 60px
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 1;
     }
+    .why-hd h2 { color: #FFFFFF !important; }
+    .why-hd .body-lg { color: #94A3B8 !important; }
 
     .why-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px
-    }
-
-    .why-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--r-xl);
-      padding: 36px;
+      gap: 24px;
       position: relative;
+      z-index: 1;
+    }
+
+    /* Card base — mirrors .bento-card + .bento-card-inner */
+    .why-card {
+      position: relative;
+      border-radius: 20px;
       overflow: hidden;
-      transition: border-color var(--ease-slow), box-shadow var(--ease-slow), transform var(--ease-slow);
-      cursor: default
+      cursor: default;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 1px 3px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.4);
+      transition: transform 240ms cubic-bezier(.4,0,.2,1), box-shadow 240ms cubic-bezier(.4,0,.2,1), border-color 240ms ease, opacity 240ms ease;
+      isolation: isolate;
+      padding: 36px;
+      background-color: #0c0e14;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='150' height='150' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E"),
+        radial-gradient(circle at 15% 15%, var(--why-glow-1) 0%, transparent 65%),
+        radial-gradient(circle at 85% 85%, var(--why-glow-2) 0%, transparent 65%);
+      background-repeat: repeat, no-repeat, no-repeat;
+      background-size: 150px 150px, cover, cover;
+      background-blend-mode: overlay, normal, normal;
+    }
+    .why-card::before, .why-card::after { display: none; }
+
+    /* Per-card accent colours */
+    .why-card:nth-child(1) {
+      --why-accent: #3b82f6;
+      --why-glow-1: rgba(29,78,216,0.45);
+      --why-glow-2: rgba(13,148,136,0.20);
+    }
+    .why-card:nth-child(2) {
+      --why-accent: #22d3ee;
+      --why-glow-1: rgba(6,182,212,0.40);
+      --why-glow-2: rgba(59,130,246,0.15);
+    }
+    .why-card:nth-child(3) {
+      --why-accent: #818cf8;
+      --why-glow-1: rgba(79,70,229,0.45);
+      --why-glow-2: rgba(168,85,247,0.20);
+    }
+    .why-card:nth-child(4) {
+      --why-accent: #2dd4bf;
+      --why-glow-1: rgba(13,148,136,0.45);
+      --why-glow-2: rgba(6,182,212,0.20);
     }
 
-    .why-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: var(--r-xl);
-      background: linear-gradient(135deg, transparent, rgba(0, 87, 184, .025));
-      opacity: 0;
-      transition: opacity var(--ease-slow)
+    .why-grid:hover .why-card { opacity: .75; }
+    .why-grid:hover .why-card:hover {
+      opacity: 1;
+      transform: translateY(-5px);
+      border-color: var(--why-accent);
+      box-shadow: 0 4px 12px rgba(0,0,0,.4), 0 20px 48px rgba(0,0,0,.5), 0 0 0 1px var(--why-accent) inset;
     }
-
-    .why-card:hover {
-      border-color: rgba(0, 87, 184, .22);
-      box-shadow: var(--sh-lg), 0 0 0 1px rgba(0, 87, 184, .08);
-      transform: translateY(-5px)
-    }
-
-    .why-card:hover::after {
-      opacity: 1
-    }
+    .why-card:hover { background-color: #0f121a; }
+    .why-card:hover .why-title { color: #FFFFFF; }
 
     .why-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: var(--r-lg);
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 20px;
-      font-size: 22px
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 4px 12px rgba(0,0,0,.25);
+      position: relative;
     }
+    .why-icon::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(59,130,246,.10) 0%, transparent 65%);
+    }
+    .why-icon svg { position: relative; z-index: 1; stroke: var(--why-accent) !important; }
 
-    .why-icon-blue {
-      background: rgba(0, 87, 184, .08)
-    }
-
-    .why-icon-cyan {
-      background: rgba(0, 180, 216, .09)
-    }
-
-    .why-icon-indigo {
-      background: rgba(67, 56, 202, .08)
-    }
-
-    .why-icon-teal {
-      background: rgba(13, 148, 136, .08)
-    }
+    /* Hide old colour modifier classes — icon colour now driven by --why-accent */
+    .why-icon-blue, .why-icon-cyan, .why-icon-indigo, .why-icon-teal {}
 
     .why-num {
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: .08em;
+      letter-spacing: .12em;
       text-transform: uppercase;
-      color: var(--text-3);
-      margin-bottom: 9px
+      color: var(--why-accent, #3b82f6);
+      opacity: .85;
+      margin-bottom: 8px;
     }
 
     .why-title {
-      font-size: 22px;
+      font-size: 21px;
       font-weight: 700;
-      color: var(--text-1);
-      letter-spacing: -.02em;
-      margin-bottom: 10px;
-      line-height: 1.2
+      color: #FFFFFF;
+      letter-spacing: -.022em;
+      margin-bottom: 11px;
+      line-height: 1.2;
+      transition: color 240ms ease;
     }
 
     .why-desc {
-      font-size: 14px;
-      color: var(--text-2);
-      line-height: 1.65;
-      margin-bottom: 18px
+      font-size: 14.5px;
+      color: #94A3B8;
+      line-height: 1.7;
+      margin-bottom: 20px;
     }
 
     .why-chips {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px
+      gap: 6px;
     }
 
     .why-chip {
       padding: 4px 12px;
-      background: var(--surface-3);
-      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: var(--r-pill);
-      font-size: 11px;
+      font-size: 11.5px;
       font-weight: 600;
-      color: var(--text-2)
+      color: #CBD5E1;
+      letter-spacing: -.005em;
+      transition: background 240ms ease, border-color 240ms ease;
+    }
+    .why-card:hover .why-chip {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.12);
     }
 
     /* PRODUCT TOUR */
@@ -2909,9 +2954,9 @@
     <section class="s-why" id="why-bqs" aria-labelledby="why-h2">
       <div class="container">
         <div class="why-hd reveal">
-          <div class="eyebrow"><span class="eyebrow-dot"></span>Why Choose BQS</div>
+          <div class="eyebrow eyebrow-dark"><span class="eyebrow-dot"></span>Why Choose BQS</div>
           <h2 class="display-md" id="why-h2">The enterprise survey platform<br>built for maritime.</h2>
-          <p class="body-lg" style="color:var(--text-2);max-width:520px;margin:18px auto 0">Replace manual processes and
+          <p class="body-lg" style="color:#94A3B8;max-width:520px;margin:18px auto 0">Replace manual processes and
             disconnected spreadsheets with a structured, standardized workflow that scales with your fleet.</p>
         </div>
         <div class="why-grid">
@@ -3796,7 +3841,7 @@
             <div class="pvideo-inner">
               <video id="pvideo-main" style="width:100%;max-height:580px;object-fit:cover;display:block"
                 poster="assets/BQS/Published Surveys.png">
-                <source src="assets/BQS/BQSdemovideo.mp4" type="video/mp4">
+                <source src="assets/BQS/BQSWalkthrough.mp4" type="video/mp4">
               </video>
               <button class="pvideo-play-btn" id="pvideo-play-btn" aria-label="Play demo video">
                 <svg viewBox="0 0 24 24" fill="currentColor">
