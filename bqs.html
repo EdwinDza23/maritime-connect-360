@@ -226,30 +226,38 @@
       transform: translateY(-2px)
     }
 
+    .btn-secondary,
     .btn-outline {
-      background: transparent;
-      color: var(--text-1);
-      border: 1.5px solid var(--border-2)
+      background: rgba(0, 87, 184, .07);
+      color: var(--blue);
+      border: 1.5px solid rgba(0, 87, 184, .22);
+      box-shadow: 0 2px 8px rgba(0, 87, 184, .08);
     }
 
+    .btn-secondary:hover,
     .btn-outline:hover {
-      background: var(--surface-3);
+      background: rgba(0, 87, 184, .14);
       border-color: var(--blue);
-      color: var(--blue);
-      transform: translateY(-2px)
+      color: var(--blue-dark);
+      box-shadow: 0 6px 20px rgba(0, 87, 184, .18);
+      transform: translateY(-2px);
     }
 
     .btn-ghost-dark {
-      background: rgba(255, 255, 255, .07);
+      background: rgba(255, 255, 255, .10);
       color: #fff;
-      border: 1.5px solid rgba(255, 255, 255, .11);
-      backdrop-filter: blur(8px)
+      border: 1.5px solid rgba(255, 255, 255, .25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .15);
     }
 
     .btn-ghost-dark:hover {
-      background: rgba(255, 255, 255, .13);
-      border-color: rgba(255, 255, 255, .2);
-      transform: translateY(-2px)
+      background: rgba(255, 255, 255, .18);
+      border-color: rgba(255, 255, 255, .45);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .25), 0 0 16px rgba(255, 255, 255, .1);
+      transform: translateY(-2px);
     }
 
     /* EYEBROW */
@@ -623,22 +631,26 @@
     .nav-demo {
       display: inline-flex;
       align-items: center;
-      padding: 8px 22px;
+      gap: 6px;
+      padding: 8px 20px;
       font-size: 14px;
       font-weight: 600;
-      color: var(--text-1);
-      background: transparent;
-      border: 1.5px solid var(--border-2);
+      color: var(--blue);
+      background: rgba(0, 87, 184, .07);
+      border: 1.5px solid rgba(0, 87, 184, .22);
       border-radius: 100px;
       font-family: var(--font);
       cursor: pointer;
-      transition: border-color 160ms ease, background 160ms ease, color 160ms ease
+      box-shadow: 0 2px 6px rgba(0, 87, 184, .06);
+      transition: all 160ms ease;
     }
 
     .nav-demo:hover {
       border-color: var(--blue);
-      color: var(--blue);
-      background: rgba(0, 87, 184, .05)
+      color: var(--blue-dark);
+      background: rgba(0, 87, 184, .14);
+      box-shadow: 0 4px 14px rgba(0, 87, 184, .15);
+      transform: translateY(-1px);
     }
 
     .nav-trial {
@@ -1078,8 +1090,7 @@
       z-index: 990;
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      padding: 9px 18px 9px 14px;
+      padding: 9px;
       background: rgba(255, 255, 255, 0.72);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
@@ -1094,8 +1105,9 @@
       opacity: 0;
       pointer-events: none;
       transform: translateY(12px);
-      transition: opacity 280ms, transform 280ms, box-shadow 220ms, color 160ms;
-      will-change: transform, opacity
+      transition: opacity 280ms, transform 280ms, box-shadow 220ms, color 160ms, padding 280ms;
+      will-change: transform, opacity;
+      overflow: hidden
     }
 
     #back-to-top.btt-visible {
@@ -1107,7 +1119,8 @@
     #back-to-top:hover {
       transform: translateY(-3px) scale(1.03);
       box-shadow: 0 8px 28px rgba(0, 87, 184, 0.16);
-      color: var(--blue)
+      color: var(--blue);
+      padding: 9px 14px 9px 9px
     }
 
     #back-to-top .btt-arrow {
@@ -1125,6 +1138,21 @@
     #back-to-top:hover .btt-arrow {
       background: var(--blue-dark);
       transform: translateY(-1px)
+    }
+
+    #back-to-top .btt-label {
+      max-width: 0;
+      opacity: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      margin-left: 0;
+      transition: max-width 280ms, opacity 200ms, margin-left 280ms
+    }
+
+    #back-to-top:hover .btt-label {
+      max-width: 150px;
+      opacity: 1;
+      margin-left: 7px
     }
 
     /* ============================================================
@@ -1515,13 +1543,14 @@
       background: #090B0F;
       position: relative;
     }
+
     .s-why::before {
       content: '';
       position: absolute;
       inset: 0;
       background-image:
-        radial-gradient(ellipse 55% 45% at 12% 18%, rgba(59,130,246,.04) 0%, transparent 70%),
-        radial-gradient(ellipse 45% 35% at 88% 80%, rgba(99,102,241,.03) 0%, transparent 70%);
+        radial-gradient(ellipse 55% 45% at 12% 18%, rgba(59, 130, 246, .04) 0%, transparent 70%),
+        radial-gradient(ellipse 45% 35% at 88% 80%, rgba(99, 102, 241, .03) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -1531,8 +1560,14 @@
       position: relative;
       z-index: 1;
     }
-    .why-hd h2 { color: #FFFFFF !important; }
-    .why-hd .body-lg { color: #94A3B8 !important; }
+
+    .why-hd h2 {
+      color: #FFFFFF !important;
+    }
+
+    .why-hd .body-lg {
+      color: #94A3B8 !important;
+    }
 
     .why-grid {
       display: grid;
@@ -1548,9 +1583,9 @@
       border-radius: 20px;
       overflow: hidden;
       cursor: default;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 1px 3px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.4);
-      transition: transform 240ms cubic-bezier(.4,0,.2,1), box-shadow 240ms cubic-bezier(.4,0,.2,1), border-color 240ms ease, opacity 240ms ease;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .3), 0 12px 32px rgba(0, 0, 0, .4);
+      transition: transform 240ms cubic-bezier(.4, 0, .2, 1), box-shadow 240ms cubic-bezier(.4, 0, .2, 1), border-color 240ms ease, opacity 240ms ease;
       isolation: isolate;
       padding: 36px;
       background-color: #0c0e14;
@@ -1562,39 +1597,55 @@
       background-size: 150px 150px, cover, cover;
       background-blend-mode: overlay, normal, normal;
     }
-    .why-card::before, .why-card::after { display: none; }
+
+    .why-card::before,
+    .why-card::after {
+      display: none;
+    }
 
     /* Per-card accent colours */
     .why-card:nth-child(1) {
       --why-accent: #3b82f6;
-      --why-glow-1: rgba(29,78,216,0.45);
-      --why-glow-2: rgba(13,148,136,0.20);
-    }
-    .why-card:nth-child(2) {
-      --why-accent: #22d3ee;
-      --why-glow-1: rgba(6,182,212,0.40);
-      --why-glow-2: rgba(59,130,246,0.15);
-    }
-    .why-card:nth-child(3) {
-      --why-accent: #818cf8;
-      --why-glow-1: rgba(79,70,229,0.45);
-      --why-glow-2: rgba(168,85,247,0.20);
-    }
-    .why-card:nth-child(4) {
-      --why-accent: #2dd4bf;
-      --why-glow-1: rgba(13,148,136,0.45);
-      --why-glow-2: rgba(6,182,212,0.20);
+      --why-glow-1: rgba(29, 78, 216, 0.45);
+      --why-glow-2: rgba(13, 148, 136, 0.20);
     }
 
-    .why-grid:hover .why-card { opacity: .75; }
+    .why-card:nth-child(2) {
+      --why-accent: #22d3ee;
+      --why-glow-1: rgba(6, 182, 212, 0.40);
+      --why-glow-2: rgba(59, 130, 246, 0.15);
+    }
+
+    .why-card:nth-child(3) {
+      --why-accent: #818cf8;
+      --why-glow-1: rgba(79, 70, 229, 0.45);
+      --why-glow-2: rgba(168, 85, 247, 0.20);
+    }
+
+    .why-card:nth-child(4) {
+      --why-accent: #2dd4bf;
+      --why-glow-1: rgba(13, 148, 136, 0.45);
+      --why-glow-2: rgba(6, 182, 212, 0.20);
+    }
+
+    .why-grid:hover .why-card {
+      opacity: .75;
+    }
+
     .why-grid:hover .why-card:hover {
       opacity: 1;
       transform: translateY(-5px);
       border-color: var(--why-accent);
-      box-shadow: 0 4px 12px rgba(0,0,0,.4), 0 20px 48px rgba(0,0,0,.5), 0 0 0 1px var(--why-accent) inset;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .4), 0 20px 48px rgba(0, 0, 0, .5), 0 0 0 1px var(--why-accent) inset;
     }
-    .why-card:hover { background-color: #0f121a; }
-    .why-card:hover .why-title { color: #FFFFFF; }
+
+    .why-card:hover {
+      background-color: #0f121a;
+    }
+
+    .why-card:hover .why-title {
+      color: #FFFFFF;
+    }
 
     .why-icon {
       width: 48px;
@@ -1604,22 +1655,31 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 20px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: 0 4px 12px rgba(0,0,0,.25);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
       position: relative;
     }
+
     .why-icon::before {
       content: '';
       position: absolute;
       inset: 0;
       border-radius: 12px;
-      background: linear-gradient(135deg, rgba(59,130,246,.10) 0%, transparent 65%);
+      background: linear-gradient(135deg, rgba(59, 130, 246, .10) 0%, transparent 65%);
     }
-    .why-icon svg { position: relative; z-index: 1; stroke: var(--why-accent) !important; }
+
+    .why-icon svg {
+      position: relative;
+      z-index: 1;
+      stroke: var(--why-accent) !important;
+    }
 
     /* Hide old colour modifier classes — icon colour now driven by --why-accent */
-    .why-icon-blue, .why-icon-cyan, .why-icon-indigo, .why-icon-teal {}
+    .why-icon-blue,
+    .why-icon-cyan,
+    .why-icon-indigo,
+    .why-icon-teal {}
 
     .why-num {
       font-size: 10px;
@@ -1656,8 +1716,8 @@
 
     .why-chip {
       padding: 4px 12px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--r-pill);
       font-size: 11.5px;
       font-weight: 600;
@@ -1665,9 +1725,10 @@
       letter-spacing: -.005em;
       transition: background 240ms ease, border-color 240ms ease;
     }
+
     .why-card:hover .why-chip {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.12);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.12);
     }
 
     /* PRODUCT TOUR */
@@ -2661,6 +2722,143 @@
       }
 
     }
+
+    /* ---- Who BQS Is For ---- */
+    .s-audience {
+      padding: 96px 0;
+      background: var(--surface)
+    }
+
+    .s-audience .aud-hd {
+      text-align: center;
+      margin-bottom: 56px
+    }
+
+    .aud-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px
+    }
+
+    .aud-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 32px;
+      transition: transform .25s, box-shadow .25s
+    }
+
+    .aud-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .10)
+    }
+
+    .aud-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px
+    }
+
+    .aud-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-1);
+      margin-bottom: 10px
+    }
+
+    .aud-desc {
+      font-size: 15px;
+      color: var(--text-2);
+      line-height: 1.65
+    }
+
+    /* ---- Admin Control section ---- */
+    .s-admin {
+      padding: 24px 0;
+      background: var(--bg)
+    }
+
+    .s-admin .admin-hd {
+      text-align: center;
+      margin-bottom: 48px
+    }
+
+    .admin-subtitle {
+      font-size: 17px;
+      color: var(--text-2);
+      max-width: 640px;
+      margin: 16px auto 0;
+      line-height: 1.7
+    }
+
+    .admin-cols {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      margin-top: 48px
+    }
+
+    .admin-col {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px
+    }
+
+    .admin-col-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 18px
+    }
+
+    .admin-col-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-1);
+      margin-bottom: 12px
+    }
+
+    .admin-col-list {
+      list-style: none;
+      padding: 0;
+      margin: 0
+    }
+
+    .admin-col-list li {
+      font-size: 14px;
+      color: var(--text-2);
+      padding: 5px 0;
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.55
+    }
+
+    .admin-col-list li::before {
+      content: "·";
+      position: absolute;
+      left: 4px;
+      color: var(--blue);
+      font-size: 18px;
+      top: -1px
+    }
+
+    @media(max-width:640px) {
+
+      .s-audience,
+      .s-admin {
+        padding: 64px 0
+      }
+    }
   </style>
 </head>
 
@@ -2831,54 +3029,42 @@
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="hero-grid" aria-hidden="true"></div>
 
-      <!-- <div class="bqs-hero-content">
-    <div class="bqs-hero-badge">
-      <span class="bqs-badge-pill">BQS</span>
-      Enterprise Bunker Survey Platform
-    </div>
-    <h1 class="bqs-h1" id="bqs-h1">
-      Manage Every Bunker Survey.<br>
-      <span class="grad-text">From Planning to Final Report.</span>
-    </h1>
-    <p class="bqs-hero-sub">
-      MaritimeConnect360's BQS gives ship owners, managers and marine surveyors one centralized enterprise platform to create, track and publish every bunker quantity survey across the entire fleet.
-    </p>
-    <div class="bqs-hero-ctas">
-      <a href="#" class="btn btn-primary btn-lg" id="hero-trial-btn">
-        Start Free Trial
-        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M7.5 1.5l6 6-6 6M13.5 7.5H1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <a href="#" class="btn btn-outline btn-lg" id="hero-demo-btn">Book Demo</a>
-    </div>
-    <div class="bqs-hero-proof">
-      <span>No credit card required</span>
-      <span class="proof-div" aria-hidden="true"></span>
-      <span>30-day free trial</span>
-      <span class="proof-div" aria-hidden="true"></span>
-      <span>Setup in 24 hours</span>
-    </div>
-  </div> -->
+      <div class="bqs-hero-content">
+        <div class="bqs-hero-badge">
+          <span class="bqs-badge-pill">BQS</span>
+          Digitalise Custody Transfer, Eliminate Bunker Shortages, and Enforce Loss Control
+        </div>
+        <h1 class="bqs-h1" id="bqs-h1">
+          Manage Every Bunker Survey.<br>
+          <span class="grad-text">From Planning to Final Report.</span>
+        </h1>
+        <p class="bqs-hero-sub">
+          Fuel costs represent up to 60% of a vessel's operating budget, and even minor volume, density, or temperature
+          discrepancies cause major financial loss or engine damage. BQS acts as "cheap insurance" that protects the
+          operating budget, verifies delivered quantity, and identifies product diversion.
+        </p>
+        <div class="bqs-hero-ctas">
+          <a href="#" class="btn btn-primary btn-lg" id="hero-trial-btn">
+            Start Free Trial
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
+              <path d="M7.5 1.5l6 6-6 6M13.5 7.5H1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+          <a href="#" class="btn btn-secondary btn-lg" id="hero-demo-btn">Book Demo</a>
+        </div>
+        <div class="bqs-hero-proof">
+          <span>No credit card required</span>
+          <span class="proof-div" aria-hidden="true"></span>
+          <span>30-day free trial</span>
+          <span class="proof-div" aria-hidden="true"></span>
+          <span>End-to-end custody transfer</span>
+        </div>
+      </div>
 
       <!-- Hero Video -->
       <div class="bqs-hero-visual">
         <div class="bqs-hero-visual-inner">
-          <!-- Floating stats -->
-          <!-- <div class="bqs-float bqs-float-a" aria-hidden="true">
-        <div class="fc-tag">⚡ Surveys This Month</div>
-        <div class="fc-value">142</div>
-        <div class="fc-sub" style="color:var(--green);font-weight:600">↑ 23% from last month</div>
-      </div> -->
-          <!-- <div class="bqs-float bqs-float-b" aria-hidden="true">
-        <div class="fc-tag">✓ Fleet Completion Rate</div>
-        <div class="fc-value" style="color:var(--green)">98.6%</div>
-        <div class="fc-sub">Across all vessels</div>
-      </div>
-      <div class="bqs-float bqs-float-c" aria-hidden="true">
-        <div class="fc-stat-val">73%</div>
-        <div class="fc-stat-lbl">Faster Reporting</div>
-        <div class="fc-stat-badge">vs. manual process</div>
-      </div> -->
-
           <!-- Browser frame -->
           <div class="browser">
             <div class="browser-chrome">
@@ -2954,10 +3140,10 @@
     <section class="s-why" id="why-bqs" aria-labelledby="why-h2">
       <div class="container">
         <div class="why-hd reveal">
-          <div class="eyebrow eyebrow-dark"><span class="eyebrow-dot"></span>Why Choose BQS</div>
-          <h2 class="display-md" id="why-h2">The enterprise survey platform<br>built for maritime.</h2>
-          <p class="body-lg" style="color:#94A3B8;max-width:520px;margin:18px auto 0">Replace manual processes and
-            disconnected spreadsheets with a structured, standardized workflow that scales with your fleet.</p>
+          <div class="eyebrow eyebrow-dark"><span class="eyebrow-dot"></span>Key Challenges BQS Resolves</div>
+          <h2 class="display-md" id="why-h2">Eliminate critical risks in bunker operations.</h2>
+          <p class="body-lg" style="color:#94A3B8;max-width:520px;margin:18px auto 0">BQS directly targets and resolves
+            the primary custody transfer discrepancies, machinery hazards, and supplier disputes faced by operators.</p>
         </div>
         <div class="why-grid">
           <div class="why-card reveal d1">
@@ -2969,49 +3155,49 @@
                 <path d="M12 12v4M10 14h4" />
               </svg>
             </div>
-            <div class="why-num">01 — Why BQS</div>
-            <h3 class="why-title">Enterprise Workflow</h3>
-            <p class="why-desc">Structured, role-based workflows from survey creation through final report publication.
-              Every step is defined, tracked, and documented automatically — no manual follow-ups, no lost data.</p>
+            <div class="why-num">01 — Challenge</div>
+            <h3 class="why-title">Reconciling Ship-to-Shore Losses</h3>
+            <p class="why-desc">Instantly identifies cargo or fuel losses where there is an unaccountable gain or
+              unreconciled difference between the vessel and the supplying barge.</p>
             <div class="why-chips">
-              <span class="why-chip">Role-based access</span><span class="why-chip">Audit trail</span><span
-                class="why-chip">Multi-step approval</span>
+              <span class="why-chip">Unaccountable Gain</span>
+              <span class="why-chip">Barge vs Vessel</span>
+              <span class="why-chip">Loss Control</span>
             </div>
           </div>
           <div class="why-card reveal d2">
             <div class="why-icon why-icon-cyan">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
               </svg>
             </div>
-            <div class="why-num">02 — Why BQS</div>
-            <h3 class="why-title">Multi-Vessel Management</h3>
-            <p class="why-desc">Manage surveys across your entire fleet simultaneously from a single dashboard. Track
-              every active survey, assign surveyors, and view consolidated fleet-wide reports — regardless of fleet
-              size.</p>
+            <div class="why-num">02 — Challenge</div>
+            <h3 class="why-title">Protecting Machinery from Off-Spec Fuel</h3>
+            <p class="why-desc">Captures, records, and limits laboratory test parameters for fuel density, water
+              content, and kinematic viscosity to prevent critical engine and boiler damage.</p>
             <div class="why-chips">
-              <span class="why-chip">Fleet dashboard</span><span class="why-chip">Bulk assignment</span><span
-                class="why-chip">Fleet analytics</span>
+              <span class="why-chip">Fuel Density</span>
+              <span class="why-chip">Water Content</span>
+              <span class="why-chip">Kinematic Viscosity</span>
             </div>
           </div>
           <div class="why-card reveal d3">
             <div class="why-icon why-icon-indigo">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4338CA" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
               </svg>
             </div>
-            <div class="why-num">03 — Why BQS</div>
-            <h3 class="why-title">Faster Reporting</h3>
-            <p class="why-desc">Generate preliminary and final survey reports in minutes, not days. Auto-populated
-              templates, digital approvals, and one-click PDF distribution reduce report turnaround time by 73%.</p>
+            <div class="why-num">03 — Challenge</div>
+            <h3 class="why-title">Preventing Supplier Product Diversion</h3>
+            <p class="why-desc">Combats fuel theft and unauthorised fuel movement by auditing non-cargo spaces on
+              supplying barges before and after delivery.</p>
             <div class="why-chips">
-              <span class="why-chip">Auto-generated PDFs</span><span class="why-chip">Email distribution</span><span
-                class="why-chip">73% faster</span>
+              <span class="why-chip">Barge Auditing</span>
+              <span class="why-chip">Non-Cargo Tanks</span>
+              <span class="why-chip">Theft Prevention</span>
             </div>
           </div>
           <div class="why-card reveal d4">
@@ -3025,14 +3211,14 @@
                 <polyline points="10 9 9 9 8 9" />
               </svg>
             </div>
-            <div class="why-num">04 — Why BQS</div>
-            <h3 class="why-title">Standardized Surveys</h3>
-            <p class="why-desc">Pre-configured templates ensure every survey follows the same rigorous methodology.
-              Eliminate errors, inconsistencies and disputes with fully standardized data capture across every vessel in
-              your fleet.</p>
+            <div class="why-num">04 — Challenge</div>
+            <h3 class="why-title">Dispute Mitigation</h3>
+            <p class="why-desc">Instantly generates legally binding Statements of Fact (SOF) and Notes of Protest (NOP)
+              when fuel shortages, sampling issues, blending, or line-cleaning disputes occur.</p>
             <div class="why-chips">
-              <span class="why-chip">Survey templates</span><span class="why-chip">Data validation</span><span
-                class="why-chip">IMO compliant</span>
+              <span class="why-chip">Statement of Facts</span>
+              <span class="why-chip">Note of Protest</span>
+              <span class="why-chip">Legally Binding</span>
             </div>
           </div>
         </div>
@@ -3097,8 +3283,8 @@
                     complete audit trail</span>
                 </div>
                 <div class="tour-benefit">
-                  <div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Role-based access control for
-                    enterprise teams</span>
+                  <div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Administrator-managed master
+                    directories for rapid field entry</span>
                 </div>
               </div>
               <a href="#" class="btn btn-primary">Start Free Trial →</a>
@@ -3291,23 +3477,22 @@
                 re-entry and discrepancies.</p>
               <div class="tour-benefits">
                 <div class="tour-benefit">
-                  <div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Complete vessel registry with
-                    full specifications</span>
+                  <div class="tour-benefit-check">✓</div><span class="tour-benefit-text"><strong>Master
+                      Directories:</strong> Pre-configure clients, vessels, bunker tankers (barges), suppliers, cargo
+                    officers, captains, and chief engineers.</span>
                 </div>
                 <div class="tour-benefit">
-                  <div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Tank configurations and
-                    calibration tables</span>
+                  <div class="tour-benefit-check">✓</div><span class="tour-benefit-text"><strong>Fuel Grade
+                      Settings:</strong> Pre-configure density benchmarks and viscosity values.</span>
                 </div>
                 <div class="tour-benefit">
-                  <div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Port and berth database</span>
+                  <div class="tour-benefit-check">✓</div><span class="tour-benefit-text"><strong>Time Log
+                      Activities:</strong> Define mandatory chronology activities to enforce standardized
+                    tracking.</span>
                 </div>
                 <div class="tour-benefit">
-                  <div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Surveyor profiles and
-                    certifications</span>
-                </div>
-                <div class="tour-benefit">
-                  <div class="tour-benefit-check">✓</div><span class="tour-benefit-text">Single source of truth for all
-                    reference data</span>
+                  <div class="tour-benefit-check">✓</div><span class="tour-benefit-text"><strong>Vessel &amp; Tank
+                      Calibration:</strong> Upload tank configurations and calibration tables.</span>
                 </div>
               </div>
               <a href="#" class="btn btn-primary">Explore Master Data →</a>
@@ -3397,117 +3582,92 @@
       <div class="container">
         <div class="workflow-hd reveal">
           <div class="eyebrow eyebrow-dark"><span class="eyebrow-dot"></span>Survey Workflow</div>
-          <h2 class="display-md" id="workflow-h2" style="color:#fff">From master data to<br><span
-              style="background:linear-gradient(135deg,#00B4D8,#90E0EF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">shared
-              report</span> — fully structured.</h2>
+          <h2 class="display-md" id="workflow-h2" style="color:#fff">From initial setup to<br><span
+              style="background:linear-gradient(135deg,#00B4D8,#90E0EF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">final
+              publication</span> — fully structured.</h2>
           <p class="body-lg" style="color:var(--text-inv-dim);max-width:520px;margin:18px auto 0">Every bunker quantity
-            survey follows a consistent, traceable 8-step workflow. No steps skipped. No data lost. Every action
-            documented.</p>
+            survey follows a consistent, traceable 6-stage operational sequence. No steps skipped. No data lost.</p>
         </div>
         <div class="workflow-timeline">
 
           <div class="workflow-step reveal d1">
             <div class="workflow-step-left">
-              <div class="wf-circle">🗃️</div>
-              <div class="wf-line"></div>
-            </div>
-            <div class="wf-body">
-              <div class="wf-step-num">Step 01</div>
-              <div class="wf-step-title">Master Data</div>
-              <div class="wf-step-desc">Configure vessel specifications, tank calibration tables, port data, and
-                surveyor profiles — the foundation of every accurate, consistent survey.</div>
-            </div>
-          </div>
-
-          <div class="workflow-step reveal d2">
-            <div class="workflow-step-left">
               <div class="wf-circle">📝</div>
               <div class="wf-line"></div>
             </div>
             <div class="wf-body">
-              <div class="wf-step-num">Step 02</div>
-              <div class="wf-step-title">Create Survey</div>
-              <div class="wf-step-desc">Initiate a new survey using pre-configured templates. Vessel and port data are
-                auto-populated. Set the survey date, port of call, and delivery parameters in minutes.</div>
+              <div class="wf-step-num">Stage 01</div>
+              <div class="wf-step-title">Create Survey <span
+                  style="display:inline-flex; align-items:center; padding: 2px 8px; font-size: 11px; font-weight: 700; border-radius: 12px; background: rgba(0, 87, 184, 0.12); color: var(--blue); border: 1px solid rgba(0, 87, 184, 0.2); text-transform: uppercase; margin-left: 8px; vertical-align: middle; height: 18px; line-height: 1;">OPEN</span>
+              </div>
+              <div class="wf-step-desc">Nominate fuel grades (supports up to 3 grades) and assign the designated Attend
+                Surveyor to initialize the survey record.</div>
             </div>
           </div>
 
-          <div class="workflow-step reveal d3">
-            <div class="workflow-step-left">
-              <div class="wf-circle">👤</div>
-              <div class="wf-line"></div>
-            </div>
-            <div class="wf-body">
-              <div class="wf-step-num">Step 03</div>
-              <div class="wf-step-title">Assign Surveyor</div>
-              <div class="wf-step-desc">Assign the designated marine surveyor from your certified roster. The surveyor
-                receives an automatic email notification with full survey details and secure access credentials.</div>
-            </div>
-          </div>
-
-          <div class="workflow-step reveal d4">
+          <div class="workflow-step reveal d2">
             <div class="workflow-step-left">
               <div class="wf-circle">⚓</div>
               <div class="wf-line"></div>
             </div>
             <div class="wf-body">
-              <div class="wf-step-num">Step 04</div>
-              <div class="wf-step-title">Execute Survey</div>
-              <div class="wf-step-desc">The surveyor conducts the bunker quantity measurement using structured digital
-                forms. All readings, calculations, and observations are captured in real time — no paper, no re-entry.
-              </div>
-            </div>
-          </div>
-
-          <div class="workflow-step reveal d5">
-            <div class="workflow-step-left">
-              <div class="wf-circle">📊</div>
-              <div class="wf-line"></div>
-            </div>
-            <div class="wf-body">
-              <div class="wf-step-num">Step 05</div>
-              <div class="wf-step-title">Track Progress</div>
-              <div class="wf-step-desc">Operations managers and ship owners monitor every survey in real time from the
-                ongoing surveys dashboard. Status updates, completion percentages, and delay alerts — all live.</div>
-            </div>
-          </div>
-
-          <div class="workflow-step reveal d1">
-            <div class="workflow-step-left">
-              <div class="wf-circle">📄</div>
-              <div class="wf-line"></div>
-            </div>
-            <div class="wf-body">
-              <div class="wf-step-num">Step 06</div>
-              <div class="wf-step-title">Generate Report</div>
-              <div class="wf-step-desc">The platform automatically generates a professionally formatted preliminary
-                report from all survey data. Review, annotate, and approve before final publication.</div>
-            </div>
-          </div>
-
-          <div class="workflow-step reveal d2">
-            <div class="workflow-step-left">
-              <div class="wf-circle">✅</div>
-              <div class="wf-line"></div>
-            </div>
-            <div class="wf-body">
-              <div class="wf-step-num">Step 07</div>
-              <div class="wf-step-title">Publish Survey</div>
-              <div class="wf-step-desc">Once approved, the survey is published to the centralized repository. The final
-                report is locked, timestamped, and added to the vessel's permanent digital survey record.</div>
+              <div class="wf-step-num">Stage 02</div>
+              <div class="wf-step-title">Field Inspection</div>
+              <div class="wf-step-desc">Conduct Remaining On-Board (ROB) assessments, complete mandatory safety
+                checklists, and record opening soundings on supplying barge (BTMR) and vessel (VMR).</div>
             </div>
           </div>
 
           <div class="workflow-step reveal d3">
             <div class="workflow-step-left">
-              <div class="wf-circle">📧</div>
+              <div class="wf-circle">⏱️</div>
+              <div class="wf-line"></div>
             </div>
             <div class="wf-body">
-              <div class="wf-step-num">Step 08</div>
-              <div class="wf-step-title">Share Report</div>
-              <div class="wf-step-desc">Distribute the final report via automated email to all designated recipients —
-                ship owners, charterers, P&amp;I clubs, operators, and any other stakeholders — with delivery
-                confirmation.</div>
+              <div class="wf-step-num">Stage 03</div>
+              <div class="wf-step-title">Bunkering Logs</div>
+              <div class="wf-step-desc">Log time-events, pumping rate pressures, manifold pressures, and track manifolds
+                representative samples throughout custody transfer.</div>
+            </div>
+          </div>
+
+          <div class="workflow-step reveal d4">
+            <div class="workflow-step-left">
+              <div class="wf-circle">📊</div>
+              <div class="wf-line"></div>
+            </div>
+            <div class="wf-body">
+              <div class="wf-step-num">Stage 04</div>
+              <div class="wf-step-title">Close soundings</div>
+              <div class="wf-step-desc">Compare opening and closing sounding readings, applying draft/trim/list
+                corrections and ASTM volume calculations.</div>
+            </div>
+          </div>
+
+          <div class="workflow-step reveal d5">
+            <div class="workflow-step-left">
+              <div class="wf-circle">⚖️</div>
+              <div class="wf-line"></div>
+            </div>
+            <div class="wf-body">
+              <div class="wf-step-num">Stage 05</div>
+              <div class="wf-step-title">Out-turn & NOP</div>
+              <div class="wf-step-desc">Compare out-turn calculations (Vessel received vs. Barge supplied vs. BDN
+                quantity) and instantly generate Statement of Facts (SOF) or official Note of Protest (NOP).</div>
+            </div>
+          </div>
+
+          <div class="workflow-step reveal d1">
+            <div class="workflow-step-left">
+              <div class="wf-circle">✉️</div>
+            </div>
+            <div class="wf-body">
+              <div class="wf-step-num">Stage 06</div>
+              <div class="wf-step-title">Admin Publish <span
+                  style="display:inline-flex; align-items:center; padding: 2px 8px; font-size: 11px; font-weight: 700; border-radius: 12px; background: rgba(5, 150, 105, 0.12); color: var(--green); border: 1px solid rgba(5, 150, 105, 0.2); text-transform: uppercase; margin-left: 8px; vertical-align: middle; height: 18px; line-height: 1;">PUBLISHED</span>
+              </div>
+              <div class="wf-step-desc">The onshore operations office conducts administrative reviews, publishes the
+                final certified survey report, and automatically emails it to the buyer.</div>
             </div>
           </div>
 
@@ -3522,9 +3682,9 @@
       <div class="container">
         <div class="feature-hd reveal">
           <div class="eyebrow"><span class="eyebrow-dot"></span>Feature Deep Dive</div>
-          <h2 class="display-md" id="features-h2">Every feature built for<br>maritime professionals.</h2>
+          <h2 class="display-md" id="features-h2">Every capability built for<br>maritime professionals.</h2>
           <p class="body-lg" style="color:var(--text-2);max-width:520px;margin:18px auto 0">Designed specifically for
-            ship owners, ship managers, and marine surveyors — not a generic form builder adapted for maritime.</p>
+            ship owners, managers, and marine surveyors — a robust, audit-ready operational system.</p>
         </div>
 
         <!-- Feature 1 — Image Left -->
@@ -3540,10 +3700,10 @@
                 <div class="b-url"><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                     <rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1" />
                     <path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1" />
-                  </svg>app.mc360.io/bqs/create</div>
+                  </svg>app.mc360.io/bqs/pre-survey</div>
               </div>
               <div class="browser-screenshot img-lightbox-trigger" data-lightbox="assets/BQS/Create survey.png">
-                <img src="assets/BQS/Create survey.png" alt="Smart Survey Creation" loading="lazy">
+                <img src="assets/BQS/Create survey.png" alt="Guided Pre-Survey & Safety Checklists" loading="lazy">
               </div>
             </div>
             <div class="feature-glow feature-glow-1"></div>
@@ -3551,37 +3711,26 @@
           <div class="feature-copy">
             <div class="feature-eyebrow-row">
               <div class="feature-num">01</div>
-              <span class="feature-eyebrow-text">Smart Survey Creation</span>
+              <span class="feature-eyebrow-text">Guided Pre-Survey & Safety</span>
             </div>
-            <h3 class="feature-title">Create any bunker survey in minutes, not hours.</h3>
-            <p class="feature-desc">Eliminate blank-form surveys and manual data entry. BQS pre-populates forms using
-              your master data — vessel specs, port details, and measurement parameters — so surveyors focus on the
-              measurement, not the paperwork.</p>
+            <h3 class="feature-title">Enforce compliance and safety at the manifold.</h3>
+            <p class="feature-desc">Ensure complete pre-delivery alignment and safety verification before any fuel
+              starts pumping. BQS logs sequences and guides crucial cautions directly at the scene.</p>
             <div class="feature-benefits">
               <div class="feature-benefit">
                 <div class="feature-benefit-check">✓</div>
-                <div class="feature-benefit-text"><strong>Template-based creation</strong>Pre-configured survey
-                  templates for different vessel types and measurement methods ensure every survey follows the same
-                  rigorous methodology.</div>
+                <div class="feature-benefit-text"><strong>Operational Sequence Control</strong>Digitally logs the
+                  bunkering tank sequence, nominated fuel grades (supports up to 3 grades), requested manifold
+                  pressures, and pumping rates.</div>
               </div>
               <div class="feature-benefit">
                 <div class="feature-benefit-check">✓</div>
-                <div class="feature-benefit-text"><strong>Auto-populated data fields</strong>Vessel specifications, tank
-                  configurations, and port parameters are automatically populated from your centralized master data.
-                </div>
-              </div>
-              <div class="feature-benefit">
-                <div class="feature-benefit-check">✓</div>
-                <div class="feature-benefit-text"><strong>Instant surveyor assignment</strong>Assign certified surveyors
-                  from your roster with automated email notification and immediate access provisioning.</div>
-              </div>
-              <div class="feature-benefit">
-                <div class="feature-benefit-check">✓</div>
-                <div class="feature-benefit-text"><strong>Built-in validation</strong>Multi-step validation prevents
-                  incomplete or inconsistent data from progressing through the workflow.</div>
+                <div class="feature-benefit-text"><strong>Interactive Caution & Safety Checklist</strong>Enforces safety
+                  by recording whether the Chief Engineer was formally advised against pre-signing delivery documents or
+                  making internal fuel transfers during custody transfer.</div>
               </div>
             </div>
-            <a href="#" class="btn btn-outline">Explore Survey Creation →</a>
+            <a href="#" class="btn btn-outline">Explore Pre-Survey Features →</a>
           </div>
         </div>
 
@@ -3598,10 +3747,10 @@
                 <div class="b-url"><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                     <rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1" />
                     <path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1" />
-                  </svg>app.mc360.io/bqs/ongoing</div>
+                  </svg>app.mc360.io/bqs/vmr</div>
               </div>
               <div class="browser-screenshot img-lightbox-trigger" data-lightbox="assets/BQS/Ongoing serveys.png">
-                <img src="assets/BQS/Ongoing serveys.png" alt="Ongoing Survey Tracking" loading="lazy">
+                <img src="assets/BQS/Ongoing serveys.png" alt="Vessel Measurement & ROB Assessment" loading="lazy">
               </div>
             </div>
             <div class="feature-glow feature-glow-2"></div>
@@ -3609,35 +3758,30 @@
           <div class="feature-copy">
             <div class="feature-eyebrow-row">
               <div class="feature-num">02</div>
-              <span class="feature-eyebrow-text">Ongoing Survey Tracking</span>
+              <span class="feature-eyebrow-text">Precision Vessel Measurement (VMR)</span>
             </div>
-            <h3 class="feature-title">Real-time visibility across every active survey.</h3>
-            <p class="feature-desc">Stop chasing updates by phone and email. The ongoing surveys dashboard gives you a
-              live view of every survey in progress across your entire fleet — status indicators, completion
-              percentages, and instant alerts.</p>
+            <h3 class="feature-title">Verify exact ROB quantities with ASTM-certified accuracy.</h3>
+            <p class="feature-desc">Eliminate manual calculation errors. The Vessel Measurement Report automatically
+              applies correction tables for accurate volume assessments.</p>
             <div class="feature-benefits">
               <div class="feature-benefit">
                 <div class="feature-benefit-check">✓</div>
-                <div class="feature-benefit-text"><strong>Live fleet-wide dashboard</strong>See all active surveys
-                  across every vessel in a single consolidated view, with real-time status updates.</div>
+                <div class="feature-benefit-text"><strong>Remaining On-Board (ROB) Assessment</strong>Captures exact
+                  arrival quantities of fuel oil, gas oil, diesel, lubes, sludge, and sediment.</div>
               </div>
               <div class="feature-benefit">
                 <div class="feature-benefit-check">✓</div>
-                <div class="feature-benefit-text"><strong>Progress indicators</strong>Track completion percentage,
-                  current workflow step, and time elapsed for every survey in progress.</div>
+                <div class="feature-benefit-text"><strong>Dynamic Tank Corrections</strong>Integrates drafts, trim,
+                  list, and sea state to automatically apply volume and weight correction factors using ASTM tables.
+                </div>
               </div>
               <div class="feature-benefit">
                 <div class="feature-benefit-check">✓</div>
-                <div class="feature-benefit-text"><strong>Automated delay alerts</strong>Receive instant notifications
-                  when surveys fall behind schedule or require management attention.</div>
-              </div>
-              <div class="feature-benefit">
-                <div class="feature-benefit-check">✓</div>
-                <div class="feature-benefit-text"><strong>Advanced filtering</strong>Filter by vessel, port, surveyor,
-                  date range, or status to find exactly what you need instantly.</div>
+                <div class="feature-benefit-text"><strong>Automatic Out-Turn Calculation</strong>Measures opening and
+                  closing tank readings to calculate the precise net bunker quantity received by the vessel.</div>
               </div>
             </div>
-            <a href="#" class="btn btn-outline">Explore Survey Tracking →</a>
+            <a href="#" class="btn btn-outline">Explore ROB Assessments →</a>
           </div>
         </div>
 
@@ -3654,10 +3798,10 @@
                 <div class="b-url"><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                     <rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1" />
                     <path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1" />
-                  </svg>app.mc360.io/bqs/master-data</div>
+                  </svg>app.mc360.io/bqs/barge</div>
               </div>
               <div class="browser-screenshot img-lightbox-trigger" data-lightbox="assets/BQS/Master Details.png">
-                <img src="assets/BQS/Master Details.png" alt="Master Data Management" loading="lazy">
+                <img src="assets/BQS/Master Details.png" alt="Supplying Barge Auditing" loading="lazy">
               </div>
             </div>
             <div class="feature-glow feature-glow-1"></div>
@@ -3665,35 +3809,26 @@
           <div class="feature-copy">
             <div class="feature-eyebrow-row">
               <div class="feature-num">03</div>
-              <span class="feature-eyebrow-text">Master Data Management</span>
+              <span class="feature-eyebrow-text">Barge Auditing (BTMR &amp; Barge-NC)</span>
             </div>
-            <h3 class="feature-title">One centralized source of truth for all survey data.</h3>
-            <p class="feature-desc">Accurate surveys require accurate reference data. BQS centralizes all vessel
-              specifications, tank calibration tables, port databases, and surveyor credentials — eliminating
-              inconsistencies that cause disputes.</p>
+            <h3 class="feature-title">Verify dispatched volumes and audit non-cargo spaces.</h3>
+            <p class="feature-desc">Perform robust audits of the supplying barge before and after delivery to ensure all
+              fuel is fully accounted for and supplier diversion is prevented.</p>
             <div class="feature-benefits">
               <div class="feature-benefit">
                 <div class="feature-benefit-check">✓</div>
-                <div class="feature-benefit-text"><strong>Complete vessel registry</strong>Full vessel specifications
-                  including IMO number, flag, vessel type, and tank configurations for every ship in your fleet.</div>
+                <div class="feature-benefit-text"><strong>Barge Measurement Reports (BTMR)</strong>Records opening and
+                  closing barge tank soundings, temperatures, and density readings to verify the quantity dispatched
+                  from the supplier.</div>
               </div>
               <div class="feature-benefit">
                 <div class="feature-benefit-check">✓</div>
-                <div class="feature-benefit-text"><strong>Tank calibration tables</strong>Store and manage calibration
-                  tables for each vessel's tanks, ensuring measurement accuracy and consistency.</div>
-              </div>
-              <div class="feature-benefit">
-                <div class="feature-benefit-check">✓</div>
-                <div class="feature-benefit-text"><strong>Port and berth database</strong>Comprehensive port and berth
-                  data for accurate location-based survey setup across all ports of call.</div>
-              </div>
-              <div class="feature-benefit">
-                <div class="feature-benefit-check">✓</div>
-                <div class="feature-benefit-text"><strong>Surveyor certification tracking</strong>Maintain surveyor
-                  profiles, certifications, and availability for accurate assignment and compliance.</div>
+                <div class="feature-benefit-text"><strong>Non-Cargo Tank Declarations (Barge-NC)</strong>Audits ballast
+                  tanks, void spaces, and bilges on the barge before and after delivery to ensure no fuel is diverted.
+                </div>
               </div>
             </div>
-            <a href="#" class="btn btn-outline">Explore Master Data →</a>
+            <a href="#" class="btn btn-outline">Explore Barge Auditing →</a>
           </div>
         </div>
 
@@ -3710,10 +3845,10 @@
                 <div class="b-url"><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                     <rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1" />
                     <path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1" />
-                  </svg>app.mc360.io/bqs/published</div>
+                  </svg>app.mc360.io/bqs/pathway</div>
               </div>
               <div class="browser-screenshot img-lightbox-trigger" data-lightbox="assets/BQS/Published Surveys.png">
-                <img src="assets/BQS/Published Surveys.png" alt="Published Survey Repository" loading="lazy">
+                <img src="assets/BQS/Published Surveys.png" alt="Dual Bunkering Pathways" loading="lazy">
               </div>
             </div>
             <div class="feature-glow feature-glow-2"></div>
@@ -3721,35 +3856,25 @@
           <div class="feature-copy">
             <div class="feature-eyebrow-row">
               <div class="feature-num">04</div>
-              <span class="feature-eyebrow-text">Published Reports</span>
+              <span class="feature-eyebrow-text">Mass Flow Meter &amp; Conventional Pathways</span>
             </div>
-            <h3 class="feature-title">Your complete survey history — searchable, secure, always available.</h3>
-            <p class="feature-desc">Published surveys are permanently stored in a secure, organized repository with full
-              audit trails. Find any survey instantly, download the PDF, or share it with any stakeholder — from
-              anywhere, at any time.</p>
+            <h3 class="feature-title">Seamlessly supports modern MFM and manual soundings.</h3>
+            <p class="feature-desc">BQS automatically routes calculation workflows depending on whether the bunker
+              delivery uses Mass Flow Metering or Conventional Soundings.</p>
             <div class="feature-benefits">
               <div class="feature-benefit">
                 <div class="feature-benefit-check">✓</div>
-                <div class="feature-benefit-text"><strong>Enterprise-grade archive</strong>Secure, organized storage for
-                  every published survey with multi-level role-based access controls.</div>
+                <div class="feature-benefit-text"><strong>Modern MFM Tracking</strong>Records forward/reverse mass
+                  inventory readings, flowmeter types, and seal registration numbers.</div>
               </div>
               <div class="feature-benefit">
                 <div class="feature-benefit-check">✓</div>
-                <div class="feature-benefit-text"><strong>Advanced search and filtering</strong>Find any survey by
-                  vessel, date, port, surveyor, or any combination of parameters instantly.</div>
-              </div>
-              <div class="feature-benefit">
-                <div class="feature-benefit-check">✓</div>
-                <div class="feature-benefit-text"><strong>Instant PDF download</strong>Download professionally formatted
-                  survey reports on demand for any published survey.</div>
-              </div>
-              <div class="feature-benefit">
-                <div class="feature-benefit-check">✓</div>
-                <div class="feature-benefit-text"><strong>Immutable audit trail</strong>Every published survey is locked
-                  with a timestamp, ensuring data integrity for dispute resolution and audits.</div>
+                <div class="feature-benefit-text"><strong>Dual Calculation Workflows</strong>Automatically routes
+                  calculations based on delivery type (MFM vs. Conventional Manual Sounding) to generate appropriate
+                  out-turn metrics.</div>
               </div>
             </div>
-            <a href="#" class="btn btn-outline">Explore Repository →</a>
+            <a href="#" class="btn btn-outline">Explore Pathway Workflows →</a>
           </div>
         </div>
 
@@ -3766,10 +3891,10 @@
                 <div class="b-url"><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                     <rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1" />
                     <path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1" />
-                  </svg>app.mc360.io/bqs/reports</div>
+                  </svg>app.mc360.io/bqs/sampling</div>
               </div>
               <div class="browser-screenshot img-lightbox-trigger" data-lightbox="assets/BQS/Prelim report survey.png">
-                <img src="assets/BQS/Prelim report survey.png" alt="Report Distribution" loading="lazy">
+                <img src="assets/BQS/Prelim report survey.png" alt="Sampling and Seal Management" loading="lazy">
               </div>
             </div>
             <div class="feature-glow feature-glow-1"></div>
@@ -3777,35 +3902,118 @@
           <div class="feature-copy">
             <div class="feature-eyebrow-row">
               <div class="feature-num">05</div>
-              <span class="feature-eyebrow-text">Report Distribution</span>
+              <span class="feature-eyebrow-text">Rigorous Sampling Controls</span>
             </div>
-            <h3 class="feature-title">Professional reports distributed automatically.</h3>
-            <p class="feature-desc">Eliminate manual report distribution forever. BQS automatically generates
-              professionally formatted preliminary and final reports and distributes them to all designated recipients
-              the moment a survey is complete.</p>
+            <h3 class="feature-title">Secure custody transfer chain with complete seal logging.</h3>
+            <p class="feature-desc">Ensure complete accountability by tracking physical manifold representative samples
+              and the registration of physical seals across all stakeholders.</p>
             <div class="feature-benefits">
               <div class="feature-benefit">
                 <div class="feature-benefit-check">✓</div>
-                <div class="feature-benefit-text"><strong>Preliminary report generation</strong>Instant preliminary
-                  report available as soon as survey data entry is complete, for immediate stakeholder review.</div>
+                <div class="feature-benefit-text"><strong>Manifold Collection Logs</strong>Records primary
+                  representative sample collection at the point of custody transfer (manifold).</div>
               </div>
               <div class="feature-benefit">
                 <div class="feature-benefit-check">✓</div>
-                <div class="feature-benefit-text"><strong>Automated email distribution</strong>Configure recipient lists
-                  and the platform handles all distribution automatically on survey publication.</div>
-              </div>
-              <div class="feature-benefit">
-                <div class="feature-benefit-check">✓</div>
-                <div class="feature-benefit-text"><strong>IMO-compliant formatting</strong>All reports follow
-                  standardized maritime survey formats accepted by classification societies and regulators.</div>
-              </div>
-              <div class="feature-benefit">
-                <div class="feature-benefit-check">✓</div>
-                <div class="feature-benefit-text"><strong>Multi-stakeholder distribution</strong>Send to owners,
-                  charterers, P&amp;I clubs, and any party — with delivery confirmation for every recipient.</div>
+                <div class="feature-benefit-text"><strong>Distribution &amp; Seal Management</strong>Manages seal
+                  numbers and distribution lists across ship, barge, surveyor, and laboratory subdivisions.</div>
               </div>
             </div>
-            <a href="#" class="btn btn-outline">See Reporting Features →</a>
+            <a href="#" class="btn btn-outline">Explore Sampling Controls →</a>
+          </div>
+        </div>
+
+        <!-- Feature 6 — Text Left (reversed) -->
+        <div class="feature-section alt reveal">
+          <div class="feature-visual">
+            <div class="browser">
+              <div class="browser-chrome">
+                <div class="b-dots">
+                  <div class="b-dot"></div>
+                  <div class="b-dot"></div>
+                  <div class="b-dot"></div>
+                </div>
+                <div class="b-url"><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1" />
+                    <path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1" />
+                  </svg>app.mc360.io/bqs/disputes</div>
+              </div>
+              <div class="browser-screenshot img-lightbox-trigger" data-lightbox="assets/BQS/Ongoing serveys.png">
+                <img src="assets/BQS/Ongoing serveys.png" alt="Protest and Dispute Management" loading="lazy">
+              </div>
+            </div>
+            <div class="feature-glow feature-glow-2"></div>
+          </div>
+          <div class="feature-copy">
+            <div class="feature-eyebrow-row">
+              <div class="feature-num">06</div>
+              <span class="feature-eyebrow-text">Automated Protest &amp; Dispute Management</span>
+            </div>
+            <h3 class="feature-title">Resolve custody transfer discrepancies instantly.</h3>
+            <p class="feature-desc">Instantly compute received discrepancies vs suppliers. Automatically generate
+              official, legally binding documents on site when shortages occur.</p>
+            <div class="feature-benefits">
+              <div class="feature-benefit">
+                <div class="feature-benefit-check">✓</div>
+                <div class="feature-benefit-text"><strong>Statement of Facts (SOF)</strong>Automatically calculates
+                  discrepancies between nominated quantities, Bunker Delivery Notes (BDN), vessel received volumes, and
+                  barge supplied volumes.</div>
+              </div>
+              <div class="feature-benefit">
+                <div class="feature-benefit-check">✓</div>
+                <div class="feature-benefit-text"><strong>Notes of Protest (NOP) Generator</strong>Formally drafts
+                  official protests with manual inputs and pre-configured checkboxes for sampling disputes (refusal to
+                  witness/seal), quantity shortages, in-line blending, Cappuccino bunkers (excessive air blowing with
+                  starting/ending times), and other delays.</div>
+              </div>
+            </div>
+            <a href="#" class="btn btn-outline">Explore Dispute Resolution →</a>
+          </div>
+        </div>
+
+        <!-- Feature 7 — Image Left -->
+        <div class="feature-section reveal">
+          <div class="feature-visual">
+            <div class="browser">
+              <div class="browser-chrome">
+                <div class="b-dots">
+                  <div class="b-dot"></div>
+                  <div class="b-dot"></div>
+                  <div class="b-dot"></div>
+                </div>
+                <div class="b-url"><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1" />
+                    <path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1" />
+                  </svg>app.mc360.io/bqs/charter</div>
+              </div>
+              <div class="browser-screenshot img-lightbox-trigger" data-lightbox="assets/BQS/Published Surveys.png">
+                <img src="assets/BQS/Published Surveys.png" alt="Charter On/Off Hire Certificates" loading="lazy">
+              </div>
+            </div>
+            <div class="feature-glow feature-glow-1"></div>
+          </div>
+          <div class="feature-copy">
+            <div class="feature-eyebrow-row">
+              <div class="feature-num">07</div>
+              <span class="feature-eyebrow-text">Charter ROB On/Off Hire Certificates</span>
+            </div>
+            <h3 class="feature-title">Standardize vessel handovers and limit liabilities.</h3>
+            <p class="feature-desc">Generate certified on-hire and off-hire certificates instantly during vessel
+              deliveries or re-deliveries, capturing all key totals accurately.</p>
+            <div class="feature-benefits">
+              <div class="feature-benefit">
+                <div class="feature-benefit-check">✓</div>
+                <div class="feature-benefit-text"><strong>Comprehensive Hire Certificates</strong>Captures on-hire and
+                  off-hire certificates, recording ship draft, trim, heel, and certified fuel/freshwater/lube totals on
+                  delivery or re-delivery.</div>
+              </div>
+              <div class="feature-benefit">
+                <div class="feature-benefit-check">✓</div>
+                <div class="feature-benefit-text"><strong>Audit-Ready Documentation</strong>Establishes an immutable
+                  record of certified totals to protect both shipowners and charterers during handovers.</div>
+              </div>
+            </div>
+            <a href="#" class="btn btn-outline">Explore On/Off Hire →</a>
           </div>
         </div>
 
@@ -3861,69 +4069,162 @@
     </section>
 
     <!-- =============================================
-     ENTERPRISE FEATURES
+     WHO BQS IS FOR
      ============================================= -->
-    <section class="s-enterprise" id="enterprise" aria-labelledby="ent-h2">
+    <section class="s-audience" id="who-bqs" aria-labelledby="who-h2">
       <div class="container">
-        <div class="ent-hd reveal">
-          <div class="eyebrow"><span class="eyebrow-dot"></span>Enterprise Ready</div>
-          <h2 class="display-md" id="ent-h2">Everything an enterprise maritime<br>operation needs. Right out of the box.
-          </h2>
-          <p class="body-lg" style="color:var(--text-2);max-width:520px;margin:18px auto 0">BQS is built for enterprise
-            maritime operations — scalable, secure, and designed for multi-vessel fleet management from day one.</p>
+        <div class="aud-hd reveal">
+          <div class="eyebrow"><span class="eyebrow-dot"></span>Built For You</div>
+          <h2 class="display-md" id="who-h2">Who BQS Is For</h2>
+          <p class="body-lg" style="color:var(--text-2);max-width:540px;margin:16px auto 0">Every party in the
+            custody-transfer chain — vessel, office, and field — has a purpose-built home in BQS.</p>
         </div>
-        <div class="ent-grid">
-          <div class="ent-card reveal d1">
-            <div class="ent-icon" style="background:rgba(0,180,216,.09)">🚢</div>
-            <div class="ent-title">Multi-Vessel Support</div>
-            <div class="ent-desc">Manage surveys across your entire fleet — from a single vessel to hundreds — from one
-              centralized platform with no extra configuration.</div>
+        <div class="aud-grid">
+          <div class="aud-card reveal d1">
+            <div class="aud-icon" style="background:rgba(0,87,184,.09)">🚢</div>
+            <div class="aud-title">Ship Owners &amp; Charterers</div>
+            <div class="aud-desc">Prevent fuel shortages, track real-time consumption, and independently verify every
+              bunker transfer against the BDN — protecting the operating budget and resolving disputes before they
+              escalate.</div>
           </div>
-          <div class="ent-card reveal d2">
-            <div class="ent-icon" style="background:rgba(0,87,184,.08)">🏢</div>
-            <div class="ent-title">Enterprise Workflow</div>
-            <div class="ent-desc">Structured, role-based workflows that match how your organization operates. Every step
-              tracked, documented, and auditable.</div>
+          <div class="aud-card reveal d2">
+            <div class="aud-icon" style="background:rgba(5,150,105,.09)">🏦</div>
+            <div class="aud-title">Bunker Buyers &amp; Procurement Offices</div>
+            <div class="aud-desc">Absolute, certified custody-transfer verification for bulk fuel purchases.
+              Independently confirm quantity, density, and temperature against every invoice — eliminating over-billing
+              and short-delivery exposure.</div>
           </div>
-          <div class="ent-card reveal d3">
-            <div class="ent-icon" style="background:rgba(5,150,105,.09)">✅</div>
-            <div class="ent-title">Audit Ready</div>
-            <div class="ent-desc">Complete, immutable audit trails for every survey. Ready for port state control,
-              classification society, and flag state audits on demand.</div>
-          </div>
-          <div class="ent-card reveal d4">
-            <div class="ent-icon" style="background:rgba(67,56,202,.08)">☁️</div>
-            <div class="ent-title">Secure Cloud</div>
-            <div class="ent-desc">Enterprise-grade cloud infrastructure with 99.9% uptime SLA, AES-256 encryption at
-              rest and TLS 1.3 in transit.</div>
-          </div>
-          <div class="ent-card reveal d1">
-            <div class="ent-icon" style="background:rgba(217,119,6,.09)">🔐</div>
-            <div class="ent-title">Role Permissions</div>
-            <div class="ent-desc">Granular role-based access control — Ship Owner, Manager, Surveyor, Operator —
-              ensuring the right people see the right data.</div>
-          </div>
-          <div class="ent-card reveal d2">
-            <div class="ent-icon" style="background:rgba(0,87,184,.06)">📂</div>
-            <div class="ent-title">Centralized Records</div>
-            <div class="ent-desc">All survey records, reports, and documents stored centrally. Searchable, organized,
-              and accessible from anywhere at any time.</div>
-          </div>
-          <div class="ent-card reveal d3">
-            <div class="ent-icon" style="background:rgba(13,148,136,.08)">📊</div>
-            <div class="ent-title">Advanced Reporting</div>
-            <div class="ent-desc">Preliminary and final survey reports auto-generated in professional, IMO-compliant
-              formats. Download as PDF with one click.</div>
-          </div>
-          <div class="ent-card reveal d4">
-            <div class="ent-icon" style="background:rgba(0,180,216,.09)">📧</div>
-            <div class="ent-title">Email Distribution</div>
-            <div class="ent-desc">Automatically distribute reports to owners, charterers, P&amp;I clubs, and any
-              recipients on survey publication — with delivery confirmation.</div>
+          <div class="aud-card reveal d3">
+            <div class="aud-icon" style="background:rgba(217,119,6,.09)">📋</div>
+            <div class="aud-title">Marine Surveying Companies</div>
+            <div class="aud-desc">Streamline ASTM field calculations, automate BTMR / MFM data entry, and instantly
+              output certified, IMO-compliant PDF reports — reducing administrative overhead and eliminating
+              transcription errors.</div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- =============================================
+     ADMINISTRATIVE CONTROL & CUSTOMISATION
+     ============================================= -->
+    <section class="s-admin" id="admin-control" aria-labelledby="admin-h2">
+      <div class="container">
+        <div class="admin-hd reveal">
+          <div class="eyebrow"><span class="eyebrow-dot"></span>Administrative Control</div>
+          <h2 class="display-md" id="admin-h2">Administrative Control &amp; Customisation</h2>
+          <p class="admin-subtitle">Administrators maintain master directories through the web platform to expedite
+            field entry and ensure data integrity — so surveyors spend time surveying, not typing.</p>
+        </div>
+        <div class="admin-cols">
+          <div class="admin-col reveal d1">
+            <div class="admin-col-icon" style="background:rgba(0,87,184,.09)">🗂️</div>
+            <div class="admin-col-title">Master Directories</div>
+            <ul class="admin-col-list">
+              <li>Clients (ship owners, charterers, P&amp;I clubs)</li>
+              <li>Vessels (name, IMO number, flag, type)</li>
+              <li>Bunker tankers / supplying barges</li>
+              <li>Suppliers &amp; bunker traders</li>
+              <li>Cargo officers</li>
+              <li>Captains</li>
+              <li>Chief engineers</li>
+            </ul>
+          </div>
+          <div class="admin-col reveal d2">
+            <div class="admin-col-icon" style="background:rgba(5,150,105,.09)">⚗️</div>
+            <div class="admin-col-title">Fuel Grade Settings</div>
+            <ul class="admin-col-list">
+              <li>Configure standardized density benchmarks per grade</li>
+              <li>Set viscosity reference values (cSt at 50°C)</li>
+              <li>Define allowable density deviation thresholds</li>
+              <li>Supports HFO, VLSFO, ULSFO, MGO, MDO, and custom grades</li>
+            </ul>
+          </div>
+          <div class="admin-col reveal d3">
+            <div class="admin-col-icon" style="background:rgba(217,119,6,.09)">🕒</div>
+            <div class="admin-col-title">Time Log Activities</div>
+            <ul class="admin-col-list">
+              <li>Define mandatory chronology activities for every survey phase</li>
+              <li>Enforce standardized field tracking across all surveyors</li>
+              <li>Customise activity labels to match internal reporting language</li>
+              <li>Timestamps are immutable once recorded — full audit integrity</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Enterprise capability cards preserved below -->
+        <div class="ent-grid" style="margin-top:48px">
+          <div class="ent-card reveal d1">
+            <div class="ent-icon" style="background:rgba(0,180,216,.09)">🚢</div>
+            <div class="ent-title">Multi-Vessel Support</div>
+            <div class="ent-desc">Manage surveys across your entire fleet from one centralized platform with no extra
+              configuration — from a single vessel to hundreds.</div>
+          </div>
+          <div class="ent-card reveal d2">
+            <div class="ent-icon" style="background:rgba(0,87,184,.08)">🏢</div>
+            <div class="ent-title">Enterprise Workflow</div>
+            <div class="ent-desc">Structured, documented workflows that match how your organization operates. Every step
+              tracked and auditable from field to office.</div>
+          </div>
+          <div class="ent-card reveal d3">
+            <div class="ent-icon" style="background:rgba(5,150,105,.09)">✅</div>
+            <div class="ent-title">Audit Ready</div>
+            <div class="ent-desc">Immutable audit trails for every survey — ready for port state control, classification
+              society, and flag state audits on demand.</div>
+          </div>
+          <div class="ent-card reveal d4">
+            <div class="ent-icon" style="background:rgba(67,56,202,.08)">☁️</div>
+            <div class="ent-title">Secure Cloud</div>
+            <div class="ent-desc">Data is stored and transmitted securely. All survey records, reports, and master data
+              are protected in a cloud-hosted platform accessible from any device.</div>
+          </div>
+          <div class="ent-card reveal d1">
+            <div class="ent-icon" style="background:rgba(13,148,136,.08)">📊</div>
+            <div class="ent-title">Certified PDF Reports</div>
+            <div class="ent-desc">Preliminary and final survey reports auto-generated in professional, IMO-compliant
+              formats. Download or distribute with one click.</div>
+          </div>
+          <div class="ent-card reveal d2">
+            <div class="ent-icon" style="background:rgba(0,180,216,.09)">📧</div>
+            <div class="ent-title">Email Distribution</div>
+            <div class="ent-desc">Automatically distribute reports to owners, charterers, P&amp;I clubs, and configured
+              recipients on publication — with delivery confirmation.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+     REPORT SAMPLES
+     ============================================= -->
+    <!-- <section class="s-tour" id="reports" aria-labelledby="reports-h2" style="padding:80px 0;background:var(--surface)">
+      <div class="container">
+        <div class="reveal" style="text-align:center;margin-bottom:48px">
+          <div class="eyebrow"><span class="eyebrow-dot"></span>Output Quality</div>
+          <h2 class="display-sm" id="reports-h2" style="margin:12px 0 0">See What BQS Produces</h2>
+          <p class="body-lg" style="color:var(--text-2);max-width:520px;margin:14px auto 0">Every survey generates professional, ready-to-distribute documents — direct from the field data captured in the app.</p>
+        </div>
+        <div class="aud-grid">
+          <div class="aud-card reveal d1 img-lightbox-trigger" data-lightbox="assets/BQS/Prelim report survey.png" title="Click to expand" style="cursor:zoom-in">
+            <div class="aud-icon" style="background:rgba(0,87,184,.09)">📄</div>
+            <div class="aud-title">Preliminary Survey Report</div>
+            <div class="aud-desc">Auto-generated from field soundings and ASTM calculations. Distributed to stakeholders immediately upon completion — before the vessel departs.</div>
+            <img src="assets/BQS/Prelim report survey.png" alt="Preliminary Report preview" style="width:100%;border-radius:10px;margin-top:16px;border:1px solid var(--border)" loading="lazy">
+          </div>
+          <div class="aud-card reveal d2 img-lightbox-trigger" data-lightbox="assets/BQS/Published Surveys.png" title="Click to expand" style="cursor:zoom-in">
+            <div class="aud-icon" style="background:rgba(5,150,105,.09)">📑</div>
+            <div class="aud-title">Published Survey Archive</div>
+            <div class="aud-desc">All completed surveys stored in a searchable repository. Instantly download PDF copies for port state control, insurance, or dispute evidence.</div>
+            <img src="assets/BQS/Published Surveys.png" alt="Published Surveys archive" style="width:100%;border-radius:10px;margin-top:16px;border:1px solid var(--border)" loading="lazy">
+          </div>
+          <div class="aud-card reveal d3 img-lightbox-trigger" data-lightbox="assets/BQS/Create survey.png" title="Click to expand" style="cursor:zoom-in">
+            <div class="aud-icon" style="background:rgba(217,119,6,.09)">🗒️</div>
+            <div class="aud-title">Survey Creation &amp; Field Entry</div>
+            <div class="aud-desc">Nominate up to 3 grades, assign a surveyor, and begin the guided 6-stage workflow. All inputs validated against master directories pre-loaded by administrators.</div>
+            <img src="assets/BQS/Create survey.png" alt="Create survey screen" style="width:100%;border-radius:10px;margin-top:16px;border:1px solid var(--border)" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section> -->
 
     <!-- =============================================
      FAQ
@@ -3949,9 +4250,9 @@
             </div>
             <div class="faq-body">
               <div class="faq-a">BQS is designed for multi-vessel operations. The ongoing surveys dashboard shows all
-                active surveys across your entire fleet simultaneously, with real-time status, progress indicators, and
-                individual survey details. You can assign different surveyors to different vessels, track all surveys
-                from one central view, and generate fleet-wide reports — regardless of fleet size.</div>
+                active surveys across your entire fleet simultaneously, with real-time status and progress indicators.
+                You can assign different surveyors to different vessels and track everything from one central view —
+                regardless of fleet size.</div>
             </div>
           </div>
 
@@ -3965,15 +4266,70 @@
                 </svg></div>
             </div>
             <div class="faq-body">
-              <div class="faq-a">BQS supports the full range of bunker quantity surveys including on-hire, off-hire,
-                bunkering, on-delivery, and off-delivery surveys. Pre-configured templates for each survey type are
-                available out of the box, with the ability to create custom templates to match your organization's
-                specific requirements and methodologies.</div>
+              <div class="faq-a">BQS supports the full range of bunker quantity surveys — bunkering surveys, on-hire
+                ROB, off-hire ROB, on-delivery, and off-delivery. Surveyors can nominate up to 3 fuel grades per survey.
+                Charter ROB on/off-hire certificates are also generated directly from the survey data.</div>
             </div>
           </div>
 
           <div class="faq-item" id="faq-3">
-            <div class="faq-q" data-faq="faq-3"><span class="faq-q-text">How is report generation and distribution
+            <div class="faq-q" data-faq="faq-3"><span class="faq-q-text">What does BQS actually measure and
+                calculate?</span>
+              <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg></div>
+            </div>
+            <div class="faq-body">
+              <div class="faq-a">BQS captures and calculates: Vessel Measurement Report (VMR) — opening and closing
+                soundings in all vessel fuel tanks with ASTM volume/density/temperature corrections; Remaining on Board
+                (ROB) — fuel quantities before and after bunkering; Barge Tank Measurement Report (BTMR) — independent
+                audit of all non-cargo spaces on the supplying barge to detect hidden fuel diversion; and Mass Flow
+                Meter (MFM) — meter ticket quantities where applicable. All calculations follow ASTM tables and are
+                locked upon submission.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-4">
+            <div class="faq-q" data-faq="faq-4"><span class="faq-q-text">How does BQS verify custody transfer and
+                protect against disputes?</span>
+              <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg></div>
+            </div>
+            <div class="faq-body">
+              <div class="faq-a">BQS cross-references three independent quantity sources: the Vessel figure (VMR), the
+                Barge figure (BTMR), and the Bunker Delivery Note (BDN). Any discrepancy between these three
+                automatically triggers the Notice of Protest (NOP) generator. The NOP includes checkboxes for Cappuccino
+                effect, blending suspicion, and actual shortage — and is formatted for immediate service on the vessel
+                or barge. A Statement of Facts (SOF) documents the full time-event log. Together these documents form a
+                legally defensible record for P&amp;I club claims or commercial arbitration.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-5">
+            <div class="faq-q" data-faq="faq-5"><span class="faq-q-text">How is the platform's administrative control
+                structured?</span>
+              <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg></div>
+            </div>
+            <div class="faq-body">
+              <div class="faq-a">Administrators maintain all master directories via the web platform to expedite field
+                entry and ensure data integrity. Through the web dashboard, admins pre-configure clients, vessels,
+                bunker tankers (barges), suppliers, cargo officers, captains, and chief engineers — as well as
+                standardize fuel grade settings and time log activities so every surveyor follows the same structured
+                workflow.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-6">
+            <div class="faq-q" data-faq="faq-6"><span class="faq-q-text">How is report generation and distribution
                 handled?</span>
               <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round">
@@ -3982,68 +4338,35 @@
                 </svg></div>
             </div>
             <div class="faq-body">
-              <div class="faq-a">BQS automatically generates professionally formatted PDF reports from survey data.
-                Preliminary reports are available immediately after data entry is complete. Final reports are generated
-                on publication approval. Email distribution is fully automated — configure recipient lists for each
-                vessel or survey type, and reports are automatically sent to all designated parties when a survey is
-                published, with delivery confirmation.</div>
-            </div>
-          </div>
-
-          <div class="faq-item" id="faq-4">
-            <div class="faq-q" data-faq="faq-4"><span class="faq-q-text">Is BQS accessible offline or in areas with poor
-                connectivity?</span>
-              <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round">
-                  <line x1="12" y1="5" x2="12" y2="19" />
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                </svg></div>
-            </div>
-            <div class="faq-body">
-              <div class="faq-a">Yes. BQS is designed with the maritime environment in mind. Surveyors can access and
-                complete surveys with limited or intermittent internet connectivity. Data entered offline is cached
-                locally and automatically synchronized to the central platform once connectivity is restored — ensuring
-                surveys can be conducted even in remote ports or anchorages with poor connectivity.</div>
-            </div>
-          </div>
-
-          <div class="faq-item" id="faq-5">
-            <div class="faq-q" data-faq="faq-5"><span class="faq-q-text">How does the role-based access control
-                work?</span>
-              <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round">
-                  <line x1="12" y1="5" x2="12" y2="19" />
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                </svg></div>
-            </div>
-            <div class="faq-body">
-              <div class="faq-a">BQS supports granular role-based permissions including Ship Owner, Ship Manager, Marine
-                Surveyor, Fleet Operator, and Administrator roles. Each role has configurable access to specific
-                features, surveys, and vessels. For example, a surveyor can only access surveys assigned to them, while
-                a fleet manager has visibility across all vessels. Custom roles can be configured to match your
-                organization's structure.</div>
-            </div>
-          </div>
-
-          <div class="faq-item" id="faq-6">
-            <div class="faq-q" data-faq="faq-6"><span class="faq-q-text">How quickly can we get BQS set up and
-                running?</span>
-              <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round">
-                  <line x1="12" y1="5" x2="12" y2="19" />
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                </svg></div>
-            </div>
-            <div class="faq-body">
-              <div class="faq-a">BQS can be fully configured and operational within 24 hours. Our onboarding process
-                includes guided vessel data import, master data setup, user account creation, and role configuration. We
-                provide hands-on onboarding support and team training. Unlike traditional enterprise software, there is
-                no months-long implementation — you'll be conducting digital surveys on day one.</div>
+              <div class="faq-a">BQS automatically generates professionally formatted PDF reports from survey data. A
+                preliminary report is available immediately upon field completion. The final certified report is
+                generated when the onshore office reviews and publishes the survey — at which point the survey status
+                changes to PUBLISHED and email distribution is triggered automatically to all configured recipients
+                (buyers, owners, P&amp;I clubs).</div>
             </div>
           </div>
 
           <div class="faq-item" id="faq-7">
-            <div class="faq-q" data-faq="faq-7"><span class="faq-q-text">Is historical survey data migrated from
+            <div class="faq-q" data-faq="faq-7"><span class="faq-q-text">How are off-spec fuel and supplier diversion
+                risks detected?</span>
+              <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg></div>
+            </div>
+            <div class="faq-body">
+              <div class="faq-a">BQS compares the delivered fuel density against the configured benchmark for each
+                grade. A density outside the acceptable deviation threshold triggers an automatic quality alert.
+                Independently, the BTMR audits all non-cargo compartments on the supplying barge — if undisclosed fuel
+                is found in tanks that should be empty, this is flagged as a potential diversion event. Sampling and
+                seal records (port, manifold, and cargo) are also logged with seal numbers to support laboratory
+                analysis if needed.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-8">
+            <div class="faq-q" data-faq="faq-8"><span class="faq-q-text">Is historical survey data migrated from
                 existing systems?</span>
               <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round">
@@ -4052,27 +4375,10 @@
                 </svg></div>
             </div>
             <div class="faq-body">
-              <div class="faq-a">Yes. Our team provides data migration support to import existing survey records from
-                spreadsheets, legacy systems, or other formats into BQS. Historical surveys can be uploaded as PDF
-                documents and linked to vessel records, maintaining your complete survey history in one place from day
-                one.</div>
-            </div>
-          </div>
-
-          <div class="faq-item" id="faq-8">
-            <div class="faq-q" data-faq="faq-8"><span class="faq-q-text">What security standards does BQS comply
-                with?</span>
-              <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round">
-                  <line x1="12" y1="5" x2="12" y2="19" />
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                </svg></div>
-            </div>
-            <div class="faq-body">
-              <div class="faq-a">BQS is built on enterprise-grade cloud infrastructure complying with SOC 2 Type II, ISO
-                27001, and GDPR requirements. All data is encrypted at rest with AES-256 and in transit with TLS 1.3.
-                Regular penetration testing, vulnerability assessments, and independent security audits are conducted.
-                The platform maintains a 99.9% uptime SLA backed by multi-region redundant architecture.</div>
+              <div class="faq-a">Yes. Our onboarding team provides data migration support to import existing survey
+                records from spreadsheets and other formats into BQS. Historical surveys can be uploaded as PDF
+                documents and linked to vessel records, maintaining your complete survey history in one searchable
+                repository.</div>
             </div>
           </div>
 
@@ -4107,9 +4413,9 @@
             <a href="#" class="btn btn-ghost-dark btn-lg">Contact Sales</a>
           </div>
           <div class="cta-trust">
-            <span class="cta-trust-item"><span></span><span>Enterprise security</span></span>
-            <span class="cta-trust-item"><span></span><span>Setup in 24 hours</span></span>
-            <span class="cta-trust-item"><span></span><span>Built for maritime</span></span>
+            <span class="cta-trust-item"><span></span><span>Purpose-built for maritime</span></span>
+            <span class="cta-trust-item"><span></span><span>End-to-end custody transfer</span></span>
+            <span class="cta-trust-item"><span></span><span>Certified PDF reports</span></span>
             <span class="cta-trust-item"><span></span><span>No credit card required</span></span>
           </div>
         </div>
@@ -4135,12 +4441,6 @@
             <a href="#" class="footer-soc" aria-label="LinkedIn">in</a>
             <a href="#" class="footer-soc" aria-label="Twitter">𝕏</a>
             <a href="#" class="footer-soc" aria-label="YouTube">▶</a>
-          </div>
-          <div class="footer-compliance-row">
-            <span class="footer-cert">SOC 2</span>
-            <span class="footer-cert">ISO 27001</span>
-            <span class="footer-cert">GDPR</span>
-            <span class="footer-cert">IMO</span>
           </div>
         </div>
         <div>
@@ -4198,7 +4498,7 @@
         <path d="M5 8V2M2 5l3-3 3 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
     </div>
-    Back to top
+    <span class="btt-label">Back to top</span>
   </button>
 
   <!-- LIGHTBOX -->

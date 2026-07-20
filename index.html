@@ -271,30 +271,38 @@
       transform: translateY(-2px)
     }
 
+    .btn-secondary,
     .btn-outline {
-      background: transparent;
-      color: var(--text-1);
-      border: 1.5px solid var(--border-2)
+      background: rgba(0, 87, 184, .07);
+      color: var(--blue);
+      border: 1.5px solid rgba(0, 87, 184, .22);
+      box-shadow: 0 2px 8px rgba(0, 87, 184, .08);
     }
 
+    .btn-secondary:hover,
     .btn-outline:hover {
-      background: var(--surface-3);
+      background: rgba(0, 87, 184, .14);
       border-color: var(--blue);
-      color: var(--blue);
-      transform: translateY(-2px)
+      color: var(--blue-dark);
+      box-shadow: 0 6px 20px rgba(0, 87, 184, .18);
+      transform: translateY(-2px);
     }
 
     .btn-ghost-dark {
-      background: rgba(255, 255, 255, .07);
+      background: rgba(255, 255, 255, .10);
       color: #fff;
-      border: 1.5px solid rgba(255, 255, 255, .11);
-      backdrop-filter: blur(8px)
+      border: 1.5px solid rgba(255, 255, 255, .25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .15);
     }
 
     .btn-ghost-dark:hover {
-      background: rgba(255, 255, 255, .13);
-      border-color: rgba(255, 255, 255, .2);
-      transform: translateY(-2px)
+      background: rgba(255, 255, 255, .18);
+      border-color: rgba(255, 255, 255, .45);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .25), 0 0 16px rgba(255, 255, 255, .1);
+      transform: translateY(-2px);
     }
 
     /* =============================================
@@ -523,22 +531,26 @@
     .nav-demo {
       display: inline-flex;
       align-items: center;
-      padding: 8px 22px;
+      gap: 6px;
+      padding: 8px 20px;
       font-size: 14px;
       font-weight: 600;
-      color: var(--text-1);
-      background: transparent;
-      border: 1.5px solid var(--border-2);
+      color: var(--blue);
+      background: rgba(0, 87, 184, .07);
+      border: 1.5px solid rgba(0, 87, 184, .22);
       border-radius: 100px;
       font-family: var(--font);
       cursor: pointer;
-      transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+      box-shadow: 0 2px 6px rgba(0, 87, 184, .06);
+      transition: all 160ms ease;
     }
 
     .nav-demo:hover {
       border-color: var(--blue);
-      color: var(--blue);
-      background: rgba(0, 87, 184, .05)
+      color: var(--blue-dark);
+      background: rgba(0, 87, 184, .14);
+      box-shadow: 0 4px 14px rgba(0, 87, 184, .15);
+      transform: translateY(-1px);
     }
 
     .nav-trial {
@@ -5272,8 +5284,8 @@
     }
 
     /* =============================================
-   BACK TO TOP
-   ============================================= */
+    BACK TO TOP
+    ============================================= */
     #back-to-top {
       position: fixed;
       bottom: 28px;
@@ -5281,8 +5293,7 @@
       z-index: 990;
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      padding: 9px 18px 9px 14px;
+      padding: 9px;
       background: rgba(255, 255, 255, 0.72);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
@@ -5302,8 +5313,10 @@
         opacity 280ms cubic-bezier(.4, 0, .2, 1),
         transform 280ms cubic-bezier(.4, 0, .2, 1),
         box-shadow 220ms cubic-bezier(.4, 0, .2, 1),
-        color 160ms cubic-bezier(.4, 0, .2, 1);
+        color 160ms cubic-bezier(.4, 0, .2, 1),
+        padding 280ms cubic-bezier(.4, 0, .2, 1);
       will-change: transform, opacity;
+      overflow: hidden;
     }
 
     #back-to-top.btt-visible {
@@ -5318,6 +5331,7 @@
       color: var(--blue);
       border-color: rgba(0, 87, 184, 0.26);
       background: rgba(255, 255, 255, 0.9);
+      padding: 9px 14px 9px 9px;
     }
 
     #back-to-top:active {
@@ -5345,12 +5359,38 @@
       display: block;
     }
 
+    #back-to-top .btt-label {
+      max-width: 0;
+      opacity: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      margin-left: 0;
+      transition:
+        max-width 280ms cubic-bezier(.4, 0, .2, 1),
+        opacity 200ms cubic-bezier(.4, 0, .2, 1),
+        margin-left 280ms cubic-bezier(.4, 0, .2, 1);
+    }
+
+    #back-to-top:hover .btt-label {
+      max-width: 150px;
+      opacity: 1;
+      margin-left: 7px;
+    }
+
     @media (max-width: 700px) {
       #back-to-top {
         bottom: 20px;
         left: 20px;
-        padding: 8px 14px 8px 11px;
+        padding: 8px;
         font-size: 12px;
+      }
+
+      #back-to-top:hover {
+        padding: 8px 12px 8px 8px;
+      }
+
+      #back-to-top:hover .btt-label {
+        max-width: 100px;
       }
     }
   </style>
@@ -5739,7 +5779,7 @@
                 stroke-linejoin="round" />
             </svg>
           </a>
-          <a href="#" class="btn btn-outline btn-lg" id="hero-demo-btn">Book Demo</a>
+          <a href="#" class="btn btn-secondary btn-lg" id="hero-demo-btn">Book Demo</a>
         </div>
 
         <div class="hero-proof">
@@ -5945,11 +5985,11 @@
                     <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.4" />
                     <path d="M8 5v4M8 10.5v.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
                   </svg>
-                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <!-- <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
                     <rect x="3" y="1.5" width="10" height="13" rx="1.5" stroke="currentColor" stroke-width="1.4" />
                     <path d="M5.5 5.5h5M5.5 8h5M5.5 10.5h3" stroke="currentColor" stroke-width="1.4"
                       stroke-linecap="round" />
-                  </svg>
+                  </svg> -->
                   Sanctions
                 </a>
                 <a href="https://dashboardd-v2.netlify.app/" class="db-item">
@@ -7482,7 +7522,7 @@
         <path d="M5 8V2M2 5l3-3 3 3" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
     </span>
-    Back to top
+    <span class="btt-label">Back to top</span>
   </button>
 
 
