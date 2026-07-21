@@ -2822,13 +2822,14 @@
       background: #090B0F;
       position: relative;
     }
+
     .s-modules::before {
       content: '';
       position: absolute;
       inset: 0;
       background-image:
-        radial-gradient(ellipse 55% 45% at 12% 18%, rgba(59,130,246,.04) 0%, transparent 70%),
-        radial-gradient(ellipse 45% 35% at 88% 80%, rgba(99,102,241,.03) 0%, transparent 70%);
+        radial-gradient(ellipse 55% 45% at 12% 18%, rgba(59, 130, 246, .04) 0%, transparent 70%),
+        radial-gradient(ellipse 45% 35% at 88% 80%, rgba(99, 102, 241, .03) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -2861,19 +2862,24 @@
       cursor: pointer;
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow:
-        0 1px 3px rgba(0,0,0,.3),
-        0 12px 32px rgba(0,0,0,.4);
+        0 1px 3px rgba(0, 0, 0, .3),
+        0 12px 32px rgba(0, 0, 0, .4);
       transition:
-        transform 240ms cubic-bezier(.4,0,.2,1),
-        box-shadow 240ms cubic-bezier(.4,0,.2,1),
+        transform 240ms cubic-bezier(.4, 0, .2, 1),
+        box-shadow 240ms cubic-bezier(.4, 0, .2, 1),
         border-color 240ms ease,
         opacity 240ms ease;
       isolation: isolate;
     }
 
     /* No animated pseudo elements — clean slate */
-    .bento-card::before { display: none; }
-    .bento-card::after  { display: none; }
+    .bento-card::before {
+      display: none;
+    }
+
+    .bento-card::after {
+      display: none;
+    }
 
     /* Card inner — dark surface with grainy colored glows */
     .bento-card-inner {
@@ -2906,11 +2912,9 @@
       border-radius: 50%;
       bottom: -60px;
       right: -60px;
-      background: radial-gradient(
-        circle,
-        var(--card-accent-soft, rgba(59,130,246,.08)) 0%,
-        transparent 70%
-      );
+      background: radial-gradient(circle,
+          var(--card-accent-soft, rgba(59, 130, 246, .08)) 0%,
+          transparent 70%);
       pointer-events: none;
       opacity: 0.8;
     }
@@ -2919,43 +2923,54 @@
     .bento:hover .bento-card {
       opacity: .75;
     }
+
     .bento:hover .bento-card:hover {
       opacity: 1;
       transform: translateY(-5px);
       border-color: var(--card-accent, #3b82f6);
       box-shadow:
-        0 4px 12px rgba(0,0,0,.4),
-        0 20px 48px rgba(0,0,0,.5),
+        0 4px 12px rgba(0, 0, 0, .4),
+        0 20px 48px rgba(0, 0, 0, .5),
         0 0 0 1px var(--card-accent, #3b82f6) inset;
     }
+
     .bento-card:hover .bento-card-inner {
       background-color: #0f121a;
     }
-    .bento-card:hover .mod-title { color: #FFFFFF; }
-    .bento-card:hover .mod-cta-arrow { transform: translateX(3px); }
+
+    .bento-card:hover .mod-title {
+      color: #FFFFFF;
+    }
+
+    .bento-card:hover .mod-cta-arrow {
+      transform: translateX(3px);
+    }
 
     /* ── Per-module accent variables (Dark theme tuned) ── */
-    .bento-card[data-module="bqs"]   { 
-      --card-accent: #3b82f6; 
-      --card-accent-soft: rgba(59,130,246,.12); 
+    .bento-card[data-module="bqs"] {
+      --card-accent: #3b82f6;
+      --card-accent-soft: rgba(59, 130, 246, .12);
       --card-glow-1: rgba(29, 78, 216, 0.45);
       --card-glow-2: rgba(13, 148, 136, 0.20);
     }
-    .bento-card[data-module="insp"]  { 
-      --card-accent: #818cf8; 
-      --card-accent-soft: rgba(129,140,248,.12); 
+
+    .bento-card[data-module="insp"] {
+      --card-accent: #818cf8;
+      --card-accent-soft: rgba(129, 140, 248, .12);
       --card-glow-1: rgba(79, 70, 229, 0.45);
       --card-glow-2: rgba(168, 85, 247, 0.20);
     }
-    .bento-card[data-module="vcs"]   { 
-      --card-accent: #2dd4bf; 
-      --card-accent-soft: rgba(45,212,191,.12); 
+
+    .bento-card[data-module="vcs"] {
+      --card-accent: #2dd4bf;
+      --card-accent-soft: rgba(45, 212, 191, .12);
       --card-glow-1: rgba(13, 148, 136, 0.45);
       --card-glow-2: rgba(6, 182, 212, 0.20);
     }
-    .bento-card[data-module="sanct"] { 
-      --card-accent: #fbbf24; 
-      --card-accent-soft: rgba(251,191,36,.12); 
+
+    .bento-card[data-module="sanct"] {
+      --card-accent: #fbbf24;
+      --card-accent-soft: rgba(251, 191, 36, .12);
       --card-glow-1: rgba(217, 119, 6, 0.40);
       --card-glow-2: rgba(239, 68, 68, 0.15);
     }
@@ -2976,6 +2991,7 @@
       margin-bottom: 24px;
       display: inline-flex;
     }
+
     .mod-icon {
       width: 48px;
       height: 48px;
@@ -2986,28 +3002,31 @@
       position: relative;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.10);
-      box-shadow: 0 4px 12px rgba(0,0,0,.25);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
     }
+
     /* Accent tint fill */
     .mod-icon::before {
       content: '';
       position: absolute;
       inset: 0;
       border-radius: 12px;
-      background: linear-gradient(
-        135deg,
-        var(--card-accent-soft, rgba(59,130,246,.10)) 0%,
-        transparent 65%
-      );
+      background: linear-gradient(135deg,
+          var(--card-accent-soft, rgba(59, 130, 246, .10)) 0%,
+          transparent 65%);
     }
-    .mod-icon::after { display: none; }
-    
+
+    .mod-icon::after {
+      display: none;
+    }
+
     /* Dynamically tint all SVGs inside the icon wrap */
     .mod-icon svg {
       position: relative;
       z-index: 1;
       stroke: var(--card-accent) !important;
     }
+
     .mod-icon svg[fill] {
       fill: var(--card-accent) !important;
     }
@@ -3038,6 +3057,7 @@
       flex-wrap: wrap;
       gap: 6px;
     }
+
     .mod-chip {
       padding: 4px 12px;
       background: rgba(255, 255, 255, 0.05);
@@ -3049,6 +3069,7 @@
       letter-spacing: -.005em;
       transition: background 240ms ease, border-color 240ms ease;
     }
+
     .bento-card:hover .mod-chip {
       background: rgba(255, 255, 255, 0.08);
       border-color: rgba(255, 255, 255, 0.12);
@@ -3063,6 +3084,7 @@
       align-items: center;
       gap: 20px;
     }
+
     .mod-cta-link {
       display: inline-flex;
       align-items: center;
@@ -3073,10 +3095,12 @@
       letter-spacing: -.01em;
       text-decoration: none;
     }
+
     .mod-cta-arrow {
       display: inline-block;
-      transition: transform 220ms cubic-bezier(.4,0,.2,1);
+      transition: transform 220ms cubic-bezier(.4, 0, .2, 1);
     }
+
     .mod-cta-demo {
       font-size: 13px;
       font-weight: 550;
@@ -3085,7 +3109,11 @@
       transition: color 200ms ease;
       text-decoration: none;
     }
-    .mod-cta-demo:hover { color: #94A3B8; }
+
+    .mod-cta-demo:hover {
+      color: #94A3B8;
+    }
+
     .mod-cta-divider {
       width: 1px;
       height: 13px;
@@ -5393,6 +5421,126 @@
         max-width: 100px;
       }
     }
+
+    /* =============================================
+     FAQ SECTION
+     ============================================= */
+    .s-faq {
+      padding: var(--section) 0;
+      background: var(--surface);
+    }
+
+    .faq-hd {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      transition: border-color var(--ease-base), box-shadow var(--ease-base);
+    }
+
+    .faq-item.open {
+      border-color: rgba(0, 87, 184, .22);
+      box-shadow: 0 4px 20px rgba(0, 87, 184, .07);
+    }
+
+    .faq-q {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 26px;
+      cursor: pointer;
+      gap: 16px;
+      user-select: none;
+      background: none;
+      border: none;
+      text-align: left;
+      font-family: inherit;
+    }
+
+    .faq-q-text {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-1);
+      line-height: 1.4;
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+      transition: all var(--ease-base);
+    }
+
+    .faq-item.open .faq-icon {
+      background: var(--blue);
+      border-color: var(--blue);
+      transform: rotate(45deg);
+    }
+
+    .faq-icon svg {
+      width: 14px !important;
+      height: 14px !important;
+      max-width: 14px;
+      color: var(--text-3);
+      transition: color var(--ease-base);
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-icon svg {
+      color: #fff;
+    }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .5s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .faq-item.open .faq-body {
+      max-height: 500px;
+    }
+
+    .faq-a {
+      padding: 0 26px 24px;
+      font-size: 15px;
+      color: var(--text-2);
+      line-height: 1.75;
+    }
+
+    @media (max-width: 600px) {
+      .s-faq {
+        padding: 80px 0;
+      }
+
+      .faq-q {
+        padding: 18px 20px;
+      }
+
+      .faq-a {
+        padding: 0 20px 20px;
+      }
+    }
   </style>
 </head>
 
@@ -5547,7 +5695,8 @@
       <!-- Desktop CTAs -->
       <div class="nav-actions" id="nav-actions">
         <a href="#" class="nav-demo" id="nav-demo-btn">Book Demo</a>
-        <a href="https://dashboardd-v2.netlify.app/" target="_blank" class="nav-trial" id="nav-trial-btn">Start Free Trial</a>
+        <a href="https://dashboardd-v2.netlify.app/" target="_blank" class="nav-trial" id="nav-trial-btn">Start Free
+          Trial</a>
       </div>
 
       <!-- Hamburger (mobile) -->
@@ -5772,7 +5921,8 @@
         </p>
 
         <div class="hero-ctas">
-          <a href="https://dashboardd-v2.netlify.app/" target="_blank" class="btn btn-primary btn-lg" id="hero-trial-btn">
+          <a href="https://dashboardd-v2.netlify.app/" target="_blank" class="btn btn-primary btn-lg"
+            id="hero-trial-btn">
             Start Free Trial
             <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
               <path d="M7.5 1.5l6 6-6 6M13.5 7.5H1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
@@ -5821,7 +5971,7 @@
                   <path d="M11 18h5" stroke="#0057B8" stroke-width="1.6" stroke-linecap="round" />
                 </svg>
               </div>
-              <div class="orb-chip-label">Inspect</div>
+              <div class="orb-chip-label">Vessel Inspection</div>
             </div>
           </div>
         </div>
@@ -5842,7 +5992,7 @@
                   <rect x="10" y="13" width="6" height="4" rx="1" stroke="#D97706" stroke-width="1.5" fill="none" />
                 </svg>
               </div>
-              <div class="orb-chip-label">BQS</div>
+              <div class="orb-chip-label">Bunker Quantity Survey</div>
             </div>
           </div>
         </div>
@@ -5859,7 +6009,7 @@
                   <path d="M11 20h3" stroke="#4338CA" stroke-width="1.5" stroke-linecap="round" />
                 </svg>
               </div>
-              <div class="orb-chip-label">Sanctions</div>
+              <div class="orb-chip-label">Global Sanctions</div>
             </div>
           </div>
         </div>
@@ -5877,7 +6027,7 @@
                   <path d="M7 19.5l1 2.5h14l1-2.5" stroke="#059669" stroke-width="1.5" stroke-linecap="round" />
                 </svg>
               </div>
-              <div class="orb-chip-label">VCS</div>
+              <div class="orb-chip-label">Vessel Condition Survey</div>
             </div>
           </div>
         </div>
@@ -6013,7 +6163,7 @@
           <div class="eyebrow"><span class="eyebrow-dot"></span>The Problem</div>
           <h2 class="display-md" id="prob-h2">
             The average maritime company<br>
-            runs <span class="grad-text">7+ disconnected systems.</span>
+            runs <span class="grad-text">6+ disconnected systems.</span>
           </h2>
           <p class="body-lg" style="color:var(--text-2);max-width:540px;margin:18px auto 0">
             Every silo costs time, creates risk and delays critical decisions. The industry deserves a single source of
@@ -6133,17 +6283,27 @@
         <div class="bento">
 
           <!-- BQS — Blue -->
-          <div class="bento-card reveal d1" data-module="bqs" onclick="window.location.href='bqs.html'" role="button" tabindex="0" aria-label="Bunker Quantity Survey module">
+          <div class="bento-card reveal d1" data-module="bqs" onclick="window.location.href='bqs.html'" role="button"
+            tabindex="0" aria-label="Bunker Quantity Survey module">
             <div class="bento-card-glow"></div>
             <div class="bento-card-inner">
               <div class="mod-num">Module 01</div>
               <div class="mod-icon-wrap">
                 <div class="mod-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h3m10 0h3"/><path d="M5 17V9a1 1 0 011-1h8a1 1 0 011 1v8"/><path d="M15 9h2l3 3v5h-5"/><circle cx="7.5" cy="17" r="1.5"/><circle cx="17.5" cy="17" r="1.5"/><path d="M8 9V6m0 0H6m2 0h2"/></svg>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 17h3m10 0h3" />
+                    <path d="M5 17V9a1 1 0 011-1h8a1 1 0 011 1v8" />
+                    <path d="M15 9h2l3 3v5h-5" />
+                    <circle cx="7.5" cy="17" r="1.5" />
+                    <circle cx="17.5" cy="17" r="1.5" />
+                    <path d="M8 9V6m0 0H6m2 0h2" />
+                  </svg>
                 </div>
               </div>
               <h3 class="mod-title">Bunker Quantity Survey</h3>
-              <p class="mod-desc">Eliminate bunker disputes with AI-validated quantity measurements. Real-time calculations, automatic report generation and full audit trails from delivery to sign-off.</p>
+              <p class="mod-desc">Eliminate bunker disputes with AI-validated quantity measurements. Real-time
+                calculations, automatic report generation and full audit trails from delivery to sign-off.</p>
               <div class="mod-chips">
                 <span class="mod-chip">Real-time Calculation</span>
                 <span class="mod-chip">Reports</span>
@@ -6155,23 +6315,32 @@
                   Learn More <span class="mod-cta-arrow">→</span>
                 </a>
                 <div class="mod-cta-divider"></div>
-                <a href="https://dashboardd-v2.netlify.app/" target="_blank" class="mod-cta-demo" onclick="event.stopPropagation()">Live Demo ↗</a>
+                <a href="https://dashboardd-v2.netlify.app/" target="_blank" class="mod-cta-demo"
+                  onclick="event.stopPropagation()">Live Demo ↗</a>
               </div>
             </div>
           </div>
 
           <!-- Vessel Inspection — Indigo -->
-          <div class="bento-card reveal d2" data-module="insp" onclick="window.location.href='bqs.html'" role="button" tabindex="0" aria-label="Vessel Inspection module">
+          <div class="bento-card reveal d2" data-module="insp" onclick="window.location.href='bqs.html'" role="button"
+            tabindex="0" aria-label="Vessel Inspection module">
             <div class="bento-card-glow"></div>
             <div class="bento-card-inner">
               <div class="mod-num">Module 02</div>
               <div class="mod-icon-wrap">
                 <div class="mod-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4338CA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><circle cx="11" cy="13" r="2.5"/><path d="M13 15l2 2"/></svg>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4338CA" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" />
+                    <rect x="9" y="3" width="6" height="4" rx="1" />
+                    <circle cx="11" cy="13" r="2.5" />
+                    <path d="M13 15l2 2" />
+                  </svg>
                 </div>
               </div>
               <h3 class="mod-title">Vessel Inspection</h3>
-              <p class="mod-desc">Replace clipboard inspections with smart digital workflows. Assign inspectors, track findings, capture photo evidence and generate compliance reports — all from one connected platform.</p>
+              <p class="mod-desc">Replace clipboard inspections with smart digital workflows. Assign inspectors, track
+                findings, capture photo evidence and generate compliance reports — all from one connected platform.</p>
               <div class="mod-chips">
                 <span class="mod-chip">Digital Checklists</span>
                 <span class="mod-chip">Photo Evidence</span>
@@ -6183,23 +6352,32 @@
                   Learn More <span class="mod-cta-arrow">→</span>
                 </a>
                 <div class="mod-cta-divider"></div>
-                <a href="https://dashboardd-v2.netlify.app/" target="_blank" class="mod-cta-demo" onclick="event.stopPropagation()">Live Demo ↗</a>
+                <a href="https://dashboardd-v2.netlify.app/" target="_blank" class="mod-cta-demo"
+                  onclick="event.stopPropagation()">Live Demo ↗</a>
               </div>
             </div>
           </div>
 
           <!-- Vessel Condition Survey — Teal -->
-          <div class="bento-card reveal d3" data-module="vcs" onclick="window.location.href='bqs.html'" role="button" tabindex="0" aria-label="Vessel Condition Survey module">
+          <div class="bento-card reveal d3" data-module="vcs" onclick="window.location.href='bqs.html'" role="button"
+            tabindex="0" aria-label="Vessel Condition Survey module">
             <div class="bento-card-glow"></div>
             <div class="bento-card-inner">
               <div class="mod-num">Module 03</div>
               <div class="mod-icon-wrap">
                 <div class="mod-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20l-1-6h16l-1 6"/><path d="M8 14V9m4 5V7m4 7V9"/><path d="M3 14c3-2 6-3 9-3s6 1 9 3"/></svg>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 20h20" />
+                    <path d="M5 20l-1-6h16l-1 6" />
+                    <path d="M8 14V9m4 5V7m4 7V9" />
+                    <path d="M3 14c3-2 6-3 9-3s6 1 9 3" />
+                  </svg>
                 </div>
               </div>
               <h3 class="mod-title">Vessel Condition Survey</h3>
-              <p class="mod-desc">Comprehensive vessel condition assessments with structured data capture, deficiency tracking and corrective action workflows — creating a continuous condition record for every vessel.</p>
+              <p class="mod-desc">Comprehensive vessel condition assessments with structured data capture, deficiency
+                tracking and corrective action workflows — creating a continuous condition record for every vessel.</p>
               <div class="mod-chips">
                 <span class="mod-chip">Condition Scoring</span>
                 <span class="mod-chip">Deficiency Tracking</span>
@@ -6211,23 +6389,31 @@
                   Learn More <span class="mod-cta-arrow">→</span>
                 </a>
                 <div class="mod-cta-divider"></div>
-                <a href="https://dashboardd-v2.netlify.app/" target="_blank" class="mod-cta-demo" onclick="event.stopPropagation()">Live Demo ↗</a>
+                <a href="https://dashboardd-v2.netlify.app/" target="_blank" class="mod-cta-demo"
+                  onclick="event.stopPropagation()">Live Demo ↗</a>
               </div>
             </div>
           </div>
 
           <!-- Global Sanctions — Amber -->
-          <div class="bento-card reveal d4" data-module="sanct" onclick="window.location.href='bqs.html'" role="button" tabindex="0" aria-label="Global Sanctions module">
+          <div class="bento-card reveal d4" data-module="sanct" onclick="window.location.href='bqs.html'" role="button"
+            tabindex="0" aria-label="Global Sanctions module">
             <div class="bento-card-glow"></div>
             <div class="bento-card-inner">
               <div class="mod-num">Module 04</div>
               <div class="mod-icon-wrap">
                 <div class="mod-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/><path d="M12 7l1 2.5L16 10l-2 2 .5 3L12 13.5 9.5 15l.5-3-2-2 3-.5z"/></svg>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" />
+                    <path d="M12 7l1 2.5L16 10l-2 2 .5 3L12 13.5 9.5 15l.5-3-2-2 3-.5z" />
+                  </svg>
                 </div>
               </div>
               <h3 class="mod-title">Global Sanctions</h3>
-              <p class="mod-desc">Real-time counterparty screening against OFAC, EU, UN and 50+ global sanctions lists. Automated alerts, risk scoring and compliance documentation — never miss a match.</p>
+              <p class="mod-desc">Real-time counterparty screening against OFAC, EU, UN and 50+ global sanctions lists.
+                Automated alerts, risk scoring and compliance documentation — never miss a match.</p>
               <div class="mod-chips">
                 <span class="mod-chip">OFAC Screening</span>
                 <span class="mod-chip">Real-time Alerts</span>
@@ -6239,7 +6425,8 @@
                   Learn More <span class="mod-cta-arrow">→</span>
                 </a>
                 <div class="mod-cta-divider"></div>
-                <a href="https://dashboardd-v2.netlify.app/" target="_blank" class="mod-cta-demo" onclick="event.stopPropagation()">Live Demo ↗</a>
+                <a href="https://dashboardd-v2.netlify.app/" target="_blank" class="mod-cta-demo"
+                  onclick="event.stopPropagation()">Live Demo ↗</a>
               </div>
             </div>
           </div>
@@ -6525,40 +6712,34 @@
 
           <div class="standards reveal d2">
             <div class="std">
-              <div class="std-name">IMO 2020</div>
-              <div class="std-desc">International Maritime Organization sulphur compliance tracking and automated
-                documentation workflows</div>
-              <div class="std-badge">COMPLIANT</div>
+              <div class="std-name">Auto Calculations</div>
+              <div class="std-desc">Automatically calculate bunker volume, density, VCF, and delivered quantity with high accuracy.</div>
+              <div class="std-badge">AUTOMATED</div>
             </div>
             <div class="std">
-              <div class="std-name">MARPOL</div>
-              <div class="std-desc">Marine pollution prevention regulations with automated reporting and photographic
-                evidence collection</div>
-              <div class="std-badge">COMPLIANT</div>
+              <div class="std-name">Photo Evidence</div>
+              <div class="std-desc">Capture inspection photos with organized visual documentation for every survey.</div>
+              <div class="std-badge">EVIDENCE READY</div>
             </div>
             <div class="std">
-              <div class="std-name">SOC 2</div>
-              <div class="std-desc">Type II certified. Independently audited security, availability and confidentiality
-                controls, annually reviewed</div>
-              <div class="std-badge">CERTIFIED</div>
+              <div class="std-name">Defect Tracking</div>
+              <div class="std-desc">Track defects with photos, severity, due dates, and resolution workflows.</div>
+              <div class="std-badge">ACTIONABLE</div>
             </div>
             <div class="std">
-              <div class="std-name">ISO 9001</div>
-              <div class="std-desc">Quality management systems certification across all platform operations and software
-                development processes</div>
-              <div class="std-badge">CERTIFIED</div>
+              <div class="std-name">Global Screening</div>
+              <div class="std-desc">Screen vessels, aircraft, individuals, and entities against global sanctions databases.</div>
+              <div class="std-badge">LIVE DATA</div>
             </div>
             <div class="std">
-              <div class="std-name">SOLAS</div>
-              <div class="std-desc">Safety of Life at Sea convention compliance workflows and structured documentation
-                management</div>
-              <div class="std-badge">ALIGNED</div>
+              <div class="std-name">Risk Intelligence</div>
+              <div class="std-desc">Generate risk scores and PDF reports for informed compliance decisions.</div>
+              <div class="std-badge">RISK SCORED</div>
             </div>
             <div class="std">
-              <div class="std-name">GDPR</div>
-              <div class="std-desc">EU General Data Protection Regulation compliance with full data residency controls
-                and DPA support</div>
-              <div class="std-badge">COMPLIANT</div>
+              <div class="std-name">Smart Checklists</div>
+              <div class="std-desc">Standardized, configurable inspection checklists for consistent vessel inspections.</div>
+              <div class="std-badge">CUSTOMIZABLE</div>
             </div>
           </div>
 
@@ -6595,7 +6776,8 @@
               <div class="price-feat"><span class="price-feat-chk">✓</span>Email support</div>
               <div class="price-feat"><span class="price-feat-chk">✓</span>5 user seats</div>
             </div>
-            <button class="price-cta price-cta-default" id="starter-cta" onclick="window.open('https://dashboardd-v2.netlify.app/','_blank')">Start Free Trial</button>
+            <button class="price-cta price-cta-default" id="starter-cta"
+              onclick="window.open('https://dashboardd-v2.netlify.app/','_blank')">Start Free Trial</button>
           </div>
 
           <!-- Professional (Featured) -->
@@ -6614,7 +6796,8 @@
               <div class="price-feat"><span class="price-feat-chk">✓</span>Priority support</div>
               <div class="price-feat"><span class="price-feat-chk">✓</span>25 user seats</div>
             </div>
-            <button class="price-cta price-cta-feat" id="pro-cta" onclick="window.open('https://dashboardd-v2.netlify.app/','_blank')">Start Free Trial</button>
+            <button class="price-cta price-cta-feat" id="pro-cta"
+              onclick="window.open('https://dashboardd-v2.netlify.app/','_blank')">Start Free Trial</button>
           </div>
 
           <!-- Enterprise -->
@@ -6977,6 +7160,178 @@
       </div><!-- /testi-marquee-wrap -->
     </section>
 
+    <!-- =============================================
+     FAQ SECTION
+     ============================================= -->
+    <section class="s-faq" id="faq" aria-labelledby="faq-h2">
+      <div class="container">
+        <div class="faq-hd reveal">
+          <div class="eyebrow"><span class="eyebrow-dot"></span>FAQ</div>
+          <h2 class="display-md" id="faq-h2">Frequently asked questions.</h2>
+          <p class="body-lg" style="color:var(--text-2);max-width:480px;margin:18px auto 0">Everything you need to know
+            about MC360. Can't find what you're looking for? Our maritime experts are ready to help.</p>
+        </div>
+
+        <div class="faq-list reveal d1">
+          <!-- FAQ 1 -->
+          <div class="faq-item" id="faq-1">
+            <button class="faq-q" data-faq="faq-1" aria-expanded="false">
+              <span class="faq-q-text">What is MC360?</span>
+              <div class="faq-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+              </div>
+            </button>
+            <div class="faq-body">
+              <div class="faq-a">
+                MC360 is a unified maritime inspection platform that brings Vessel Inspection (VIS), Bunker Quantity
+                Survey (BQS), Vessel Condition Survey (VCS), Global Sanctions screening, and AI-powered workflows into
+                one connected ecosystem.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item" id="faq-2">
+            <button class="faq-q" data-faq="faq-2" aria-expanded="false">
+              <span class="faq-q-text">Who is MC360 designed for?</span>
+              <div class="faq-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+              </div>
+            </button>
+            <div class="faq-body">
+              <div class="faq-a">
+                MC360 is built for ship owners, ship managers, marine survey companies, inspection agencies, ports, and
+                maritime organizations that need to manage inspections and compliance efficiently.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item" id="faq-3">
+            <button class="faq-q" data-faq="faq-3" aria-expanded="false">
+              <span class="faq-q-text">Which inspection modules are included?</span>
+              <div class="faq-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+              </div>
+            </button>
+            <div class="faq-body">
+              <div class="faq-a">
+                MC360 includes Vessel Inspection, Bunker Quantity Survey, Vessel Condition Survey, Global Sanctions,
+                with additional maritime applications planned in future releases.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item" id="faq-4">
+            <button class="faq-q" data-faq="faq-4" aria-expanded="false">
+              <span class="faq-q-text">Can MC360 generate inspection reports?</span>
+              <div class="faq-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+              </div>
+            </button>
+            <div class="faq-body">
+              <div class="faq-a">
+                Yes. MC360 generates structured digital inspection reports that can be reviewed, shared, and downloaded to support operational and compliance workflows.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item" id="faq-5">
+            <button class="faq-q" data-faq="faq-5" aria-expanded="false">
+              <span class="faq-q-text">Can multiple users collaborate?</span>
+              <div class="faq-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+              </div>
+            </button>
+            <div class="faq-body">
+              <div class="faq-a">
+                Yes. Teams can securely collaborate with role-based access, shared inspections, centralized documents,
+                and organization-level administration.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item" id="faq-6">
+            <button class="faq-q" data-faq="faq-6" aria-expanded="false">
+              <span class="faq-q-text">Is MC360 secure?</span>
+              <div class="faq-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+              </div>
+            </button>
+            <div class="faq-body">
+              <div class="faq-a">
+                MC360 follows enterprise security best practices with secure authentication, encrypted data
+                transmission, audit logging, and role-based permissions.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 7 -->
+          <div class="faq-item" id="faq-7">
+            <button class="faq-q" data-faq="faq-7" aria-expanded="false">
+              <span class="faq-q-text">Can inspection data be tracked over time?</span>
+              <div class="faq-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+              </div>
+            </button>
+            <div class="faq-body">
+              <div class="faq-a">
+                Yes. MC360 maintains inspection records, findings, and historical data, making it easier to monitor vessel conditions and review previous inspections.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 8 -->
+          <div class="faq-item" id="faq-8">
+            <button class="faq-q" data-faq="faq-8" aria-expanded="false">
+              <span class="faq-q-text">How can I get started?</span>
+              <div class="faq-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+              </div>
+            </button>
+            <div class="faq-body">
+              <div class="faq-a">
+                You can request a demo or start a free trial to explore how MC360 can streamline maritime inspections
+                and compliance workflows.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:52px" class="reveal d2">
+          <p style="font-size:15px;color:var(--text-2);margin-bottom:20px">Still have questions? Our maritime experts
+            are ready to help.</p>
+          <a href="#" class="btn btn-primary">Talk to an Expert →</a>
+        </div>
+      </div>
+    </section>
 
     <!-- =============================================
      FINAL CTA
@@ -6992,7 +7347,8 @@
             credit card required.
           </p>
           <div class="cta-btns">
-            <a href="https://dashboardd-v2.netlify.app/" target="_blank" class="btn btn-primary btn-lg" id="final-trial-btn">
+            <a href="https://dashboardd-v2.netlify.app/" target="_blank" class="btn btn-primary btn-lg"
+              id="final-trial-btn">
               Start Free Trial
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
                 <path d="M7.5 1.5l6 6-6 6M13.5 7.5H1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
@@ -7806,6 +8162,35 @@
       document.addEventListener('DOMContentLoaded', initProblemSolutionInteractions);
     } else {
       initProblemSolutionInteractions();
+    }
+
+    /* =============================================
+       FAQ ACCORDION
+       ============================================= */
+    function initFAQAccordion() {
+      document.querySelectorAll('.faq-q').forEach(q => {
+        q.addEventListener('click', () => {
+          const faqId = q.dataset.faq;
+          const item = faqId ? document.getElementById(faqId) : q.closest('.faq-item');
+          if (!item) return;
+          const isOpen = item.classList.contains('open');
+          document.querySelectorAll('.faq-item').forEach(i => {
+            i.classList.remove('open');
+            const b = i.querySelector('.faq-q');
+            if (b) b.setAttribute('aria-expanded', 'false');
+          });
+          if (!isOpen) {
+            item.classList.add('open');
+            q.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initFAQAccordion);
+    } else {
+      initFAQAccordion();
     }
 
   </script>
