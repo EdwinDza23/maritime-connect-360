@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vessel Inspection System (VIS) | MC360 Maritime Intelligence Platform</title>
+  <meta name="description" content="Automate checklist management, inspector assignments, and compliance evidence workflows.">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+
+<body>
+
+  <!-- =============================================
+     NAVIGATION (Identical to index.html)
+     ============================================= -->
+  <header class="nav-outer" role="banner">
+    <nav class="nav" id="main-nav" aria-label="Main navigation">
+
+      <!-- Logo -->
+      <a href="../../index.html" class="nav-logo" aria-label="MC360 Home">
+        <img src="../../assets/logos/MC360logo.png" alt="MC360">
+        <span class="nav-logo-text"><span class="brand-connect">MaritimeConnect</span>&nbsp;<span
+            class="brand-num">360</span></span>
+      </a>
+
+      <!-- Desktop links -->
+      <div class="nav-links" id="nav-links">
+        <div class="nav-active-pill" id="nav-active-pill"></div>
+
+        <a href="../../index.html" class="nav-link">Home</a>
+
+        <!-- Products dropdown -->
+        <div class="nav-dd-wrap" id="dd-products-wrap">
+          <button class="nav-link dd-open" id="dd-products-btn" aria-haspopup="true" aria-expanded="false">
+            Products
+            <span class="nav-chevron">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </span>
+          </button>
+          <div class="nav-dropdown dd-products" id="dd-products" role="menu">
+            <div class="dd-section-label">Modules</div>
+            <div class="dd-grid">
+
+              <!-- BQS -->
+              <a href="../bqs/index.html" class="dd-product-card" role="menuitem">
+                <span class="dd-product-icon" style="background:#e8f4fd">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 22V8a2 2 0 012-2h8a2 2 0 012 2v14" />
+                    <path d="M3 22h12M9 6V3M15 8h2a2 2 0 012 2v3a2 2 0 01-2 2h-2" />
+                    <path d="M19 15v4a2 2 0 01-2 2" />
+                    <rect x="6" y="10" width="6" height="4" rx="1" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="dd-product-name">Bunker Quantity Survey</div>
+                  <div class="dd-product-desc">Measurement, quantity verification and reports</div>
+                </div>
+              </a>
+
+              <!-- Vessel Inspection -->
+              <a href="../vis/index.html" class="dd-product-card active-product" role="menuitem">
+                <span class="dd-product-icon" style="background:#eef4ff">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3C50E0" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="6" y="3" width="12" height="18" rx="2" />
+                    <path d="M9 3V2a1 1 0 011-1h4a1 1 0 011 1v1" />
+                    <path d="M9 12l2 2 4-4" />
+                    <path d="M9 17h4" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="dd-product-name">Vessel Inspection</div>
+                  <div class="dd-product-desc">Digital checklists, photo evidence, compliance reports</div>
+                </div>
+              </a>
+
+              <!-- Vessel Condition Survey -->
+              <a href="../vcs/index.html" class="dd-product-card" role="menuitem">
+                <span class="dd-product-icon" style="background:#fff3e8">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e67e22" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 20h20" />
+                    <path d="M5 20V10l7-7 7 7v10" />
+                    <path d="M9 20v-5h6v5" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="dd-product-name">Vessel Condition Survey</div>
+                  <div class="dd-product-desc">Deficiency tracking and corrective action workflows</div>
+                </div>
+              </a>
+
+              <!-- Global Sanctions -->
+              <a href="../gs/index.html" class="dd-product-card" role="menuitem">
+                <span class="dd-product-icon" style="background:#eef4ff">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4338CA" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="2" width="14" height="20" rx="2" />
+                    <path d="M9 7h6M9 11h6M9 15h4" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="dd-product-name">Global Sanctions</div>
+                  <div class="dd-product-desc">Real-time OFAC, EU, UN screening across 50+ lists</div>
+                </div>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Customers dropdown -->
+        <div class="nav-dd-wrap" id="dd-customers-wrap">
+          <button class="nav-link" id="dd-customers-btn" aria-haspopup="true" aria-expanded="false">
+            Customers
+            <span class="nav-chevron">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </span>
+          </button>
+          <div class="nav-dropdown dd-customers" id="dd-customers" role="menu">
+
+            <a href="../../index.html#compliance" class="dd-list-item" role="menuitem">
+              <span class="dd-list-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M3 9h18M9 21V9" />
+                </svg>
+              </span>
+              Case studies
+            </a>
+
+            <a href="../../index.html#compliance" class="dd-list-item" role="menuitem">
+              <span class="dd-list-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                </svg>
+              </span>
+              Testimonials
+            </a>
+
+          </div>
+        </div>
+
+        <a href="../../index.html#compliance" class="nav-link">Security</a>
+        <a href="../../index.html#pricing" class="nav-link">Pricing</a>
+      </div>
+
+      <!-- Desktop CTAs -->
+      <div class="nav-actions" id="nav-actions">
+        <a href="../../index.html#cta" class="nav-demo" id="nav-demo-btn">Book Demo</a>
+        <a href="https://dashboardd-v3.netlify.app/" target="_blank" class="nav-trial" id="nav-trial-btn">Start Free
+          Trial</a>
+      </div>
+
+      <!-- Hamburger (mobile) -->
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+
+    </nav>
+  </header>
+
+  <!-- Mobile slide-down panel -->
+  <div class="nav-mobile-panel" id="nav-mobile-panel" aria-hidden="true">
+    <a href="../../index.html" class="mob-link">Home</a>
+    <div class="mob-link" id="mob-products-btn">
+      <span>Products</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" id="mob-products-chevron" style="transition:transform 0.2s">
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+    </div>
+    <div class="mob-subsection" id="mob-products-sub">
+      <a href="../bqs/index.html" class="mob-sub-item">Bunker Quantity Survey</a>
+      <a href="index.html" class="mob-sub-item">Vessel Inspection</a>
+      <a href="../vcs/index.html" class="mob-sub-item">Vessel Condition Survey</a>
+      <a href="../gs/index.html" class="mob-sub-item">Global Sanctions</a>
+    </div>
+    <div class="mob-link" id="mob-customers-btn">
+      <span>Customers</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" id="mob-customers-chevron" style="transition:transform 0.2s">
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+    </div>
+    <div class="mob-subsection" id="mob-customers-sub">
+      <a href="../../index.html#compliance" class="mob-sub-item">Case studies</a>
+      <a href="../../index.html#compliance" class="mob-sub-item">Testimonials</a>
+    </div>
+    <a href="../../index.html#compliance" class="mob-link">Security</a>
+    <a href="../../index.html#pricing" class="mob-link">Pricing</a>
+    <div class="mob-ctas">
+      <a href="../../index.html#cta" class="nav-demo">Book Demo</a>
+      <a href="https://dashboardd-v3.netlify.app/" target="_blank" class="nav-trial">Start Free Trial</a>
+    </div>
+  </div>
+
+  <!-- HERO PLACEHOLDER WITH HIGH COPYWRITING -->
+  <main style="min-height: calc(100vh - 280px); display: flex; align-items: center; justify-content: center; text-align: center; padding: 140px 24px 80px; position: relative; z-index: 1;">
+    <div style="max-width: 760px; width: 100%;">
+      
+      <!-- Badge -->
+      <div style="display: inline-flex; align-items: center; gap: 10px; padding: 8px 20px; border-radius: 100px; background: rgba(0, 163, 224, 0.08); border: 1px solid rgba(0, 163, 224, 0.25); color: var(--blue, #0057b8); font-size: 13px; font-weight: 700; margin-bottom: 32px; text-transform: uppercase; letter-spacing: 0.08em;">
+        <span style="width: 8px; height: 8px; border-radius: 50%; background: #00a3e0; display: inline-block; box-shadow: 0 0 12px #00a3e0;"></span>
+        Future Module Development
+      </div>
+
+      <!-- Title -->
+      <h1 class="hero-h1" style="font-size: clamp(34px, 5vw, 50px); font-weight: 800; margin-bottom: 16px; color: var(--text-primary); line-height: 1.15; letter-spacing: -0.02em;">
+        Vessel Inspection System (VIS)
+      </h1>
+
+      <p style="font-size: clamp(18px, 2.2vw, 22px); font-weight: 600; color: var(--accent-cyan, #00a3e0); margin-bottom: 20px;">
+        Smart Digital Inspection Workflows & Compliance Audits
+      </p>
+
+      <p style="font-size: 17px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 44px; max-width: 640px; margin-left: auto; margin-right: auto;">
+        We are actively engineering an end-to-end digital inspection platform. Eliminate paper checklists with intelligent inspector assignment, offline photo evidence capture, and instant compliance reporting.
+      </p>
+
+      <div style="display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap;">
+        <a href="../../index.html" class="btn btn-primary btn-lg" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; font-weight: 700;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Return to Home
+        </a>
+        <a href="../bqs/index.html" class="btn btn-secondary btn-lg" style="padding: 14px 28px; font-weight: 600;">
+          Explore Active BQS Module
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="../../assets/logos/MC360logo.png" alt="MC360" style="height:34px;width:auto">
+            <span class="footer-logo-text">MC360</span>
+          </div>
+          <p class="footer-brand-desc">
+            The All in One operating system for modern maritime companies. Unifying inspections, surveys, bunker
+            operations and compliance in one intelligent platform.
+          </p>
+          <div class="footer-compliance-row">
+            <span class="footer-cert">SOC 2</span>
+            <span class="footer-cert">ISO 9001</span>
+            <span class="footer-cert">GDPR</span>
+            <span class="footer-cert">IMO</span>
+            <span class="footer-cert">MARPOL</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Platform</div>
+          <div class="footer-links">
+            <a href="../bqs/index.html" class="footer-link">Bunker Survey</a>
+            <a href="../vis/index.html" class="footer-link">Vessel Inspection</a>
+            <a href="../vcs/index.html" class="footer-link">Condition Survey</a>
+            <a href="../gs/index.html" class="footer-link">Global Sanctions</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-links">
+            <a href="../../future-module.html?page=About" class="footer-link">About</a>
+            <a href="../../future-module.html?page=Careers" class="footer-link">Careers</a>
+            <a href="../../future-module.html?page=Blog" class="footer-link">Blog</a>
+            <a href="../../future-module.html?page=Contact" class="footer-link">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Resources</div>
+          <div class="footer-links">
+            <a href="../../future-module.html?page=Documentation" class="footer-link">Documentation</a>
+            <a href="../../future-module.html?page=API%20Reference" class="footer-link">API Reference</a>
+            <a href="../../future-module.html?page=Status" class="footer-link">Status</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Legal</div>
+          <div class="footer-links">
+            <a href="../../index.html#compliance" class="footer-link">Privacy Policy</a>
+            <a href="../../index.html#compliance" class="footer-link">Terms of Service</a>
+            <a href="../../future-module.html?page=Cookie%20Policy" class="footer-link">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 MaritimeConnect360. All rights reserved.</div>
+        <div class="footer-legal">
+          <a href="../../index.html" class="footer-legal-link">Home</a>
+          <a href="../bqs/index.html" class="footer-legal-link">BQS Module</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js" defer></script>
+</body>
+</html>

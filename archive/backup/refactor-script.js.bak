@@ -1,0 +1,221 @@
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = __dirname;
+
+// Read original index.html and bqs.html
+const indexHtmlContent = fs.readFileSync(path.join(rootDir, 'index.html'), 'utf8');
+const bqsHtmlContent = fs.readFileSync(path.join(rootDir, 'bqs.html'), 'utf8');
+
+// 1. Extract CSS
+const indexStyleMatch = indexHtmlContent.match(/<style>([\s\S]*?)<\/style>/);
+const bqsStyleMatch = bqsHtmlContent.match(/<style>([\s\S]*?)<\/style>/);
+
+const indexCss = indexStyleMatch ? indexStyleMatch[1].trim() : '';
+const bqsCss = bqsStyleMatch ? bqsStyleMatch[1].trim() : '';
+
+// Clean up duplicate token and base declarations from BQS CSS while preserving unique BQS styles
+// Extract BQS specific sections
+const bqsSpecificMarker = '/* BQS SPECIFIC STYLES */';
+let bqsSpecificCss = bqsCss;
+if (bqsCss.includes(bqsSpecificMarker)) {
+  bqsSpecificCss = bqsCss.substring(bqsCss.indexOf(bqsSpecificMarker));
+}
+
+const consolidatedCss = `/* ==========================================================================
+   MC360 MAIN STYLESHEET
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Design Tokens & Root Variables
+   ========================================================================== */
+
+/* ==========================================================================
+   2. Core Landing Page & Global Component Styles
+   ========================================================================== */
+${indexCss}
+
+/* ==========================================================================
+   3. BQS Product Page Specific Styles
+   ========================================================================== */
+${bqsSpecificCss}
+`;
+
+fs.writeFileSync(path.join(rootDir, 'css', 'styles.css'), consolidatedCss, 'utf8');
+console.log('Created css/styles.css');
+
+// 2. Extract JS
+// Get inline script from index.html (last script tag before </body>)
+const indexScriptMatch = indexHtmlContent.match(/<script>([\s\S]*?)<\/script>\s*<\/body>/);
+const bqsScriptMatch = bqsHtmlContent.match(/<script>([\s\S]*?)<\/script>\s*<\/body>/);
+
+const indexJs = indexScriptMatch ? indexScriptMatch[1].trim() : '';
+const bqsJs = bqsScriptMatch ? bqsScriptMatch[1].trim() : '';
+
+const consolidatedJs = `/* ==========================================================================
+   MC360 MAIN JAVASCRIPT ARCHITECTURE
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Core Landing Page & Navigation Handlers
+   ========================================================================== */
+${indexJs}
+
+/* ==========================================================================
+   2. BQS Product Page Handlers
+   ========================================================================== */
+${bqsJs}
+`;
+
+fs.writeFileSync(path.join(rootDir, 'js', 'main.js'), consolidatedJs, 'utf8');
+console.log('Created js/main.js');
+
+// 3. Clean up index.html
+let newIndexHtml = indexHtmlContent;
+
+// Replace <style>...</style> with link to css/styles.css
+newIndexHtml = newIndexHtml.replace(/<style>[\s\S]*?<\/style>/, '  <link rel="stylesheet" href="css/styles.css">');
+
+// Replace inline <script>...</script> with main.js script tag before </body>
+newIndexHtml = newIndexHtml.replace(/<script>[\s\S]*?<\/script>\s*<\/body>/, '  <script src="js/main.js" defer></script>\n</body>');
+
+// Update logo & image src paths in index.html
+newIndexHtml = newIndexHtml.replace(/src="assets\/MC360logo\.png"/g, 'src="assets/logos/MC360logo.png"');
+newIndexHtml = newIndexHtml.replace(/src="assets\/landingpagedashboard\.png"/g, 'src="assets/images/landingpagedashboard.png"');
+
+// Update navigation & product links in index.html
+newIndexHtml = newIndexHtml.replace(/href="bqs\.html"/g, 'href="products/bqs/index.html"');
+newIndexHtml = newIndexHtml.replace(/href="vis\.html"/g, 'href="products/vis/index.html"');
+newIndexHtml = newIndexHtml.replace(/href="vcs\.html"/g, 'href="products/vcs/index.html"');
+newIndexHtml = newIndexHtml.replace(/href="sanctions\.html"/g, 'href="products/gs/index.html"');
+newIndexHtml = newIndexHtml.replace(/onclick="window\.location\.href='bqs\.html'"/g, "onclick=\"window.location.href='products/bqs/index.html'\"");
+newIndexHtml = newIndexHtml.replace(/onclick="window\.location\.href='vis\.html'"/g, "onclick=\"window.location.href='products/vis/index.html'\"");
+newIndexHtml = newIndexHtml.replace(/onclick="window\.location\.href='vcs\.html'"/g, "onclick=\"window.location.href='products/vcs/index.html'\"");
+newIndexHtml = newIndexHtml.replace(/onclick="window\.location\.href='sanctions\.html'"/g, "onclick=\"window.location.href='products/gs/index.html'\"");
+
+fs.writeFileSync(path.join(rootDir, 'index.html'), newIndexHtml, 'utf8');
+console.log('Refactored root index.html');
+
+// 4. Create products/bqs/index.html
+let newBqsHtml = bqsHtmlContent;
+
+// Replace <style>...</style> with link to css/styles.css
+newBqsHtml = newBqsHtml.replace(/<style>[\s\S]*?<\/style>/, '  <link rel="stylesheet" href="../../css/styles.css">');
+
+// Replace inline <script>...</script> with main.js script tag before </body>
+newBqsHtml = newBqsHtml.replace(/<script>[\s\S]*?<\/script>\s*<\/body>/, '  <script src="../../js/main.js" defer></script>\n</body>');
+
+// Update asset paths in BQS page (relative to products/bqs/)
+newBqsHtml = newBqsHtml.replace(/src="assets\/MC360logo\.png"/g, 'src="../../assets/logos/MC360logo.png"');
+newBqsHtml = newBqsHtml.replace(/src="assets\/logos\/([1-8]\.png)"/g, 'src="../../assets/logos/$1"');
+newBqsHtml = newBqsHtml.replace(/src="assets\/1\.png"/g, 'src="../../assets/logos/1.png"');
+newBqsHtml = newBqsHtml.replace(/src="assets\/2\.png"/g, 'src="../../assets/logos/2.png"');
+newBqsHtml = newBqsHtml.replace(/src="assets\/3\.png"/g, 'src="../../assets/logos/3.png"');
+newBqsHtml = newBqsHtml.replace(/src="assets\/4\.png"/g, 'src="../../assets/logos/4.png"');
+newBqsHtml = newBqsHtml.replace(/src="assets\/5\.png"/g, 'src="../../assets/logos/5.png"');
+newBqsHtml = newBqsHtml.replace(/src="assets\/6\.png"/g, 'src="../../assets/logos/6.png"');
+newBqsHtml = newBqsHtml.replace(/src="assets\/7\.png"/g, 'src="../../assets/logos/7.png"');
+newBqsHtml = newBqsHtml.replace(/src="assets\/8\.png"/g, 'src="../../assets/logos/8.png"');
+
+newBqsHtml = newBqsHtml.replace(/src="assets\/BQS\/([^"]+)"/g, (match, p1) => {
+  if (p1.endsWith('.mp4')) return `src="../../assets/videos/bqs/${p1}"`;
+  return `src="../../assets/images/bqs/${p1}"`;
+});
+
+newBqsHtml = newBqsHtml.replace(/data-lightbox="assets\/BQS\/([^"]+)"/g, 'data-lightbox="../../assets/images/bqs/$1"');
+
+// Update navigation back links in BQS page
+newBqsHtml = newBqsHtml.replace(/href="index\.html"/g, 'href="../../index.html"');
+newBqsHtml = newBqsHtml.replace(/href="index\.html#([^"]+)"/g, 'href="../../index.html#$1"');
+newBqsHtml = newBqsHtml.replace(/href="bqs\.html"/g, 'href="index.html"');
+newBqsHtml = newBqsHtml.replace(/href="vis\.html"/g, 'href="../vis/index.html"');
+newBqsHtml = newBqsHtml.replace(/href="vcs\.html"/g, 'href="../vcs/index.html"');
+newBqsHtml = newBqsHtml.replace(/href="sanctions\.html"/g, 'href="../gs/index.html"');
+
+fs.writeFileSync(path.join(rootDir, 'products', 'bqs', 'index.html'), newBqsHtml, 'utf8');
+console.log('Created products/bqs/index.html');
+
+// 5. Move root bqs.html to archive
+fs.writeFileSync(path.join(rootDir, 'archive', 'bqs.html.bak'), bqsHtmlContent, 'utf8');
+fs.unlinkSync(path.join(rootDir, 'bqs.html'));
+console.log('Moved root bqs.html to archive/bqs.html.bak');
+
+// 6. Create placeholder pages for vis, vcs, gs
+function createPlaceholderPage(title, subtitle, moduleCode, activeLinkClass) {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${title} | MC360 Maritime Intelligence Platform</title>
+  <meta name="description" content="${subtitle}">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav-fixed" id="main-nav" aria-label="Main Navigation">
+    <div class="nav-container">
+      <a href="../../index.html" class="nav-logo" aria-label="MC360 Home">
+        <img src="../../assets/logos/MC360logo.png" alt="MC360" style="height:34px;width:auto">
+      </a>
+      <div class="nav-menu">
+        <a href="../../index.html" class="nav-link">Home</a>
+        <a href="../bqs/index.html" class="nav-link">BQS</a>
+        <a href="../vis/index.html" class="nav-link ${moduleCode === 'vis' ? 'active' : ''}">VIS</a>
+        <a href="../vcs/index.html" class="nav-link ${moduleCode === 'vcs' ? 'active' : ''}">VCS</a>
+        <a href="../gs/index.html" class="nav-link ${moduleCode === 'gs' ? 'active' : ''}">GS</a>
+      </div>
+      <div class="nav-actions">
+        <a href="../../index.html#demo" class="btn-secondary nav-btn">Book Demo</a>
+        <a href="../../index.html#trial" class="btn-primary nav-btn">Start Free Trial</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO PLACEHOLDER -->
+  <main style="min-height: calc(100vh - 300px); display: flex; align-items: center; justify-content: center; text-align: center; padding: 120px 24px 60px;">
+    <div style="max-width: 680px; width: 100%;">
+      <div style="display: inline-block; padding: 6px 16px; border-radius: 100px; background: rgba(0, 163, 224, 0.1); border: 1px solid rgba(0, 163, 224, 0.25); color: var(--accent-cyan); font-size: 13px; font-weight: 600; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em;">
+        Future Module Development
+      </div>
+      <h1 class="hero-h1" style="font-size: 42px; margin-bottom: 16px; color: var(--text-primary);">${title}</h1>
+      <p style="font-size: 18px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 36px;">${subtitle}</p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="../../index.html" class="btn-primary">Return to Homepage</a>
+        <a href="../bqs/index.html" class="btn-secondary">Explore BQS Module</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer style="border-top: 1px solid var(--border-subtle); padding: 40px 24px; text-align: center; color: var(--text-tertiary); font-size: 14px;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <div>&copy; 2026 MC360 Maritime Platform. All rights reserved.</div>
+      <div style="display: flex; gap: 24px;">
+        <a href="../../index.html" style="color: var(--text-secondary); text-decoration: none;">Home</a>
+        <a href="../bqs/index.html" style="color: var(--text-secondary); text-decoration: none;">BQS Module</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js" defer></script>
+</body>
+</html>`;
+}
+
+fs.writeFileSync(path.join(rootDir, 'products', 'vis', 'index.html'), createPlaceholderPage('Vessel Inspection System (VIS)', 'Automate checklist management, inspector assignments, and compliance evidence workflows.', 'vis'), 'utf8');
+console.log('Created products/vis/index.html');
+
+fs.writeFileSync(path.join(rootDir, 'products', 'vcs', 'index.html'), createPlaceholderPage('Vessel Condition Survey (VCS)', 'Comprehensive condition scoring, defect tracking, and corrective action workflows.', 'vcs'), 'utf8');
+console.log('Created products/vcs/index.html');
+
+fs.writeFileSync(path.join(rootDir, 'products', 'gs', 'index.html'), createPlaceholderPage('Global Sanctions & Guidance System (GS)', 'Real-time counterparty screening and automated maritime regulatory compliance alerts.', 'gs'), 'utf8');
+console.log('Created products/gs/index.html');
+
+console.log('Refactoring complete!');
