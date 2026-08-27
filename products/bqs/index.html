@@ -888,7 +888,7 @@
                   making internal fuel transfers during custody transfer.</div>
               </div>
             </div>
-            <a href="#" class="btn btn-outline">Explore Pre-Survey Features →</a>
+            
           </div>
         </div>
 
@@ -939,7 +939,7 @@
                   closing tank readings to calculate the precise net bunker quantity received by the vessel.</div>
               </div>
             </div>
-            <a href="#" class="btn btn-outline">Explore ROB Assessments →</a>
+            
           </div>
         </div>
 
@@ -986,7 +986,6 @@
                 </div>
               </div>
             </div>
-            <a href="#" class="btn btn-outline">Explore Barge Auditing →</a>
           </div>
         </div>
 
@@ -1032,7 +1031,6 @@
                   out-turn metrics.</div>
               </div>
             </div>
-            <a href="#" class="btn btn-outline">Explore Pathway Workflows →</a>
           </div>
         </div>
 
@@ -1077,7 +1075,6 @@
                   numbers and distribution lists across ship, barge, surveyor, and laboratory subdivisions.</div>
               </div>
             </div>
-            <a href="#" class="btn btn-outline">Explore Sampling Controls →</a>
           </div>
         </div>
 
@@ -1125,7 +1122,6 @@
                   starting/ending times), and other delays.</div>
               </div>
             </div>
-            <a href="#" class="btn btn-outline">Explore Dispute Resolution →</a>
           </div>
         </div>
 
@@ -1171,10 +1167,8 @@
                   record of certified totals to protect both shipowners and charterers during handovers.</div>
               </div>
             </div>
-            <a href="#" class="btn btn-outline">Explore On/Off Hire →</a>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -1202,7 +1196,7 @@
               <div class="b-url"><svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <rect x="1" y="3.5" width="10" height="7.5" rx="1.5" stroke="#7A90A6" stroke-width="1" />
                   <path d="M4 3.5V2.5a2 2 0 014 0v1" stroke="#7A90A6" stroke-width="1" />
-                </svg>app.mc360.io/bqs/demo</div>
+                </svg>mc360.io/bqs</div>
             </div>
             <div class="pvideo-inner">
               <video id="pvideo-main" style="width:100%;max-height:580px;object-fit:cover;display:block"
@@ -1848,15 +1842,58 @@
     <span class="btt-label">Back to top</span>
   </button>
 
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
-    <div class="lightbox-inner">
-      <img id="lightbox-img" src="" alt="Screenshot preview">
-      <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+  <!-- =============================================
+     CHATBOT WIDGET HTML (Rendered at Body level for stacking context bypass)
+     ============================================= -->
+  <div id="cb-widget" aria-label="MC360 AI Assistant">
+
+    <!-- FAB (always visible fixed in bottom-right corner) -->
+    <button class="cb-fab" id="cb-fab" aria-label="Open MC360 AI Assistant">
+      <img src="../../assets/logos/MC360logo.png" alt="MC360 AI">
+      <span class="cb-fab-badge">AI</span>
+    </button>
+
+    <!-- Chat panel -->
+    <div class="cb-panel" id="cb-panel">
+      <!-- Header -->
+      <div class="cb-header">
+        <div class="cb-header-left">
+          <div class="cb-avatar">
+            <img src="../../assets/logos/MC360logo.png" alt="MC360 AI">
+          </div>
+          <div>
+            <div class="cb-name">MC360 AI</div>
+            <div class="cb-status"><span class="cb-status-dot"></span>Online &middot; Ask me anything</div>
+          </div>
+        </div>
+        <button class="cb-close" id="cb-close" aria-label="Close chat">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M12 4L4 12M4 4l8 8" stroke="rgba(255,255,255,.7)" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Messages -->
+      <div class="cb-msgs" id="cb-msgs"></div>
+
+      <!-- Quick chips -->
+      <div class="cb-chips-row" id="cb-chips"></div>
+
+      <!-- Input -->
+      <div class="cb-input-row">
+        <input class="cb-input" id="cb-input" type="text" placeholder="Ask about MC360..." autocomplete="off" />
+        <button class="cb-send" id="cb-send" aria-label="Send">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M14 2L7 9M14 2L9.5 14 7 9M14 2L2 6.5 7 9" stroke="white" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
     </div>
+
   </div>
 
-    <script src="../../js/main.js" defer></script>
+  <script src="../../js/main.js" defer></script>
 </body>
 
 </html>

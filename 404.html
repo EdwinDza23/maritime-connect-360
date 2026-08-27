@@ -334,6 +334,57 @@
     </div>
   </footer>
 
+  <!-- =============================================
+     CHATBOT WIDGET HTML (Rendered at Body level for stacking context bypass)
+     ============================================= -->
+  <div id="cb-widget" aria-label="MC360 AI Assistant">
+
+    <!-- FAB (always visible fixed in bottom-right corner) -->
+    <button class="cb-fab" id="cb-fab" aria-label="Open MC360 AI Assistant">
+      <img src="assets/logos/MC360logo.png" alt="MC360 AI">
+      <span class="cb-fab-badge">AI</span>
+    </button>
+
+    <!-- Chat panel -->
+    <div class="cb-panel" id="cb-panel">
+      <!-- Header -->
+      <div class="cb-header">
+        <div class="cb-header-left">
+          <div class="cb-avatar">
+            <img src="assets/logos/MC360logo.png" alt="MC360 AI">
+          </div>
+          <div>
+            <div class="cb-name">MC360 AI</div>
+            <div class="cb-status"><span class="cb-status-dot"></span>Online &middot; Ask me anything</div>
+          </div>
+        </div>
+        <button class="cb-close" id="cb-close" aria-label="Close chat">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M12 4L4 12M4 4l8 8" stroke="rgba(255,255,255,.7)" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Messages -->
+      <div class="cb-msgs" id="cb-msgs"></div>
+
+      <!-- Quick chips -->
+      <div class="cb-chips-row" id="cb-chips"></div>
+
+      <!-- Input -->
+      <div class="cb-input-row">
+        <input class="cb-input" id="cb-input" type="text" placeholder="Ask about MC360..." autocomplete="off" />
+        <button class="cb-send" id="cb-send" aria-label="Send">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M14 2L7 9M14 2L9.5 14 7 9M14 2L2 6.5 7 9" stroke="white" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
   <script src="js/main.js" defer></script>
 </body>
 
