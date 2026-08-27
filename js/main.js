@@ -773,22 +773,6 @@ if (document.readyState === 'loading') {
 })();
 
 /* =============================================
-   FAQ ACCORDION
-   ============================================= */
-(function () {
-  document.querySelectorAll('.faq-q').forEach(q => {
-    q.addEventListener('click', () => {
-      const faqId = q.dataset.faq;
-      const item = document.getElementById(faqId);
-      if (!item) return;
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    });
-  });
-})();
-
-/* =============================================
    COUNTER ANIMATION
    ============================================= */
 (function () {
