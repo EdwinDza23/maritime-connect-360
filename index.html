@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -760,34 +760,35 @@
           <!-- ── Card 1: BQS — Bunker Quantity Survey ── -->
           <article class="prod-card reveal d1"
             onclick="window.location.href='products/bqs/index.html'"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='products/bqs/index.html'}"
             role="button" tabindex="0"
-            aria-label="Bunker Quantity Survey — Explore this module">
+            aria-label="Bunker Quantity Survey — navigate to product page">
 
-            <!-- LEFT: UI Preview -->
+            <!-- TOP: UI Preview -->
             <div class="prod-preview" aria-hidden="true">
               <div class="prod-preview-inner">
                 <!-- Header row -->
                 <div class="pp-header">
-                  <div class="pp-vessel-name">MV Pacific Star</div>
+                  <div class="pp-vessel-name">HFO Level</div>
                   <div class="pp-badge pp-badge-verified">Verified</div>
                 </div>
 
-                <!-- Fuel level gauge -->
+                <!-- Fuel gauge -->
                 <div class="pp-gauge-wrap">
                   <div class="pp-gauge-label">
-                    <span class="pp-gauge-title">HFO Level</span>
-                    <span class="pp-gauge-value">78%</span>
+                    <span class="pp-gauge-title">Quantity Measured</span>
+                    <span class="pp-gauge-value">1,847 MT</span>
                   </div>
                   <div class="pp-gauge-track">
                     <div class="pp-gauge-fill" style="width:78%"></div>
                   </div>
                 </div>
 
-                <!-- Stats row -->
+                <!-- Stats -->
                 <div class="pp-stats">
                   <div class="pp-stat">
-                    <div class="pp-stat-val">1,847 MT</div>
-                    <div class="pp-stat-lbl">Quantity Measured</div>
+                    <div class="pp-stat-val">78%</div>
+                    <div class="pp-stat-lbl">HFO Level</div>
                   </div>
                   <div class="pp-stat">
                     <div class="pp-stat-val pp-stat-green">+0.2%</div>
@@ -796,17 +797,16 @@
                 </div>
 
                 <!-- ROB Trend mini chart -->
-                <div class="pp-chart-label">ROB Trend</div>
                 <div class="pp-mini-chart">
-                  <svg viewBox="0 0 120 36" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                  <svg viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                     <defs>
-                      <linearGradient id="bqs-grad" x1="0" y1="0" x2="0" y2="1">
+                      <linearGradient id="bqs-grad2" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="0%" stop-color="#0057B8" stop-opacity="0.18"/>
                         <stop offset="100%" stop-color="#0057B8" stop-opacity="0"/>
                       </linearGradient>
                     </defs>
-                    <path d="M0 28 C20 26 35 20 55 16 C75 12 90 18 120 10" stroke="#0057B8" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M0 28 C20 26 35 20 55 16 C75 12 90 18 120 10 L120 36 L0 36Z" fill="url(#bqs-grad)"/>
+                    <path d="M0 24 C20 22 35 16 55 12 C75 8 90 14 120 6" stroke="#0057B8" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M0 24 C20 22 35 16 55 12 C75 8 90 14 120 6 L120 32 L0 32Z" fill="url(#bqs-grad2)"/>
                   </svg>
                 </div>
 
@@ -818,34 +818,14 @@
               </div>
             </div>
 
-            <!-- RIGHT: Content -->
+            <!-- BOTTOM: Content -->
             <div class="prod-content">
-              <div class="prod-eyebrow">Module 01 · BQS</div>
+              <div class="prod-category">Fuel &amp; Bunkering</div>
               <h3 class="prod-title">Bunker Quantity Survey</h3>
-              <p class="prod-desc">Eliminate bunker disputes with AI-validated quantity measurements, automatic report generation and full audit trails from delivery to sign-off.</p>
-              <ul class="prod-features" aria-label="Key features">
-                <li class="prod-feature">
-                  <span class="prod-feat-icon" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#E8F4FD"/><path d="M4 7l2 2 4-4" stroke="#0057B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                  Real-time volume &amp; density calculations
-                </li>
-                <li class="prod-feature">
-                  <span class="prod-feat-icon" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#E8F4FD"/><path d="M4 7l2 2 4-4" stroke="#0057B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                  Automated bunker report generation
-                </li>
-                <li class="prod-feature">
-                  <span class="prod-feat-icon" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#E8F4FD"/><path d="M4 7l2 2 4-4" stroke="#0057B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                  Full audit trail &amp; dispute prevention
-                </li>
-              </ul>
+              <p class="prod-desc">Independent, digital verification of fuel quantities at every bunkering operation — reducing disputes, shortages, and reconciliation time.</p>
               <div class="prod-cta">
                 <a href="products/bqs/index.html" class="prod-btn-primary" onclick="event.stopPropagation()">
-                  Explore More <span class="prod-btn-arrow">→</span>
+                  Explore Module <span class="prod-btn-arrow">→</span>
                 </a>
                 <a href="https://dashboardd-v3.netlify.app/" target="_blank" rel="noopener" class="prod-btn-secondary" onclick="event.stopPropagation()">
                   Live Demo
@@ -859,20 +839,20 @@
           <!-- ── Card 2: VCS — Vessel Condition Survey ── -->
           <article class="prod-card reveal d2"
             onclick="window.location.href='products/vcs/index.html'"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='products/vcs/index.html'}"
             role="button" tabindex="0"
-            aria-label="Vessel Condition Survey — Explore this module">
+            aria-label="Vessel Condition Survey — navigate to product page">
 
-            <!-- LEFT: UI Preview -->
+            <!-- TOP: UI Preview -->
             <div class="prod-preview" aria-hidden="true">
               <div class="prod-preview-inner">
                 <!-- Score header -->
                 <div class="pp-header">
-                  <div class="pp-vessel-name">Condition Survey</div>
+                  <div class="pp-vessel-name">Condition Score</div>
                   <div class="pp-score-badge">
                     <span class="pp-score-num">94</span><span class="pp-score-max">/100</span>
                   </div>
                 </div>
-                <div class="pp-score-label">Condition Score</div>
 
                 <!-- Findings summary -->
                 <div class="pp-findings">
@@ -890,8 +870,8 @@
                   </div>
                 </div>
 
-                <!-- Progress bar -->
-                <div class="pp-gauge-wrap" style="margin-top:10px">
+                <!-- Overall condition bar -->
+                <div class="pp-gauge-wrap">
                   <div class="pp-gauge-label">
                     <span class="pp-gauge-title">Overall Condition</span>
                     <span class="pp-gauge-value">Excellent</span>
@@ -909,34 +889,14 @@
               </div>
             </div>
 
-            <!-- RIGHT: Content -->
+            <!-- BOTTOM: Content -->
             <div class="prod-content">
-              <div class="prod-eyebrow">Module 02 · VCS</div>
+              <div class="prod-category">Condition &amp; Class</div>
               <h3 class="prod-title">Vessel Condition Survey</h3>
-              <p class="prod-desc">Comprehensive vessel condition assessments with structured data capture, deficiency tracking and corrective action workflows — building a continuous condition record.</p>
-              <ul class="prod-features" aria-label="Key features">
-                <li class="prod-feature">
-                  <span class="prod-feat-icon" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#E8F4FD"/><path d="M4 7l2 2 4-4" stroke="#0057B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                  Automated condition scoring &amp; benchmarking
-                </li>
-                <li class="prod-feature">
-                  <span class="prod-feat-icon" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#E8F4FD"/><path d="M4 7l2 2 4-4" stroke="#0057B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                  Deficiency tracking with CAR workflows
-                </li>
-                <li class="prod-feature">
-                  <span class="prod-feat-icon" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#E8F4FD"/><path d="M4 7l2 2 4-4" stroke="#0057B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                  Structured survey reports &amp; fleet analytics
-                </li>
-              </ul>
+              <p class="prod-desc">Standardized digital condition assessments for charter, purchase, or delivery — consistent, defensible, and ready to share.</p>
               <div class="prod-cta">
                 <a href="products/vcs/index.html" class="prod-btn-primary" onclick="event.stopPropagation()">
-                  Explore More <span class="prod-btn-arrow">→</span>
+                  Explore Module <span class="prod-btn-arrow">→</span>
                 </a>
                 <a href="https://dashboardd-v3.netlify.app/" target="_blank" rel="noopener" class="prod-btn-secondary" onclick="event.stopPropagation()">
                   Live Demo
@@ -950,16 +910,17 @@
           <!-- ── Card 3: VIS — Vessel Inspection ── -->
           <article class="prod-card reveal d3"
             onclick="window.location.href='products/vis/index.html'"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='products/vis/index.html'}"
             role="button" tabindex="0"
-            aria-label="Vessel Inspection — Explore this module">
+            aria-label="Vessel Inspection — navigate to product page">
 
-            <!-- LEFT: UI Preview -->
+            <!-- TOP: UI Preview -->
             <div class="prod-preview" aria-hidden="true">
               <div class="prod-preview-inner">
                 <!-- Header row -->
                 <div class="pp-header">
                   <div class="pp-vessel-name">Inspection Progress</div>
-                  <div class="pp-badge pp-badge-inprogress">In Progress</div>
+                  <div class="pp-badge pp-badge-inprogress">3 of 4</div>
                 </div>
 
                 <!-- Checklist items -->
@@ -967,72 +928,47 @@
                   <div class="pp-check-item pp-check-done">
                     <span class="pp-check-ico">✓</span>
                     <span class="pp-check-lbl">Safety Equipment</span>
-                    <span class="pp-check-status">Complete</span>
+                    <span class="pp-check-status">Done</span>
                   </div>
                   <div class="pp-check-item pp-check-done">
                     <span class="pp-check-ico">✓</span>
                     <span class="pp-check-lbl">Fire Suppression</span>
-                    <span class="pp-check-status">Complete</span>
+                    <span class="pp-check-status">Done</span>
                   </div>
                   <div class="pp-check-item pp-check-warn">
                     <span class="pp-check-ico">●</span>
-                    <span class="pp-check-lbl">Life-saving Appliances</span>
-                    <span class="pp-check-status pp-status-amber">Review</span>
-                  </div>
-                  <div class="pp-check-item pp-check-pending">
-                    <span class="pp-check-ico pp-ico-pending">○</span>
                     <span class="pp-check-lbl">MARPOL &amp; Records</span>
-                    <span class="pp-check-status pp-status-muted">Pending</span>
+                    <span class="pp-check-status pp-status-amber">Review</span>
                   </div>
                 </div>
 
                 <!-- Progress bar -->
-                <div class="pp-gauge-wrap" style="margin-top:10px">
+                <div class="pp-gauge-wrap">
                   <div class="pp-gauge-label">
-                    <span class="pp-gauge-title">Inspection Progress</span>
-                    <span class="pp-gauge-value">62%</span>
+                    <span class="pp-gauge-title">Completion</span>
+                    <span class="pp-gauge-value">75%</span>
                   </div>
                   <div class="pp-gauge-track">
-                    <div class="pp-gauge-fill pp-gauge-fill-blue" style="width:62%"></div>
+                    <div class="pp-gauge-fill pp-gauge-fill-blue" style="width:75%"></div>
                   </div>
                 </div>
 
                 <!-- Status footer -->
-                <div class="pp-footer">
+                <!-- <div class="pp-footer">
                   <span class="pp-foot-dot pp-dot-amber"></span>
                   <span class="pp-foot-text">Photo Evidence Ready — Awaiting Approval</span>
-                </div>
+                </div> -->
               </div>
             </div>
 
-            <!-- RIGHT: Content -->
+            <!-- BOTTOM: Content -->
             <div class="prod-content">
-              <div class="prod-eyebrow">Module 03 · VIS</div>
+              <div class="prod-category">Inspection</div>
               <h3 class="prod-title">Vessel Inspection</h3>
-              <p class="prod-desc">Replace clipboard inspections with smart digital workflows. Assign inspectors, track findings and capture photo evidence — all from one connected platform.</p>
-              <ul class="prod-features" aria-label="Key features">
-                <li class="prod-feature">
-                  <span class="prod-feat-icon" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#E8F4FD"/><path d="M4 7l2 2 4-4" stroke="#0057B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                  Smart digital checklists &amp; inspector assignment
-                </li>
-                <li class="prod-feature">
-                  <span class="prod-feat-icon" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#E8F4FD"/><path d="M4 7l2 2 4-4" stroke="#0057B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                  Photo evidence capture &amp; organisation
-                </li>
-                <li class="prod-feature">
-                  <span class="prod-feat-icon" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#E8F4FD"/><path d="M4 7l2 2 4-4" stroke="#0057B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                  Instant compliance reports &amp; approvals
-                </li>
-              </ul>
+              <p class="prod-desc">Plan, run, and document fleet-wide inspections with mobile-first checklists that work even offline at sea.</p>
               <div class="prod-cta">
                 <a href="products/vis/index.html" class="prod-btn-primary" onclick="event.stopPropagation()">
-                  Explore More <span class="prod-btn-arrow">→</span>
+                  Explore Module <span class="prod-btn-arrow">→</span>
                 </a>
                 <a href="https://dashboardd-v3.netlify.app/" target="_blank" rel="noopener" class="prod-btn-secondary" onclick="event.stopPropagation()">
                   Live Demo
@@ -1046,16 +982,17 @@
           <!-- ── Card 4: GS — Global Sanctions ── -->
           <article class="prod-card reveal d4"
             onclick="window.location.href='products/gs/index.html'"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='products/gs/index.html'}"
             role="button" tabindex="0"
-            aria-label="Global Sanctions — Explore this module">
+            aria-label="Global Sanctions — navigate to product page">
 
-            <!-- LEFT: UI Preview -->
+            <!-- TOP: UI Preview -->
             <div class="prod-preview" aria-hidden="true">
               <div class="prod-preview-inner">
                 <!-- Search row -->
                 <div class="pp-search-row">
                   <div class="pp-search-icon">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#7A90A6" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#7A90A6" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
                   </div>
                   <div class="pp-search-text">MV Pacific Star</div>
                 </div>
@@ -1068,26 +1005,17 @@
                   </div>
                   <div class="pp-risk-row">
                     <span class="pp-risk-label">Risk Score</span>
-                    <span class="pp-risk-value pp-risk-low">Low Risk</span>
+                    <span class="pp-risk-value pp-risk-low">Low Risk · 2/100</span>
                   </div>
                   <div class="pp-lists">
-                    <div class="pp-list-item pp-list-clear">
-                      <span class="pp-list-dot">✓</span>
-                      <span>OFAC</span>
-                    </div>
-                    <div class="pp-list-item pp-list-clear">
-                      <span class="pp-list-dot">✓</span>
-                      <span>EU</span>
-                    </div>
-                    <div class="pp-list-item pp-list-clear">
-                      <span class="pp-list-dot">✓</span>
-                      <span>UN</span>
-                    </div>
+                    <div class="pp-list-item pp-list-clear"><span class="pp-list-dot">✓</span><span>OFAC</span></div>
+                    <div class="pp-list-item pp-list-clear"><span class="pp-list-dot">✓</span><span>EU</span></div>
+                    <div class="pp-list-item pp-list-clear"><span class="pp-list-dot">✓</span><span>UN</span></div>
                   </div>
                 </div>
 
                 <!-- Screening summary -->
-                <div class="pp-screening-summary">
+                <!-- <div class="pp-screening-summary">
                   <div class="pp-ss-row">
                     <span class="pp-ss-label">Lists Checked</span>
                     <span class="pp-ss-value">50+</span>
@@ -1096,44 +1024,24 @@
                     <span class="pp-ss-label">Matches Found</span>
                     <span class="pp-ss-value pp-ss-green">0</span>
                   </div>
-                </div>
+                </div> -->
 
                 <!-- Status footer -->
                 <div class="pp-footer">
                   <span class="pp-foot-dot pp-dot-green"></span>
-                  <span class="pp-foot-text">Screening Complete — No Sanctions Match</span>
+                  <span class="pp-foot-text">Screening Complete — No Matches</span>
                 </div>
               </div>
             </div>
 
-            <!-- RIGHT: Content -->
+            <!-- BOTTOM: Content -->
             <div class="prod-content">
-              <div class="prod-eyebrow">Module 04 · GS</div>
+              <div class="prod-category">Compliance</div>
               <h3 class="prod-title">Global Sanctions</h3>
-              <p class="prod-desc">Real-time counterparty screening against OFAC, EU, UN and 50+ global sanctions lists. Automated alerts, risk scoring and compliance documentation — never miss a match.</p>
-              <ul class="prod-features" aria-label="Key features">
-                <li class="prod-feature">
-                  <span class="prod-feat-icon" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#E8F4FD"/><path d="M4 7l2 2 4-4" stroke="#0057B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                  Live screening against 50+ global lists
-                </li>
-                <li class="prod-feature">
-                  <span class="prod-feat-icon" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#E8F4FD"/><path d="M4 7l2 2 4-4" stroke="#0057B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                  Automated risk scoring &amp; match alerts
-                </li>
-                <li class="prod-feature">
-                  <span class="prod-feat-icon" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#E8F4FD"/><path d="M4 7l2 2 4-4" stroke="#0057B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                  Full compliance audit trail &amp; PDF reports
-                </li>
-              </ul>
+              <p class="prod-desc">Real-time screening of vessels, owners, and counterparties against global sanctions and watchlists.</p>
               <div class="prod-cta">
                 <a href="products/gs/index.html" class="prod-btn-primary" onclick="event.stopPropagation()">
-                  Explore More <span class="prod-btn-arrow">→</span>
+                  Explore Module <span class="prod-btn-arrow">→</span>
                 </a>
                 <a href="https://dashboardd-v3.netlify.app/" target="_blank" rel="noopener" class="prod-btn-secondary" onclick="event.stopPropagation()">
                   Live Demo
@@ -1146,8 +1054,6 @@
         </div>
       </div>
     </section>
-
-
     <!-- =============================================
      PROOF — "Trusted by the Industry"
       ============================================= -->

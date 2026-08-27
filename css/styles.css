@@ -3352,88 +3352,82 @@
     }
 
     /* =========================================
-       RIGHT — Content column
+       BOTTOM — Content column
        ========================================= */
     .prod-content {
-      padding: 32px 32px 28px 32px;
+      padding: 16px 18px 18px;
       display: flex;
       flex-direction: column;
+      flex: 1;
     }
 
-    /* Eyebrow */
-    .prod-eyebrow {
-      font-size: 11px;
+    /* Category label */
+    .prod-category {
+      font-size: 9.5px;
       font-weight: 700;
-      letter-spacing: .08em;
+      letter-spacing: .09em;
       text-transform: uppercase;
       color: var(--blue);
-      margin-bottom: 10px;
+      margin-bottom: 5px;
+    }
+
+    /* Eyebrow — hidden in compact layout */
+    .prod-eyebrow {
+      display: none;
     }
 
     /* Title */
     .prod-title {
-      font-size: 19px;
+      font-size: 15px;
       font-weight: 750;
       color: var(--text-1);
-      letter-spacing: -.022em;
-      line-height: 1.2;
-      margin-bottom: 10px;
+      letter-spacing: -.02em;
+      line-height: 1.25;
+      margin-bottom: 7px;
     }
 
     /* Description */
     .prod-desc {
-      font-size: 13.5px;
+      font-size: 12px;
       color: var(--text-2);
-      line-height: 1.68;
-      margin-bottom: 18px;
+      line-height: 1.6;
+      margin-bottom: 0;
+      flex: 1;
     }
 
-    /* Feature list */
+    /* Feature list — hidden in compact card layout */
     .prod-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      flex: 1;
-      margin-bottom: 24px;
+      display: none;
     }
 
     .prod-feature {
-      display: flex;
-      align-items: flex-start;
-      gap: 9px;
-      font-size: 12.5px;
-      font-weight: 550;
-      color: var(--text-2);
-      line-height: 1.45;
+      display: none;
     }
 
     .prod-feat-icon {
-      flex-shrink: 0;
-      margin-top: 0px;
-      display: flex;
-      align-items: center;
+      display: none;
     }
 
     /* CTA row — pinned to bottom via flex */
     .prod-cta {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-top: auto;
-      padding-top: 20px;
+      gap: 8px;
+      margin-top: 14px;
+      padding-top: 14px;
       border-top: 1px solid var(--border);
+      flex-wrap: wrap;
     }
 
     /* Primary button */
     .prod-btn-primary {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 9px 20px;
+      gap: 5px;
+      padding: 8px 14px;
       background: var(--blue);
       color: #FFFFFF;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 650;
       border-radius: var(--r-pill);
       letter-spacing: -.005em;
@@ -3443,6 +3437,9 @@
         box-shadow 200ms ease,
         transform 200ms ease;
       white-space: nowrap;
+      flex: 1;
+      justify-content: center;
+      min-height: 36px;
     }
 
     .prod-btn-primary:hover {
@@ -3465,19 +3462,22 @@
     .prod-btn-secondary {
       display: inline-flex;
       align-items: center;
-      padding: 9px 18px;
+      justify-content: center;
+      padding: 8px 14px;
       background: transparent;
       color: var(--blue);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       border-radius: var(--r-pill);
-      border: 1.5px solid rgba(0, 87, 184, .3);
+      border: 1.5px solid rgba(0, 87, 184, .28);
       letter-spacing: -.005em;
       text-decoration: none;
       transition:
         background 200ms ease,
         border-color 200ms ease;
       white-space: nowrap;
+      flex: 1;
+      min-height: 36px;
     }
 
     .prod-btn-secondary:hover {
@@ -5079,14 +5079,14 @@
         grid-template-columns: 1fr
       }
 
-      /* Product Cards — tablet: 1-column, card layout stays horizontal */
+      /* Product Cards — tablet: 2×2 grid */
       .prod-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
       }
 
       .prod-card {
-        grid-template-columns: 240px 1fr;
-        min-height: 320px;
+        /* stays flex-column, just 2 per row */
       }
 
       .metrics {
@@ -5168,25 +5168,21 @@
         grid-template-columns: 1fr
       }
 
-      /* Product Cards — mobile: stack preview above content */
-      .prod-card {
+      /* Product Cards — mobile: single column stack */
+      .prod-grid {
         grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr;
-        min-height: unset;
+      }
+
+      .prod-card {
+        /* already flex-column, nothing to override */
       }
 
       .prod-preview {
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-        padding: 20px 20px 18px;
-      }
-
-      .prod-content {
-        padding: 24px 20px 22px;
+        height: 160px;
       }
 
       .prod-cta {
-        flex-wrap: wrap;
+        gap: 8px;
       }
 
       .prod-btn-primary,
