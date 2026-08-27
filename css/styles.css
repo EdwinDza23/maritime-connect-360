@@ -8257,14 +8257,16 @@ ul {
 }
 
 .pvideo-inner {
-  position: relative
+  position: relative;
+  cursor: pointer;
 }
 
 .pvideo-inner video {
   width: 100%;
   max-height: 580px;
   object-fit: cover;
-  display: block
+  display: block;
+  cursor: pointer;
 }
 
 .pvideo-play-btn {

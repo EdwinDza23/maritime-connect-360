@@ -720,21 +720,33 @@ if (document.readyState === 'loading') {
 })();
 
 /* =============================================
-   PRODUCT VIDEO PLAY/PAUSE
+   PRODUCT VIDEO PLAY/PAUSE & LOOP
    ============================================= */
 (function () {
   const video = document.getElementById('pvideo-main');
-  const playBtn = document.getElementById('pvideo-play-btn');
-  if (!video || !playBtn) return;
-  playBtn.addEventListener('click', () => {
-    if (video.paused) { video.play(); playBtn.classList.add('hidden'); }
-    else { video.pause(); playBtn.classList.remove('hidden'); }
-  });
+  if (!video) return;
+  video.loop = true;
+
   video.addEventListener('click', () => {
-    if (video.paused) { video.play(); playBtn.classList.add('hidden'); }
-    else { video.pause(); playBtn.classList.remove('hidden'); }
+    if (video.paused) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
   });
-  video.addEventListener('ended', () => { playBtn.classList.remove('hidden'); });
+
+  const playBtn = document.getElementById('pvideo-play-btn');
+  if (playBtn) {
+    playBtn.addEventListener('click', () => {
+      if (video.paused) {
+        video.play().catch(() => {});
+        playBtn.classList.add('hidden');
+      } else {
+        video.pause();
+        playBtn.classList.remove('hidden');
+      }
+    });
+  }
 })();
 
 /* =============================================
