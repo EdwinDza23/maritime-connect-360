@@ -2852,15 +2852,13 @@ ul {
   align-items: stretch;
 }
 
-/* ── Card ── */
+/* ── Card Base ── */
 .prod-card {
   display: flex;
   flex-direction: column;
   border-radius: 18px;
   border: 1px solid var(--border);
   background: #FFFFFF;
-  background-image:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 87, 184, .045) 0%, transparent 65%);
   box-shadow: var(--sh-sm);
   overflow: hidden;
   cursor: pointer;
@@ -2871,6 +2869,34 @@ ul {
   isolation: isolate;
   text-decoration: none;
   color: inherit;
+}
+
+/* Card 1: Bunker Quantity Survey (BQS) — Soft Pastel Blue */
+.prod-card.prod-card-bqs,
+.prod-grid > .prod-card:nth-child(1) {
+  background: linear-gradient(145deg, #EBF3FC 0%, #F4F8FE 38%, #FCFDFF 70%, #FFFFFF 100%);
+  border-color: rgba(0, 87, 184, 0.13);
+}
+
+/* Card 2: Vessel Condition Survey (VCS) — Soft Pastel Cyan / Teal */
+.prod-card.prod-card-vcs,
+.prod-grid > .prod-card:nth-child(2) {
+  background: linear-gradient(145deg, #E6F7F5 0%, #F0FAF9 38%, #FAFCFC 70%, #FFFFFF 100%);
+  border-color: rgba(13, 148, 136, 0.14);
+}
+
+/* Card 3: Vessel Inspection (VIS) — Soft Pastel Purple */
+.prod-card.prod-card-vis,
+.prod-grid > .prod-card:nth-child(3) {
+  background: linear-gradient(145deg, #F2EDFB 0%, #F7F3FD 38%, #FBFAFE 70%, #FFFFFF 100%);
+  border-color: rgba(124, 58, 237, 0.13);
+}
+
+/* Card 4: Global Sanctions (GS) — Soft Pastel Orange */
+.prod-card.prod-card-gs,
+.prod-grid > .prod-card:nth-child(4) {
+  background: linear-gradient(145deg, #FDF0E6 0%, #FEF6EE 38%, #FFFBF8 70%, #FFFFFF 100%);
+  border-color: rgba(234, 88, 12, 0.14);
 }
 
 /* Keyboard focus ring */
@@ -2887,10 +2913,38 @@ ul {
 .prod-grid:hover .prod-card:hover {
   opacity: 1;
   transform: translateY(-5px);
-  border-color: rgba(0, 87, 184, .28);
+}
+
+.prod-grid:hover .prod-card.prod-card-bqs:hover,
+.prod-grid:hover .prod-grid > .prod-card:nth-child(1):hover {
+  border-color: rgba(0, 87, 184, 0.32);
   box-shadow:
-    0 4px 14px rgba(0, 87, 184, .07),
-    0 18px 44px rgba(0, 87, 184, .11);
+    0 4px 14px rgba(0, 87, 184, .08),
+    0 18px 44px rgba(0, 87, 184, .12);
+}
+
+.prod-grid:hover .prod-card.prod-card-vcs:hover,
+.prod-grid:hover .prod-grid > .prod-card:nth-child(2):hover {
+  border-color: rgba(13, 148, 136, 0.35);
+  box-shadow:
+    0 4px 14px rgba(13, 148, 136, .08),
+    0 18px 44px rgba(13, 148, 136, .12);
+}
+
+.prod-grid:hover .prod-card.prod-card-vis:hover,
+.prod-grid:hover .prod-grid > .prod-card:nth-child(3):hover {
+  border-color: rgba(124, 58, 237, 0.32);
+  box-shadow:
+    0 4px 14px rgba(124, 58, 237, .08),
+    0 18px 44px rgba(124, 58, 237, .12);
+}
+
+.prod-grid:hover .prod-card.prod-card-gs:hover,
+.prod-grid:hover .prod-grid > .prod-card:nth-child(4):hover {
+  border-color: rgba(234, 88, 12, 0.32);
+  box-shadow:
+    0 4px 14px rgba(234, 88, 12, .08),
+    0 18px 44px rgba(234, 88, 12, .12);
 }
 
 /* Preview scale on card hover */
@@ -2909,10 +2963,8 @@ ul {
 .prod-preview {
   height: 186px;
   flex-shrink: 0;
-  background:
-    linear-gradient(145deg, rgba(0, 87, 184, .06) 0%, rgba(0, 120, 220, .03) 100%),
-    #F7F9FD;
-  border-bottom: 1px solid var(--border);
+  background: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: flex-start;
   justify-content: center;
