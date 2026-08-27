@@ -756,6 +756,7 @@ if (document.readyState === 'loading') {
   const lb = document.getElementById('lightbox');
   const lbImg = document.getElementById('lightbox-img');
   const lbClose = document.getElementById('lightbox-close');
+  if (!lb) return;
   document.querySelectorAll('.img-lightbox-trigger').forEach(el => {
     el.addEventListener('click', () => {
       const src = el.dataset.lightbox;

@@ -2326,12 +2326,17 @@ ul {
    SECTION — CUSTOMER MARQUEE
    ============================================= */
 .s-marquee {
-  padding: 56px 0;
+  padding: 20px 0;
   background: var(--surface);
   border-top: none;
   border-bottom: 1px solid rgba(226, 234, 250, 0.5);
   overflow: hidden;
   position: relative;
+}
+
+.s-marquee:hover .marquee-inner,
+.marquee-track:hover .marquee-inner {
+  animation-play-state: paused;
 }
 
 .marquee-hd {
@@ -2359,97 +2364,207 @@ ul {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 160px;
+  width: 140px;
   z-index: 2;
   pointer-events: none;
 }
 
 .marquee-track::before {
   left: 0;
-  background: linear-gradient(to right, var(--surface) 0%, transparent 100%);
+  background: linear-gradient(to right, var(--surface) 0%, rgba(248, 250, 252, 0) 100%);
 }
 
 .marquee-track::after {
   right: 0;
-  background: linear-gradient(to left, var(--surface) 0%, transparent 100%);
+  background: linear-gradient(to left, var(--surface) 0%, rgba(248, 250, 252, 0) 100%);
 }
 
 .marquee-inner {
   display: flex;
   width: max-content;
-  animation: marqueeScroll 28s linear infinite;
-}
-
-.marquee-inner:hover {
-  animation-play-state: paused;
+  will-change: transform;
+  animation: marqueeScroll 55s linear infinite;
 }
 
 @keyframes marqueeScroll {
   0% {
-    transform: translateX(0)
+    transform: translate3d(0, 0, 0);
   }
-
   100% {
-    transform: translateX(-50%)
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
-.marquee-item {
-  display: inline-flex;
+.marquee-group {
+  display: flex;
   align-items: center;
-  gap: 0;
-  white-space: nowrap;
+  gap: 36px;
   flex-shrink: 0;
+  padding-right: 36px;
 }
 
-.marquee-name {
-  font-size: 19px;
-  font-weight: 600;
-  color: var(--text-2);
-  letter-spacing: -.015em;
-  padding: 0 52px;
-  cursor: pointer;
-  transition: color var(--ease-fast);
-  position: relative;
-}
-
-.marquee-name:hover {
-  color: var(--blue);
-}
-
-.marquee-div {
-  display: inline-flex;
+.logo-item {
+  width: 180px;
+  height: 72px;
+  display: flex;
   align-items: center;
-  flex-shrink: 0;
-  color: var(--border-2);
+  justify-content: center;
+  flex: 0 0 180px;
+  box-sizing: border-box;
+  padding: 0 8px;
 }
 
-.marquee-div svg {
-  width: 6px;
-  height: 6px;
-  fill: var(--border-2);
+.logo-item img {
+  width: auto;
+  height: auto;
+  max-width: 155px;
+  max-height: 52px;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  pointer-events: none;
 }
 
-@media(max-width:768px) {
-  .marquee-name {
-    font-size: 16px;
-    padding: 0 36px
+/* Subtle optical balance for square/tall badges and transparent padding */
+.logo-solaris img {
+  max-height: 44px;
+  max-width: 44px;
+}
+
+.logo-synergy img {
+  max-height: 48px;
+  max-width: 48px;
+}
+
+.logo-iri img {
+  max-width: 165px;
+  max-height: 58px;
+  transform: scale(1.22);
+}
+
+.logo-nord img {
+  transform: scale(1.25);
+}
+
+.logo-medrix img {
+  transform: scale(1.25);
+}
+
+.logo-womer img {
+  transform: scale(1.2);
+}
+
+.logo-maritec img {
+  transform: scale(1.18);
+}
+
+@media (max-width: 768px) {
+  .s-marquee {
+    padding: 44px 0;
+  }
+
+  .marquee-hd {
+    margin-bottom: 24px;
+  }
+
+  .marquee-lbl {
+    font-size: 10px;
+    letter-spacing: .08em;
+  }
+
+  .marquee-group {
+    gap: 22px;
+    padding-right: 22px;
+  }
+
+  .logo-item {
+    width: 145px;
+    height: 58px;
+    flex: 0 0 145px;
+    padding: 0 6px;
+  }
+
+  .logo-item img {
+    max-width: 125px;
+    max-height: 42px;
+  }
+
+  .logo-solaris img {
+    max-height: 36px;
+    max-width: 36px;
+  }
+
+  .logo-synergy img {
+    max-height: 38px;
+    max-width: 38px;
   }
 
   .marquee-track::before,
   .marquee-track::after {
-    width: 80px
-  }
-
-  .s-marquee {
-    padding: 44px 0
+    width: 60px;
   }
 }
 
-@media(max-width:480px) {
-  .marquee-name {
-    font-size: 14px;
-    padding: 0 28px
+@media (max-width: 480px) {
+  .s-marquee {
+    padding: 36px 0;
+  }
+
+  .marquee-hd {
+    margin-bottom: 20px;
+  }
+
+  .marquee-group {
+    gap: 16px;
+    padding-right: 16px;
+  }
+
+  .logo-item {
+    width: 125px;
+    height: 50px;
+    flex: 0 0 125px;
+    padding: 0 4px;
+  }
+
+  .logo-item img {
+    max-width: 105px;
+    max-height: 34px;
+  }
+
+  .logo-solaris img {
+    max-height: 30px;
+    max-width: 30px;
+  }
+
+  .logo-synergy img {
+    max-height: 32px;
+    max-width: 32px;
+  }
+
+  .marquee-track::before,
+  .marquee-track::after {
+    width: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-inner {
+    animation: none !important;
+    transform: none !important;
+    overflow-x: auto;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 8px 16px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .marquee-group:nth-child(2) {
+    display: none;
+  }
+
+  .marquee-track::before,
+  .marquee-track::after {
+    display: none;
   }
 }
 
