@@ -135,8 +135,10 @@ function handleScrollAndPill() {
   nav.classList.toggle('scrolled', scrollY > 36);
 
   // Back to Top visibility — show after passing Hero section
-  const heroBottom = heroSection ? heroSection.offsetTop + heroSection.offsetHeight : 600;
-  bttBtn.classList.toggle('btt-visible', scrollY > heroBottom - 100);
+  if (bttBtn) {
+    const heroBottom = heroSection ? heroSection.offsetTop + heroSection.offsetHeight : 600;
+    bttBtn.classList.toggle('btt-visible', scrollY > heroBottom - 100);
+  }
 
   let current = '';
   spySections.forEach(section => {
@@ -169,9 +171,11 @@ if (document.readyState === 'loading') {
 }
 
 // Back to Top click
-bttBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+if (bttBtn) {
+  bttBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
 
 /* =============================================
    SCROLL REVEAL
