@@ -5643,21 +5643,27 @@ ul {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #0057B8 0%, #4338CA 100%);
-  border: none;
+  /* Default: Blue outer container/ring on light/white background */
+  background: linear-gradient(135deg, #0057BB 0%, #004499 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
   cursor: pointer;
   display: flex !important;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 32px rgba(0, 87, 184, .45), 0 2px 8px rgba(0, 87, 184, .25);
-  transition: all var(--ease-spring);
+  box-shadow: 0 8px 32px rgba(0, 87, 187, 0.45), 0 2px 8px rgba(0, 87, 187, 0.25);
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 280ms cubic-bezier(.4, 0, .2, 1),
+    background-color 280ms cubic-bezier(.4, 0, .2, 1),
+    border-color 280ms cubic-bezier(.4, 0, .2, 1),
+    box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
   z-index: 9999;
   overflow: visible;
 }
 
 .cb-fab:hover {
   transform: scale(1.08);
-  box-shadow: 0 12px 40px rgba(0, 87, 184, .6);
+  box-shadow: 0 12px 40px rgba(0, 87, 187, 0.6);
 }
 
 .cb-fab:focus-visible {
@@ -5673,10 +5679,11 @@ ul {
   border-radius: 50%;
   border: 2.5px solid transparent;
   border-top-color: #00B4D8;
-  border-right-color: rgba(0, 180, 216, .25);
+  border-right-color: rgba(0, 180, 216, 0.28);
   animation: fabOrbit 2.8s linear infinite;
   pointer-events: none;
   will-change: transform;
+  transition: border-color 280ms cubic-bezier(.4, 0, .2, 1);
 }
 
 /* Outer pulse halo / secondary orbital layer */
@@ -5685,10 +5692,11 @@ ul {
   position: absolute;
   inset: -14px;
   border-radius: 50%;
-  border: 1px solid rgba(0, 180, 216, .25);
+  border: 1px solid rgba(0, 180, 216, 0.22);
   animation: fabHalo 2.5s ease-in-out infinite;
   pointer-events: none;
   will-change: transform, opacity;
+  transition: border-color 280ms cubic-bezier(.4, 0, .2, 1);
 }
 
 @keyframes fabOrbit {
@@ -5698,7 +5706,6 @@ ul {
 }
 
 @keyframes fabHalo {
-
   0%,
   100% {
     opacity: .3;
@@ -5712,27 +5719,39 @@ ul {
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   .cb-fab::before,
   .cb-fab::after {
     animation: none;
   }
 }
 
+/* Inner star/core - WHITE by default on light background */
 .cb-fab img {
   width: 38px;
   height: 38px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
+  filter:
+    brightness(0) invert(1)
+    drop-shadow(0 0 4px rgba(255, 255, 255, 0.35));
   position: relative;
   z-index: 1;
+  transition:
+    filter 280ms cubic-bezier(.4, 0, .2, 1),
+    transform 240ms cubic-bezier(.34, 1.56, 0.64, 1);
+}
+
+.cb-fab:hover img,
+.cb-fab:focus-visible img {
+  filter:
+    brightness(0) invert(1)
+    drop-shadow(0 0 8px rgba(255, 255, 255, 0.65));
 }
 
 .cb-fab-badge {
   position: absolute;
   top: -2px;
   right: -2px;
-  background: var(--cyan);
+  background: var(--cyan, #00B4D8);
   color: #fff;
   font-size: 9px;
   font-weight: 800;
@@ -5742,6 +5761,65 @@ ul {
   border: 2px solid #fff;
   box-shadow: 0 2px 6px rgba(0, 180, 216, .5);
   z-index: 2;
+  transition:
+    background-color 280ms cubic-bezier(.4, 0, .2, 1),
+    color 280ms cubic-bezier(.4, 0, .2, 1),
+    border-color 280ms cubic-bezier(.4, 0, .2, 1),
+    box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+}
+
+/* ── Footer color adaptation for AI FAB ──────────────────────────── */
+/* When FAB reaches/overlaps the blue footer (#0057BB), JS adds .cb-fab-on-footer */
+/* Footer state: WHITE OUTER + #0057BB BLUE STAR */
+.cb-fab.cb-fab-on-footer {
+  background: #FFFFFF;
+  border-color: rgba(0, 87, 187, 0.15);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(255, 255, 255, 0.35);
+}
+
+.cb-fab.cb-fab-on-footer:hover {
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 28px rgba(255, 255, 255, 0.5);
+}
+
+.cb-fab.cb-fab-on-footer:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 4px;
+}
+
+.cb-fab.cb-fab-on-footer::before {
+  border-top-color: #0057BB;
+  border-right-color: rgba(0, 87, 187, 0.35);
+}
+
+.cb-fab.cb-fab-on-footer::after {
+  border-color: rgba(0, 87, 187, 0.25);
+}
+
+/* Inner star/core turns solid #0057BB blue on white button over blue footer */
+.cb-fab.cb-fab-on-footer img {
+  filter:
+    brightness(0) saturate(100%)
+    invert(23%) sepia(89%) saturate(3180%) hue-rotate(206deg) brightness(92%) contrast(106%)
+    drop-shadow(0 0 4px rgba(0, 87, 187, 0.4));
+}
+
+.cb-fab.cb-fab-on-footer:hover img,
+.cb-fab.cb-fab-on-footer:focus-visible img {
+  filter:
+    brightness(0) saturate(100%)
+    invert(23%) sepia(89%) saturate(3180%) hue-rotate(206deg) brightness(92%) contrast(106%)
+    drop-shadow(0 0 8px rgba(0, 87, 187, 0.65));
+}
+
+.cb-fab.cb-fab-on-footer .cb-fab-badge {
+  background: #0057BB;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Chat panel */
@@ -6187,8 +6265,8 @@ ul {
 /* Icon styling — default blue */
 #back-to-top .btt-icon {
   display: block;
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
   transform: scaleY(-1);
   /* Renders the icon in MC360 blue */
   filter:
@@ -6293,8 +6371,8 @@ ul {
   }
 
   #back-to-top .btt-icon {
-    width: 24px;
-    height: 24px;
+    width: 36px;
+    height: 36px;
   }
 }
 

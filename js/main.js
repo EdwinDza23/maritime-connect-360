@@ -178,48 +178,56 @@ if (bttBtn) {
 }
 
 /* =============================================
-   BACK TO TOP — FOOTER COLOR ADAPTATION
-   Detects when the BTT icon overlaps the blue
-   footer and transitions the icon from #0057BB
-   to #FFFFFF using the .btt-on-footer CSS class.
-   Uses dynamic footer detection — no hardcoded
-   scroll positions.
+   FLOATING CONTROLS — FOOTER COLOR ADAPTATION
+   Detects when the BTT button and AI FAB button
+   overlap the blue footer (#0057BB) and dynamically
+   inverts their visual colors.
+   Uses dynamic footer detection via getBoundingClientRect —
+   no hardcoded scroll positions.
    ============================================= */
 (function () {
-  if (!bttBtn) return;
-
   const footer = document.querySelector('footer');
-  if (!footer) return;
+  const fabBtn = document.getElementById('cb-fab');
+  if (!footer && !bttBtn && !fabBtn) return;
 
-  /* We check intersection by monitoring the footer's position
-     relative to the viewport and comparing it with the BTT
-     button's fixed position on each scroll tick.             */
-  function checkBttFooterOverlap() {
-    const footerRect  = footer.getBoundingClientRect();
-    const bttRect     = bttBtn.getBoundingClientRect();
+  function checkFloatingControlsFooterOverlap() {
+    if (!footer) return;
+    const footerRect = footer.getBoundingClientRect();
 
-    /* Overlap = their vertical ranges intersect */
-    const overlaps =
-      bttRect.bottom > footerRect.top &&
-      bttRect.top    < footerRect.bottom;
+    /* Back to Top button overlap */
+    if (bttBtn) {
+      const bttRect = bttBtn.getBoundingClientRect();
+      const bttOverlaps =
+        bttRect.bottom > footerRect.top &&
+        bttRect.top    < footerRect.bottom;
 
-    /* Only toggle if btt is actually visible */
-    if (bttBtn.classList.contains('btt-visible')) {
-      bttBtn.classList.toggle('btt-on-footer', overlaps);
-    } else {
-      bttBtn.classList.remove('btt-on-footer');
+      if (bttBtn.classList.contains('btt-visible')) {
+        bttBtn.classList.toggle('btt-on-footer', bttOverlaps);
+      } else {
+        bttBtn.classList.remove('btt-on-footer');
+      }
+    }
+
+    /* AI FAB button overlap */
+    if (fabBtn) {
+      const fabRect = fabBtn.getBoundingClientRect();
+      const fabOverlaps =
+        fabRect.bottom > footerRect.top &&
+        fabRect.top    < footerRect.bottom;
+
+      fabBtn.classList.toggle('cb-fab-on-footer', fabOverlaps);
     }
   }
 
   /* Hook into the existing scroll + resize listeners */
-  window.addEventListener('scroll',  checkBttFooterOverlap, { passive: true });
-  window.addEventListener('resize',  checkBttFooterOverlap, { passive: true });
+  window.addEventListener('scroll', checkFloatingControlsFooterOverlap, { passive: true });
+  window.addEventListener('resize', checkFloatingControlsFooterOverlap, { passive: true });
 
   /* Initial check in case page loads already scrolled */
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', checkBttFooterOverlap);
+    document.addEventListener('DOMContentLoaded', checkFloatingControlsFooterOverlap);
   } else {
-    checkBttFooterOverlap();
+    checkFloatingControlsFooterOverlap();
   }
 })();
 
