@@ -642,13 +642,19 @@ ul {
 }
 
 .dd-product-card:hover {
-  background: #f8f9fa
+  background: #f8f9fa;
+}
+
+.dd-product-card.active-product {
+  background: #f3f4f6;
 }
 
 .dd-product-icon {
   width: 36px;
   height: 36px;
   border-radius: 8px;
+  background: #f3f4f6;
+  color: #6b7280;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -658,13 +664,15 @@ ul {
 
 .dd-product-icon svg {
   width: 16px;
-  height: 16px
+  height: 16px;
+  color: #6b7280;
+  stroke: currentColor;
 }
 
 .dd-product-name {
   font-size: 13.5px;
   font-weight: 600;
-  color: #111;
+  color: #111827;
   margin-bottom: 2px;
   line-height: 1.3;
 }
@@ -698,7 +706,6 @@ ul {
 
 .dd-list-item:hover {
   background: #f8f9fa;
-  color: #111
 }
 
 .dd-list-icon {
@@ -706,6 +713,7 @@ ul {
   height: 28px;
   border-radius: 6px;
   background: #f3f4f6;
+  color: #6b7280;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -715,7 +723,8 @@ ul {
 .dd-list-icon svg {
   width: 14px;
   height: 14px;
-  color: #6b7280
+  color: #6b7280;
+  stroke: currentColor;
 }
 
 /* ============================================================
@@ -6935,50 +6944,53 @@ ul {
   border-radius: 8px;
   cursor: pointer;
   text-decoration: none;
-  transition: background 130ms ease
+  transition: background 130ms ease;
 }
 
 .dd-product-card:hover {
-  background: #f8f9fa
+  background: #f8f9fa;
 }
 
 .dd-product-card.active-product {
-  background: rgba(0, 87, 184, .05);
-  border: 1px solid rgba(0, 87, 184, .08)
+  background: #f3f4f6;
 }
 
 .dd-product-icon {
   width: 36px;
   height: 36px;
   border-radius: 8px;
+  background: #f3f4f6;
+  color: #6b7280;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-top: 1px
+  margin-top: 1px;
 }
 
 .dd-product-icon svg {
   width: 16px;
-  height: 16px
+  height: 16px;
+  color: #6b7280;
+  stroke: currentColor;
 }
 
 .dd-product-name {
   font-size: 13.5px;
   font-weight: 600;
-  color: #111;
+  color: #111827;
   margin-bottom: 2px;
-  line-height: 1.3
+  line-height: 1.3;
 }
 
 .dd-product-desc {
   font-size: 12px;
   color: #6b7280;
-  line-height: 1.4
+  line-height: 1.4;
 }
 
 .dd-customers {
-  width: 200px
+  width: 200px;
 }
 
 .dd-list-item {
@@ -6992,12 +7004,11 @@ ul {
   color: #374151;
   cursor: pointer;
   text-decoration: none;
-  transition: background 130ms ease
+  transition: background 130ms ease;
 }
 
 .dd-list-item:hover {
   background: #f8f9fa;
-  color: #111
 }
 
 .dd-list-icon {
@@ -7005,16 +7016,18 @@ ul {
   height: 28px;
   border-radius: 6px;
   background: #f3f4f6;
+  color: #6b7280;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0
+  flex-shrink: 0;
 }
 
 .dd-list-icon svg {
   width: 14px;
   height: 14px;
-  color: #6b7280
+  color: #6b7280;
+  stroke: currentColor;
 }
 
 .nav-hamburger {
