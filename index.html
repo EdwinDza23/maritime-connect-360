@@ -2063,7 +2063,7 @@
      BACK TO TOP BUTTON
      ============================================= -->
   <button id="back-to-top" aria-label="Back to top of page">
-    <img class="btt-icon" src="assets/icon/back to top.svg" alt="" aria-hidden="true" width="28" height="28" />
+    <img class="btt-icon" src="assets/icon/back to top.png" alt="" aria-hidden="true" width="28" height="28" />
     <span class="btt-label">Back to top</span>
   </button>
 
@@ -2112,7 +2112,7 @@
           const ph = popup.offsetHeight;
 
           let left = rect.left + rect.width / 2 - pw / 2;
-          let top  = rect.top - ph - GAP; /* fixed: viewport coords only */
+          let top = rect.top - ph - GAP; /* fixed: viewport coords only */
 
           /* Clamp horizontally to viewport */
           left = Math.max(8, Math.min(left, window.innerWidth - pw - 8));
@@ -2123,7 +2123,7 @@
             popup.style.setProperty('--caret-top', '100%');
           }
 
-          popup.style.top  = top + 'px';
+          popup.style.top = top + 'px';
           popup.style.left = left + 'px';
           popup.classList.add('is-visible');
         });
@@ -2132,7 +2132,7 @@
       function hideTooltip() {
         popup.classList.remove('is-visible');
         hideTimer = setTimeout(function () {
-          popup.style.top  = '-9999px';
+          popup.style.top = '-9999px';
           popup.style.left = '-9999px';
         }, 200);
       }

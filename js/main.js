@@ -178,6 +178,52 @@ if (bttBtn) {
 }
 
 /* =============================================
+   BACK TO TOP — FOOTER COLOR ADAPTATION
+   Detects when the BTT icon overlaps the blue
+   footer and transitions the icon from #0057BB
+   to #FFFFFF using the .btt-on-footer CSS class.
+   Uses dynamic footer detection — no hardcoded
+   scroll positions.
+   ============================================= */
+(function () {
+  if (!bttBtn) return;
+
+  const footer = document.querySelector('footer');
+  if (!footer) return;
+
+  /* We check intersection by monitoring the footer's position
+     relative to the viewport and comparing it with the BTT
+     button's fixed position on each scroll tick.             */
+  function checkBttFooterOverlap() {
+    const footerRect  = footer.getBoundingClientRect();
+    const bttRect     = bttBtn.getBoundingClientRect();
+
+    /* Overlap = their vertical ranges intersect */
+    const overlaps =
+      bttRect.bottom > footerRect.top &&
+      bttRect.top    < footerRect.bottom;
+
+    /* Only toggle if btt is actually visible */
+    if (bttBtn.classList.contains('btt-visible')) {
+      bttBtn.classList.toggle('btt-on-footer', overlaps);
+    } else {
+      bttBtn.classList.remove('btt-on-footer');
+    }
+  }
+
+  /* Hook into the existing scroll + resize listeners */
+  window.addEventListener('scroll',  checkBttFooterOverlap, { passive: true });
+  window.addEventListener('resize',  checkBttFooterOverlap, { passive: true });
+
+  /* Initial check in case page loads already scrolled */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', checkBttFooterOverlap);
+  } else {
+    checkBttFooterOverlap();
+  }
+})();
+
+/* =============================================
    SCROLL REVEAL
    ============================================= */
 const reveals = document.querySelectorAll('.reveal');

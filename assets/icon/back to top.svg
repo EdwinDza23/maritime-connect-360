@@ -1,6 +1,1 @@
-﻿<svg xmlns=" http://www.w3.org/2000/svg\ width=\24\ height=\24\ viewBox=\0 0 24 24\ fill=\none\ stroke=\currentColor\ stroke-width=\2.2\ stroke-linecap=\round\ stroke-linejoin=\round\>
- <circle cx=\12\ cy=\5\ r=\3\></circle>
- <line x1=\12\ y1=\22\ x2=\12\ y2=\8\></line>
- <path d=\M5 12H2a10 10 0 0 0 20 0h-3\></path>
- <line x1=\7\ y1=\10\ x2=\17\ y2=\10\></line>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 125" x="0px" y="0px"><title>Anchor</title><g data-name="Layer 14"><path d="M83.57,43.49,75.76,52.6h4.68C78.82,63,67.83,69,55.69,70.37V39h6a2.5,2.5,0,0,0,2.5-2.5v-.1a2.5,2.5,0,0,0-2.5-2.5h-6v-9a11.12,11.12,0,1,0-10.2,0v9h-6a2.5,2.5,0,0,0-2.5,2.5v.1a2.5,2.5,0,0,0,2.5,2.5h6V70.52C32.91,69.39,21.56,63.41,20.6,52.6h4.82l-7.81-9.11L9.8,52.6h4.8C15.54,68.35,27,81.43,40.47,84.47a17,17,0,0,1,10.12,9.44,17,17,0,0,1,10.12-9.44c13.49-3,24.93-16.12,25.87-31.87h4.8Zm-33-21.41a7,7,0,1,1,7-7A7,7,0,0,1,50.59,22.08Z"/></g><text x="0" y="115" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Lars Meiertoberens</text><text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
