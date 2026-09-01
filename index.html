@@ -16,7 +16,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
     rel="stylesheet" />
-    <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -526,64 +526,84 @@
 
           <!-- Set 1 -->
           <div class="marquee-group">
-            <div class="logo-item logo-aregius">
+            <div class="logo-item logo-aregius" tabindex="0">
               <img src="assets/logos/aregius.png" alt="Aregius Maritime" loading="lazy" />
+              <span class="logo-tooltip">Aregius Maritime</span>
             </div>
-            <div class="logo-item logo-iri">
+            <div class="logo-item logo-iri" tabindex="0">
               <img src="assets/logos/iri.png" alt="International Registries, Inc. (IRI)" loading="lazy" />
+              <span class="logo-tooltip">International Registries, Inc. (IRI)</span>
             </div>
-            <div class="logo-item logo-synergy">
+            <div class="logo-item logo-synergy" tabindex="0">
               <img src="assets/logos/synergy.png" alt="Synergy Marine Group" loading="lazy" />
+              <span class="logo-tooltip">Synergy Marine Group</span>
             </div>
-            <div class="logo-item logo-seaways">
+            <div class="logo-item logo-seaways" tabindex="0">
               <img src="assets/logos/seaways.png" alt="International Seaways, Inc." loading="lazy" />
+              <span class="logo-tooltip">International Seaways, Inc.</span>
             </div>
-            <div class="logo-item logo-tasneef">
+            <div class="logo-item logo-tasneef" tabindex="0">
               <img src="assets/logos/tasneef.png" alt="Tasneef Emirates Classification Society" loading="lazy" />
+              <span class="logo-tooltip">Tasneef Emirates Classification Society</span>
             </div>
-            <div class="logo-item logo-osg">
+            <div class="logo-item logo-osg" tabindex="0">
               <img src="assets/logos/osg.png" alt="Overseas Shipholding Group (OSG)" loading="lazy" />
+              <span class="logo-tooltip">Overseas Shipholding Group (OSG)</span>
             </div>
-            <div class="logo-item logo-meraki">
+            <div class="logo-item logo-meraki" tabindex="0">
               <img src="assets/logos/meraki.png" alt="Meraki Shipping" loading="lazy" />
+              <span class="logo-tooltip">Meraki Shipping</span>
             </div>
-            <div class="logo-item logo-pearson">
+            <div class="logo-item logo-pearson" tabindex="0">
               <img src="assets/logos/pearson.png" alt="Pearson" loading="lazy" />
+              <span class="logo-tooltip">Pearson</span>
             </div>
-            <div class="logo-item logo-womer">
+            <div class="logo-item logo-womer" tabindex="0">
               <img src="assets/logos/womer.png" alt="WOMAR Tanker Pools" loading="lazy" />
+              <span class="logo-tooltip">WOMAR Tanker Pools</span>
             </div>
-            <div class="logo-item logo-maritec">
+            <div class="logo-item logo-maritec" tabindex="0">
               <img src="assets/logos/maritec.png" alt="Maritec Naias" loading="lazy" />
+              <span class="logo-tooltip">Maritec Naias</span>
             </div>
-            <div class="logo-item logo-scorpio">
+            <div class="logo-item logo-scorpio" tabindex="0">
               <img src="assets/logos/scorpio.png" alt="Scorpio Ship Management" loading="lazy" />
+              <span class="logo-tooltip">Scorpio Ship Management</span>
             </div>
-            <div class="logo-item logo-mjolner">
+            <div class="logo-item logo-mjolner" tabindex="0">
               <img src="assets/logos/mjolner.png" alt="Mjølner Shipping" loading="lazy" />
+              <span class="logo-tooltip">Mjølner Shipping</span>
             </div>
-            <div class="logo-item logo-n2">
+            <div class="logo-item logo-n2" tabindex="0">
               <img src="assets/logos/n2.png" alt="N2 Tankers" loading="lazy" />
+              <span class="logo-tooltip">N2 Tankers</span>
             </div>
-            <div class="logo-item logo-firstqa">
+            <div class="logo-item logo-firstqa" tabindex="0">
               <img src="assets/logos/firstqa.png" alt="firstQA Systems" loading="lazy" />
+              <span class="logo-tooltip">firstQA Systems</span>
             </div>
-            <div class="logo-item logo-medrix">
+            <div class="logo-item logo-medrix" tabindex="0">
               <img src="assets/logos/medrix.png" alt="Medrix" loading="lazy" />
+              <span class="logo-tooltip">Medrix</span>
             </div>
-            <div class="logo-item logo-nord">
+            <div class="logo-item logo-nord" tabindex="0">
               <img src="assets/logos/nord.png" alt="NORD" loading="lazy" />
+              <span class="logo-tooltip">NORD</span>
             </div>
-            <div class="logo-item logo-solaris">
+            <div class="logo-item logo-solaris" tabindex="0">
               <img src="assets/logos/solaris.png" alt="Solaris" loading="lazy" />
+              <span class="logo-tooltip">Solaris</span>
             </div>
-            <div class="logo-item logo-q88">
+            <div class="logo-item logo-q88" tabindex="0">
               <img src="assets/logos/q88.png" alt="Q88" loading="lazy" />
+              <span class="logo-tooltip">Q88</span>
             </div>
-            <div class="logo-item logo-peakalpha">
+            <div class="logo-item logo-peakalpha" tabindex="0">
               <img src="assets/logos/peakalpha.png" alt="Peak Alpha" loading="lazy" />
+              <span class="logo-tooltip">Peak Alpha</span>
             </div>
           </div>
+
 
           <!-- Set 2 (Duplicate for seamless infinite loop) -->
           <div class="marquee-group" aria-hidden="true">
@@ -780,11 +800,9 @@
         <div class="prod-grid">
 
           <!-- ── Card 1: BQS — Bunker Quantity Survey ── -->
-          <article class="prod-card prod-card-bqs reveal d1"
-            onclick="window.location.href='products/bqs/index.html'"
+          <article class="prod-card prod-card-bqs reveal d1" onclick="window.location.href='products/bqs/index.html'"
             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='products/bqs/index.html'}"
-            role="button" tabindex="0"
-            aria-label="Bunker Quantity Survey — navigate to product page">
+            role="button" tabindex="0" aria-label="Bunker Quantity Survey — navigate to product page">
 
             <!-- TOP: UI Preview -->
             <div class="prod-preview" aria-hidden="true">
@@ -823,12 +841,13 @@
                   <svg viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                     <defs>
                       <linearGradient id="bqs-grad2" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#0057B8" stop-opacity="0.18"/>
-                        <stop offset="100%" stop-color="#0057B8" stop-opacity="0"/>
+                        <stop offset="0%" stop-color="#0057B8" stop-opacity="0.18" />
+                        <stop offset="100%" stop-color="#0057B8" stop-opacity="0" />
                       </linearGradient>
                     </defs>
-                    <path d="M0 24 C20 22 35 16 55 12 C75 8 90 14 120 6" stroke="#0057B8" stroke-width="1.8" stroke-linecap="round"/>
-                    <path d="M0 24 C20 22 35 16 55 12 C75 8 90 14 120 6 L120 32 L0 32Z" fill="url(#bqs-grad2)"/>
+                    <path d="M0 24 C20 22 35 16 55 12 C75 8 90 14 120 6" stroke="#0057B8" stroke-width="1.8"
+                      stroke-linecap="round" />
+                    <path d="M0 24 C20 22 35 16 55 12 C75 8 90 14 120 6 L120 32 L0 32Z" fill="url(#bqs-grad2)" />
                   </svg>
                 </div>
 
@@ -844,12 +863,14 @@
             <div class="prod-content">
               <div class="prod-category">Fuel &amp; Bunkering</div>
               <h3 class="prod-title">Bunker Quantity Survey</h3>
-              <p class="prod-desc">Independent, digital verification of fuel quantities at every bunkering operation — reducing disputes, shortages, and reconciliation time.</p>
+              <p class="prod-desc">Independent, digital verification of fuel quantities at every bunkering operation —
+                reducing disputes, shortages, and reconciliation time.</p>
               <div class="prod-cta">
                 <a href="products/bqs/index.html" class="prod-btn-primary" onclick="event.stopPropagation()">
                   Explore Module <span class="prod-btn-arrow">→</span>
                 </a>
-                <a href="https://dashboardd-v3.netlify.app/" target="_blank" rel="noopener" class="prod-btn-secondary" onclick="event.stopPropagation()">
+                <a href="https://dashboardd-v3.netlify.app/" target="_blank" rel="noopener" class="prod-btn-secondary"
+                  onclick="event.stopPropagation()">
                   Live Demo
                 </a>
               </div>
@@ -859,11 +880,9 @@
 
 
           <!-- ── Card 2: VCS — Vessel Condition Survey ── -->
-          <article class="prod-card prod-card-vcs reveal d2"
-            onclick="window.location.href='products/vcs/index.html'"
+          <article class="prod-card prod-card-vcs reveal d2" onclick="window.location.href='products/vcs/index.html'"
             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='products/vcs/index.html'}"
-            role="button" tabindex="0"
-            aria-label="Vessel Condition Survey — navigate to product page">
+            role="button" tabindex="0" aria-label="Vessel Condition Survey — navigate to product page">
 
             <!-- TOP: UI Preview -->
             <div class="prod-preview" aria-hidden="true">
@@ -915,12 +934,14 @@
             <div class="prod-content">
               <div class="prod-category">Condition &amp; Class</div>
               <h3 class="prod-title">Vessel Condition Survey</h3>
-              <p class="prod-desc">Standardized digital condition assessments for charter, purchase, or delivery — consistent, defensible, and ready to share.</p>
+              <p class="prod-desc">Standardized digital condition assessments for charter, purchase, or delivery —
+                consistent, defensible, and ready to share.</p>
               <div class="prod-cta">
                 <a href="products/vcs/index.html" class="prod-btn-primary" onclick="event.stopPropagation()">
                   Explore Module <span class="prod-btn-arrow">→</span>
                 </a>
-                <a href="https://dashboardd-v3.netlify.app/" target="_blank" rel="noopener" class="prod-btn-secondary" onclick="event.stopPropagation()">
+                <a href="https://dashboardd-v3.netlify.app/" target="_blank" rel="noopener" class="prod-btn-secondary"
+                  onclick="event.stopPropagation()">
                   Live Demo
                 </a>
               </div>
@@ -930,11 +951,9 @@
 
 
           <!-- ── Card 3: VIS — Vessel Inspection ── -->
-          <article class="prod-card prod-card-vis reveal d3"
-            onclick="window.location.href='products/vis/index.html'"
+          <article class="prod-card prod-card-vis reveal d3" onclick="window.location.href='products/vis/index.html'"
             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='products/vis/index.html'}"
-            role="button" tabindex="0"
-            aria-label="Vessel Inspection — navigate to product page">
+            role="button" tabindex="0" aria-label="Vessel Inspection — navigate to product page">
 
             <!-- TOP: UI Preview -->
             <div class="prod-preview" aria-hidden="true">
@@ -987,12 +1006,14 @@
             <div class="prod-content">
               <div class="prod-category">Inspection</div>
               <h3 class="prod-title">Vessel Inspection</h3>
-              <p class="prod-desc">Plan, run, and document fleet-wide inspections with mobile-first checklists that work even offline at sea.</p>
+              <p class="prod-desc">Plan, run, and document fleet-wide inspections with mobile-first checklists that work
+                even offline at sea.</p>
               <div class="prod-cta">
                 <a href="products/vis/index.html" class="prod-btn-primary" onclick="event.stopPropagation()">
                   Explore Module <span class="prod-btn-arrow">→</span>
                 </a>
-                <a href="https://dashboardd-v3.netlify.app/" target="_blank" rel="noopener" class="prod-btn-secondary" onclick="event.stopPropagation()">
+                <a href="https://dashboardd-v3.netlify.app/" target="_blank" rel="noopener" class="prod-btn-secondary"
+                  onclick="event.stopPropagation()">
                   Live Demo
                 </a>
               </div>
@@ -1002,11 +1023,9 @@
 
 
           <!-- ── Card 4: GS — Global Sanctions ── -->
-          <article class="prod-card prod-card-gs reveal d4"
-            onclick="window.location.href='products/gs/index.html'"
+          <article class="prod-card prod-card-gs reveal d4" onclick="window.location.href='products/gs/index.html'"
             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='products/gs/index.html'}"
-            role="button" tabindex="0"
-            aria-label="Global Sanctions — navigate to product page">
+            role="button" tabindex="0" aria-label="Global Sanctions — navigate to product page">
 
             <!-- TOP: UI Preview -->
             <div class="prod-preview" aria-hidden="true">
@@ -1014,7 +1033,11 @@
                 <!-- Search row -->
                 <div class="pp-search-row">
                   <div class="pp-search-icon">
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#7A90A6" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#7A90A6" stroke-width="2.5"
+                      stroke-linecap="round">
+                      <circle cx="11" cy="11" r="8" />
+                      <path d="M21 21l-4.35-4.35" />
+                    </svg>
                   </div>
                   <div class="pp-search-text">MV Pacific Star</div>
                 </div>
@@ -1060,12 +1083,14 @@
             <div class="prod-content">
               <div class="prod-category">Compliance</div>
               <h3 class="prod-title">Global Sanctions</h3>
-              <p class="prod-desc">Real-time screening of vessels, owners, and counterparties against global sanctions and watchlists.</p>
+              <p class="prod-desc">Real-time screening of vessels, owners, and counterparties against global sanctions
+                and watchlists.</p>
               <div class="prod-cta">
                 <a href="products/gs/index.html" class="prod-btn-primary" onclick="event.stopPropagation()">
                   Explore Module <span class="prod-btn-arrow">→</span>
                 </a>
-                <a href="https://dashboardd-v3.netlify.app/" target="_blank" rel="noopener" class="prod-btn-secondary" onclick="event.stopPropagation()">
+                <a href="https://dashboardd-v3.netlify.app/" target="_blank" rel="noopener" class="prod-btn-secondary"
+                  onclick="event.stopPropagation()">
                   Live Demo
                 </a>
               </div>
@@ -1224,12 +1249,14 @@
           <div class="standards reveal d2">
             <div class="std">
               <div class="std-name">Auto Calculations</div>
-              <div class="std-desc">Automatically calculate bunker volume, density, VCF, and delivered quantity with high accuracy.</div>
+              <div class="std-desc">Automatically calculate bunker volume, density, VCF, and delivered quantity with
+                high accuracy.</div>
               <div class="std-badge">AUTOMATED</div>
             </div>
             <div class="std">
               <div class="std-name">Photo Evidence</div>
-              <div class="std-desc">Capture inspection photos with organized visual documentation for every survey.</div>
+              <div class="std-desc">Capture inspection photos with organized visual documentation for every survey.
+              </div>
               <div class="std-badge">EVIDENCE READY</div>
             </div>
             <div class="std">
@@ -1239,7 +1266,8 @@
             </div>
             <div class="std">
               <div class="std-name">Global Screening</div>
-              <div class="std-desc">Screen vessels, aircraft, individuals, and entities against global sanctions databases.</div>
+              <div class="std-desc">Screen vessels, aircraft, individuals, and entities against global sanctions
+                databases.</div>
               <div class="std-badge">LIVE DATA</div>
             </div>
             <div class="std">
@@ -1249,7 +1277,8 @@
             </div>
             <div class="std">
               <div class="std-name">Smart Checklists</div>
-              <div class="std-desc">Standardized, configurable inspection checklists for consistent vessel inspections.</div>
+              <div class="std-desc">Standardized, configurable inspection checklists for consistent vessel inspections.
+              </div>
               <div class="std-badge">CUSTOMIZABLE</div>
             </div>
           </div>
@@ -1755,7 +1784,8 @@
             </button>
             <div class="faq-body">
               <div class="faq-a">
-                Yes. MC360 generates structured digital inspection reports that can be reviewed, shared, and downloaded to support operational and compliance workflows.
+                Yes. MC360 generates structured digital inspection reports that can be reviewed, shared, and downloaded
+                to support operational and compliance workflows.
               </div>
             </div>
           </div>
@@ -1811,7 +1841,8 @@
             </button>
             <div class="faq-body">
               <div class="faq-a">
-                Yes. MC360 maintains inspection records, findings, and historical data, making it easier to monitor vessel conditions and review previous inspections.
+                Yes. MC360 maintains inspection records, findings, and historical data, making it easier to monitor
+                vessel conditions and review previous inspections.
               </div>
             </div>
           </div>
@@ -1896,22 +1927,31 @@
             operations and compliance in one intelligent platform.
           </p>
           <div class="footer-socials">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-soc" aria-label="LinkedIn" title="LinkedIn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-soc"
+              aria-label="LinkedIn" title="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                 <rect x="2" y="9" width="4" height="12"></rect>
                 <circle cx="4" cy="4" r="2"></circle>
               </svg>
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-soc" aria-label="YouTube" title="YouTube">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-soc"
+              aria-label="YouTube" title="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17">
+                </path>
                 <polygon points="10 15 15 12 10 9 10 15" fill="currentColor"></polygon>
               </svg>
             </a>
             <a href="tel:+18005550199" class="footer-soc" aria-label="Call Us" title="Call Us">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
               </svg>
             </a>
           </div>
@@ -2023,16 +2063,116 @@
      BACK TO TOP BUTTON
      ============================================= -->
   <button id="back-to-top" aria-label="Back to top of page">
-    <span class="btt-arrow" aria-hidden="true">
-      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-        <path d="M5 8V2M2 5l3-3 3 3" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-    </span>
+    <img class="btt-icon" src="assets/icon/back to top.svg" alt="" aria-hidden="true" width="28" height="28" />
     <span class="btt-label">Back to top</span>
   </button>
 
 
-    <script src="js/main.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+  <!-- ── Logo carousel: gloss sweep + fixed-position tooltip ── -->
+  <script>
+    (function () {
+      'use strict';
+
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* ── Create single shared tooltip popup ─────────────────── */
+      const popup = document.createElement('div');
+      popup.className = 'logo-tooltip-popup';
+      popup.setAttribute('role', 'tooltip');
+      popup.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(popup);
+
+      let hideTimer = null;
+
+      function showTooltip(item) {
+        const label = item.querySelector('.logo-tooltip');
+        if (!label) return;
+
+        const text = label.textContent.trim();
+        if (!text) return;
+
+        clearTimeout(hideTimer);
+
+        popup.textContent = text;
+        popup.classList.remove('is-visible');
+
+        /* Position: centered above the card, in viewport coords */
+        const rect = item.getBoundingClientRect();
+        const GAP = 10;
+
+        /* Force a layout read before measuring popup width */
+        popup.style.top = '-9999px';
+        popup.style.left = '-9999px';
+        popup.style.removeProperty('display');
+
+        requestAnimationFrame(function () {
+          const pw = popup.offsetWidth;
+          const ph = popup.offsetHeight;
+
+          let left = rect.left + rect.width / 2 - pw / 2;
+          let top  = rect.top - ph - GAP; /* fixed: viewport coords only */
+
+          /* Clamp horizontally to viewport */
+          left = Math.max(8, Math.min(left, window.innerWidth - pw - 8));
+
+          /* If no room above, flip below */
+          if (rect.top - ph - GAP < 0) {
+            top = rect.bottom + GAP;
+            popup.style.setProperty('--caret-top', '100%');
+          }
+
+          popup.style.top  = top + 'px';
+          popup.style.left = left + 'px';
+          popup.classList.add('is-visible');
+        });
+      }
+
+      function hideTooltip() {
+        popup.classList.remove('is-visible');
+        hideTimer = setTimeout(function () {
+          popup.style.top  = '-9999px';
+          popup.style.left = '-9999px';
+        }, 200);
+      }
+
+      /* ── Gloss sweep: reset animation so it re-fires each hover ─ */
+      function triggerGloss(item) {
+        if (reducedMotion) return;
+        const before = item; /* animation is on ::before, toggled via CSS */
+        /* Remove & re-add hover class trick via a data attr */
+        item.dataset.glossPlaying = '1';
+        /* The CSS :hover already fires the animation; we just need to
+           ensure it re-runs if the user re-hovers quickly.
+           Force a reflow to restart the animation: */
+        item.style.setProperty('--gloss-run', '0');
+        void item.offsetWidth; /* reflow */
+        item.style.removeProperty('--gloss-run');
+      }
+
+      /* ── Wire up all logo-item elements ─────────────────────── */
+      const items = document.querySelectorAll('.s-marquee .logo-item');
+
+      items.forEach(function (item) {
+        /* Tooltip on mouse */
+        item.addEventListener('mouseenter', function () {
+          showTooltip(item);
+          triggerGloss(item);
+        });
+        item.addEventListener('mouseleave', hideTooltip);
+
+        /* Tooltip on keyboard focus */
+        item.addEventListener('focusin', function () { showTooltip(item); });
+        item.addEventListener('focusout', hideTooltip);
+      });
+
+      /* Hide tooltip on scroll (marquee moves) */
+      document.querySelector('.marquee-track')?.addEventListener('scroll', hideTooltip, { passive: true });
+
+    })();
+  </script>
+
 </body>
 
 </html>

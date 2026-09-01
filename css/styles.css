@@ -2338,7 +2338,7 @@ ul {
   padding: 20px 0;
   background: var(--surface);
   border-top: none;
-  border-bottom: 1px solid rgba(226, 234, 250, 0.5);
+  /* border-bottom: 1px solid rgba(226, 234, 250, 0.5); */
   overflow: hidden;
   position: relative;
 }
@@ -2399,6 +2399,7 @@ ul {
   0% {
     transform: translate3d(0, 0, 0);
   }
+
   100% {
     transform: translate3d(-50%, 0, 0);
   }
@@ -2465,6 +2466,142 @@ ul {
 
 .logo-maritec img {
   transform: scale(1.18);
+}
+
+/* ── Logo glass / gloss effect ─────────────────────────────────────────── */
+
+/* Keyframe: single-pass gloss sweep */
+@keyframes logoGlossSweep {
+  0%   { transform: translateX(-130%) skewX(-18deg); opacity: 0; }
+  10%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateX(230%) skewX(-18deg); opacity: 0; }
+}
+
+/* Give each logo-item a subtle glass background + soft border */
+.logo-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  /* border: 1px solid rgba(0, 87, 187, 0.07); */
+  transition:
+    background 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+  /* Ensure pointer events work for tooltip/hover */
+  pointer-events: auto;
+}
+
+/* Hover: lift glassy card slightly */
+.logo-item:hover,
+.logo-item:focus-within {
+  background: rgba(0, 87, 187, 0.06);
+  /* border-color: rgba(0, 87, 187, 0.18);
+  box-shadow:
+    0 0 0 1px rgba(0, 87, 187, 0.12),
+    0 4px 16px rgba(0, 87, 187, 0.09); */
+  z-index: 1;
+}
+
+/* Gloss sweep beam — ::before pseudo */
+.logo-item::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 48%;
+  height: 120%;
+  background: linear-gradient(
+    105deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.38) 45%,
+    rgba(255, 255, 255, 0.52) 50%,
+    rgba(255, 255, 255, 0.38) 55%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(-130%) skewX(-18deg);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  border-radius: 0;
+  /* will only run on hover via animation */
+  animation: none;
+}
+
+.logo-item:hover::before,
+.logo-item:focus-within::before {
+  animation: logoGlossSweep 0.72s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Ensure img stays above background but below gloss */
+.logo-item img {
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Logo tooltip ───────────────────────────────────────────────────────── */
+/* Tooltip is a fixed-position popup (appended to <body> via JS)           */
+/* so it escapes overflow:hidden on .marquee-track / .s-marquee            */
+.logo-tooltip-popup {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  white-space: nowrap;
+  background: #0057BB;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  padding: 5px 12px;
+  border-radius: 7px;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 6px 18px rgba(0, 87, 187, 0.32), 0 1px 4px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  transform: translateY(5px);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.logo-tooltip-popup.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Caret */
+.logo-tooltip-popup::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #0057BB;
+}
+
+/* Hide the inline span (used only as data source) */
+.logo-tooltip {
+  display: none;
+}
+
+/* Respect reduced motion — disable sweep, keep tooltip */
+@media (prefers-reduced-motion: reduce) {
+  .logo-item::before,
+  .logo-item:hover::before,
+  .logo-item:focus-within::before {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+
+  .logo-item,
+  .logo-item:hover,
+  .logo-item:focus-within {
+    transition: none !important;
+    box-shadow: none !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2997,28 +3134,28 @@ ul {
 
 /* Card 1: Bunker Quantity Survey (BQS) — Soft Pastel Blue */
 .prod-card.prod-card-bqs,
-.prod-grid > .prod-card:nth-child(1) {
+.prod-grid>.prod-card:nth-child(1) {
   background: linear-gradient(145deg, #EBF3FC 0%, #F4F8FE 38%, #FCFDFF 70%, #FFFFFF 100%);
   border-color: rgba(0, 87, 184, 0.13);
 }
 
 /* Card 2: Vessel Condition Survey (VCS) — Soft Pastel Cyan / Teal */
 .prod-card.prod-card-vcs,
-.prod-grid > .prod-card:nth-child(2) {
+.prod-grid>.prod-card:nth-child(2) {
   background: linear-gradient(145deg, #E6F7F5 0%, #F0FAF9 38%, #FAFCFC 70%, #FFFFFF 100%);
   border-color: rgba(13, 148, 136, 0.14);
 }
 
 /* Card 3: Vessel Inspection (VIS) — Soft Pastel Purple */
 .prod-card.prod-card-vis,
-.prod-grid > .prod-card:nth-child(3) {
+.prod-grid>.prod-card:nth-child(3) {
   background: linear-gradient(145deg, #F2EDFB 0%, #F7F3FD 38%, #FBFAFE 70%, #FFFFFF 100%);
   border-color: rgba(124, 58, 237, 0.13);
 }
 
 /* Card 4: Global Sanctions (GS) — Soft Pastel Orange */
 .prod-card.prod-card-gs,
-.prod-grid > .prod-card:nth-child(4) {
+.prod-grid>.prod-card:nth-child(4) {
   background: linear-gradient(145deg, #FDF0E6 0%, #FEF6EE 38%, #FFFBF8 70%, #FFFFFF 100%);
   border-color: rgba(234, 88, 12, 0.14);
 }
@@ -3040,7 +3177,7 @@ ul {
 }
 
 .prod-grid:hover .prod-card.prod-card-bqs:hover,
-.prod-grid:hover .prod-grid > .prod-card:nth-child(1):hover {
+.prod-grid:hover .prod-grid>.prod-card:nth-child(1):hover {
   border-color: rgba(0, 87, 184, 0.32);
   box-shadow:
     0 4px 14px rgba(0, 87, 184, .08),
@@ -3048,7 +3185,7 @@ ul {
 }
 
 .prod-grid:hover .prod-card.prod-card-vcs:hover,
-.prod-grid:hover .prod-grid > .prod-card:nth-child(2):hover {
+.prod-grid:hover .prod-grid>.prod-card:nth-child(2):hover {
   border-color: rgba(13, 148, 136, 0.35);
   box-shadow:
     0 4px 14px rgba(13, 148, 136, .08),
@@ -3056,7 +3193,7 @@ ul {
 }
 
 .prod-grid:hover .prod-card.prod-card-vis:hover,
-.prod-grid:hover .prod-grid > .prod-card:nth-child(3):hover {
+.prod-grid:hover .prod-grid>.prod-card:nth-child(3):hover {
   border-color: rgba(124, 58, 237, 0.32);
   box-shadow:
     0 4px 14px rgba(124, 58, 237, .08),
@@ -3064,7 +3201,7 @@ ul {
 }
 
 .prod-grid:hover .prod-card.prod-card-gs:hover,
-.prod-grid:hover .prod-grid > .prod-card:nth-child(4):hover {
+.prod-grid:hover .prod-grid>.prod-card:nth-child(4):hover {
   border-color: rgba(234, 88, 12, 0.32);
   box-shadow:
     0 4px 14px rgba(234, 88, 12, .08),
@@ -5561,11 +5698,13 @@ ul {
 }
 
 @keyframes fabHalo {
+
   0%,
   100% {
     opacity: .3;
     transform: scale(1) rotate(0deg);
   }
+
   50% {
     opacity: .8;
     transform: scale(1.05) rotate(180deg);
@@ -5573,6 +5712,7 @@ ul {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .cb-fab::before,
   .cb-fab::after {
     animation: none;

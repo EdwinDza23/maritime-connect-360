@@ -733,7 +733,7 @@ if (document.readyState === 'loading') {
 
   video.addEventListener('click', () => {
     if (video.paused) {
-      video.play().catch(() => {});
+      video.play().catch(() => { });
     } else {
       video.pause();
     }
@@ -743,7 +743,7 @@ if (document.readyState === 'loading') {
   if (playBtn) {
     playBtn.addEventListener('click', () => {
       if (video.paused) {
-        video.play().catch(() => {});
+        video.play().catch(() => { });
         playBtn.classList.add('hidden');
       } else {
         video.pause();
