@@ -199,7 +199,7 @@ if (bttBtn) {
       const bttRect = bttBtn.getBoundingClientRect();
       const bttOverlaps =
         bttRect.bottom > footerRect.top &&
-        bttRect.top    < footerRect.bottom;
+        bttRect.top < footerRect.bottom;
 
       if (bttBtn.classList.contains('btt-visible')) {
         bttBtn.classList.toggle('btt-on-footer', bttOverlaps);
@@ -213,7 +213,7 @@ if (bttBtn) {
       const fabRect = fabBtn.getBoundingClientRect();
       const fabOverlaps =
         fabRect.bottom > footerRect.top &&
-        fabRect.top    < footerRect.bottom;
+        fabRect.top < footerRect.bottom;
 
       fabBtn.classList.toggle('cb-fab-on-footer', fabOverlaps);
     }
@@ -322,20 +322,21 @@ const KB = {
     'Hi there! 👋 I\'m the MC360 AI assistant. I can answer questions about our platform, the 4 modules, pricing, and how to get started. What would you like to know?',
     'Hello! Welcome to MC360. I\'m here to help you learn about our maritime intelligence platform. Ask me anything!',
   ],
-  mc360: `MC360 (MaritimeConnect360) is an All in One enterprise operating system designed exclusively for maritime companies.\n\nWe unify your entire operation into one intelligent platform:\n\n⛽ Bunker Quantity Survey\n🔍 Vessel Inspection\n🚢 Vessel Condition Survey\n🛡️ Global Sanctions\n\nInstead of juggling 7+ disconnected tools, your fleet managers, operations directors and compliance teams work from one single source of truth — powered by AI throughout.`,
+  mc360: `MC360 (MaritimeConnect360) is an All in One enterprise operating system designed exclusively for maritime companies.\n\nWe unify your entire operation into one intelligent platform:\n\n⛽ Bunker Quantity Survey\n🔍 Vessel Inspection\n🚢 Vessel Condition Survey\n🛡️ Global Sanctions\n📰 Maritime Newsletter\n\nInstead of juggling 7+ disconnected tools, your fleet managers, operations directors and compliance teams work from one single source of truth — powered by AI throughout.`,
   bqs: `⛽ **Bunker Quantity Survey (BQS)**\n\nEliminate costly bunker disputes with AI-validated quantity measurements.\n\n• Real-time calculations during delivery\n• Automatic survey report generation\n• Full audit trail from delivery to sign-off\n• AI anomaly detection — flags discrepancies before sign-off\n• Dispute prevention with locked timestamps\n\nAI Example: MC360 detected a 1.8% discrepancy in a recent delivery and flagged it before the captain signed — saving a potential $40,000 dispute.`,
   inspection: `🔍 **Vessel Inspection**\n\nReplace clipboard inspections with smart digital workflows.\n\n• Digital inspection checklists (customisable)\n• Inspector assignment and scheduling\n• Photo and video evidence capture\n• Instant compliance report generation\n• Predictive scheduling based on vessel age & route history\n\nAI Example: Predictive scheduling reduced missed inspections by 34% for one of our global fleet operators — entirely automated.`,
   vcs: `🚢 **Vessel Condition Survey (VCS)**\n\nComprehensive assessments with structured data capture and corrective action workflows.\n\n• Condition scoring with industry benchmarking\n• Deficiency tracking with severity ratings\n• Corrective Action Request (CAR) workflows\n• Continuous condition record per vessel\n• AI outlier detection vs fleet averages\n\nAI Example: AI flagged a hull condition score 18% below fleet average — the issue was caught 3 months before it would have triggered a port-state control detention.`,
   sanctions: `🛡️ **Global Sanctions**\n\nReal-time counterparty screening against 50+ global sanctions lists.\n\n• OFAC, EU, UN, OFSI and 47 more lists\n• Automated counterparty risk scoring\n• Instant alerts when a match is detected\n• Full compliance documentation & audit trail\n• Continuous monitoring — not just point-in-time checks\n\nAI Example: A European operator avoided a $2M OFAC fine when MC360 flagged a cargo owner match within 4 seconds of onboarding — before any contract was signed.`,
-  modules: `MC360 has 4 core modules that work individually or together:\n\n1. ⛽ **Bunker Quantity Survey** — AI-validated measurements, real-time calculations, dispute prevention\n2. 🔍 **Vessel Inspection** — Digital workflows, photo evidence, instant reports\n3. 🚢 **Vessel Condition Survey** — Condition scoring, deficiency tracking, CAR workflows\n4. 🛡️ **Global Sanctions** — 50+ lists, real-time screening, automated alerts\n\nWant details on any specific module? Just ask!`,
+  newsletter: `📰 **Maritime Newsletter**\n\nStay informed with the latest maritime news.\n\n• Curated maritime news, regulatory updates & market intelligence\n• Delivered daily at 06:00 CET directly to your inbox\n• Zero noise, expert editorial curation by maritime professionals\n• Market indicators: BDI, bunker prices, freight rates & port alerts\n• Seamlessly integrated into your MC360 workspace`,
+  modules: `MC360 has 5 core modules that work individually or together:\n\n1. ⛽ **Bunker Quantity Survey** — AI-validated measurements, real-time calculations, dispute prevention\n2. 🔍 **Vessel Inspection** — Digital workflows, photo evidence, instant reports\n3. 🚢 **Vessel Condition Survey** — Condition scoring, deficiency tracking, CAR workflows\n4. 🛡️ **Global Sanctions** — 50+ lists, real-time screening, automated alerts\n5. 📰 **Maritime Newsletter** — Aktuelle maritime News kompakt und übersichtlich\n\nWant details on any specific module? Just ask!`,
   pricing: `MC360 has 3 pricing tiers:\n\n**Starter — $299/vessel/month**\n• Up to 5 vessels\n• Vessel Inspection module\n• Standard reporting\n• 5 user seats\n\n**Professional — $799/vessel/month** ⭐ Most Popular\n• Up to 25 vessels\n• All 4 modules\n• AI Chat + Recommendations\n• Advanced analytics\n• 25 user seats\n\n**Enterprise — Custom pricing**\n• Unlimited vessels\n• All modules + future modules\n• Company Knowledge AI\n• Custom integrations & API\n• Dedicated account team + SLA\n\nAll plans include a 30-day free trial. No credit card required.`,
   trial: `Starting your free trial is simple:\n\n1. Click **Start Free Trial** on this page\n2. Create your account (takes 2 minutes)\n3. Add your vessels and team members\n4. Your fleet is live in under 24 hours\n\n✅ 30-day free trial\n✅ No credit card required\n✅ Full platform access\n✅ Cancel anytime\n\nNeed a guided walkthrough first? Click **Book Demo** and our team will walk you through the platform live.`,
   ai: `MC360 has AI built into every module — not bolted on afterwards:\n\n💬 **AI Chat** — Ask questions about your entire fleet in plain language. "Which vessels need inspection this week?" gets you an instant, data-backed answer.\n\n⚡ **AI Recommendations** — Proactive risk and anomaly surfacing across all modules. You\'re alerted before problems escalate.\n\n📚 **Ask Company Knowledge** — Query against your own company procedures, policies and historical data — not just public information.\n\n🔮 **Coming soon:** Predictive Inspections, Live Vessel Intelligence, and Autonomous Fleet Operations.`,
   compliance: `MC360 is built for the most regulated industry on earth:\n\n🛡️ **Standards & Certifications:**\n• IMO 2020 — Sulphur compliance tracking\n• MARPOL — Pollution prevention reporting\n• SOLAS — Safety of Life at Sea workflows\n• ISM Code — Safety management compliance\n• SOC 2 Type II — Independently audited security\n• ISO 9001 — Quality management certified\n• GDPR — Full data residency controls\n• OFAC — Sanctions compliance built-in\n\n🔒 **Security:**\n• Role-based access control\n• Complete audit trails with timestamps\n• AES-256 encryption at rest & in transit\n• 99.7% platform uptime`,
   contact: `Here\'s how to reach us:\n\n📅 **Book a Demo** — Click the "Book Demo" button in the navigation. Our team will give you a live, personalised walkthrough of the platform.\n\n🚀 **Start Free Trial** — Get full access to MC360 for 14 days, free. No credit card needed.\n\n📧 **Sales enquiries** — Reach our team via the Contact page in the footer.\n\nWe typically respond within 1 business day.`,
   fallback: [
-    "That\'s a great question! I\'m best at answering questions about MC360\'s platform, our 4 modules, pricing, and how to get started. Could you rephrase or try one of the suggestions below?",
-    "I may not have a specific answer for that, but I can tell you about our platform, modules (BQS, Inspection, VCS, Sanctions), pricing, or how to start a free trial. Which would help?",
+    "That\'s a great question! I\'m best at answering questions about MC360\'s platform, our 5 modules, pricing, and how to get started. Could you rephrase or try one of the suggestions below?",
+    "I may not have a specific answer for that, but I can tell you about our platform, modules (BQS, Inspection, VCS, Sanctions, Newsletter), pricing, or how to start a free trial. Which would help?",
     "Let me point you in the right direction. I can explain our modules, pricing, AI capabilities, compliance standards, or how to get started. What\'s most useful?",
   ],
 };
@@ -348,7 +349,8 @@ function getResponse(input) {
   if (/inspection|inspect|checklist|inspector|photograph|photo|evidence|psc|port state/.test(q)) return KB.inspection;
   if (/condition|vcs|vessel condition|deficien|corrective|car|survey|hull/.test(q)) return KB.vcs;
   if (/sanction|ofac|ofsi|eu list|un list|counterparty|screening|comply|compliance risk|match/.test(q)) return KB.sanctions;
-  if (/module|feature|what can|capabilities|all module|four|4 module/.test(q)) return KB.modules;
+  if (/newsletter|digest|news|curat|daily brief/.test(q)) return KB.newsletter;
+  if (/module|feature|what can|capabilities|all module|five|5 module|four|4 module/.test(q)) return KB.modules;
   if (/pric|cost|plan|tier|starter|professional|enterprise|how much|subscription|per vessel/.test(q)) return KB.pricing;
   if (/trial|free|start|get started|sign up|register|onboard|setup/.test(q)) return KB.trial;
   if (/ai |artificial|intelligence|chat|recommend|knowledge|predict|smart|automat/.test(q)) return KB.ai;
@@ -441,14 +443,15 @@ function initChatbot() {
       // Contextual follow-up chips
       const q = text.toLowerCase();
       let next = [];
-      if (/module|overview|mc360|platform|about/.test(q)) next = ['BQS Module ⛽', 'Vessel Inspection 🔍', 'Condition Survey 🚢', 'Global Sanctions 🛡️'];
+      if (/module|overview|mc360|platform|about/.test(q)) next = ['BQS Module ⛽', 'Vessel Inspection 🔍', 'Condition Survey 🚢', 'Global Sanctions 🛡️', 'Newsletter 📰'];
       else if (/bunker|bqs/.test(q)) next = ['Vessel Inspection 🔍', 'Pricing plans', 'Start free trial'];
       else if (/inspect/.test(q)) next = ['Condition Survey 🚢', 'Global Sanctions 🛡️', 'Pricing plans'];
-      else if (/condition|vcs/.test(q)) next = ['Global Sanctions 🛡️', 'Pricing plans', 'Start free trial'];
-      else if (/sanction|ofac/.test(q)) next = ['Pricing plans', 'Start free trial', 'Book a demo'];
-      else if (/pric|cost/.test(q)) next = ['Start free trial', 'Book a demo', 'All 4 modules'];
-      else if (/trial|start|free/.test(q)) next = ['Book a demo', 'All 4 modules', 'Pricing plans'];
-      else if (/ai|intel/.test(q)) next = ['All 4 modules', 'Pricing plans', 'Start free trial'];
+      else if (/condition|vcs/.test(q)) next = ['Global Sanctions 🛡️', 'Newsletter 📰', 'Pricing plans'];
+      else if (/sanction|ofac/.test(q)) next = ['Pricing plans', 'Newsletter 📰', 'Book a demo'];
+      else if (/newsletter|news/.test(q)) next = ['Pricing plans', 'Start free trial', 'Show all modules'];
+      else if (/pric|cost/.test(q)) next = ['Start free trial', 'Book a demo', 'All 5 modules'];
+      else if (/trial|start|free/.test(q)) next = ['Book a demo', 'All 5 modules', 'Pricing plans'];
+      else if (/ai|intel/.test(q)) next = ['All 5 modules', 'Pricing plans', 'Start free trial'];
       else if (/security|compli/.test(q)) next = ['Pricing plans', 'Start free trial', 'Book a demo'];
       else next = ['What is MC360?', 'Show all modules', 'Pricing plans', 'Start free trial'];
       updateChips(next);

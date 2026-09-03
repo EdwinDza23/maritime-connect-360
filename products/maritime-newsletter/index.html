@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-powered Newsletter | MC360 Maritime Intelligence Platform</title>
+  <meta name="description"
+    content="Stay informed with the latest maritime news. AI-powered maritime intelligence delivered directly to your inbox every morning at 06:00 CET.">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+
+<body>
+
+  <!-- =============================================
+     NAVIGATION
+     ============================================= -->
+  <header class="nav-outer" role="banner">
+    <nav class="nav" id="main-nav" aria-label="Main navigation">
+
+      <!-- Logo -->
+      <a href="../../index.html" class="nav-logo" aria-label="MC360 Home">
+        <img src="../../assets/logos/MC360logo.png" alt="MC360">
+        <span class="nav-logo-text"><span class="brand-connect">MaritimeConnect</span>&nbsp;<span
+            class="brand-num">360</span></span>
+      </a>
+
+      <!-- Desktop links -->
+      <div class="nav-links" id="nav-links">
+        <div class="nav-active-pill" id="nav-active-pill"></div>
+
+        <a href="../../index.html" class="nav-link">Home</a>
+
+        <!-- Products dropdown -->
+        <div class="nav-dd-wrap" id="dd-products-wrap">
+          <button class="nav-link dd-open" id="dd-products-btn" aria-haspopup="true" aria-expanded="false">
+            Products
+            <span class="nav-chevron">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </span>
+          </button>
+          <div class="nav-dropdown dd-products" id="dd-products" role="menu">
+            <div class="dd-section-label">Modules</div>
+            <div class="dd-grid">
+
+              <!-- BQS -->
+              <a href="../bqs/index.html" class="dd-product-card" role="menuitem">
+                <span class="dd-product-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 22V8a2 2 0 012-2h8a2 2 0 012 2v14" />
+                    <path d="M3 22h12M9 6V3M15 8h2a2 2 0 012 2v3a2 2 0 01-2 2h-2" />
+                    <path d="M19 15v4a2 2 0 01-2 2" />
+                    <rect x="6" y="10" width="6" height="4" rx="1" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="dd-product-name">Bunker Quantity Survey</div>
+                  <div class="dd-product-desc">Measurement, quantity verification and reports</div>
+                </div>
+              </a>
+
+              <!-- Vessel Inspection -->
+              <a href="../vis/index.html" class="dd-product-card" role="menuitem">
+                <span class="dd-product-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="6" y="3" width="12" height="18" rx="2" />
+                    <path d="M9 3V2a1 1 0 011-1h4a1 1 0 011 1v1" />
+                    <path d="M9 12l2 2 4-4" />
+                    <path d="M9 17h4" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="dd-product-name">Vessel Inspection</div>
+                  <div class="dd-product-desc">Digital checklists, photo evidence, compliance reports</div>
+                </div>
+              </a>
+
+              <!-- Vessel Condition Survey -->
+              <a href="../vcs/index.html" class="dd-product-card" role="menuitem">
+                <span class="dd-product-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 20h20" />
+                    <path d="M5 20V10l7-7 7 7v10" />
+                    <path d="M9 20v-5h6v5" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="dd-product-name">Vessel Condition Survey</div>
+                  <div class="dd-product-desc">Deficiency tracking and corrective action workflows</div>
+                </div>
+              </a>
+
+              <!-- Global Sanctions -->
+              <a href="../gs/index.html" class="dd-product-card" role="menuitem">
+                <span class="dd-product-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="2" width="14" height="20" rx="2" />
+                    <path d="M9 7h6M9 11h6M9 15h4" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="dd-product-name">Global Sanctions</div>
+                  <div class="dd-product-desc">Real-time OFAC, EU, UN screening across 50+ lists</div>
+                </div>
+              </a>
+
+              <!-- AI-powered Newsletter — current -->
+              <a href="index.html" class="dd-product-card active-product" role="menuitem">
+                <span class="dd-product-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <path d="M6 9h12M6 13h8M6 17h5" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="dd-product-name">AI-powered Newsletter</div>
+                  <div class="dd-product-desc">Stay informed about the developments that matter</div>
+                </div>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Customers dropdown -->
+        <div class="nav-dd-wrap" id="dd-customers-wrap">
+          <button class="nav-link" id="dd-customers-btn" aria-haspopup="true" aria-expanded="false">
+            Customers
+            <span class="nav-chevron">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </span>
+          </button>
+          <div class="nav-dropdown dd-customers" id="dd-customers" role="menu">
+
+            <a href="../../index.html#compliance" class="dd-list-item" role="menuitem">
+              <span class="dd-list-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M3 9h18M9 21V9" />
+                </svg>
+              </span>
+              Case studies
+            </a>
+
+            <a href="../../index.html#compliance" class="dd-list-item" role="menuitem">
+              <span class="dd-list-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                </svg>
+              </span>
+              Testimonials
+            </a>
+
+          </div>
+        </div>
+
+        <a href="../../index.html#compliance" class="nav-link">Security</a>
+        <a href="../../index.html#pricing" class="nav-link">Pricing</a>
+      </div>
+
+      <!-- Desktop CTAs -->
+      <div class="nav-actions" id="nav-actions">
+        <a href="../../index.html#cta" class="nav-demo" id="nav-demo-btn">Book Demo</a>
+        <a href="https://dashboardd-v3.netlify.app/" target="_blank" class="nav-trial" id="nav-trial-btn">Start Free
+          Trial</a>
+      </div>
+
+      <!-- Hamburger (mobile) -->
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+
+    </nav>
+  </header>
+
+  <!-- Mobile slide-down panel -->
+  <div class="nav-mobile-panel" id="nav-mobile-panel" aria-hidden="true">
+    <a href="../../index.html" class="mob-link">Home</a>
+    <div class="mob-link" id="mob-products-btn">
+      <span>Products</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" id="mob-products-chevron" style="transition:transform 0.2s">
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+    </div>
+    <div class="mob-subsection" id="mob-products-sub">
+      <a href="../bqs/index.html" class="mob-sub-item">Bunker Quantity Survey</a>
+      <a href="../vis/index.html" class="mob-sub-item">Vessel Inspection</a>
+      <a href="../vcs/index.html" class="mob-sub-item">Vessel Condition Survey</a>
+      <a href="../gs/index.html" class="mob-sub-item">Global Sanctions</a>
+      <a href="index.html" class="mob-sub-item">AI-powered Newsletter</a>
+    </div>
+    <div class="mob-link" id="mob-customers-btn">
+      <span>Customers</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" id="mob-customers-chevron" style="transition:transform 0.2s">
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+    </div>
+    <div class="mob-subsection" id="mob-customers-sub">
+      <a href="../../index.html#compliance" class="mob-sub-item">Case studies</a>
+      <a href="../../index.html#compliance" class="mob-sub-item">Testimonials</a>
+    </div>
+    <a href="../../index.html#compliance" class="mob-link">Security</a>
+    <a href="../../index.html#pricing" class="mob-link">Pricing</a>
+    <div class="mob-ctas">
+      <a href="../../index.html#cta" class="nav-demo">Book Demo</a>
+      <a href="https://dashboardd-v3.netlify.app/" target="_blank" class="nav-trial">Start Free Trial</a>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main style="position: relative; z-index: 1;">
+
+    <!-- =============================================
+       1. HERO SECTION
+       ============================================= -->
+    <section class="nlp-hero" id="hero" aria-labelledby="nlp-hero-h1">
+      <div class="container">
+        <div class="nlp-hero-inner reveal">
+          <div class="nlp-hero-eyebrow">
+            <span class="nlp-hero-eyebrow-dot" aria-hidden="true"></span>
+            AI-powered Newsletter
+          </div>
+          <h1 class="nlp-hero-h1" id="nlp-hero-h1">
+            AI-powered maritime intelligence, delivered to your inbox.
+          </h1>
+          <p class="nlp-hero-sub">
+            Stay informed about the developments that matter
+          </p>
+          <p class="nlp-hero-desc">
+            Stay informed about the developments that matter— without spending hours searching across 10+
+            websites, following redirects, or comparing duplicate stories. The AI prepares one concise daily digest and
+            delivers it directly to your email.
+          </p>
+          <div class="nlp-hero-actions">
+            <form class="nlp-hero-form" onsubmit="return false;" role="search" aria-label="Subscribe to Newsletter">
+              <input class="nlp-hero-input" type="email" placeholder="yourmail@gmail.com" autocomplete="email"
+                aria-label="Work email address" />
+              <button type="submit" class="nlp-hero-btn">
+                Subscribe to Newsletter
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M7 1.5l5.5 5.5-5.5 5.5M12.5 7H1.5" stroke="currentColor" stroke-width="1.6"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </form>
+          </div>
+          <div class="nlp-hero-pills">
+            <div class="nlp-hero-pill-item"><span>06:00 CET</span> Daily Delivery</div>
+            <div class="nlp-hero-pill-item">·</div>
+            <div class="nlp-hero-pill-item"><span>3-Min</span> Executive Read</div>
+            <div class="nlp-hero-pill-item">·</div>
+            <div class="nlp-hero-pill-item"><span>100%</span> Maritime Signal</div>
+            <div class="nlp-hero-pill-item">·</div>
+            <div class="nlp-hero-pill-item"><span>Zero</span> Noise &amp; Filler</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       2. THE PROBLEM SECTION
+       ============================================= -->
+    <section class="s-nlp-problem" id="problem" aria-labelledby="nlp-prob-h2">
+      <div class="container">
+        <div class="nlp-section-hd reveal">
+          <div class="eyebrow eyebrow-dark"><span class="eyebrow-dot"></span>The Fragmentation Tax</div>
+          <h2 class="display-md" id="nlp-prob-h2" style="margin-bottom:16px">
+            Maritime intelligence shouldn't require hours of research.
+          </h2>
+          <p class="body-lg" style="color:var(--text-2)">
+            Relevant maritime information is spread across countless registries, journals, flag states, and forums. Too
+            many sources. Too much noise. Too little time.
+          </p>
+        </div>
+
+        <div class="nlp-compare-grid reveal d2">
+          <!-- Before Card -->
+          <div class="nlp-compare-card card-before">
+            <div class="nlp-card-badge">Without AI-powered Newsletter</div>
+            <div class="nlp-card-title">Fragmented Manual Research</div>
+            <div class="nlp-card-desc">Juggling tabs, filtering ads, and worrying about overlooked regulatory changes
+              across disconnected sources.</div>
+            <div class="nlp-step-list">
+              <div class="nlp-step-item">
+                <div class="nlp-step-icon">✕</div>
+                <div><strong>10+ websites visited daily</strong> — scanning endless generic shipping feeds.</div>
+              </div>
+              <div class="nlp-step-item">
+                <div class="nlp-step-icon">✕</div>
+                <div><strong>20+ redirects &amp; paywalls</strong> — chasing down original circulars and sources.</div>
+              </div>
+              <div class="nlp-step-item">
+                <div class="nlp-step-icon">✕</div>
+                <div><strong>Duplicate press releases</strong> — reading the same syndicated story multiple times.</div>
+              </div>
+              <div class="nlp-step-item">
+                <div class="nlp-step-icon">✕</div>
+                <div><strong>Manual noise filtering</strong> — separating marketing fluff from actionable operational
+                  alerts.</div>
+              </div>
+              <div class="nlp-step-item">
+                <div class="nlp-step-icon">✕</div>
+                <div><strong>45+ minutes lost each morning</strong> — time taken away from managing active fleet
+                  operations.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- After Card -->
+          <div class="nlp-compare-card card-after">
+            <div class="nlp-card-badge">With AI-powered Newsletter</div>
+            <div class="nlp-card-title">Automated Daily Intelligence</div>
+            <div class="nlp-card-desc">Your AI research team scans the maritime ecosystem 24/7, condensing everything
+              that matters into one 3-minute executive briefing.</div>
+            <div class="nlp-step-list">
+              <div class="nlp-step-item">
+                <div class="nlp-step-icon">✓</div>
+                <div><strong>Continuous AI monitoring</strong> — comprehensive coverage across all key maritime domains.
+                </div>
+              </div>
+              <div class="nlp-step-item">
+                <div class="nlp-step-icon">✓</div>
+                <div><strong>Unified multi-source aggregation</strong> — regulatory bodies, ports, freight desks, and
+                  flag states.</div>
+              </div>
+              <div class="nlp-step-item">
+                <div class="nlp-step-icon">✓</div>
+                <div><strong>Expert editorial review</strong> — every story is evaluated for real operational
+                  consequence.</div>
+              </div>
+              <div class="nlp-step-item">
+                <div class="nlp-step-icon">✓</div>
+                <div><strong>Structured categorization</strong> — IMO, Markets, Ports, Fleet, and Sanctions organized
+                  cleanly.</div>
+              </div>
+              <div class="nlp-step-item">
+                <div class="nlp-step-icon">✓</div>
+                <div><strong>Delivered to your inbox at 06:00 CET</strong> — open your email, know what matters,
+                  continue your day.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       3. AI AGENT WORKFLOW PIPELINE
+       ============================================= -->
+    <section class="s-nlp-workflow" id="workflow" aria-labelledby="nlp-wf-h2">
+      <div class="container">
+        <div class="nlp-section-hd reveal">
+          <div class="eyebrow"><span class="eyebrow-dot"></span>AI Agent Pipeline</div>
+          <h2 class="display-md" id="nlp-wf-h2" style="margin-bottom:16px">
+            Your AI research team works in the background.
+          </h2>
+          <p class="body-lg" style="color:var(--text-2)">
+            AI-powered Newsletter continuously handles the information workflow so you spend zero time searching and all
+            your time acting on what matters.
+          </p>
+        </div>
+
+        <div class="nlp-pipeline-grid reveal d2">
+          <!-- Step 1 -->
+          <div class="nlp-pipe-card">
+            <div class="nlp-pipe-num">01</div>
+            <div class="nlp-pipe-title">Discover</div>
+            <div class="nlp-pipe-desc">Searches global maritime sources, flag states, port circulars &amp; shipping
+              journals.</div>
+          </div>
+          <!-- Step 2 -->
+          <div class="nlp-pipe-card">
+            <div class="nlp-pipe-num">02</div>
+            <div class="nlp-pipe-title">Collect</div>
+            <div class="nlp-pipe-desc">Aggregates potentially relevant stories, freight indices, and market updates into
+              one pool.</div>
+          </div>
+          <!-- Step 3 -->
+          <div class="nlp-pipe-card">
+            <div class="nlp-pipe-num">03</div>
+            <div class="nlp-pipe-title">Review</div>
+            <div class="nlp-pipe-desc">Evaluates collected information for authenticity, operational significance, and
+              fleet relevance.</div>
+          </div>
+          <!-- Step 4 -->
+          <div class="nlp-pipe-card">
+            <div class="nlp-pipe-num">04</div>
+            <div class="nlp-pipe-title">Curate</div>
+            <div class="nlp-pipe-desc">Prioritizes high-impact developments and eliminates redundant syndication and PR
+              noise.</div>
+          </div>
+          <!-- Step 5 -->
+          <div class="nlp-pipe-card">
+            <div class="nlp-pipe-num">05</div>
+            <div class="nlp-pipe-title">Categorize</div>
+            <div class="nlp-pipe-desc">Organizes stories into meaningful domains: IMO &amp; Compliance, Markets, Ports,
+              and Fleet Tech.</div>
+          </div>
+          <!-- Step 6 -->
+          <div class="nlp-pipe-card">
+            <div class="nlp-pipe-num">06</div>
+            <div class="nlp-pipe-title">Personalize</div>
+            <div class="nlp-pipe-desc">Tailors depth and priority around subscriber fleet profiles, vessel types, and
+              operational routes.</div>
+          </div>
+          <!-- Step 7 -->
+          <div class="nlp-pipe-card">
+            <div class="nlp-pipe-num">07</div>
+            <div class="nlp-pipe-title">Deliver</div>
+            <div class="nlp-pipe-desc">Formats a concise 3-minute executive digest delivered directly to your inbox at
+              06:00 CET.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       4. KEY PRODUCT CAPABILITIES
+       ============================================= -->
+    <section class="s-nlp-capabilities" id="capabilities" aria-labelledby="nlp-cap-h2">
+      <div class="container">
+        <div class="nlp-section-hd reveal">
+          <div class="eyebrow eyebrow-dark"><span class="eyebrow-dot"></span>Key Capabilities</div>
+          <h2 class="display-md" id="nlp-cap-h2" style="margin-bottom:16px">
+            Built for maritime leaders who value their time.
+          </h2>
+          <p class="body-lg" style="color:var(--text-2)">
+            Engineered exclusively for ship owners, operators, and fleet managers seeking operational clarity without
+            the research overhead.
+          </p>
+        </div>
+
+        <div class="nlp-cap-grid reveal d2">
+          <!-- Cap 1 -->
+          <div class="nlp-cap-card">
+            <div class="nlp-cap-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 16v-4M12 8h.01" />
+              </svg>
+            </div>
+            <div class="nlp-cap-title">AI-Curated Intelligence</div>
+            <div class="nlp-cap-desc">Our domain-trained AI identifies and surfaces only stories that carry real
+              operational consequences for vessels, ports, and charters.</div>
+          </div>
+          <!-- Cap 2 -->
+          <div class="nlp-cap-card">
+            <div class="nlp-cap-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <div class="nlp-cap-title">Cross-Source Aggregation</div>
+            <div class="nlp-cap-desc">Brings together flag state notices, classification society advisories, bunker
+              indices, and port authority updates into one clean digest.</div>
+          </div>
+          <!-- Cap 3 -->
+          <div class="nlp-cap-card">
+            <div class="nlp-cap-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+              </svg>
+            </div>
+            <div class="nlp-cap-title">Structured Categorization</div>
+            <div class="nlp-cap-desc">Clear domain groupings enable your technical, compliance, and commercial teams to
+              navigate straight to the items affecting their day.</div>
+          </div>
+          <!-- Cap 4 -->
+          <div class="nlp-cap-card">
+            <div class="nlp-cap-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </div>
+            <div class="nlp-cap-title">Personalized Focus</div>
+            <div class="nlp-cap-desc">Tailor coverage around your fleet's specific segments — bulkers, tankers,
+              boxships, or offshore support — for maximum relevance.</div>
+          </div>
+          <!-- Cap 5 -->
+          <div class="nlp-cap-card">
+            <div class="nlp-cap-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 4 23 10 17 10" />
+                <polyline points="1 20 1 14 7 14" />
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+              </svg>
+            </div>
+            <div class="nlp-cap-title">100% Automated Workflow</div>
+            <div class="nlp-cap-desc">Discovery, curation, verification, and formatting happen seamlessly behind the
+              scenes. Zero manual overhead required from your staff.</div>
+          </div>
+          <!-- Cap 6 -->
+          <div class="nlp-cap-card">
+            <div class="nlp-cap-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </div>
+            <div class="nlp-cap-title">Direct Email Delivery</div>
+            <div class="nlp-cap-desc">No new passwords, apps, or dashboard logins to manage. Your intelligence arrives
+              in your inbox ready to read, even when offline at sea.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       5. POLISHED DAILY EMAIL PREVIEW
+       ============================================= -->
+    <section class="s-nlp-preview" id="preview" aria-labelledby="nlp-prev-h2">
+      <div class="container">
+        <div class="nlp-section-hd reveal">
+          <div class="eyebrow"><span class="eyebrow-dot"></span>Daily Email Experience</div>
+          <h2 class="display-md" id="nlp-prev-h2" style="margin-bottom:16px">
+            Your maritime intelligence. Already in your inbox.
+          </h2>
+          <p class="body-lg" style="color:var(--text-2)">
+            See how AI-powered Newsletter turns a complex research workflow into a concise, actionable morning read.
+          </p>
+        </div>
+
+        <div class="nlp-email-mockup reveal d2">
+          <!-- Email Client Bar -->
+          <div class="nlp-email-bar">
+            <div class="nlp-email-dots">
+              <span class="nlp-email-dot"></span>
+              <span class="nlp-email-dot"></span>
+              <span class="nlp-email-dot"></span>
+            </div>
+            <div class="nlp-email-subject">
+              Inbox · MC360 Maritime Digest — Edition #482 · Delivered 06:00 CET
+            </div>
+          </div>
+
+          <!-- Email Content Body -->
+          <div class="nlp-email-body">
+            <div class="nlp-eb-header">
+              <div class="nlp-eb-logo">
+                <span style="color:#0057B8">MC360</span> <span style="font-weight:400;color:#64748B">| Maritime
+                  Digest</span>
+              </div>
+              <div class="nlp-eb-meta">
+                Edition #482 · Today 06:00 CET · 3-Min Read
+              </div>
+            </div>
+
+            <!-- Ticker -->
+            <div class="nlp-eb-ticker">
+              <div class="nlp-ticker-stat">Baltic Dry Index: <span>1,642 ▲ +2.4%</span></div>
+              <div class="nlp-ticker-stat">VLSFO Singapore: <span>$624/MT ▼ -$6</span></div>
+              <div class="nlp-ticker-stat">Rotterdam Congestion: <span>1.2 Days (Normal)</span></div>
+              <div class="nlp-ticker-stat">Red Sea Transit: <span>Advisories Active</span></div>
+            </div>
+
+            <!-- Category: Industry Highlights -->
+            <div class="nlp-eb-section">
+              <div class="nlp-eb-sec-title">Industry Highlights</div>
+              <div class="nlp-eb-article">
+                <div class="nlp-eb-art-h">Global Container Fleet Surpasses 30M TEU Milestone</div>
+                <div class="nlp-eb-art-p">Newbuild deliveries in Q1 accelerate fleet capacity growth, with dual-fuel
+                  methanol and LNG tonnage representing over 48% of newly commissioned orderbooks.</div>
+                <div class="nlp-eb-art-foot">
+                  <span>Source: Maritime Analytics Desk</span>
+                  <a href="#newsletter-cta">Read full analysis →</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category: Regulations & Compliance -->
+            <div class="nlp-eb-section">
+              <div class="nlp-eb-sec-title">Regulations &amp; Compliance</div>
+              <div class="nlp-eb-article">
+                <div class="nlp-eb-art-h">IMO MEPC 82: Draft Carbon Intensity Thresholds Finalized</div>
+                <div class="nlp-eb-art-p">The working group released updated guidelines on mid-term GHG reduction
+                  measures and technical taxation frameworks scheduled for formal adoption in 2026.</div>
+                <div class="nlp-eb-art-foot">
+                  <span>Source: IMO Circular Summary</span>
+                  <a href="#newsletter-cta">View compliance implications →</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category: Markets & Bunkering -->
+            <div class="nlp-eb-section">
+              <div class="nlp-eb-sec-title">Bunker Operations &amp; Markets</div>
+              <div class="nlp-eb-article">
+                <div class="nlp-eb-art-h">Spread Between VLSFO and LSMGO Narrows in ARA Hub</div>
+                <div class="nlp-eb-art-p">Refinery output adjustments across Western Europe tightened low-sulfur spreads
+                  to $92/MT, while bio-bunker B30 spot demand rose 14% month-over-month.</div>
+                <div class="nlp-eb-art-foot">
+                  <span>Source: MC360 Bunker Desk</span>
+                  <a href="#newsletter-cta">Track price indices →</a>
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="padding-top:16px;border-top:1px solid #E2E8F0;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#94A3B8;">
+              <div>Prepared by MC360 AI Engine · Verified by Maritime Editors</div>
+              <div>Delivered daily to fleet decision-makers</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       6. DAILY DELIVERY EXPERIENCE
+       ============================================= -->
+    <section class="s-nlp-experience" id="experience" aria-labelledby="nlp-exp-h2">
+      <div class="container">
+        <div class="nlp-section-hd reveal">
+          <div class="eyebrow eyebrow-dark"><span class="eyebrow-dot"></span>The Delivery Model</div>
+          <h2 class="display-md" id="nlp-exp-h2" style="margin-bottom:16px">
+            One daily digest. Part of your normal routine.
+          </h2>
+          <p class="body-lg" style="color:var(--text-2)">
+            Open your email → see what matters → understand the key developments → continue your day.
+          </p>
+        </div>
+
+        <div class="nlp-exp-grid reveal d2">
+          <div class="nlp-exp-card">
+            <div class="nlp-exp-badge">06:00 CET</div>
+            <div class="nlp-exp-title">Morning Delivery</div>
+            <div class="nlp-exp-desc">Lands in your inbox before morning operations meetings and European trading desks
+              open.</div>
+          </div>
+          <div class="nlp-exp-card">
+            <div class="nlp-exp-badge">3-MIN READ</div>
+            <div class="nlp-exp-title">Executive Brevity</div>
+            <div class="nlp-exp-desc">Crisp, structured bullet summaries designed for immediate comprehension without
+              reading 40 pages.</div>
+          </div>
+          <div class="nlp-exp-card">
+            <div class="nlp-exp-badge">MOBILE OPTIMIZED</div>
+            <div class="nlp-exp-title">Read Anywhere</div>
+            <div class="nlp-exp-desc">Optimized for smartphones, tablets, and offshore shipboard email with zero layout
+              breakage.</div>
+          </div>
+          <div class="nlp-exp-card">
+            <div class="nlp-exp-badge">ZERO AD NOISE</div>
+            <div class="nlp-exp-title">Pure Signal</div>
+            <div class="nlp-exp-desc">100% focused on shipping, compliance, bunker, and fleet news. No sponsor fluff or
+              clickbait.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       7. WHAT'S INSIDE / WHAT'S COVERED (RETAINED)
+       ============================================= -->
+    <section class="s-compliance" id="coverage" aria-labelledby="nl-coverage-h2"
+      style="padding: var(--section) 0; background: linear-gradient(180deg, #FFFFFF 0%, #F3F8FD 50%, #FFFFFF 100%);">
+      <div class="container">
+        <div class="comp-wrap">
+          <div class="comp-copy reveal">
+            <div class="eyebrow eyebrow-dark"><span class="eyebrow-dot"></span>What's Inside</div>
+            <h2 class="comp-h2" id="nl-coverage-h2">
+              Everything maritime,<br>nothing you don't<br>need.
+            </h2>
+            <p class="comp-desc">
+              The AI-powered Newsletter cuts through the noise. Every edition is curated by domain-trained AI and
+              verified
+              by maritime professionals to surface only what matters to ship operators, managers, and compliance teams.
+            </p>
+            <div class="comp-items">
+              <div class="comp-item">
+                <div class="comp-check">✓</div>
+                <div class="comp-item-txt">
+                  <strong>Market intelligence</strong>
+                  Baltic Dry Index, freight rates, bunker prices, and port congestion updates — delivered before the
+                  working day starts.
+                </div>
+              </div>
+              <div class="comp-item">
+                <div class="comp-check">✓</div>
+                <div class="comp-item-txt">
+                  <strong>Regulatory alerts</strong>
+                  IMO, MARPOL, and flag state updates — summarised and contextualised so your team stays compliant
+                  without reading 40-page circulars.
+                </div>
+              </div>
+              <div class="comp-item">
+                <div class="comp-check">✓</div>
+                <div class="comp-item-txt">
+                  <strong>Industry developments</strong>
+                  Fleet orders, port expansions, decarbonization initiatives, and sanctions movements that directly
+                  affect your vessels.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="standards reveal d2">
+            <div class="std">
+              <div class="std-name">Daily Delivery</div>
+              <div class="std-desc">Every edition lands in your inbox at 06:00 CET — before the trading day opens.</div>
+              <div class="std-badge">06:00 CET</div>
+            </div>
+            <div class="std">
+              <div class="std-name">Expert Curation</div>
+              <div class="std-desc">Written and curated by maritime professionals, not generic algorithms.</div>
+              <div class="std-badge">EDITORIAL</div>
+            </div>
+            <div class="std">
+              <div class="std-name">Zero Noise</div>
+              <div class="std-desc">Every story earns its place. No filler, no clickbait, no sponsor-driven fluff.</div>
+              <div class="std-badge">CURATED</div>
+            </div>
+            <div class="std">
+              <div class="std-name">Regulatory Alerts</div>
+              <div class="std-desc">IMO, MARPOL and flag state updates in plain language your whole team can act on.
+              </div>
+              <div class="std-badge">COMPLIANCE</div>
+            </div>
+            <div class="std">
+              <div class="std-name">Market Intelligence</div>
+              <div class="std-desc">BDI, bunker prices, freight rates and port congestion in one glance.</div>
+              <div class="std-badge">MARKETS</div>
+            </div>
+            <div class="std">
+              <div class="std-name">MC360 Integrated</div>
+              <div class="std-desc">Seamlessly connected with your MC360 platform for a complete maritime intelligence
+                picture.</div>
+              <div class="std-badge">CONNECTED</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       8. OTHER MODULES (RETAINED: BQS, VCS, VIS, GS)
+       ============================================= -->
+    <section class="s-modules" id="other-modules" aria-labelledby="other-mod-h2-nl"
+      style="padding: var(--section) 0; background: linear-gradient(180deg, #FFFFFF 0%, #EDF5FD 40%, #A8CCF2 100%);">
+      <div class="container">
+        <div class="mod-hd reveal" style="margin-bottom:48px">
+          <div class="eyebrow"><span class="eyebrow-dot"></span>The Platform</div>
+          <h2 class="display-md" id="other-mod-h2-nl">Explore all modules.</h2>
+          <p class="body-lg" style="color:var(--text-2);max-width:500px;margin:18px auto 0">Each module works
+            independently. Together, they give you total maritime intelligence.</p>
+        </div>
+        <div class="prod-grid">
+          <!-- BQS -->
+          <article class="prod-card prod-card-bqs reveal d1" onclick="window.location.href='../bqs/index.html'"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='../bqs/index.html'}"
+            role="button" tabindex="0" aria-label="Bunker Quantity Survey — navigate to product page">
+            <div class="prod-preview" aria-hidden="true">
+              <div class="prod-preview-inner">
+                <div class="pp-header">
+                  <div class="pp-vessel-name">HFO Level</div>
+                  <div class="pp-badge pp-badge-verified">Verified</div>
+                </div>
+                <div class="pp-gauge-wrap">
+                  <div class="pp-gauge-label"><span class="pp-gauge-title">Quantity Measured</span><span
+                      class="pp-gauge-value">1,847 MT</span></div>
+                  <div class="pp-gauge-track">
+                    <div class="pp-gauge-fill" style="width:78%"></div>
+                  </div>
+                </div>
+                <div class="pp-stats">
+                  <div class="pp-stat">
+                    <div class="pp-stat-val">78%</div>
+                    <div class="pp-stat-lbl">HFO Level</div>
+                  </div>
+                  <div class="pp-stat">
+                    <div class="pp-stat-val pp-stat-green">+0.2%</div>
+                    <div class="pp-stat-lbl">Variance</div>
+                  </div>
+                </div>
+                <div class="pp-mini-chart"><svg viewBox="0 0 120 32" fill="none" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="bqs-g-nl" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#0057B8" stop-opacity="0.18" />
+                        <stop offset="100%" stop-color="#0057B8" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M0 24 C20 22 35 16 55 12 C75 8 90 14 120 6" stroke="#0057B8" stroke-width="1.8"
+                      stroke-linecap="round" />
+                    <path d="M0 24 C20 22 35 16 55 12 C75 8 90 14 120 6 L120 32 L0 32Z" fill="url(#bqs-g-nl)" />
+                  </svg></div>
+                <div class="pp-footer"><span class="pp-foot-dot pp-dot-green"></span><span class="pp-foot-text">Survey
+                    Complete — Report Generated</span></div>
+              </div>
+            </div>
+            <div class="prod-content">
+              <div class="prod-category">Fuel &amp; Bunkering</div>
+              <h3 class="prod-title">Bunker Quantity Survey</h3>
+              <p class="prod-desc">Independent, digital verification of fuel quantities at every bunkering operation —
+                reducing disputes, shortages, and reconciliation time.</p>
+              <div class="prod-cta"><a href="../bqs/index.html" class="prod-btn-primary"
+                  onclick="event.stopPropagation()">Explore Module <span class="prod-btn-arrow">→</span></a><a
+                  href="https://dashboardd-v3.netlify.app/" target="_blank" rel="noopener" class="prod-btn-secondary"
+                  onclick="event.stopPropagation()">Live Demo</a></div>
+            </div>
+          </article>
+          <!-- VCS -->
+          <article class="prod-card prod-card-vcs reveal d2" onclick="window.location.href='../vcs/index.html'"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='../vcs/index.html'}"
+            role="button" tabindex="0" aria-label="Vessel Condition Survey — navigate to product page">
+            <div class="prod-preview" aria-hidden="true">
+              <div class="prod-preview-inner">
+                <div class="pp-header">
+                  <div class="pp-vessel-name">Condition Score</div>
+                  <div class="pp-score-badge"><span class="pp-score-num">94</span><span class="pp-score-max">/100</span>
+                  </div>
+                </div>
+                <div class="pp-findings">
+                  <div class="pp-finding pp-finding-minor">
+                    <div class="pp-finding-count">12</div>
+                    <div class="pp-finding-lbl">Minor</div>
+                  </div>
+                  <div class="pp-finding pp-finding-moderate">
+                    <div class="pp-finding-count">3</div>
+                    <div class="pp-finding-lbl">Moderate</div>
+                  </div>
+                  <div class="pp-finding pp-finding-critical">
+                    <div class="pp-finding-count">0</div>
+                    <div class="pp-finding-lbl">Critical</div>
+                  </div>
+                </div>
+                <div class="pp-gauge-wrap">
+                  <div class="pp-gauge-label"><span class="pp-gauge-title">Overall Condition</span><span
+                      class="pp-gauge-value">Excellent</span></div>
+                  <div class="pp-gauge-track">
+                    <div class="pp-gauge-fill pp-gauge-fill-green" style="width:94%"></div>
+                  </div>
+                </div>
+                <div class="pp-footer"><span class="pp-foot-dot pp-dot-green"></span><span class="pp-foot-text">Survey
+                    Approved — No Critical Defects</span></div>
+              </div>
+            </div>
+            <div class="prod-content">
+              <div class="prod-category">Condition &amp; Class</div>
+              <h3 class="prod-title">Vessel Condition Survey</h3>
+              <p class="prod-desc">Standardized digital condition assessments for charter, purchase, or delivery —
+                consistent, defensible, and ready to share.</p>
+              <div class="prod-cta"><a href="../vcs/index.html" class="prod-btn-primary"
+                  onclick="event.stopPropagation()">Explore Module <span class="prod-btn-arrow">→</span></a><a
+                  href="https://dashboardd-v3.netlify.app/" target="_blank" rel="noopener" class="prod-btn-secondary"
+                  onclick="event.stopPropagation()">Live Demo</a></div>
+            </div>
+          </article>
+          <!-- VIS -->
+          <article class="prod-card prod-card-vis reveal d3" onclick="window.location.href='../vis/index.html'"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='../vis/index.html'}"
+            role="button" tabindex="0" aria-label="Vessel Inspection — navigate to product page">
+            <div class="prod-preview" aria-hidden="true">
+              <div class="prod-preview-inner">
+                <div class="pp-header">
+                  <div class="pp-vessel-name">Inspection Progress</div>
+                  <div class="pp-badge pp-badge-inprogress">3 of 4</div>
+                </div>
+                <div class="pp-checklist">
+                  <div class="pp-check-item pp-check-done"><span class="pp-check-ico">✓</span><span
+                      class="pp-check-lbl">Safety Equipment</span><span class="pp-check-status">Done</span></div>
+                  <div class="pp-check-item pp-check-done"><span class="pp-check-ico">✓</span><span
+                      class="pp-check-lbl">Fire Suppression</span><span class="pp-check-status">Done</span></div>
+                  <div class="pp-check-item pp-check-warn"><span class="pp-check-ico">●</span><span
+                      class="pp-check-lbl">MARPOL &amp; Records</span><span
+                      class="pp-check-status pp-status-amber">Review</span></div>
+                </div>
+                <div class="pp-gauge-wrap">
+                  <div class="pp-gauge-label"><span class="pp-gauge-title">Completion</span><span
+                      class="pp-gauge-value">75%</span></div>
+                  <div class="pp-gauge-track">
+                    <div class="pp-gauge-fill pp-gauge-fill-blue" style="width:75%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="prod-content">
+              <div class="prod-category">Inspection</div>
+              <h3 class="prod-title">Vessel Inspection</h3>
+              <p class="prod-desc">Plan, run, and document fleet-wide inspections with mobile-first checklists that work
+                even offline at sea.</p>
+              <div class="prod-cta"><a href="../vis/index.html" class="prod-btn-primary"
+                  onclick="event.stopPropagation()">Explore Module <span class="prod-btn-arrow">→</span></a><a
+                  href="https://dashboardd-v3.netlify.app/" target="_blank" rel="noopener" class="prod-btn-secondary"
+                  onclick="event.stopPropagation()">Live Demo</a></div>
+            </div>
+          </article>
+          <!-- GS — Global Sanctions -->
+          <article class="prod-card prod-card-gs reveal d4" onclick="window.location.href='../gs/index.html'"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='../gs/index.html'}"
+            role="button" tabindex="0" aria-label="Global Sanctions — navigate to product page">
+            <div class="prod-preview" aria-hidden="true">
+              <div class="prod-preview-inner">
+                <div class="pp-search-row">
+                  <div class="pp-search-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none"
+                      stroke="#7A90A6" stroke-width="2.5" stroke-linecap="round">
+                      <circle cx="11" cy="11" r="8" />
+                      <path d="M21 21l-4.35-4.35" />
+                    </svg></div>
+                  <div class="pp-search-text">MV Pacific Star</div>
+                </div>
+                <div class="pp-sanction-result">
+                  <div class="pp-sanction-header"><span class="pp-sanction-name">MV Pacific Star</span><span
+                      class="pp-badge pp-badge-clear">All Clear</span></div>
+                  <div class="pp-risk-row"><span class="pp-risk-label">Risk Score</span><span
+                      class="pp-risk-value pp-risk-low">Low Risk · 2/100</span></div>
+                  <div class="pp-lists">
+                    <div class="pp-list-item pp-list-clear"><span class="pp-list-dot">✓</span><span>OFAC</span></div>
+                    <div class="pp-list-item pp-list-clear"><span class="pp-list-dot">✓</span><span>EU</span></div>
+                    <div class="pp-list-item pp-list-clear"><span class="pp-list-dot">✓</span><span>UN</span></div>
+                  </div>
+                </div>
+                <div class="pp-footer"><span class="pp-foot-dot pp-dot-green"></span><span
+                    class="pp-foot-text">Screening Complete — No Matches</span></div>
+              </div>
+            </div>
+            <div class="prod-content">
+              <div class="prod-category">Compliance</div>
+              <h3 class="prod-title">Global Sanctions</h3>
+              <p class="prod-desc">Real-time screening of vessels, owners, and counterparties against global sanctions
+                and watchlists.</p>
+              <div class="prod-cta"><a href="../gs/index.html" class="prod-btn-primary"
+                  onclick="event.stopPropagation()">Explore Module <span class="prod-btn-arrow">→</span></a><a
+                  href="https://dashboardd-v3.netlify.app/" target="_blank" rel="noopener" class="prod-btn-secondary"
+                  onclick="event.stopPropagation()">Live Demo</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       9. FINAL NEWSLETTER CTA SECTION
+       ============================================= -->
+    <section class="s-nl-cta" id="newsletter-cta" aria-labelledby="nl-cta-h2">
+      <div class="container">
+        <div class="nl-cta-inner reveal">
+          <div class="nl-cta-eyebrow">
+            <span class="nl-cta-eyebrow-dot" aria-hidden="true"></span>
+            AI-powered Newsletter
+          </div>
+          <h2 class="nl-cta-h2" id="nl-cta-h2">
+            Stay informed without doing the research.
+          </h2>
+          <p class="nl-cta-sub">
+            Let AI-powered Newsletter prepare your daily maritime intelligence and deliver it directly to your inbox
+            every
+            morning at 06:00 CET.
+          </p>
+          <form class="nl-cta-form" onsubmit="return false;" role="search" aria-label="Newsletter subscription">
+            <input id="nl-email-input" class="nl-cta-input" type="email" placeholder="yourmail@gmail.com"
+              autocomplete="email" aria-label="Work email address" />
+            <button type="submit" class="nl-cta-btn" id="nl-subscribe-btn">
+              Subscribe to Newsletter
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M7 1.5l5.5 5.5-5.5 5.5M12.5 7H1.5" stroke="currentColor" stroke-width="1.6"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =============================================
+     10. FOOTER
+     ============================================= -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="../../assets/logos/MC360logo.png" alt="MC360" style="height:34px;width:auto">
+            <span class="footer-logo-text">MC360</span>
+          </div>
+          <p class="footer-brand-desc">
+            The All in One operating system for modern maritime companies. Unifying inspections, surveys, bunker
+            operations and compliance in one intelligent platform.
+          </p>
+          <div class="footer-socials">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-soc"
+              aria-label="LinkedIn" title="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-soc"
+              aria-label="YouTube" title="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17">
+                </path>
+                <polygon points="10 15 15 12 10 9 10 15" fill="currentColor"></polygon>
+              </svg>
+            </a>
+            <a href="tel:+18005550199" class="footer-soc" aria-label="Call Us" title="Call Us">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Platform</div>
+          <div class="footer-links">
+            <a href="../bqs/index.html" class="footer-link">Bunker Survey</a>
+            <a href="../vis/index.html" class="footer-link">Vessel Inspection</a>
+            <a href="../vcs/index.html" class="footer-link">Condition Survey</a>
+            <a href="../gs/index.html" class="footer-link">Global Sanctions</a>
+            <a href="index.html" class="footer-link">AI-powered Newsletter</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-links">
+            <a href="../../future-module.html?page=About" class="footer-link">About</a>
+            <a href="../../future-module.html?page=Careers" class="footer-link">Careers</a>
+            <a href="../../future-module.html?page=Blog" class="footer-link">Blog</a>
+            <a href="../../future-module.html?page=Contact" class="footer-link">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Resources</div>
+          <div class="footer-links">
+            <a href="../../future-module.html?page=Documentation" class="footer-link">Documentation</a>
+            <a href="../../future-module.html?page=API%20Reference" class="footer-link">API Reference</a>
+            <a href="../../future-module.html?page=Status" class="footer-link">Status</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Legal</div>
+          <div class="footer-links">
+            <a href="../../index.html#compliance" class="footer-link">Privacy Policy</a>
+            <a href="../../index.html#compliance" class="footer-link">Terms of Service</a>
+            <a href="../../future-module.html?page=Cookie%20Policy" class="footer-link">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 MaritimeConnect360. All rights reserved.</div>
+        <div class="footer-legal">
+          <a href="../../index.html" class="footer-legal-link">Home</a>
+          <a href="../bqs/index.html" class="footer-legal-link">BQS Module</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =============================================
+     CHATBOT WIDGET
+     ============================================= -->
+  <div id="cb-widget" aria-label="MC360 AI Assistant">
+
+    <!-- FAB -->
+    <button class="cb-fab" id="cb-fab" aria-label="Open MC360 AI Assistant">
+      <img src="../../assets/logos/MC360logo.png" alt="MC360 AI">
+      <span class="cb-fab-badge">AI</span>
+    </button>
+
+    <!-- Chat panel -->
+    <div class="cb-panel" id="cb-panel">
+      <div class="cb-header">
+        <div class="cb-header-left">
+          <div class="cb-avatar">
+            <img src="../../assets/logos/MC360logo.png" alt="MC360 AI">
+          </div>
+          <div>
+            <div class="cb-name">MC360 AI</div>
+            <div class="cb-status"><span class="cb-status-dot"></span>Online &middot; Ask me anything</div>
+          </div>
+        </div>
+        <button class="cb-close" id="cb-close" aria-label="Close chat">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M12 4L4 12M4 4l8 8" stroke="rgba(255,255,255,.7)" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+      <div class="cb-msgs" id="cb-msgs"></div>
+      <div class="cb-chips-row" id="cb-chips"></div>
+      <div class="cb-input-row">
+        <input class="cb-input" id="cb-input" type="text" placeholder="Ask about MC360..." autocomplete="off" />
+        <button class="cb-send" id="cb-send" aria-label="Send">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M14 2L7 9M14 2L9.5 14 7 9M14 2L2 6.5 7 9" stroke="white" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BACK TO TOP -->
+  <button id="back-to-top" aria-label="Back to top of page">
+    <span class="btt-arrow" aria-hidden="true">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+        <path d="M5 8V2M2 5l3-3 3 3" stroke="#0056BB" stroke-width="1.6" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </span>
+    <span class="btt-label">Back to top</span>
+  </button>
+
+  <script src="../../js/main.js" defer></script>
+</body>
+
+</html>

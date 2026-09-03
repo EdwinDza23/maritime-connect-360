@@ -121,6 +121,21 @@
                 </div>
               </a>
 
+              <!-- AI-powered Newsletter -->
+              <a href="products/maritime-newsletter/index.html" class="dd-product-card" role="menuitem">
+                <span class="dd-product-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <path d="M6 9h12M6 13h8M6 17h5" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="dd-product-name">AI-powered Newsletter</div>
+                  <div class="dd-product-desc">Stay informed about the developments that matter</div>
+                </div>
+              </a>
+
             </div>
           </div>
         </div>
@@ -203,6 +218,7 @@
       <a href="products/vis/index.html" class="mob-sub-item">Vessel Inspection</a>
       <a href="products/vcs/index.html" class="mob-sub-item">Vessel Condition Survey</a>
       <a href="products/gs/index.html" class="mob-sub-item">Global Sanctions</a>
+      <a href="products/maritime-newsletter/index.html" class="mob-sub-item">AI-powered Newsletter</a>
     </div>
 
     <!-- Customers accordion -->
@@ -489,10 +505,30 @@
           </div>
         </div>
 
+        <!-- Outer orbit — Chip C (AI-powered Newsletter) at right (90° offset) -->
+        <div class="orb-path orb-path-2-c">
+          <div class="orb-arm">
+            <a href="products/maritime-newsletter/index.html" class="orb-chip" title="AI-powered Newsletter"
+              aria-label="AI-powered Newsletter" style="cursor:pointer; text-decoration:none">
+              <div class="orb-chip-icon">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+                  <rect width="30" height="30" rx="8" fill="#E0F2FE" />
+                  <rect x="6" y="8" width="18" height="14" rx="2" stroke="#0369A1" stroke-width="1.6" fill="none" />
+                  <path d="M9 13h12M9 16.5h8M9 20h5" stroke="#0369A1" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div class="orb-chip-label">Newsletter</div>
+            </a>
+          </div>
+        </div>
+
         <!-- Outer orbit — Chip B (VCS) at bottom (180° offset) -->
         <div class="orb-path orb-path-2-b">
           <div class="orb-arm">
-            <div class="orb-chip" title="Vessel Condition Survey">
+            <div class="orb-chip" title="Vessel Condition Survey"
+              onclick="window.location.href='products/vcs/index.html'" style="cursor:pointer" tabindex="0" role="link"
+              aria-label="Vessel Condition Survey"
+              onkeydown="if(event.key==='Enter'){window.location.href='products/vcs/index.html'}">
               <div class="orb-chip-icon">
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
                   <rect width="30" height="30" rx="8" fill="#ECFDF5" />
@@ -760,15 +796,15 @@
               <div class="prob-success integrated-text"><span>✓</span> Single source of truth</div>
             </div>
           </div>
-          <!-- Card 6 -->
+          <!-- Card 6 — AI-powered Newsletter -->
           <div class="prob-card" data-index="5">
             <span class="silo-status">Siloed</span>
-            <div class="prob-icon" style="background:#FFF7ED">📈</div>
+            <div class="prob-icon" style="background:#E0F2FE">📰</div>
             <div class="prob-card-body">
-              <div class="prob-card-title">Reporting</div>
-              <div class="prob-card-sub">Manual aggregation</div>
-              <div class="prob-pain siloed-text"><span>⚠</span> Days to compile</div>
-              <div class="prob-success integrated-text"><span>✓</span> One-click export</div>
+              <div class="prob-card-title">AI-powered Newsletter</div>
+              <div class="prob-card-sub">Stay informed about the developments that matter</div>
+              <div class="prob-pain siloed-text"><span>⚠</span> Scattered news sources</div>
+              <div class="prob-success integrated-text"><span>✓</span> Curated daily briefing</div>
             </div>
           </div>
         </div>
@@ -791,7 +827,7 @@
       <div class="container">
         <div class="mod-hd reveal">
           <div class="eyebrow"><span class="eyebrow-dot"></span>The Platform</div>
-          <h2 class="display-md" id="mod-h2">Four modules. One operating system.</h2>
+          <h2 class="display-md" id="mod-h2">Five modules. One operating system.</h2>
           <p class="body-lg" style="color:var(--text-2);max-width:500px;margin:18px auto 0">
             Each module works independently. Together, they give you total maritime intelligence.
           </p>
@@ -1026,72 +1062,111 @@
           <article class="prod-card prod-card-gs reveal d4" onclick="window.location.href='products/gs/index.html'"
             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='products/gs/index.html'}"
             role="button" tabindex="0" aria-label="Global Sanctions — navigate to product page">
-
-            <!-- TOP: UI Preview -->
             <div class="prod-preview" aria-hidden="true">
               <div class="prod-preview-inner">
-                <!-- Search row -->
                 <div class="pp-search-row">
-                  <div class="pp-search-icon">
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#7A90A6" stroke-width="2.5"
-                      stroke-linecap="round">
+                  <div class="pp-search-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none"
+                      stroke="#7A90A6" stroke-width="2.5" stroke-linecap="round">
                       <circle cx="11" cy="11" r="8" />
                       <path d="M21 21l-4.35-4.35" />
-                    </svg>
-                  </div>
+                    </svg></div>
                   <div class="pp-search-text">MV Pacific Star</div>
                 </div>
-
-                <!-- Result card -->
                 <div class="pp-sanction-result">
-                  <div class="pp-sanction-header">
-                    <span class="pp-sanction-name">MV Pacific Star</span>
-                    <span class="pp-badge pp-badge-clear">All Clear</span>
-                  </div>
-                  <div class="pp-risk-row">
-                    <span class="pp-risk-label">Risk Score</span>
-                    <span class="pp-risk-value pp-risk-low">Low Risk · 2/100</span>
-                  </div>
+                  <div class="pp-sanction-header"><span class="pp-sanction-name">MV Pacific Star</span><span
+                      class="pp-badge pp-badge-clear">All Clear</span></div>
+                  <div class="pp-risk-row"><span class="pp-risk-label">Risk Score</span><span
+                      class="pp-risk-value pp-risk-low">Low Risk · 2/100</span></div>
                   <div class="pp-lists">
                     <div class="pp-list-item pp-list-clear"><span class="pp-list-dot">✓</span><span>OFAC</span></div>
                     <div class="pp-list-item pp-list-clear"><span class="pp-list-dot">✓</span><span>EU</span></div>
                     <div class="pp-list-item pp-list-clear"><span class="pp-list-dot">✓</span><span>UN</span></div>
                   </div>
                 </div>
-
-                <!-- Screening summary -->
-                <!-- <div class="pp-screening-summary">
-                  <div class="pp-ss-row">
-                    <span class="pp-ss-label">Lists Checked</span>
-                    <span class="pp-ss-value">50+</span>
-                  </div>
-                  <div class="pp-ss-row">
-                    <span class="pp-ss-label">Matches Found</span>
-                    <span class="pp-ss-value pp-ss-green">0</span>
-                  </div>
-                </div> -->
-
-                <!-- Status footer -->
-                <div class="pp-footer">
-                  <span class="pp-foot-dot pp-dot-green"></span>
-                  <span class="pp-foot-text">Screening Complete — No Matches</span>
-                </div>
+                <div class="pp-footer"><span class="pp-foot-dot pp-dot-green"></span><span
+                    class="pp-foot-text">Screening Complete — No Matches</span></div>
               </div>
             </div>
-
-            <!-- BOTTOM: Content -->
             <div class="prod-content">
               <div class="prod-category">Compliance</div>
               <h3 class="prod-title">Global Sanctions</h3>
               <p class="prod-desc">Real-time screening of vessels, owners, and counterparties against global sanctions
                 and watchlists.</p>
+              <div class="prod-cta"><a href="products/gs/index.html" class="prod-btn-primary"
+                  onclick="event.stopPropagation()">Explore Module <span class="prod-btn-arrow">→</span></a><a
+                  href="https://dashboardd-v3.netlify.app/" target="_blank" rel="noopener" class="prod-btn-secondary"
+                  onclick="event.stopPropagation()">Live Demo</a></div>
+            </div>
+          </article>
+
+
+          <!-- ── Card 5: AI-powered Newsletter ── -->
+          <article class="prod-card prod-card-nl reveal d5"
+            onclick="window.location.href='products/maritime-newsletter/index.html'"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='products/maritime-newsletter/index.html'}"
+            role="button" tabindex="0" aria-label="AI-powered Newsletter — navigate to product page">
+
+            <!-- TOP: UI Preview -->
+            <div class="prod-preview" aria-hidden="true">
+              <div class="prod-preview-inner">
+                <!-- Newsletter header -->
+                <div class="pp-header">
+                  <div class="pp-vessel-name">Maritime Digest</div>
+                  <div class="pp-badge pp-badge-verified">Today</div>
+                </div>
+
+                <!-- Article list mock -->
+                <div class="pp-checklist">
+                  <div class="pp-check-item pp-check-done">
+                    <span class="pp-check-ico" style="color:#0369A1">▪</span>
+                    <span class="pp-check-lbl">Baltic Dry Index Update</span>
+                    <span class="pp-check-status">New</span>
+                  </div>
+                  <div class="pp-check-item pp-check-done">
+                    <span class="pp-check-ico" style="color:#0369A1">▪</span>
+                    <span class="pp-check-lbl">IMO Regulation Alert</span>
+                    <span class="pp-check-status">New</span>
+                  </div>
+                  <div class="pp-check-item pp-check-warn">
+                    <span class="pp-check-ico" style="color:#0369A1">▪</span>
+                    <span class="pp-check-lbl">Port Congestion Report</span>
+                    <span class="pp-check-status pp-status-amber">Update</span>
+                  </div>
+                </div>
+
+                <!-- Readership bar -->
+                <div class="pp-gauge-wrap">
+                  <div class="pp-gauge-label">
+                    <span class="pp-gauge-title">Subscribers</span>
+                    <span class="pp-gauge-value">2,400+</span>
+                  </div>
+                  <div class="pp-gauge-track">
+                    <div class="pp-gauge-fill" style="width:82%;background:#0369A1"></div>
+                  </div>
+                </div>
+
+                <!-- Status footer -->
+                <!-- <div class="pp-footer">
+                  <span class="pp-foot-dot" style="background:#0369A1"></span>
+                  <span class="pp-foot-text">Edition Delivered — 06:00 CET</span>
+                </div> -->
+              </div>
+            </div>
+
+            <!-- BOTTOM: Content -->
+            <div class="prod-content">
+              <div class="prod-category">Maritime Intelligence</div>
+              <h3 class="prod-title">AI-powered Newsletter</h3>
+              <p class="prod-desc">Aktuelle maritime News kompakt und &#252;bersichtlich — delivered directly to
+                maritime professionals every morning.</p>
               <div class="prod-cta">
-                <a href="products/gs/index.html" class="prod-btn-primary" onclick="event.stopPropagation()">
+                <a href="products/maritime-newsletter/index.html" class="prod-btn-primary"
+                  onclick="event.stopPropagation()">
                   Explore Module <span class="prod-btn-arrow">→</span>
                 </a>
                 <a href="https://dashboardd-v3.netlify.app/" target="_blank" rel="noopener" class="prod-btn-secondary"
                   onclick="event.stopPropagation()">
-                  Live Demo
+                  Subscribe
                 </a>
               </div>
             </div>
@@ -1271,9 +1346,10 @@
               <div class="std-badge">LIVE DATA</div>
             </div>
             <div class="std">
-              <div class="std-name">Risk Intelligence</div>
-              <div class="std-desc">Generate risk scores and PDF reports for informed compliance decisions.</div>
-              <div class="std-badge">RISK SCORED</div>
+              <div class="std-name">AI-powered Newsletter</div>
+              <div class="std-desc">Stay informed about the developments that matterCurated daily intelligence
+                for maritime professionals.</div>
+              <div class="std-badge">DAILY DIGEST</div>
             </div>
             <div class="std">
               <div class="std-name">Smart Checklists</div>
@@ -1912,6 +1988,39 @@
   </main>
 
   <!-- =============================================
+     NEWSLETTER CTA — above footer
+     ============================================= -->
+  <section class="s-nl-cta" id="newsletter-cta" aria-labelledby="nl-cta-h2">
+    <div class="container">
+      <div class="nl-cta-inner reveal">
+        <div class="nl-cta-eyebrow">
+          <span class="nl-cta-eyebrow-dot" aria-hidden="true"></span>
+          AI-powered Newsletter
+        </div>
+        <h2 class="nl-cta-h2" id="nl-cta-h2">
+          Stay ahead of maritime intelligence.
+        </h2>
+        <p class="nl-cta-sub">
+          Curated maritime news, regulatory updates, and industry insights — delivered to maritime professionals every
+          morning.
+        </p>
+        <form class="nl-cta-form" onsubmit="return false;" role="search" aria-label="Newsletter subscription">
+          <!-- <label for="nl-email-input" class="sr-only">Your work email address</label> -->
+          <input id="nl-email-input" class="nl-cta-input" type="email" placeholder="yourmail@gmail.com"
+            autocomplete="email" aria-label="Work email address" />
+          <button type="submit" class="nl-cta-btn" id="nl-subscribe-btn">
+            Subscribe
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M7 1.5l5.5 5.5-5.5 5.5M12.5 7H1.5" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
      FOOTER
      ============================================= -->
   <footer class="footer" role="contentinfo">
@@ -1964,6 +2073,7 @@
             <a href="products/vis/index.html" class="footer-link">Vessel Inspection</a>
             <a href="products/vcs/index.html" class="footer-link">Condition Survey</a>
             <a href="products/gs/index.html" class="footer-link">Global Sanctions</a>
+            <a href="products/maritime-newsletter/index.html" class="footer-link">AI-powered Newsletter</a>
           </div>
         </div>
 
