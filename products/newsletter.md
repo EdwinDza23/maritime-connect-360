@@ -1,1031 +1,428 @@
-MC360 --- AI-powered Newsletter
-
-Product Page Content & Design Specification
-
-Product: AI-powered Newsletter
-Product Type: AI-powered maritime intelligence and daily news
-digest
-Primary Audience: Ship owners, ship operators, fleet managers
-Primary CTA: Subscribe to Newsletter
-Delivery: One curated newsletter per day
-Current Industry: Maritime
-Future Expansion: AI, Cybersecurity, Finance, and other industries
-
-1. Product Overview
-
-AI-powered Newsletter is an AI-powered maritime intelligence product that
-researches relevant industry news on behalf of maritime professionals.
-
-Instead of requiring users to manually visit many websites, search for
-updates, open multiple articles, compare information, filter irrelevant
-stories, and decide what matters, the AI agent performs this research
-workflow in the background.
-
-The result is a concise, organized daily news digest delivered directly
-to the subscriber's email.
-
-Core Product Promise
-
-AI-powered maritime intelligence, delivered to your inbox.
-
-Supporting idea:
-
-Stay informed without spending hours researching what is happening
-across the maritime industry.
-
-The product should communicate reassurance:
-
-You do not have to spend your day searching for maritime news. The
-research happens in the background, and your daily intelligence
-arrives in your inbox.
-
-Do not make absolute claims such as "you will never miss any news." The
-product should communicate reduced research effort and better awareness
-without guaranteeing complete coverage.
-
-2. Primary User
-
-The primary audience is:
-
-Ship owners
-
-Ship operators
-
-Fleet managers
-
-The product should feel like a professional B2B intelligence service
-rather than a consumer news website.
-
-The content and visual language should prioritize:
-
-Fleet awareness
-
-Industry developments
-
-Operational awareness
-
-Regulations and compliance
-
-Technology
-
-Market developments
-
-Important maritime events
-
-Relevant industry intelligence
-
-3. The Problem
-
-Maritime professionals need to stay informed, but industry information
-is distributed across many sources.
-
-The traditional research workflow can feel like:
-
-10+ websites → multiple searches → many redirects → different sources
-→ duplicate stories → manual filtering → deciding what matters
-
-This creates:
-
-Research overhead
-
-Information overload
-
-Repetitive work
-
-Time lost searching
-
-Difficulty identifying important developments
-
-Concern about overlooking relevant industry news
-
-Problem Statement
-
-Maritime intelligence should not require hours of manual research.
-
-The product exists to remove this research burden.
-
-The user should be able to continue their normal working day and receive
-the important information in one place.
-
-4. Product Solution
-
-AI-powered Newsletter turns a fragmented research process into an
-automated daily intelligence workflow.
-
-Before
-
-Search → Visit multiple sources → Open articles → Compare
-information → Filter noise → Identify important stories → Summarize
-information → Keep track of updates
-
-With AI-powered Newsletter
-
-AI researches → Aggregates → Reviews → Curates → Categorizes →
-Personalizes → Creates the daily digest → Delivers it to email
-
-Core Message
-
-Your maritime intelligence is prepared before you need to search for
-it.
-
-5. AI Agent Workflow
-
-The AI agent performs the research workflow in the background.
-
-Discover
-
-Search for relevant maritime information from relevant sources.
-
-Collect
-
-Aggregate potentially relevant stories and information.
-
-Review
-
-Review the collected information for relevance.
-
-Curate
-
-Prioritize useful information and reduce unnecessary noise.
-
-Categorize
-
-Organize stories into meaningful topics.
-
-Personalize
-
-Tailor the experience to subscriber interests where supported.
-
-Deliver
-
-Create the daily newsletter and deliver it directly to subscribers by
-email.
-
-Workflow Summary
-
-Discover → Collect → Review → Curate → Categorize → Personalize →
-Deliver
-
-The page should make it obvious that the subscriber does not have to
-manually perform these steps.
-
-6. Key Product Capabilities
-
-AI-Curated
-
-AI helps identify and organize information that is relevant to the
-subscriber.
-
-Aggregated
-
-Information is collected from multiple relevant sources into one
-experience.
-
-Categorized
-
-Stories are organized into meaningful topics so users can quickly
-understand what is happening.
-
-Personalized
-
-The newsletter can be tailored around subscriber interests where
-personalization is supported.
-
-Automated
-
-The research and newsletter preparation happen automatically.
-
-Delivered Directly to Email
-
-Subscribers receive one daily intelligence digest directly in their
-inbox.
-
-7. Daily Delivery Experience
-
-The current delivery model is:
-
-One newsletter per day.
-
-The intended experience is simple:
-
-Open your email → see what matters → understand the key developments →
-continue your day.
-
-The newsletter should feel like part of the subscriber's normal daily
-workflow.
-
-The product should not be positioned as a real-time breaking-news alert
-system unless that capability is explicitly introduced later.
-
-8. What the Subscriber Receives
-
-The subscriber receives a structured daily digest containing relevant
-maritime developments.
-
-The digest can be organized into meaningful sections depending on the
-available content.
-
-Possible examples:
-
-Maritime Industry
-
-Regulations & Compliance
-
-Technology
-
-Safety
-
-Markets
-
-Global Maritime Events
-
-Other relevant maritime topics
-
-Only present specific categories as current product functionality when
-they are supported by the actual implementation/content specification.
-
-Each story should ideally contain:
-
-Headline
-
-Short AI-generated summary
-
-Relevant source/detail action
-
-The objective is fast comprehension, not forcing users to read every
-article.
-
-9. Email Experience
-
-The landing page should show a realistic representation of the final
-newsletter output.
-
-The email preview should communicate:
-
-"This is what I receive every day."
-
-Example Structure
-
-AI-powered Newsletter
-
-Daily Maritime Intelligence
-
-Quick Maritime Insights
-
-A concise overview of important developments.
-
-Industry Highlights
-
-Headline Short summary explaining the important development.
-
-Headline Short summary.
-
-Regulations & Compliance
-
-Headline Short summary.
-
-Headline Short summary.
-
-Technology & Innovation
-
-Headline Short summary.
-
-Global Maritime Events
-
-Headline Short summary.
-
-The actual content shown in the product mockup should use approved
-content from the project or clearly marked example content.
-
-Do not use private or personal email information.
-
-10. Value Proposition
-
-The main value is not simply "receiving news."
-
-The value is removing the research work required to stay informed.
-
-Core Value
-
-Less searching. More awareness.
-
-The user should not have to spend their morning checking multiple
-maritime websites.
-
-Instead, the AI performs the information-gathering and preparation in
-the background.
-
-Key benefits
-
-Reduce manual news research
-
-Bring multiple sources into one digest
-
-Surface relevant developments
-
-Organize information into clear categories
-
-Provide concise summaries
-
-Deliver information directly to email
-
-Help professionals stay informed as part of their normal daily
-workflow
-
-11. Time-Saving Narrative
-
-Use this concept in the product page.
-
-Without AI-powered Newsletter
-
-Search → 10+ websites → Multiple redirects → Read multiple articles
-→ Compare stories → Filter irrelevant information → Decide what matters
-
-With AI-powered Newsletter
-
-AI researches → Reviews → Curates → Categorizes → Summarizes →
-Delivers
-
-Final User Experience
-
-Open your email. Your maritime intelligence is already there.
-
-The "10+ websites" and "20+ redirects" concept represents the type of
-fragmented research experience the product is designed to reduce. It
-should not be presented as a measured statistic or formal benchmark.
-
-12. Product Positioning
-
-Primary positioning:
-
-AI-powered maritime intelligence, delivered to your inbox.
-
-Supporting positioning options:
-
-Stay informed without doing the research.
-
-Your daily maritime intelligence, already prepared.
-
-Less searching. More maritime awareness.
-
-One daily digest. Multiple sources. Smarter research.
-
-Use the strongest option that fits the existing MC360 brand and design.
-
-13. Emotional Product Message
-
-The product should communicate:
-
-"We are here for you."
-
-The intended feeling is:
-
-I do not need to constantly search.
-
-I have a trusted daily workflow for staying informed.
-
-The important information is organized for me.
-
-I can quickly understand what is happening.
-
-I can focus on my actual work instead of researching news all day.
-
-Avoid anxiety-driven messaging.
-
-Do not use aggressive "fear of missing out" language.
-
-Instead, communicate confidence and reduced information overload.
-
-14. Future Multi-Industry Capability
-
-The underlying intelligence concept is designed to be expandable beyond
-maritime.
-
-Potential future industries include:
-
-Maritime
-
-AI
-
-Cybersecurity
-
-Finance
-
-Other industries
-
-For the current product page:
-
-Maritime must remain the primary focus.
-
-If the future expansion capability is mentioned, it should be presented
-as an extensible direction rather than implying that all industries are
-already available.
-
-Suggested concept:
-
-One intelligence engine. Multiple industries.
-
-Then:
-
-Maritime --- Current focus
-
-AI --- Future expansion
-
-Cybersecurity --- Future expansion
-
-Finance --- Future expansion
-
-Only use this section if it supports the overall page narrative without
-distracting from the AI-powered Newsletter product.
-
-15. Product Page Structure
-
-Recommended page structure:
-
-Hero
-
-The Problem
-
-The AI Workflow
-
-What Subscribers Receive
-
-Key Capabilities
-
-Time-Saving Comparison
-
-Daily Email Preview
-
-Personalization / Future Expansion
-
-Subscription CTA
-
-Existing MC360 Footer
-
-Use the existing MC360 product-page architecture wherever possible.
-
-Do not add unnecessary sections simply to make the page longer.
-
-16. Hero Content
-
+AI-Powered Newsletter — Product Page Content
+1. HERO
 Eyebrow
 
 AI-powered Newsletter
 
-Primary Headline
+Headline
 
-AI-powered maritime intelligence, delivered to your inbox.
+The news that matters. Delivered to you.
 
-Supporting Copy
+Supporting headline
 
-Stay informed about the developments that matter--- without
-spending hours searching across multiple sources.
+Maritime. Cybersecurity. Finance.
 
-Primary CTA
+Description
 
-Subscribe to Newsletter
+Stay informed without spending your day searching. Our AI searches selected online sources across Maritime, Cybersecurity, and Finance, identifies relevant developments, and brings them together in a concise daily newsletter delivered straight to your inbox.
 
-The hero should immediately communicate:
+CTA
+
+Subscribe to AI-Newsletter →
+
+Supporting points
+
+Daily delivery · 3 focus areas · AI-powered · Delivered to your inbox
+
+I would remove the current “3-Min Executive Read” claim unless you know the newsletter will consistently be readable in three minutes.
+
+2. THE PROBLEM
+Eyebrow
+
+The Information Overload
+
+Headline
+
+The news is everywhere. Your time isn't.
+
+Description
+
+Important developments are scattered across news sites, industry publications, regulatory sources, and other online channels. Finding the information that matters means searching, opening multiple sources, comparing stories, and filtering through noise.
+
+Maritime Newsletter does the searching for you — so you can start your day informed, without starting it with research.
+
+BEFORE
+
+Manual Research
+
+Search. Open. Compare. Filter. Repeat.
+
+Multiple websites and sources
+Repeated and duplicate stories
+Too much information to scan
+Time spent finding relevant updates
+Important developments can be difficult to spot
+AFTER
+
+AI-powered Daily Intelligence
+
+One newsletter. Relevant news. Delivered to your inbox.
+
+Searches selected online sources
+Brings relevant stories together
+Organizes news by category
+Generates concise AI summaries
+Delivered automatically each day
+
+This is much safer than the current claims such as “10+ websites,” “20+ redirects,” and “45+ minutes lost”, because those numbers aren't currently established.
+
+3. AI WORKFLOW
+Eyebrow
+
+How It Works
+
+Headline
+
+From the web to your inbox. Automatically.
+
+Description
+
+Every day, the AI works through the information workflow in the background — searching selected sources, finding relevant developments, organizing the information, and preparing it for delivery.
+
+Workflow
+
+01 — Discover
+
+Searches selected online sources across your chosen categories.
+
+02 — Collect
+
+Brings relevant news and developments together in one place.
+
+03 — Filter
+
+Identifies relevant stories and reduces duplicate or repetitive content.
+
+04 — Categorize
+
+Organizes stories into clear topics and categories.
+
+05 — Summarize
+
+Turns relevant stories into concise, easy-to-read summaries.
+
+06 — Deliver
+
+Sends your newsletter directly to your inbox at your preferred delivery time.
+
+Important
+
+I would remove “Review” and “Curate” as separate AI stages from the current version because they imply a level of editorial judgment that you specifically said the product does not have.
+
+4. THREE FOCUS AREAS
+
+I think this deserves its own strong section because the product is no longer maritime-only.
+
+Eyebrow
+
+Choose What Matters
+
+Headline
+
+Three worlds of information. One daily brief.
+
+Description
+
+Follow the information that matters to you across three core areas — with more categories possible as the platform evolves.
 
 Maritime
 
-AI
+Shipping, vessels, ports, operations, regulations, markets, and developments across the maritime industry.
 
-Intelligence
+Cybersecurity
 
-Daily information
+Relevant cybersecurity news, threats, vulnerabilities, incidents, and developments.
 
-Email delivery
+Finance
 
-Reduced research effort
+Financial and market developments relevant to businesses, industries, and decision-makers.
 
-The visual should feel like an MC360 AI product, not a traditional news
-website.
+Future
 
-17. Problem Section Content
+And more, when you need it.
 
-Heading
+Future customization can allow users to add new areas of interest beyond the core categories.
 
-Maritime intelligence shouldn't require hours of research.
+I would not use Sports in the public-facing copy. It is a good example of future extensibility, but explicitly mentioning Sports makes the product feel less focused.
 
-Supporting Message
+5. KEY CAPABILITIES
+Eyebrow
 
-Relevant maritime information is spread across countless sources.
-Searching, comparing, filtering, and following multiple links takes
-valuable time.
+Built Around Your Inbox
 
-AI-powered Newsletter turns that fragmented process into one automated
-daily intelligence experience.
+Headline
 
-Visual Narrative
+Less searching. More knowing.
 
-Too many sources.
-Too much noise.
-Too little time.
+01 — AI-Powered Discovery
 
-Then show the transition to:
+AI searches selected online sources to find relevant developments across your chosen categories.
 
-One curated daily digest.
+02 — Multi-Category Intelligence
 
-18. AI Workflow Section Content
+Follow Maritime, Cybersecurity, and Finance from one daily newsletter.
 
-Heading
+03 — Structured News
 
-Your AI research team works in the background.
+Relevant stories are organized into clear categories so you can quickly scan what matters.
 
-Supporting Copy
+04 — Concise Summaries
 
-AI-powered Newsletter continuously handles the information workflow so you
-can spend less time searching and more time acting on what matters.
+AI-generated summaries help you understand the key points without opening every source.
 
-Steps
+05 — Automated Delivery
 
-01 --- Discover
-Find relevant maritime information.
+Once configured, your newsletter is prepared and delivered automatically each day.
 
-02 --- Collect
-Bring information from multiple sources together.
+06 — Flexible Delivery
 
-03 --- Review
-Evaluate collected information for relevance.
+Receive your newsletter at a time that works for you. 8:00 AM local time is the default.
 
-04 --- Curate
-Reduce noise and surface useful developments.
+6. DAILY EMAIL EXPERIENCE
 
-05 --- Categorize
-Organize stories into meaningful topics.
+This is where I agree we should make the page more visual.
 
-06 --- Personalize
-Tailor information to subscriber interests where supported.
+Eyebrow
 
-07 --- Deliver
-Prepare and send the daily digest directly to email.
+Daily Email Experience
 
-19. Subscriber Experience Section
+Headline
 
-Heading
+Open your inbox. Know what's happening.
 
-Everything you need to know, in one daily digest.
+Description
 
-Supporting Copy
+Your daily intelligence arrives as a structured email, bringing relevant news from your selected categories into one place.
 
-Start your day with a concise view of relevant maritime developments,
-organized and ready to read in your inbox.
+Mockup area
 
-Experience Points
+You create the newsletter mockups and place them in:
 
-One daily email
+assets/
+   images/
+      newsletter/
 
-Curated information
+I recommend creating 3 mockups, one for each focus area:
 
-Clear categories
+Mockup 1 — Maritime
 
-Concise summaries
-
-Relevant source/detail access
-
-Personalized information where supported
-
-20. Email Preview Section
-
-Heading
-
-Your maritime intelligence. Already in your inbox.
-
-Supporting Copy
-
-See how AI-powered Newsletter turns a complex research workflow into a
-simple daily reading experience.
-
-The visual should show a polished email preview with:
-
-Newsletter title
-
-Date/context
-
-Quick insights
-
-Category headings
-
-News headlines
-
-Concise summaries
-
-Source/detail action
-
-Clear hierarchy
-
-The preview should be responsive and readable on mobile.
-
-21. Personalization Section
-
-Heading
-
-News that fits your interests.
-
-Supporting Copy
-
-AI-powered Newsletter is designed to make information more relevant by
-tailoring the experience around subscriber interests where supported.
-
-Do not invent specific preference controls unless they are implemented.
-
-Do not show fake configuration screens unless they are explicitly
-designed and approved.
-
-22. CTA Section
-
-Heading
-
-Stay informed without doing the research.
-
-Supporting Copy
-
-Let AI-powered Newsletter prepare your daily maritime intelligence and
-deliver it directly to your inbox.
-
-Primary CTA
-
-Subscribe to Newsletter
-
-Optional secondary CTA, only if supported by the existing MC360 product
-strategy:
-
-Request a Demo
-
-Do not overload the page with repetitive calls to action.
-
-23. Dedicated CTA Above Footer
-
-The final CTA should sit directly above the existing MC360 footer.
-
-Use the existing MC360 visual system.
-
-The CTA should align with the footer's main content container.
-
-The following must share the same container/grid logic:
-
-CTA headline
-
-CTA supporting content
-
-Subscription/input area
-
-Footer content
-
-Avoid arbitrary margin-based alignment fixes.
-
-The CTA should transition naturally into the footer.
-
-24. Visual Design Direction
-
-The product should feel:
-
-Premium
-
-Enterprise
-
-Modern
-
-Intelligent
+Show realistic sections such as:
 
 Maritime
 
-Professional
+Industry developments
+Shipping
+Regulations
+Operations
+Markets
+Mockup 2 — Cybersecurity
 
-Trustworthy
+Cybersecurity
 
-Calm
+Threats
+Vulnerabilities
+Industry developments
+Security alerts
+Mockup 3 — Finance
 
-Technically sophisticated
+Finance
 
-Use the existing MC360 visual language.
+Market developments
+Industry finance
+Economic developments
+Relevant financial news
 
-Preferred visual direction:
+The page can visually communicate:
 
-White
+             DAILY NEWSLETTER
 
-Light blue
+     ┌─────────────────────────────┐
+     │       MARITIME              │
+     │  News + AI summary          │
+     │                             │
+     │  CYBERSECURITY              │
+     │  News + AI summary          │
+     │                             │
+     │  FINANCE                    │
+     │  News + AI summary          │
+     └─────────────────────────────┘
 
-MC360 blue
+We should not use fake statistics, fake sources, fake market prices, or fabricated news in the mockup. Your mockup can use clearly illustrative sample headlines.
 
-Soft blue gradients
+7. DELIVERY MODEL
+Eyebrow
 
-Atmospheric transitions
+Your Daily Routine
 
-Subtle depth
+Headline
 
-Clean typography
+Information that fits into your day.
 
-Strong hierarchy
+Description
 
-Restrained motion
+No new app to open. No separate workflow to maintain. Your newsletter arrives in your inbox, ready to read.
 
-Avoid:
+Card 1
 
-Generic AI imagery
+Daily Delivery
 
-Neon futuristic visuals
+Receive one newsletter each day with relevant updates from your selected categories.
 
-Excessive glow
+Card 2
 
-Excessive glassmorphism
+Your Preferred Time
 
-Consumer-news aesthetics
+Choose when you want your newsletter to arrive. 8:00 AM local time is the default.
 
-Newspaper-style layouts
+Card 3
 
-Heavy stock imagery
+One Inbox, Three Focus Areas
 
-Excessive animation
+Maritime, Cybersecurity, and Finance — brought together in one daily email.
 
-Unsupported trust claims
+Card 4
 
-25. Background Direction
+Less Information Hunting
 
-The landing page should feel like one continuous visual experience
-rather than a collection of disconnected color blocks.
+Spend less time searching across sources and more time understanding what is happening.
 
-Use subtle transitions between:
+8. “PURE SIGNAL” REPLACEMENT
 
-White
+I would actually keep the concept, but change the wording.
 
-Light blue
+Relevant Signal
 
-Blue
+Focused information across Maritime, Cybersecurity, and Finance — without unnecessary noise or filler.
 
-Avoid obvious flat horizontal cuts.
+I prefer this over:
 
-The transition into the AI-powered Newsletter section should blend
-naturally with:
+“No sponsor fluff or clickbait.”
 
-The operating system your fleet deserves.
+That wording feels more like consumer-media marketing. MC360 should sound like enterprise intelligence, not a newsletter startup.
 
-The AI-powered Newsletter section should not appear as an isolated
-flat-colored block.
+9. “WHAT'S INSIDE”
+Eyebrow
 
-The footer may remain visually distinct.
+What's Inside
 
-26. AI-powered Newsletter Section Refinement
+Headline
 
-Remove:
+Everything you chose to follow. In one place.
 
-"Trusted by maritime companies worldwide"
+Description
 
-Also remove the associated trust/logo row.
+Your newsletter brings together relevant developments from your selected categories and presents them in a format designed for quick reading.
 
-After removing it:
+Maritime
 
-Reduce unnecessary vertical space.
+Industry developments, shipping, vessel operations, regulations, ports, markets, and other relevant maritime news.
 
-Reduce excessive padding.
+Cybersecurity
 
-Tighten content spacing.
+Cybersecurity developments, threats, vulnerabilities, incidents, and relevant industry news.
 
-Keep comfortable breathing room.
+Finance
 
-Ensure the section feels intentionally compact.
+Financial and market developments relevant to your selected interests.
 
-Do not leave an obvious empty area where the trust section used to
-exist.
+Future Categories
 
-27. Product Card Description
+As the service evolves, additional categories can be introduced and made available through advanced customization.
 
-The short product description used in product cards/navigation must be
-no longer than 50 characters.
+10. PERSONALIZATION
 
-Recommended:
+This needs to be very carefully worded because basic subscription and advanced personalization are different.
 
-Stay informed with the latest maritime news.
+Eyebrow
 
-Character limit:
+Make It Yours
 
-50 characters maximum.
+Headline
 
-If newsletter.md is later updated with approved shorter copy, use that
-instead.
+Start simple. Customize when you need more.
 
-28. Product Card
+Description
 
-AI-powered Newsletter is the fifth product on the main MC360 landing page.
+Subscribe by choosing the categories you want to follow. When you want more control over what you receive, create an MC360 account to access additional customization options.
 
-The landing page must contain exactly:
+Basic
 
-5 product cards
+Choose your categories
 
-Existing 4 products remain unchanged.
+Select the areas you want to receive news about.
 
-AI-powered Newsletter appears last.
+Advanced
 
-The new card must use the existing Product Card component/design system.
+Customize your experience
 
-Do not create a unique card design.
+With an MC360 account, additional preferences can be configured to make your newsletter more tailored to your interests.
 
-29. Problem Card
+Future
 
-The existing Problem section should keep the same number of cards.
+Create new areas of interest
 
-Replace one existing Problem card with AI-powered Newsletter content.
+As customization expands, users can define additional categories beyond the core newsletter focus.
 
-Do not add another card.
+This avoids claiming that arbitrary category creation already exists.
 
-Use the existing card structure.
+11. FINAL CTA
+Eyebrow
 
-30. Platform Card
+Your daily intelligence starts here
 
-The existing Platform section should keep the same number of cards.
+Headline
 
-Replace one existing Platform card with AI-powered Newsletter content.
+Stop searching for the news. Start with what matters.
 
-Do not add another card.
+Description
 
-Use the existing Platform Card structure.
+Choose your areas of interest and get relevant updates delivered directly to your inbox every day.
 
-31. Product Navigation
+CTA
 
-AI-powered Newsletter should appear in the existing Product dropdown after
-the current four products.
+Subscribe to AI-Newsletter →
 
-Clicking it should open:
+Small supporting line:
 
-/maritime-newsletter
+Maritime · Cybersecurity · Finance
 
-Use the application's existing routing pattern.
+12. NAVIGATION / PRODUCT NAME
 
-32. Hero Orbital
-
-Add exactly one new orbital product:
+I would also change the existing naming from:
 
 AI-powered Newsletter
 
-The orbital must use the same:
+to:
 
-Animation
+Maritime Newsletter
 
-Spacing
+where the product name is displayed.
 
-Icon size
+Then use AI-powered as the descriptor.
 
-Hover behavior
+For example:
 
-Interaction
+Maritime Newsletter
+AI-powered intelligence delivered to your inbox.
 
-Responsive behavior
+This feels more like an actual MC360 product rather than a generic AI feature.
 
-as the existing product orbital system.
+The overall story
 
-Do not redesign the existing orbital products.
+The final page should feel like this:
 
-33. Product Icon
-
-A final AI-powered Newsletter icon has not yet been supplied.
-
-Use a temporary icon that matches the existing MC360 product-icon
-system.
-
-It must be easy to replace with a final asset later.
-
-Do not introduce an unrelated visual style.
-
-34. Content Guardrails
-
-Do not claim:
-
-Complete coverage of every maritime story
-
-Guaranteed zero missed news
-
-Real-time breaking news
-
-Specific number of sources
-
-Specific accuracy percentage
-
-Specific time savings
-
-Customer adoption numbers
-
-Named customers
-
-Partnerships
-
-Trust badges
-
-unless these are explicitly provided and approved in the project
-content.
-
-The product should communicate value confidently without unsupported
-statistics or guarantees.
-
-35. Design Principles
-
-The page should answer these questions quickly:
-
-What is it?
-
-An AI-powered maritime intelligence service.
-
-What does it do?
-
-Researches, curates, categorizes, personalizes, and delivers maritime
-news.
-
-Why do I need it?
-
-It reduces the manual effort required to stay informed.
-
-What do I receive?
-
-One structured daily digest directly in email.
-
-Who is it for?
-
-Primarily ship owners, ship operators, and fleet managers.
-
-What is the key benefit?
-
-Stay informed without spending hours researching multiple sources.
-
-What should I do next?
-
-Subscribe to Newsletter.
-
-36. Final Product Story
-
-The complete story should feel like:
-
-The maritime industry generates information every day.
-
+Information is scattered.
 ↓
-
-That information is spread across many sources.
-
+You don't have time to search everything.
 ↓
-
-Manually keeping up takes time and creates information overload.
-
+AI searches selected sources for you.
 ↓
-
-AI-powered Newsletter's AI agent researches the landscape for you.
-
+You choose what you care about.
 ↓
-
-It aggregates, reviews, curates, categorizes, and personalizes
-relevant information.
-
+The information is organized and summarized.
 ↓
-
-The result becomes one concise daily intelligence digest.
-
+It arrives in your inbox every day.
 ↓
+You spend less time searching and more time knowing what is happening.
 
-It arrives directly in your inbox.
-
-↓
-
-You open your email and know what is happening --- without doing the
-research yourself.
-
-37. Tone of Voice
-
-Use a tone that is:
-
-Clear
-
-Confident
-
-Professional
-
-Concise
-
-Intelligent
-
-Human
-
-B2B-focused
-
-Avoid:
-
-Hype
-
-Fear
-
-Overpromising
-
-Excessive AI jargon
-
-Generic marketing phrases
-
-Long paragraphs
-
-The messaging should feel like a serious product from MC360.
-
-38. Primary Message to Preserve
-
-If only one idea is remembered from the entire page, it should be:
-
-You shouldn't have to spend your day researching what is happening in
-maritime.
-
-AI-powered Newsletter does the research and brings your daily
-intelligence to your inbox.
+Dont delete or remove anything like email subscription about the footer section, only do changes in ai newsletter page and other related sections 
