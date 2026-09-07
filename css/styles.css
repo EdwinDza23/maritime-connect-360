@@ -11773,6 +11773,25 @@ ul {
   }
 }
 
+/* Subtle glossy shimmer light sweep approximately every 3 seconds */
+@keyframes briefShimmerSweep {
+  0% {
+    left: -130%;
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.85;
+  }
+  42% {
+    left: 170%;
+    opacity: 0.85;
+  }
+  48%, 100% {
+    left: 170%;
+    opacity: 0;
+  }
+}
+
 /* ── Main Card — desktop default (>1024px) ─────────────────────────────── */
 .brief-teaser {
   /* Positioned fixed 24px below navbar pill */
@@ -11780,18 +11799,23 @@ ul {
   right: 28px;
   top: 92px;
   z-index: 990;
-  width: 250px;
+  width: 214px;
   display: block;
   -webkit-tap-highlight-color: transparent;
 
-  /* Frosted glass surface */
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1.5px solid var(--border-2);
-  border-radius: var(--r-lg);
-  padding: 18px 20px 20px;
-  box-shadow: 0 12px 36px rgba(10, 22, 40, 0.12), 0 2px 8px rgba(0, 87, 184, 0.06);
+  /* Premium frosted glass & glossy surface */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.97) 0%, rgba(246, 250, 255, 0.92) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 12px 14px 13px;
+  box-shadow: 
+    0 10px 28px -4px rgba(10, 22, 40, 0.10),
+    0 2px 8px -1px rgba(0, 87, 184, 0.05),
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 1px 0 rgba(0, 87, 184, 0.03);
+  overflow: hidden;
 
   /* Entrance animation */
   animation: briefEntrance 2.6s cubic-bezier(.16, 1, .3, 1) 1.0s both;
@@ -11804,9 +11828,30 @@ ul {
     opacity 0.35s ease;
 }
 
+.brief-teaser::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -130%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 255, 255, 0) 80%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  z-index: 2;
+  animation: briefShimmerSweep 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
 .brief-teaser:hover {
-  box-shadow: var(--sh-lg), 0 0 0 3px rgba(0, 87, 184, .12);
-  border-color: rgba(0, 87, 184, .35);
+  box-shadow: 0 14px 34px -4px rgba(10, 22, 40, 0.14), 0 0 0 2.5px rgba(0, 87, 184, .15);
+  border-color: rgba(0, 87, 184, .32);
 }
 
 /* Pop-in animation when expanding from glimpse (quick & snappy) */
@@ -11817,10 +11862,10 @@ ul {
 /* ── Close / Minimize 'X' Button ────────────────────────────────────────── */
 .brief-t-close {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 22px;
-  height: 22px;
+  top: 9px;
+  right: 9px;
+  width: 19px;
+  height: 19px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -11852,6 +11897,8 @@ ul {
 
 /* ── Card Content Link ─────────────────────────────────────────────────── */
 .brief-t-link {
+  position: relative;
+  z-index: 3;
   display: block;
   text-decoration: none;
   color: inherit;
@@ -11868,46 +11915,46 @@ ul {
 .brief-t-label {
   display: flex;
   align-items: center;
-  gap: 6px;
-  margin-bottom: 11px;
-  font-size: 10px;
+  gap: 4.5px;
+  margin-bottom: 5px;
+  font-size: 8.5px;
   font-weight: 700;
-  letter-spacing: .09em;
+  letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--blue);
   line-height: 1;
-  padding-right: 20px; /* clear close button */
+  padding-right: 18px; /* clear close button */
 }
 
 .brief-t-label span:first-child {
-  font-size: 9px;
+  font-size: 8px;
   opacity: .85;
   flex-shrink: 0;
 }
 
 /* ── Body copy ── */
 .brief-t-headline {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--text-1);
-  line-height: 1.3;
+  line-height: 1.25;
   letter-spacing: -.012em;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .brief-t-desc {
-  font-size: 12px;
+  font-size: 10.5px;
   color: var(--text-3);
-  line-height: 1.55;
-  margin-bottom: 14px;
+  line-height: 1.35;
+  margin-bottom: 8px;
 }
 
 /* ── CTA ── */
 .brief-t-cta {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  font-size: 12px;
+  gap: 3px;
+  font-size: 10.5px;
   font-weight: 600;
   color: var(--blue);
   transition: transform var(--ease-fast), color var(--ease-fast);
@@ -12029,6 +12076,11 @@ ul {
     transition: opacity .2s ease !important;
   }
 
+  .brief-teaser::after {
+    animation: none !important;
+    display: none !important;
+  }
+
   .brief-teaser.is-collapsed {
     transform: none !important;
     display: none !important;
@@ -12062,9 +12114,9 @@ ul {
 /* ── 1280px: responsive entrance offset ──────────────────────────────── */
 @media (max-width: 1280px) {
   .brief-teaser {
-    width: 232px;
+    width: 200px;
     right: 18px;
-    padding: 16px 18px 18px;
+    padding: 11px 13px 12px;
   }
 
   @keyframes briefEntrance {
@@ -12101,8 +12153,8 @@ ul {
     right: auto;
     top: auto;
     width: 100%;
-    max-width: 380px;
-    margin: 0 auto 48px;
+    max-width: 320px;
+    margin: 0 auto 36px;
     animation: briefFadeUp .65s cubic-bezier(.16, 1, .3, 1) .85s both;
   }
 
@@ -12126,7 +12178,7 @@ ul {
 @media (max-width: 768px) {
   .brief-teaser {
     max-width: calc(100% - 48px);
-    padding: 14px 17px 16px;
+    padding: 11px 13px 12px;
   }
 }
 
@@ -12137,8 +12189,8 @@ ul {
   }
 
   .brief-t-desc {
-    font-size: 11.5px;
-    margin-bottom: 12px;
+    font-size: 10px;
+    margin-bottom: 8px;
   }
 }
 
