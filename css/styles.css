@@ -10077,6 +10077,30 @@ ul {
   text-overflow: ellipsis;
 }
 
+.nlp-email-badge {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #0369A1;
+  background: #E0F2FE;
+  padding: 3px 10px;
+  border-radius: 12px;
+  border: 1px solid #BAE6FD;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nlp-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0284C7;
+  display: inline-block;
+}
+
 .nlp-email-body {
   padding: 32px 36px;
 }
@@ -10522,77 +10546,15 @@ ul {
   flex: 1;
 }
 
-/* ── Mockup Viewer Tabs & Image ── */
-.nlp-mockup-tabs {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 20px;
-  background: #F1F5F9;
-  border-bottom: 1px solid var(--border);
-  overflow-x: auto;
-}
-
-.nlp-mockup-tab {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 18px;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  background: transparent;
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-2);
-  cursor: pointer;
-  transition: all 180ms ease;
-  white-space: nowrap;
-}
-
-.nlp-mockup-tab:hover {
-  color: var(--text-1);
-  background: rgba(255, 255, 255, 0.6);
-}
-
-.nlp-mockup-tab.active {
-  background: #FFFFFF;
-  color: #0369A1;
-  border-color: #CBD5E1;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-.nlp-mockup-tab-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #94A3B8;
-  transition: background 180ms ease;
-}
-
-.nlp-mockup-tab.active .nlp-mockup-tab-dot {
-  background: #0284C7;
-}
-
-.nlp-mockup-viewport {
+/* ── Mockup Viewer & Maritime Email Experience ── */
+.nlp-mockup-frame {
   position: relative;
   background: #F8FAFC;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   padding: 0;
   overflow: hidden;
-}
-
-.nlp-mockup-view {
-  display: none;
-  animation: nlpFadeIn 240ms ease;
-}
-
-.nlp-mockup-view.active {
-  display: block;
-}
-
-@keyframes nlpFadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 .nlp-mockup-img {
@@ -10600,12 +10562,11 @@ ul {
   height: auto;
   display: block;
   object-fit: contain;
-  max-height: 680px;
-  border-radius: 0 0 12px 12px;
+  border-radius: 0;
 }
 
 .nlp-mockup-caption {
-  padding: 14px 20px;
+  padding: 14px 22px;
   background: #FFFFFF;
   border-top: 1px solid var(--border);
   display: flex;
@@ -10619,6 +10580,193 @@ ul {
 
 .nlp-mockup-caption strong {
   color: var(--text-1);
+}
+
+.nlp-mockup-caption-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nlp-mockup-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nlp-meta-badge {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #0369A1;
+  background: #F0F9FF;
+  border: 1px solid #BAE6FD;
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* ── AI Maritime Curation Block ── */
+.nlp-curation-block {
+  max-width: 1080px;
+  margin: 56px auto 0;
+  padding: 0 12px;
+}
+
+.nlp-curation-intro {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 36px;
+}
+
+.nlp-curation-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0057B8;
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.nlp-curation-badge svg {
+  color: #0057B8;
+}
+
+.nlp-curation-heading {
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 700;
+  color: var(--text-1);
+  letter-spacing: -0.02em;
+  line-height: 1.28;
+  margin: 0 0 12px;
+}
+
+.nlp-curation-desc {
+  font-size: 15px;
+  color: var(--text-2);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.nlp-curation-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.nlp-curation-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.nlp-curation-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 87, 184, 0.08), var(--sh-sm);
+  border-color: #CBD5E1;
+}
+
+.nlp-curation-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.nlp-curation-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #F0F7FF;
+  border: 1px solid #E0EDFD;
+  color: #0057B8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nlp-curation-tag {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.nlp-curation-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-1);
+  margin: 0 0 8px;
+  line-height: 1.35;
+}
+
+.nlp-curation-text {
+  font-size: 13.5px;
+  color: var(--text-2);
+  line-height: 1.55;
+  margin: 0;
+  flex: 1;
+}
+
+/* ── Secondary Mockup Spacing ── */
+.nlp-mockup-secondary {
+  margin-top: 52px;
+}
+
+/* ── Mockup Inline CTA Box ── */
+.nlp-email-cta-box {
+  max-width: 860px;
+  margin: 48px auto 0;
+  background: linear-gradient(135deg, #F8FAFC 0%, #EEF5FC 100%);
+  border: 1px solid #DCE6F1;
+  border-radius: 20px;
+  padding: 32px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  box-shadow: 0 8px 24px rgba(0, 87, 184, 0.05);
+}
+
+.nlp-cta-box-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.nlp-cta-box-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-1);
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+
+.nlp-cta-box-sub {
+  font-size: 13.5px;
+  color: var(--text-2);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.nlp-email-cta-box .nl-cta-form {
+  margin: 0;
+  flex-shrink: 0;
+  width: auto;
+  max-width: 440px;
 }
 
 /* ── Personalization Section ── */
@@ -10666,6 +10814,11 @@ ul {
     grid-template-columns: repeat(3, 1fr);
     gap: 28px 20px;
   }
+
+  .nlp-curation-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -10681,6 +10834,36 @@ ul {
   .nlp-pers-grid {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .nlp-curation-block {
+    margin-top: 40px;
+  }
+
+  .nlp-curation-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .nlp-curation-card {
+    padding: 20px 18px;
+  }
+
+  .nlp-mockup-secondary {
+    margin-top: 36px;
+  }
+
+  .nlp-email-cta-box {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 24px 20px;
+    gap: 20px;
+    text-align: left;
+  }
+
+  .nlp-email-cta-box .nl-cta-form {
+    max-width: 100%;
+    width: 100%;
   }
 
   .nlp-pin-card {
