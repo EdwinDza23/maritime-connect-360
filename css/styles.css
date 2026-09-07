@@ -10546,149 +10546,114 @@ ul {
   flex: 1;
 }
 
-/* ── Mockup Viewer & Maritime Email Experience ── */
-.nlp-mockup-frame {
+/* ── Mockup Viewer & Maritime Email Experience (Two-Column Staggered Redesign) ── */
+.s-nlp-preview {
+  padding: clamp(64px, 7vw, 100px) 0;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F4F8FD 50%, #FFFFFF 100%);
   position: relative;
-  background: #F8FAFC;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 0;
   overflow: hidden;
 }
 
-.nlp-mockup-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  border-radius: 0;
+.nlp-preview-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.25fr);
+  gap: clamp(36px, 4.5vw, 64px);
+  align-items: start;
 }
 
-.nlp-mockup-caption {
-  padding: 14px 22px;
-  background: #FFFFFF;
-  border-top: 1px solid var(--border);
+/* ── Left Column: Content, Curation & CTA ── */
+.nlp-preview-content-col {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 13px;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.nlp-preview-hd {
+  text-align: left;
+}
+
+.nlp-preview-hd .eyebrow {
+  margin-bottom: 12px;
+}
+
+.nlp-preview-hd h2 {
+  margin-bottom: 14px;
+  line-height: 1.15;
+}
+
+.nlp-preview-lead {
   color: var(--text-2);
-  gap: 16px;
-  flex-wrap: wrap;
+  font-size: 15.5px;
+  line-height: 1.62;
+  margin: 0;
 }
 
-.nlp-mockup-caption strong {
-  color: var(--text-1);
+/* Compact Curation Block */
+.nlp-curation-compact {
+  background: #F8FAFD;
+  border: 1px solid #E2EBF5;
+  border-radius: 18px;
+  padding: 22px 20px;
 }
 
-.nlp-mockup-caption-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.nlp-mockup-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.nlp-meta-badge {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  font-weight: 500;
-  color: #0369A1;
-  background: #F0F9FF;
-  border: 1px solid #BAE6FD;
-  padding: 4px 10px;
-  border-radius: 6px;
-  white-space: nowrap;
-}
-
-/* ── AI Maritime Curation Block ── */
-.nlp-curation-block {
-  max-width: 1080px;
-  margin: 56px auto 0;
-  padding: 0 12px;
-}
-
-.nlp-curation-intro {
-  text-align: center;
-  max-width: 720px;
-  margin: 0 auto 36px;
-}
-
-.nlp-curation-badge {
+.nlp-curation-compact .nlp-curation-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 12px;
+  gap: 7px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #0057B8;
   background: #EFF6FF;
   border: 1px solid #BFDBFE;
-  padding: 5px 14px;
+  padding: 4px 12px;
   border-radius: 999px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
-.nlp-curation-badge svg {
-  color: #0057B8;
-}
-
-.nlp-curation-heading {
-  font-size: clamp(22px, 2.5vw, 28px);
+.nlp-curation-compact-title {
+  font-size: 15px;
   font-weight: 700;
   color: var(--text-1);
-  letter-spacing: -0.02em;
-  line-height: 1.28;
-  margin: 0 0 12px;
+  margin: 0 0 14px;
+  letter-spacing: -0.01em;
 }
 
-.nlp-curation-desc {
-  font-size: 15px;
-  color: var(--text-2);
-  line-height: 1.6;
-  margin: 0;
-}
-
-.nlp-curation-grid {
+.nlp-curation-compact-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 
-.nlp-curation-card {
+.nlp-curation-mini-card {
   background: #FFFFFF;
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 24px 20px;
+  border-radius: 12px;
+  padding: 14px 14px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  box-shadow: 0 1px 4px rgba(10, 22, 40, 0.03);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
-.nlp-curation-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0, 87, 184, 0.08), var(--sh-sm);
+.nlp-curation-mini-card:hover {
+  transform: translateY(-2px);
   border-color: #CBD5E1;
+  box-shadow: 0 6px 16px rgba(0, 87, 184, 0.07);
 }
 
-.nlp-curation-icon-wrap {
+.nlp-curation-mini-hd {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
-.nlp-curation-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+.nlp-curation-mini-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
   background: #F0F7FF;
   border: 1px solid #E0EDFD;
   color: #0057B8;
@@ -10699,75 +10664,189 @@ ul {
 }
 
 .nlp-curation-tag {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 600;
   color: var(--text-3);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-.nlp-curation-title {
+.nlp-curation-mini-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-1);
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+
+.nlp-curation-mini-text {
+  font-size: 12px;
+  color: var(--text-2);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Compact CTA Box */
+.nlp-preview-cta-card {
+  background: linear-gradient(135deg, #F8FAFD 0%, #EEF5FC 100%);
+  border: 1px solid #DCE6F1;
+  border-radius: 18px;
+  padding: 22px 22px;
+  box-shadow: 0 4px 18px rgba(0, 87, 184, 0.05);
+}
+
+.nlp-preview-cta-card .nlp-cta-box-text {
+  margin-bottom: 14px;
+}
+
+.nlp-preview-cta-card .nlp-cta-box-title {
   font-size: 16px;
   font-weight: 700;
   color: var(--text-1);
-  margin: 0 0 8px;
-  line-height: 1.35;
-}
-
-.nlp-curation-text {
-  font-size: 13.5px;
-  color: var(--text-2);
-  line-height: 1.55;
-  margin: 0;
-  flex: 1;
-}
-
-/* ── Secondary Mockup Spacing ── */
-.nlp-mockup-secondary {
-  margin-top: 52px;
-}
-
-/* ── Mockup Inline CTA Box ── */
-.nlp-email-cta-box {
-  max-width: 860px;
-  margin: 48px auto 0;
-  background: linear-gradient(135deg, #F8FAFC 0%, #EEF5FC 100%);
-  border: 1px solid #DCE6F1;
-  border-radius: 20px;
-  padding: 32px 36px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  box-shadow: 0 8px 24px rgba(0, 87, 184, 0.05);
-}
-
-.nlp-cta-box-text {
-  flex: 1;
-  min-width: 260px;
-}
-
-.nlp-cta-box-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text-1);
-  margin: 0 0 6px;
+  margin: 0 0 4px;
   letter-spacing: -0.01em;
 }
 
-.nlp-cta-box-sub {
-  font-size: 13.5px;
+.nlp-preview-cta-card .nlp-cta-box-sub {
+  font-size: 13px;
   color: var(--text-2);
   line-height: 1.5;
   margin: 0;
 }
 
-.nlp-email-cta-box .nl-cta-form {
+.nlp-preview-cta-card .nl-cta-form {
   margin: 0;
-  flex-shrink: 0;
-  width: auto;
-  max-width: 440px;
+  width: 100%;
 }
+
+.nlp-preview-cta-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.nlp-meta-pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: #0369A1;
+  background: #F0F9FF;
+  border: 1px solid #BAE6FD;
+  padding: 3px 9px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── Right Column: Staggered Mockups Showcase ── */
+.nlp-preview-visual-col {
+  position: relative;
+  width: 100%;
+}
+
+.nlp-mockup-stage {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  padding-bottom: 12px;
+}
+
+.nlp-mockup-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 300ms ease, border-color 300ms ease;
+}
+
+/* Frame clipping to keep vertical space compact and focused */
+.nlp-mockup-frame {
+  position: relative;
+  background: #F8FAFC;
+  overflow: hidden;
+  max-height: 440px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.nlp-mockup-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.nlp-mockup-caption {
+  padding: 11px 18px;
+  background: #FFFFFF;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-2);
+  gap: 12px;
+}
+
+.nlp-mockup-caption strong {
+  color: var(--text-1);
+}
+
+.nlp-mockup-caption-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* BACK LAYER: Mockup 2 (Desktop View) */
+.nlp-mockup-layer-back {
+  grid-row: 1;
+  grid-column: 1;
+  width: 82%;
+  margin-left: auto;
+  margin-top: 0;
+  z-index: 1;
+  opacity: 0.94;
+  transform: translateY(0) scale(0.98);
+  transform-origin: top right;
+  border-color: #CBD5E1;
+  box-shadow: 0 12px 32px rgba(0, 50, 120, 0.08), 0 2px 8px rgba(10, 22, 40, 0.04);
+}
+
+.nlp-mockup-layer-back:hover {
+  opacity: 1;
+  transform: translateY(-4px) scale(0.99);
+  box-shadow: 0 18px 42px rgba(0, 50, 120, 0.12), 0 4px 12px rgba(10, 22, 40, 0.06);
+}
+
+/* FRONT LAYER: Mockup 1 (Executive Edition) */
+.nlp-mockup-layer-front {
+  grid-row: 1;
+  grid-column: 1;
+  width: fill;
+  margin-right: auto;
+  margin-top: 60px;
+  z-index: 2;
+  border-color: #BFDBFE;
+  box-shadow: 0 24px 56px -6px rgba(0, 50, 120, 0.18), 0 8px 24px -4px rgba(10, 22, 40, 0.08);
+}
+
+.nlp-mockup-layer-front:hover {
+  transform: translateY(-5px);
+  border-color: #93C5FD;
+  box-shadow: 0 32px 68px -6px rgba(0, 50, 120, 0.22), 0 12px 30px -4px rgba(10, 22, 40, 0.1);
+}
+
 
 /* ── Personalization Section ── */
 .s-nlp-personalization {
@@ -10815,9 +10894,22 @@ ul {
     gap: 28px 20px;
   }
 
-  .nlp-curation-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+  .nlp-preview-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .nlp-mockup-layer-back {
+    width: 86%;
+  }
+
+  .nlp-mockup-layer-front {
+    width: 88%;
+    margin-top: 48px;
+  }
+
+  .nlp-mockup-frame {
+    max-height: 390px;
   }
 }
 
@@ -10836,34 +10928,51 @@ ul {
     gap: 24px;
   }
 
-  .nlp-curation-block {
-    margin-top: 40px;
-  }
-
-  .nlp-curation-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .nlp-curation-card {
-    padding: 20px 18px;
-  }
-
-  .nlp-mockup-secondary {
-    margin-top: 36px;
-  }
-
-  .nlp-email-cta-box {
+  .nlp-preview-layout {
+    display: flex;
     flex-direction: column;
-    align-items: stretch;
-    padding: 24px 20px;
-    gap: 20px;
-    text-align: left;
+    gap: 36px;
   }
 
-  .nlp-email-cta-box .nl-cta-form {
-    max-width: 100%;
+  .nlp-preview-content-col {
     width: 100%;
+  }
+
+  .nlp-curation-compact-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .nlp-mockup-stage {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding-bottom: 0;
+  }
+
+  .nlp-mockup-layer-front,
+  .nlp-mockup-layer-back {
+    grid-row: auto;
+    grid-column: auto;
+    width: 100%;
+    margin: 0;
+    transform: none !important;
+    opacity: 1;
+    z-index: auto;
+  }
+
+  .nlp-mockup-layer-front {
+    order: 1;
+    box-shadow: 0 12px 28px rgba(0, 50, 120, 0.1), var(--sh-sm);
+  }
+
+  .nlp-mockup-layer-back {
+    order: 2;
+    box-shadow: 0 8px 20px rgba(0, 50, 120, 0.08), var(--sh-sm);
+  }
+
+  .nlp-mockup-frame {
+    max-height: 360px;
   }
 
   .nlp-pin-card {
