@@ -9427,7 +9427,7 @@ ul {
 
 /* ── Hero ── */
 .nlp-hero {
-  padding: 130px 0 80px;
+  padding: 130px 0 0px;
   background: linear-gradient(180deg, #FFFFFF 0%, #F5F9FE 40%, #EBF4FC 100%);
   position: relative;
   overflow: hidden;
@@ -9588,7 +9588,7 @@ ul {
 
 /* ── Problem Section ── */
 .s-nlp-problem {
-  padding: var(--section) 0;
+  padding: 64px;
   background: linear-gradient(180deg, #EBF4FC 0%, #F3F8FD 35%, #FFFFFF 100%);
   position: relative;
 }
@@ -10260,7 +10260,7 @@ ul {
 
 /* ── Three Focus Areas (Choose What Matters) ── */
 .s-nlp-focus {
-  padding: var(--section) 0;
+  padding: 60px;
   background: #FFFFFF;
   position: relative;
   scroll-margin-top: 90px;
@@ -10988,7 +10988,7 @@ ul {
   }
 
   .nlp-hero {
-    padding: 110px 0 60px;
+    padding: 110px 0 0px;
   }
 
   .nlp-focus-grid {
