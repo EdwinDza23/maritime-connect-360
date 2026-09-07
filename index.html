@@ -545,7 +545,44 @@
 
       </div><!-- /hero-orbital -->
 
+      <!-- ─── AI-powered Newsletter Floating Card ────────────────────────────────
+           - Entrance: slides from off-screen right → pauses near AI badge → settles in corner
+           - Close 'X' button: minimizes card to a sleek glimpse tab peeking on the right edge
+           - Glimpse tab: click to pop the card back in
+           - Smooth scroll to #newsletter-cta
+           ────────────────────────────────────────────────────────────────── -->
+      <div class="brief-teaser" id="brief-teaser" role="region" aria-label="AI-powered Newsletter">
+        <!-- Close / Minimize 'X' Button -->
+        <button type="button" class="brief-t-close" id="brief-close-btn" aria-label="Minimize AI-powered Newsletter card" title="Minimize card">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
 
+        <a href="#newsletter-cta" class="brief-t-link" id="brief-cta-link"
+          aria-label="AI-powered Newsletter — read this week's AI-curated maritime intelligence">
+          <div class="brief-t-label">
+            <span aria-hidden="true">✦</span>
+            <span>AI-powered Newsletter</span>
+          </div>
+          <p class="brief-t-headline">What's changing across maritime?</p>
+          <p class="brief-t-desc">AI-curated intelligence across regulations, compliance, vessels and the maritime
+            industry.</p>
+          <span class="brief-t-cta">Read this week's brief →</span>
+        </a>
+      </div>
+
+      <!-- Minimized Edge Glimpse Tab (shows when card is closed/minimized) -->
+      <button type="button" class="brief-glimpse" id="brief-glimpse-btn" aria-label="Expand AI-powered Newsletter" title="Expand AI-powered Newsletter">
+        <span class="brief-glimpse-spark" aria-hidden="true">✦</span>
+        <span class="brief-glimpse-text">AI Newsletter</span>
+        <span class="brief-glimpse-arr" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </span>
+      </button>
 
     </section>
 
@@ -2006,7 +2043,7 @@
         </p>
         <!-- <div style="margin-bottom:20px">
           <a href="maritime-brief/index.html" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#fff;font-size:14px;font-weight:600;padding:10px 20px;border-radius:8px;text-decoration:none;transition:background 0.15s" onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
-            Read this week's AI Maritime Brief →
+            Read this week's AI-powered Newsletter →
           </a>
         </div> -->
         <form class="nl-cta-form" onsubmit="return false;" role="search" aria-label="Newsletter subscription">

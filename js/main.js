@@ -1268,3 +1268,146 @@ if (document.readyState === 'loading') {
     initSubscribePage();
   }
 })();
+
+/* ==========================================================================
+   AI-powered Newsletter INTERACTION & SCROLL MODULE
+   - Smooth scroll to #newsletter-cta on click
+   - Minimize 'X' button: slides card into right-edge glimpse tab
+   - Glimpse tab: click to pop the card back in
+   - Auto-hide when newsletter section is in view
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  function initMaritimeBrief() {
+    var teaser = document.getElementById('brief-teaser');
+    var closeBtn = document.getElementById('brief-close-btn');
+    var glimpseBtn = document.getElementById('brief-glimpse-btn');
+    var ctaLink = document.getElementById('brief-cta-link');
+    var newsletterSection = document.getElementById('newsletter-cta');
+
+    if (!teaser) return;
+
+    var isUserCollapsed = false;
+
+    // ── 1. Minimize / Close 'X' Button ────────────────────────────────────
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        isUserCollapsed = true;
+        teaser.classList.remove('is-popped');
+        teaser.classList.add('is-collapsed');
+        if (glimpseBtn && window.innerWidth > 1024) {
+          glimpseBtn.classList.add('is-visible');
+        }
+      });
+    }
+
+    // ── 2. Expand Glimpse Tab Button ──────────────────────────────────────
+    if (glimpseBtn) {
+      glimpseBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        isUserCollapsed = false;
+        glimpseBtn.style.transition = 'none';
+        glimpseBtn.classList.remove('is-visible');
+        requestAnimationFrame(function () { glimpseBtn.style.transition = ''; });
+        teaser.classList.remove('is-collapsed');
+        teaser.classList.add('is-popped');
+      });
+    }
+
+    // ── 3. Smooth Scroll to AI-Powered Newsletter Section ─────────────────
+    if (ctaLink) {
+      ctaLink.addEventListener('click', function (e) {
+        if (!newsletterSection) return;
+        e.preventDefault();
+
+        var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var navOffset = 76; // Spacing to account for fixed navbar
+        var targetPosition = newsletterSection.getBoundingClientRect().top + window.pageYOffset - navOffset;
+
+        window.scrollTo({
+          top: Math.max(0, targetPosition),
+          behavior: prefersReduced ? 'auto' : 'smooth'
+        });
+      });
+    }
+
+    // ── 4. Scroll & Viewport Visibility Management ────────────────────────
+    var ticking = false;
+
+    function updateBriefVisibility() {
+      if (window.innerWidth <= 1024) {
+        teaser.classList.remove('is-hidden');
+        teaser.classList.remove('is-collapsed');
+        if (glimpseBtn) glimpseBtn.classList.remove('is-visible');
+        ticking = false;
+        return;
+      }
+
+      // Auto-hide when AI-Powered Newsletter section enters viewport
+      if (newsletterSection) {
+        var rect = newsletterSection.getBoundingClientRect();
+        var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+        if (rect.top <= windowHeight * 0.72 && rect.bottom >= 60) {
+          teaser.classList.add('is-hidden');
+          if (glimpseBtn) glimpseBtn.classList.remove('is-visible');
+        } else {
+          teaser.classList.remove('is-hidden');
+          if (isUserCollapsed && glimpseBtn) {
+            glimpseBtn.classList.add('is-visible');
+          }
+        }
+      }
+
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(updateBriefVisibility);
+        ticking = true;
+      }
+    }
+
+    // ── 5. Intersection Observer for Precision Newsletter Detection ───────
+    if (newsletterSection && 'IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (window.innerWidth > 1024) {
+              if (entry.isIntersecting) {
+                teaser.classList.add('is-hidden');
+                if (glimpseBtn) glimpseBtn.classList.remove('is-visible');
+              } else {
+                onScroll();
+              }
+            }
+          });
+        },
+        {
+          root: null,
+          rootMargin: '-80px 0px -100px 0px',
+          threshold: 0.05
+        }
+      );
+      observer.observe(newsletterSection);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+
+    // Initial check
+    updateBriefVisibility();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMaritimeBrief);
+  } else {
+    initMaritimeBrief();
+  }
+})();
+
+
