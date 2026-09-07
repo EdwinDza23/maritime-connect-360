@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscribe to AI-Powered Newsletter | AI-Powered Intelligence | MC360</title>
+  <meta name="description"
+    content="Personalize your daily maritime intelligence brief. Choose the topics you'd like our AI to track and summarize every morning.">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <style>
+    @keyframes sub-spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body class="sub-page">
+
+  <!-- NAVIGATION -->
+  <header class="nav-outer" role="banner">
+    <nav class="nav" id="main-nav" aria-label="Main navigation">
+
+      <a href="../../index.html" class="nav-logo" aria-label="MC360 Home">
+        <img src="../../assets/logos/MC360logo.png" alt="MC360">
+        <span class="nav-logo-text"><span class="brand-connect">MaritimeConnect</span>&nbsp;<span
+            class="brand-num">360</span></span>
+      </a>
+
+      <div class="nav-links" id="nav-links">
+        <div class="nav-active-pill" id="nav-active-pill"></div>
+        <a href="../../index.html" class="nav-link">Home</a>
+
+        <!-- Products dropdown -->
+        <div class="nav-dd-wrap" id="dd-products-wrap">
+          <button class="nav-link dd-open" id="dd-products-btn" aria-haspopup="true" aria-expanded="false">
+            Products
+            <span class="nav-chevron">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </span>
+          </button>
+          <div class="nav-dropdown dd-products" id="dd-products" role="menu">
+            <div class="dd-section-label">Modules</div>
+            <div class="dd-grid">
+              <a href="../bqs/index.html" class="dd-product-card" role="menuitem">
+                <span class="dd-product-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 22V8a2 2 0 012-2h8a2 2 0 012 2v14" />
+                    <path d="M3 22h12M9 6V3M15 8h2a2 2 0 012 2v3a2 2 0 01-2 2h-2" />
+                    <path d="M19 15v4a2 2 0 01-2 2" />
+                    <rect x="6" y="10" width="6" height="4" rx="1" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="dd-product-name">Bunker Quantity Survey</div>
+                  <div class="dd-product-desc">Measurement, quantity verification and reports</div>
+                </div>
+              </a>
+              <a href="../vis/index.html" class="dd-product-card" role="menuitem">
+                <span class="dd-product-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="6" y="3" width="12" height="18" rx="2" />
+                    <path d="M9 3V2a1 1 0 011-1h4a1 1 0 011 1v1" />
+                    <path d="M9 12l2 2 4-4" />
+                    <path d="M9 17h4" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="dd-product-name">Vessel Inspection</div>
+                  <div class="dd-product-desc">Digital checklists, photo evidence, compliance reports</div>
+                </div>
+              </a>
+              <a href="../vcs/index.html" class="dd-product-card" role="menuitem">
+                <span class="dd-product-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 20h20" />
+                    <path d="M5 20V10l7-7 7 7v10" />
+                    <path d="M9 20v-5h6v5" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="dd-product-name">Vessel Condition Survey</div>
+                  <div class="dd-product-desc">Deficiency tracking and corrective action workflows</div>
+                </div>
+              </a>
+              <a href="../gs/index.html" class="dd-product-card" role="menuitem">
+                <span class="dd-product-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="2" width="14" height="20" rx="2" />
+                    <path d="M9 7h6M9 11h6M9 15h4" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="dd-product-name">Global Sanctions</div>
+                  <div class="dd-product-desc">Real-time OFAC, EU, UN screening across 50+ lists</div>
+                </div>
+              </a>
+              <a href="index.html" class="dd-product-card active-product" role="menuitem">
+                <span class="dd-product-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <path d="M6 9h12M6 13h8M6 17h5" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="dd-product-name">AI-Powered Newsletter</div>
+                  <div class="dd-product-desc">Stay informed about the developments that matter</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customers dropdown -->
+        <div class="nav-dd-wrap" id="dd-customers-wrap">
+          <button class="nav-link" id="dd-customers-btn" aria-haspopup="true" aria-expanded="false">
+            Customers
+            <span class="nav-chevron">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </span>
+          </button>
+          <div class="nav-dropdown dd-customers" id="dd-customers" role="menu">
+            <a href="../../index.html#compliance" class="dd-list-item" role="menuitem">
+              <span class="dd-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M3 9h18M9 21V9" />
+                </svg></span>
+              Case studies
+            </a>
+            <a href="../../index.html#compliance" class="dd-list-item" role="menuitem">
+              <span class="dd-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                </svg></span>
+              Testimonials
+            </a>
+          </div>
+        </div>
+
+        <a href="../../index.html#compliance" class="nav-link">Security</a>
+        <a href="../../index.html#pricing" class="nav-link">Pricing</a>
+      </div>
+
+      <div class="nav-actions" id="nav-actions">
+        <a href="../../index.html#cta" class="nav-demo" id="nav-demo-btn">Book Demo</a>
+        <a href="https://dashboardd-v3.netlify.app/" target="_blank" class="nav-trial" id="nav-trial-btn">Start Free
+          Trial</a>
+      </div>
+
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+
+    </nav>
+  </header>
+
+  <!-- Mobile panel -->
+  <div class="nav-mobile-panel" id="nav-mobile-panel" aria-hidden="true">
+    <a href="../../index.html" class="mob-link">Home</a>
+    <div class="mob-link" id="mob-products-btn">
+      <span>Products</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" id="mob-products-chevron" style="transition:transform 0.2s">
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+    </div>
+    <div class="mob-subsection" id="mob-products-sub">
+      <a href="../bqs/index.html" class="mob-sub-item">Bunker Quantity Survey</a>
+      <a href="../vis/index.html" class="mob-sub-item">Vessel Inspection</a>
+      <a href="../vcs/index.html" class="mob-sub-item">Vessel Condition Survey</a>
+      <a href="../gs/index.html" class="mob-sub-item">Global Sanctions</a>
+      <a href="index.html" class="mob-sub-item">AI-Powered Newsletter</a>
+    </div>
+    <div class="mob-link" id="mob-customers-btn">
+      <span>Customers</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" id="mob-customers-chevron" style="transition:transform 0.2s">
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+    </div>
+    <div class="mob-subsection" id="mob-customers-sub">
+      <a href="../../index.html#compliance" class="mob-sub-item">Case studies</a>
+      <a href="../../index.html#compliance" class="mob-sub-item">Testimonials</a>
+    </div>
+    <a href="../../index.html#compliance" class="mob-link">Security</a>
+    <a href="../../index.html#pricing" class="mob-link">Pricing</a>
+    <div class="mob-ctas">
+      <a href="../../index.html#cta" class="nav-demo">Book Demo</a>
+      <a href="https://dashboardd-v3.netlify.app/" target="_blank" class="nav-trial">Start Free Trial</a>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="sub-main" style="position:relative;z-index:1;">
+    <div class="container">
+
+      <!-- Back to Newsletter -->
+      <div class="sub-back-wrap">
+        <a href="index.html" class="sub-back-link" aria-label="Back to AI-Powered Newsletter page">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12" />
+            <polyline points="12 19 5 12 12 5" />
+          </svg>
+          Back to Newsletter
+        </a>
+      </div>
+
+      <!-- Page hero -->
+      <section class="sub-hero" aria-labelledby="sub-hero-h1">
+        <div class="sub-hero-eyebrow">
+          <span class="sub-hero-eyebrow-dot" aria-hidden="true"></span>
+          AI-Powered Newsletter
+        </div>
+        <h1 class="sub-hero-h1" id="sub-hero-h1">Personalize your daily brief</h1>
+        <p class="sub-hero-desc">
+          Get the news and insights that matter to you.<br>
+          Select the topics you'd like our AI to track and summarize every morning.
+        </p>
+      </section>
+
+      <!-- FORM CARD -->
+      <div class="sub-card" id="sub-form-card">
+        <div class="sub-card-title">Your details</div>
+
+        <form id="sub-form" novalidate aria-label="Newsletter subscription form">
+
+          <!-- Name -->
+          <div class="sub-field">
+            <label class="sub-label" for="sub-name">
+              Name<span class="sub-required" aria-label="required">*</span>
+            </label>
+            <input class="sub-input" id="sub-name" name="name" type="text" placeholder="Enter your name"
+              autocomplete="given-name" required aria-describedby="sub-name-error" aria-required="true">
+            <div class="sub-error" id="sub-name-error" role="alert" aria-live="polite">
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5" />
+                <path d="M8 5v3.5M8 10.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+              <span class="sub-error-text"></span>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="sub-field">
+            <div class="sub-label-row">
+              <label class="sub-label" for="sub-email">
+                Email address<span class="sub-required" aria-label="required">*</span>
+              </label>
+              <button type="button" class="sub-change-email-btn" id="sub-change-email-btn"
+                aria-label="Change email address">Change email</button>
+            </div>
+            <input class="sub-input" id="sub-email" name="email" type="email" placeholder="you@example.com"
+              autocomplete="email" required aria-describedby="sub-email-error" aria-required="true">
+            <div class="sub-error" id="sub-email-error" role="alert" aria-live="polite">
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5" />
+                <path d="M8 5v3.5M8 10.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+              <span class="sub-error-text"></span>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <hr class="sub-divider" aria-hidden="true">
+
+          <!-- News Categories -->
+          <fieldset style="border:none;padding:0;margin:0;" aria-describedby="sub-category-error">
+            <legend class="sub-categories-head">What would you like to follow?</legend>
+            <p class="sub-categories-sub">Select all that interest you.</p>
+            <div class="sub-chips" id="sub-chips" role="group" aria-label="News category selection"></div>
+            <div class="sub-error" id="sub-category-error" role="alert" aria-live="polite" style="margin-top:12px;">
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5" />
+                <path d="M8 5v3.5M8 10.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+              <span class="sub-error-text"></span>
+            </div>
+          </fieldset>
+
+          <!-- Submit -->
+          <div class="sub-submit-row">
+            <button type="submit" class="sub-submit-btn" id="sub-submit-btn">
+              Subscribe to AI-Newsletter&nbsp;&rarr;
+            </button>
+            <p class="sub-supporting-note">Your personalized brief will be delivered every morning.</p>
+          </div>
+
+        </form>
+
+        <!-- SUCCESS STATE (populated by main.js) -->
+        <div class="sub-success" id="sub-success" aria-live="polite"></div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="../../assets/logos/MC360logo.png" alt="MC360" style="height:34px;width:auto">
+            <span class="footer-logo-text">MC360</span>
+          </div>
+          <p class="footer-brand-desc">
+            The All in One operating system for modern maritime companies. Unifying inspections, surveys, bunker
+            operations and compliance in one intelligent platform.
+          </p>
+          <div class="footer-socials">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-soc"
+              aria-label="LinkedIn" title="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-soc"
+              aria-label="YouTube" title="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17">
+                </path>
+                <polygon points="10 15 15 12 10 9 10 15" fill="currentColor"></polygon>
+              </svg>
+            </a>
+            <a href="tel:+18005550199" class="footer-soc" aria-label="Call Us" title="Call Us">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Platform</div>
+          <div class="footer-links">
+            <a href="../bqs/index.html" class="footer-link">Bunker Survey</a>
+            <a href="../vis/index.html" class="footer-link">Vessel Inspection</a>
+            <a href="../vcs/index.html" class="footer-link">Condition Survey</a>
+            <a href="../gs/index.html" class="footer-link">Global Sanctions</a>
+            <a href="index.html" class="footer-link">AI-Powered Newsletter</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-links">
+            <a href="../../future-module.html?page=About" class="footer-link">About</a>
+            <a href="../../future-module.html?page=Careers" class="footer-link">Careers</a>
+            <a href="../../future-module.html?page=Blog" class="footer-link">Blog</a>
+            <a href="../../future-module.html?page=Contact" class="footer-link">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Resources</div>
+          <div class="footer-links">
+            <a href="../../future-module.html?page=Documentation" class="footer-link">Documentation</a>
+            <a href="../../future-module.html?page=API%20Reference" class="footer-link">API Reference</a>
+            <a href="../../future-module.html?page=Status" class="footer-link">Status</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Legal</div>
+          <div class="footer-links">
+            <a href="../../index.html#compliance" class="footer-link">Privacy Policy</a>
+            <a href="../../index.html#compliance" class="footer-link">Terms of Service</a>
+            <a href="../../future-module.html?page=Cookie%20Policy" class="footer-link">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">&#169; 2026 MaritimeConnect360. All rights reserved.</div>
+        <div class="footer-legal">
+          <a href="../../index.html" class="footer-legal-link">Home</a>
+          <a href="../bqs/index.html" class="footer-legal-link">BQS Module</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CHATBOT WIDGET -->
+  <div id="cb-widget" aria-label="MC360 AI Assistant">
+    <button class="cb-fab" id="cb-fab" aria-label="Open MC360 AI Assistant">
+      <img src="../../assets/logos/MC360logo.png" alt="MC360 AI">
+      <span class="cb-fab-badge">AI</span>
+    </button>
+    <div class="cb-panel" id="cb-panel">
+      <div class="cb-header">
+        <div class="cb-header-left">
+          <div class="cb-avatar"><img src="../../assets/logos/MC360logo.png" alt="MC360 AI"></div>
+          <div>
+            <div class="cb-name">MC360 AI</div>
+            <div class="cb-status"><span class="cb-status-dot"></span>Online &middot; Ask me anything</div>
+          </div>
+        </div>
+        <button class="cb-close" id="cb-close" aria-label="Close chat">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M12 4L4 12M4 4l8 8" stroke="rgba(255,255,255,.7)" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+      <div class="cb-msgs" id="cb-msgs"></div>
+      <div class="cb-chips-row" id="cb-chips"></div>
+      <div class="cb-input-row">
+        <input class="cb-input" id="cb-input" type="text" placeholder="Ask about MC360..." autocomplete="off" />
+        <button class="cb-send" id="cb-send" aria-label="Send">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M14 2L7 9M14 2L9.5 14 7 9M14 2L2 6.5 7 9" stroke="white" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BACK TO TOP -->
+  <button id="back-to-top" aria-label="Back to top of page">
+    <span class="btt-arrow" aria-hidden="true">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+        <path d="M5 8V2M2 5l3-3 3 3" stroke="#0056BB" stroke-width="1.6" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </span>
+    <span class="btt-label">Back to top</span>
+  </button>
+
+  <script src="../../js/main.js" defer></script>
+
+</body>
+
+</html>

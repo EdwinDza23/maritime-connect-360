@@ -39,7 +39,7 @@ Description
 
 Important developments are scattered across news sites, industry publications, regulatory sources, and other online channels. Finding the information that matters means searching, opening multiple sources, comparing stories, and filtering through noise.
 
-Maritime Newsletter does the searching for you — so you can start your day informed, without starting it with research.
+AI-Powered Newsletter does the searching for you — so you can start your day informed, without starting it with research.
 
 BEFORE
 
@@ -394,7 +394,7 @@ AI-powered Newsletter
 
 to:
 
-Maritime Newsletter
+AI-Powered Newsletter
 
 where the product name is displayed.
 
@@ -402,7 +402,7 @@ Then use AI-powered as the descriptor.
 
 For example:
 
-Maritime Newsletter
+AI-Powered Newsletter
 AI-powered intelligence delivered to your inbox.
 
 This feels more like an actual MC360 product rather than a generic AI feature.

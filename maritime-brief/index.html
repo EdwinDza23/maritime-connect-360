@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Maritime Brief | MC360 Platform</title>
+  <meta name="description" content="This week's AI Maritime Brief — curated maritime intelligence delivered by MC360.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    /* ── Maritime Brief page-scoped styles ── */
+    .mb-page {
+      background: #F8FAFC;
+      min-height: 100vh;
+    }
+
+    /* Hero band */
+    .mb-hero {
+      background: linear-gradient(135deg, #0057B8 0%, #003D82 60%, #001F4D 100%);
+      padding: 80px 0 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mb-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(0, 180, 216, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .mb-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    .mb-hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 20px;
+    }
+
+    .mb-hero-eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #00B4D8;
+      flex-shrink: 0;
+    }
+
+    .mb-hero-h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+      margin: 0 0 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .mb-hero-h1 em {
+      font-style: normal;
+      color: #7DD3FC;
+    }
+
+    .mb-hero-sub {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.6;
+      margin: 0 0 32px;
+      max-width: 560px;
+    }
+
+    .mb-hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .mb-hero-date {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.55);
+      font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    }
+
+    .mb-hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .mb-hero-pill-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #4ADE80;
+    }
+
+    /* Main content area */
+    .mb-content {
+      padding: 56px 0 80px;
+    }
+
+    /* Section label */
+    .mb-section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #0057B8;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .mb-section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #E2E8F0;
+    }
+
+    /* ── Featured card ── */
+    .mb-featured-card {
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+      margin-bottom: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 460px;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .mb-featured-card:hover {
+      box-shadow: 0 8px 40px rgba(0, 87, 184, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .mb-featured-img-wrap {
+      position: relative;
+      overflow: hidden;
+      background: #EFF6FF;
+    }
+
+    .mb-featured-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+
+    .mb-featured-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: #0057B8;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .mb-featured-body {
+      padding: 40px 40px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .mb-featured-category {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #0057B8;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mb-featured-category-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #0057B8;
+    }
+
+    .mb-featured-title {
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 800;
+      color: #0F172A;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 0 0 16px;
+    }
+
+    .mb-featured-desc {
+      font-size: 15px;
+      color: #475569;
+      line-height: 1.7;
+      margin: 0 0 28px;
+    }
+
+    .mb-featured-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .mb-highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #334155;
+      line-height: 1.5;
+    }
+
+    .mb-highlight-check {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #EFF6FF;
+      border: 1.5px solid #BFDBFE;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: #0057B8;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .mb-featured-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #0057B8;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.18s ease, transform 0.15s ease;
+      align-self: flex-start;
+    }
+
+    .mb-featured-cta:hover {
+      background: #003D82;
+      transform: translateY(-1px);
+    }
+
+    .mb-featured-cta svg {
+      transition: transform 0.15s ease;
+    }
+
+    .mb-featured-cta:hover svg {
+      transform: translateX(3px);
+    }
+
+    /* ── Secondary card ── */
+    .mb-secondary-card {
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      min-height: 260px;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .mb-secondary-card:hover {
+      box-shadow: 0 6px 28px rgba(0, 87, 184, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .mb-secondary-img-wrap {
+      position: relative;
+      overflow: hidden;
+      background: #F0F9FF;
+    }
+
+    .mb-secondary-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .mb-secondary-body {
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .mb-secondary-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #0369A1;
+      margin-bottom: 10px;
+    }
+
+    .mb-secondary-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0F172A;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      margin: 0 0 10px;
+    }
+
+    .mb-secondary-desc {
+      font-size: 14px;
+      color: #64748B;
+      line-height: 1.65;
+      margin: 0 0 20px;
+    }
+
+    .mb-secondary-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0057B8;
+      text-decoration: none;
+      transition: gap 0.15s ease;
+    }
+
+    .mb-secondary-link:hover {
+      gap: 10px;
+    }
+
+    /* Subscribe strip */
+    .mb-subscribe-strip {
+      margin-top: 56px;
+      background: linear-gradient(135deg, #EFF6FF 0%, #F0F9FF 100%);
+      border: 1px solid #BFDBFE;
+      border-radius: 14px;
+      padding: 36px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .mb-subscribe-copy h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0F172A;
+      margin: 0 0 6px;
+    }
+
+    .mb-subscribe-copy p {
+      font-size: 14px;
+      color: #475569;
+      margin: 0;
+    }
+
+    .mb-subscribe-form {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .mb-subscribe-input {
+      padding: 10px 16px;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      color: #0F172A;
+      background: #fff;
+      outline: none;
+      width: 240px;
+      transition: border-color 0.15s;
+    }
+
+    .mb-subscribe-input:focus {
+      border-color: #0057B8;
+    }
+
+    .mb-subscribe-btn {
+      padding: 10px 20px;
+      background: #0057B8;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+
+    .mb-subscribe-btn:hover {
+      background: #003D82;
+    }
+
+    /* Back link */
+    .mb-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.65);
+      text-decoration: none;
+      margin-bottom: 28px;
+      transition: color 0.15s;
+    }
+
+    .mb-back-link:hover {
+      color: #fff;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .mb-featured-card {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .mb-featured-img-wrap {
+        height: 280px;
+      }
+
+      .mb-featured-img {
+        height: 100%;
+        padding: 16px;
+      }
+
+      .mb-featured-body {
+        padding: 28px 28px 28px;
+      }
+
+      .mb-secondary-card {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .mb-secondary-img-wrap {
+        height: 220px;
+      }
+
+      .mb-secondary-img {
+        height: 100%;
+      }
+
+      .mb-subscribe-strip {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px 24px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .mb-hero {
+        padding: 60px 0 40px;
+      }
+
+      .mb-featured-img-wrap {
+        height: 220px;
+      }
+
+      .mb-featured-body {
+        padding: 24px 20px;
+      }
+
+      .mb-secondary-img-wrap {
+        height: 180px;
+      }
+
+      .mb-secondary-body {
+        padding: 20px;
+      }
+
+      .mb-subscribe-form {
+        width: 100%;
+      }
+
+      .mb-subscribe-input {
+        width: 100%;
+      }
+
+      .mb-subscribe-btn {
+        width: 100%;
+      }
+
+      .mb-content {
+        padding: 36px 0 60px;
+      }
+    }
+  </style>
+</head>
+
+<body class="mb-page">
+
+  <!-- NAV -->
+  <header class="nav-outer" role="banner">
+    <nav class="nav" id="main-nav" aria-label="Main navigation">
+      <a href="../index.html" class="nav-logo" aria-label="MC360 Home">
+        <img src="../assets/logos/MC360logo.png" alt="MC360">
+        <span class="nav-logo-text"><span class="brand-connect">MaritimeConnect</span>&nbsp;<span
+            class="brand-num">360</span></span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <div class="nav-active-pill" id="nav-active-pill"></div>
+        <a href="../index.html" class="nav-link">Home</a>
+        <div class="nav-dd-wrap" id="dd-products-wrap">
+          <button class="nav-link dd-open" id="dd-products-btn" aria-haspopup="true" aria-expanded="false">
+            Products
+            <span class="nav-chevron">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </span>
+          </button>
+          <div class="nav-dropdown dd-products" id="dd-products" role="menu">
+            <div class="dd-section-label">Modules</div>
+            <div class="dd-grid">
+              <a href="../products/bqs/index.html" class="dd-product-card" role="menuitem">
+                <span class="dd-product-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 22V8a2 2 0 012-2h8a2 2 0 012 2v14" />
+                    <path d="M3 22h12M9 6V3M15 8h2a2 2 0 012 2v3a2 2 0 01-2 2h-2" />
+                    <path d="M19 15v4a2 2 0 01-2 2" />
+                    <rect x="6" y="10" width="6" height="4" rx="1" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="dd-product-name">Bunker Quantity Survey</div>
+                  <div class="dd-product-desc">Measurement, quantity verification and reports</div>
+                </div>
+              </a>
+              <a href="../products/vis/index.html" class="dd-product-card" role="menuitem">
+                <span class="dd-product-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="6" y="3" width="12" height="18" rx="2" />
+                    <path d="M9 3V2a1 1 0 011-1h4a1 1 0 011 1v1" />
+                    <path d="M9 12l2 2 4-4" />
+                    <path d="M9 17h4" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="dd-product-name">Vessel Inspection</div>
+                  <div class="dd-product-desc">Digital checklists, photo evidence, compliance reports</div>
+                </div>
+              </a>
+              <a href="../products/vcs/index.html" class="dd-product-card" role="menuitem">
+                <span class="dd-product-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 20h20" />
+                    <path d="M5 20V10l7-7 7 7v10" />
+                    <path d="M9 20v-5h6v5" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="dd-product-name">Vessel Condition Survey</div>
+                  <div class="dd-product-desc">Deficiency tracking and corrective action workflows</div>
+                </div>
+              </a>
+              <a href="../products/gs/index.html" class="dd-product-card" role="menuitem">
+                <span class="dd-product-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="2" width="14" height="20" rx="2" />
+                    <path d="M9 7h6M9 11h6M9 15h4" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="dd-product-name">Global Sanctions</div>
+                  <div class="dd-product-desc">Real-time OFAC, EU, UN screening across 50+ lists</div>
+                </div>
+              </a>
+              <a href="../products/maritime-newsletter/index.html" class="dd-product-card" role="menuitem">
+                <span class="dd-product-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <path d="M6 9h12M6 13h8M6 17h5" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="dd-product-name">AI-Powered Newsletter</div>
+                  <div class="dd-product-desc">Stay informed about the developments that matter</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <a href="../index.html#compliance" class="nav-link">Security</a>
+        <a href="../index.html#pricing" class="nav-link">Pricing</a>
+      </div>
+      <div class="nav-actions" id="nav-actions">
+        <a href="../index.html#cta" class="nav-demo" id="nav-demo-btn">Book Demo</a>
+        <a href="https://dashboardd-v3.netlify.app/" target="_blank" class="nav-trial" id="nav-trial-btn">Start Free
+          Trial</a>
+      </div>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile panel -->
+  <div class="nav-mobile-panel" id="nav-mobile-panel" aria-hidden="true">
+    <a href="../index.html" class="mob-link">Home</a>
+    <div class="mob-link" id="mob-products-btn">
+      <span>Products</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" id="mob-products-chevron" style="transition:transform 0.2s">
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+    </div>
+    <div class="mob-subsection" id="mob-products-sub">
+      <a href="../products/bqs/index.html" class="mob-sub-item">Bunker Quantity Survey</a>
+      <a href="../products/vis/index.html" class="mob-sub-item">Vessel Inspection</a>
+      <a href="../products/vcs/index.html" class="mob-sub-item">Vessel Condition Survey</a>
+      <a href="../products/gs/index.html" class="mob-sub-item">Global Sanctions</a>
+      <a href="../products/maritime-newsletter/index.html" class="mob-sub-item">AI-Powered Newsletter</a>
+    </div>
+    <a href="../index.html#compliance" class="mob-link">Security</a>
+    <a href="../index.html#pricing" class="mob-link">Pricing</a>
+    <div class="mob-ctas">
+      <a href="../index.html#cta" class="nav-demo">Book Demo</a>
+      <a href="https://dashboardd-v3.netlify.app/" target="_blank" class="nav-trial">Start Free Trial</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="mb-hero" aria-labelledby="mb-hero-h1">
+      <div class="container">
+        <a href="../products/maritime-newsletter/index.html" class="mb-back-link"
+          aria-label="Back to AI-Powered Newsletter">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12" />
+            <polyline points="12 19 5 12 12 5" />
+          </svg>
+          AI-Powered Newsletter
+        </a>
+        <div class="mb-hero-inner">
+          <div class="mb-hero-eyebrow">
+            <span class="mb-hero-eyebrow-dot" aria-hidden="true"></span>
+            AI Maritime Brief
+          </div>
+          <h1 class="mb-hero-h1" id="mb-hero-h1">
+            This Week's<br><em>Maritime Intelligence</em>
+          </h1>
+          <p class="mb-hero-sub">
+            AI-curated maritime developments — shipping, ports, regulations, and market movements — delivered in one
+            concise brief.
+          </p>
+          <div class="mb-hero-meta">
+            <span class="mb-hero-date">Week of June 2025</span>
+            <span class="mb-hero-pill">
+              <span class="mb-hero-pill-dot" aria-hidden="true"></span>
+              Maritime Intelligence
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRIEF CONTENT -->
+    <section class="mb-content" aria-label="Maritime Brief content">
+      <div class="container">
+
+        <!-- Featured Brief -->
+        <div class="mb-section-label">Featured Maritime Brief</div>
+
+        <article class="mb-featured-card" aria-label="Featured AI Maritime Brief">
+          <div class="mb-featured-img-wrap">
+            <img src="../assets/images/mockup1.png" alt="AI Maritime Brief — weekly intelligence mockup"
+              class="mb-featured-img" loading="eager">
+            <span class="mb-featured-badge">This Week's Brief</span>
+          </div>
+          <div class="mb-featured-body">
+            <div class="mb-featured-category">
+              <span class="mb-featured-category-dot" aria-hidden="true"></span>
+              AI Maritime Brief
+            </div>
+            <h2 class="mb-featured-title">
+              Global Shipping Markets &amp; Regulatory Developments
+            </h2>
+            <p class="mb-featured-desc">
+              This week's AI Maritime Brief covers key developments across global shipping markets, port operations, IMO
+              regulatory updates, and fleet management trends — curated and summarized by MC360's AI.
+            </p>
+            <div class="mb-featured-highlights" aria-label="Key topics this week">
+              <div class="mb-highlight-item">
+                <span class="mb-highlight-check" aria-hidden="true">✓</span>
+                Baltic Dry Index movements and bulk carrier market outlook
+              </div>
+              <div class="mb-highlight-item">
+                <span class="mb-highlight-check" aria-hidden="true">✓</span>
+                IMO 2025 emissions compliance updates and fleet implications
+              </div>
+              <div class="mb-highlight-item">
+                <span class="mb-highlight-check" aria-hidden="true">✓</span>
+                Port congestion developments across major global hubs
+              </div>
+              <div class="mb-highlight-item">
+                <span class="mb-highlight-check" aria-hidden="true">✓</span>
+                Bunker fuel price trends and supply chain signals
+              </div>
+            </div>
+            <a href="../products/maritime-newsletter/index.html" class="mb-featured-cta">
+              Read this week's brief
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Secondary Story -->
+        <div class="mb-section-label">Maritime Intelligence</div>
+
+        <article class="mb-secondary-card" aria-label="Secondary maritime story">
+          <div class="mb-secondary-img-wrap">
+            <img src="../assets/images/mockup2.png" alt="Maritime intelligence brief — secondary story"
+              class="mb-secondary-img" loading="lazy">
+          </div>
+          <div class="mb-secondary-body">
+            <div class="mb-secondary-tag">Fleet &amp; Operations</div>
+            <h3 class="mb-secondary-title">
+              Vessel Operations &amp; Compliance Signals
+            </h3>
+            <p class="mb-secondary-desc">
+              A focused look at vessel inspection trends, condition survey findings, and compliance signals from this
+              week's maritime intelligence feed — helping fleet managers stay ahead of operational risk.
+            </p>
+            <a href="../products/maritime-newsletter/index.html" class="mb-secondary-link"
+              aria-label="Read full AI-Powered Newsletter">
+              Read full brief
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Subscribe strip -->
+        <div class="mb-subscribe-strip" role="complementary" aria-label="Subscribe to AI Maritime Brief">
+          <div class="mb-subscribe-copy">
+            <h3>Get the AI Maritime Brief in your inbox</h3>
+            <p>Delivered every morning. Maritime intelligence, no noise.</p>
+          </div>
+          <form class="mb-subscribe-form" onsubmit="return false;" aria-label="Subscribe to Maritime Brief">
+            <input class="mb-subscribe-input" type="email" placeholder="yourmail@gmail.com" autocomplete="email"
+              aria-label="Email address" />
+            <button type="submit" class="mb-subscribe-btn">Subscribe →</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="../assets/logos/MC360logo.png" alt="MC360" style="height:34px;width:auto">
+            <span class="footer-logo-text">MC360</span>
+          </div>
+          <p class="footer-brand-desc">The All in One operating system for modern maritime companies.</p>
+          <div class="footer-socials">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-soc"
+              aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Platform</div>
+          <div class="footer-links">
+            <a href="../products/bqs/index.html" class="footer-link">Bunker Survey</a>
+            <a href="../products/vis/index.html" class="footer-link">Vessel Inspection</a>
+            <a href="../products/vcs/index.html" class="footer-link">Condition Survey</a>
+            <a href="../products/gs/index.html" class="footer-link">Global Sanctions</a>
+            <a href="../products/maritime-newsletter/index.html" class="footer-link">AI-Powered Newsletter</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-links">
+            <a href="../future-module.html?page=About" class="footer-link">About</a>
+            <a href="../future-module.html?page=Contact" class="footer-link">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Legal</div>
+          <div class="footer-links">
+            <a href="../index.html#compliance" class="footer-link">Privacy Policy</a>
+            <a href="../index.html#compliance" class="footer-link">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 MaritimeConnect360. All rights reserved.</div>
+        <div class="footer-legal">
+          <a href="../index.html" class="footer-legal-link">Home</a>
+          <a href="../products/maritime-newsletter/index.html" class="footer-legal-link">AI-Powered Newsletter</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chatbot widget -->
+  <div id="cb-widget" aria-label="MC360 AI Assistant">
+    <button class="cb-fab" id="cb-fab" aria-label="Open MC360 AI Assistant">
+      <img src="../assets/logos/MC360logo.png" alt="MC360 AI">
+      <span class="cb-fab-badge">AI</span>
+    </button>
+    <div class="cb-panel" id="cb-panel">
+      <div class="cb-header">
+        <div class="cb-header-left">
+          <div class="cb-avatar"><img src="../assets/logos/MC360logo.png" alt="MC360 AI"></div>
+          <div>
+            <div class="cb-name">MC360 AI</div>
+            <div class="cb-status"><span class="cb-status-dot"></span>Online &middot; Ask me anything</div>
+          </div>
+        </div>
+        <button class="cb-close" id="cb-close" aria-label="Close chat">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M12 4L4 12M4 4l8 8" stroke="rgba(255,255,255,.7)" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+      <div class="cb-msgs" id="cb-msgs"></div>
+      <div class="cb-chips-row" id="cb-chips"></div>
+      <div class="cb-input-row">
+        <input class="cb-input" id="cb-input" type="text" placeholder="Ask about MC360..." autocomplete="off" />
+        <button class="cb-send" id="cb-send" aria-label="Send">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M14 2L7 9M14 2L9.5 14 7 9M14 2L2 6.5 7 9" stroke="white" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <button id="back-to-top" aria-label="Back to top">
+    <img class="btt-icon" src="../assets/icon/back to top.png" alt="" aria-hidden="true" width="28" height="28" />
+    <span class="btt-label">Back to top</span>
+  </button>
+
+  <script src="../js/main.js" defer></script>
+</body>
+
+</html>

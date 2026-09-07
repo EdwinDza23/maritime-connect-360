@@ -134,10 +134,9 @@ function handleScrollAndPill() {
   const scrollY = window.scrollY;
   nav.classList.toggle('scrolled', scrollY > 36);
 
-  // Back to Top visibility — show after passing Hero section
+  // Back to Top visibility — show after 400px scroll
   if (bttBtn) {
-    const heroBottom = heroSection ? heroSection.offsetTop + heroSection.offsetHeight : 600;
-    bttBtn.classList.toggle('btt-visible', scrollY > heroBottom - 100);
+    bttBtn.classList.toggle('btt-visible', scrollY > 400);
   }
 
   let current = '';
@@ -322,13 +321,13 @@ const KB = {
     'Hi there! 👋 I\'m the MC360 AI assistant. I can answer questions about our platform, the 4 modules, pricing, and how to get started. What would you like to know?',
     'Hello! Welcome to MC360. I\'m here to help you learn about our maritime intelligence platform. Ask me anything!',
   ],
-  mc360: `MC360 (MaritimeConnect360) is an All in One enterprise operating system designed exclusively for maritime companies.\n\nWe unify your entire operation into one intelligent platform:\n\n⛽ Bunker Quantity Survey\n🔍 Vessel Inspection\n🚢 Vessel Condition Survey\n🛡️ Global Sanctions\n📰 Maritime Newsletter\n\nInstead of juggling 7+ disconnected tools, your fleet managers, operations directors and compliance teams work from one single source of truth — powered by AI throughout.`,
+  mc360: `MC360 (MaritimeConnect360) is an All in One enterprise operating system designed exclusively for maritime companies.\n\nWe unify your entire operation into one intelligent platform:\n\n⛽ Bunker Quantity Survey\n🔍 Vessel Inspection\n🚢 Vessel Condition Survey\n🛡️ Global Sanctions\n📰 AI-Powered Newsletter\n\nInstead of juggling 7+ disconnected tools, your fleet managers, operations directors and compliance teams work from one single source of truth — powered by AI throughout.`,
   bqs: `⛽ **Bunker Quantity Survey (BQS)**\n\nEliminate costly bunker disputes with AI-validated quantity measurements.\n\n• Real-time calculations during delivery\n• Automatic survey report generation\n• Full audit trail from delivery to sign-off\n• AI anomaly detection — flags discrepancies before sign-off\n• Dispute prevention with locked timestamps\n\nAI Example: MC360 detected a 1.8% discrepancy in a recent delivery and flagged it before the captain signed — saving a potential $40,000 dispute.`,
   inspection: `🔍 **Vessel Inspection**\n\nReplace clipboard inspections with smart digital workflows.\n\n• Digital inspection checklists (customisable)\n• Inspector assignment and scheduling\n• Photo and video evidence capture\n• Instant compliance report generation\n• Predictive scheduling based on vessel age & route history\n\nAI Example: Predictive scheduling reduced missed inspections by 34% for one of our global fleet operators — entirely automated.`,
   vcs: `🚢 **Vessel Condition Survey (VCS)**\n\nComprehensive assessments with structured data capture and corrective action workflows.\n\n• Condition scoring with industry benchmarking\n• Deficiency tracking with severity ratings\n• Corrective Action Request (CAR) workflows\n• Continuous condition record per vessel\n• AI outlier detection vs fleet averages\n\nAI Example: AI flagged a hull condition score 18% below fleet average — the issue was caught 3 months before it would have triggered a port-state control detention.`,
   sanctions: `🛡️ **Global Sanctions**\n\nReal-time counterparty screening against 50+ global sanctions lists.\n\n• OFAC, EU, UN, OFSI and 47 more lists\n• Automated counterparty risk scoring\n• Instant alerts when a match is detected\n• Full compliance documentation & audit trail\n• Continuous monitoring — not just point-in-time checks\n\nAI Example: A European operator avoided a $2M OFAC fine when MC360 flagged a cargo owner match within 4 seconds of onboarding — before any contract was signed.`,
-  newsletter: `📰 **Maritime Newsletter**\n\nStay informed with the latest maritime news.\n\n• Curated maritime news, regulatory updates & market intelligence\n• Delivered daily at 06:00 CET directly to your inbox\n• Zero noise, expert editorial curation by maritime professionals\n• Market indicators: BDI, bunker prices, freight rates & port alerts\n• Seamlessly integrated into your MC360 workspace`,
-  modules: `MC360 has 5 core modules that work individually or together:\n\n1. ⛽ **Bunker Quantity Survey** — AI-validated measurements, real-time calculations, dispute prevention\n2. 🔍 **Vessel Inspection** — Digital workflows, photo evidence, instant reports\n3. 🚢 **Vessel Condition Survey** — Condition scoring, deficiency tracking, CAR workflows\n4. 🛡️ **Global Sanctions** — 50+ lists, real-time screening, automated alerts\n5. 📰 **Maritime Newsletter** — Aktuelle maritime News kompakt und übersichtlich\n\nWant details on any specific module? Just ask!`,
+  newsletter: `📰 **AI-Powered Newsletter**\n\nStay informed with the latest maritime news.\n\n• Curated maritime news, regulatory updates & market intelligence\n• Delivered daily at 06:00 CET directly to your inbox\n• Zero noise, expert editorial curation by maritime professionals\n• Market indicators: BDI, bunker prices, freight rates & port alerts\n• Seamlessly integrated into your MC360 workspace`,
+  modules: `MC360 has 5 core modules that work individually or together:\n\n1. ⛽ **Bunker Quantity Survey** — AI-validated measurements, real-time calculations, dispute prevention\n2. 🔍 **Vessel Inspection** — Digital workflows, photo evidence, instant reports\n3. 🚢 **Vessel Condition Survey** — Condition scoring, deficiency tracking, CAR workflows\n4. 🛡️ **Global Sanctions** — 50+ lists, real-time screening, automated alerts\n5. 📰 **AI-Powered Newsletter** — Aktuelle maritime News kompakt und übersichtlich\n\nWant details on any specific module? Just ask!`,
   pricing: `MC360 has 3 pricing tiers:\n\n**Starter — $299/vessel/month**\n• Up to 5 vessels\n• Vessel Inspection module\n• Standard reporting\n• 5 user seats\n\n**Professional — $799/vessel/month** ⭐ Most Popular\n• Up to 25 vessels\n• All 4 modules\n• AI Chat + Recommendations\n• Advanced analytics\n• 25 user seats\n\n**Enterprise — Custom pricing**\n• Unlimited vessels\n• All modules + future modules\n• Company Knowledge AI\n• Custom integrations & API\n• Dedicated account team + SLA\n\nAll plans include a 30-day free trial. No credit card required.`,
   trial: `Starting your free trial is simple:\n\n1. Click **Start Free Trial** on this page\n2. Create your account (takes 2 minutes)\n3. Add your vessels and team members\n4. Your fleet is live in under 24 hours\n\n✅ 30-day free trial\n✅ No credit card required\n✅ Full platform access\n✅ Cancel anytime\n\nNeed a guided walkthrough first? Click **Book Demo** and our team will walk you through the platform live.`,
   ai: `MC360 has AI built into every module — not bolted on afterwards:\n\n💬 **AI Chat** — Ask questions about your entire fleet in plain language. "Which vessels need inspection this week?" gets you an instant, data-backed answer.\n\n⚡ **AI Recommendations** — Proactive risk and anomaly surfacing across all modules. You\'re alerted before problems escalate.\n\n📚 **Ask Company Knowledge** — Query against your own company procedures, policies and historical data — not just public information.\n\n🔮 **Coming soon:** Predictive Inspections, Live Vessel Intelligence, and Autonomous Fleet Operations.`,
@@ -867,8 +866,9 @@ if (document.readyState === 'loading') {
 (function () {
   const btt = document.getElementById('back-to-top');
   if (!btt) return;
-  window.addEventListener('scroll', () => { btt.classList.toggle('btt-visible', window.scrollY > 600); }, { passive: true });
+  window.addEventListener('scroll', () => { btt.classList.toggle('btt-visible', window.scrollY > 400); }, { passive: true });
   btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  btt.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); } });
 })();
 
 /* =============================================
@@ -893,3 +893,378 @@ if (document.readyState === 'loading') {
   });
 })();
 
+/* ==========================================================================
+   3. NEWSLETTER SUBSCRIPTION FLOW
+   ========================================================================== */
+
+/* =============================================
+   HERO EMAIL VALIDATION & NAVIGATION
+   Handles all ".nlp-hero-form" and ".nl-cta-form"
+   newsletter subscription forms across the site.
+   ============================================= */
+(function () {
+  'use strict';
+
+  /**
+   * Determine the correct path to subscribe.html
+   * based on current page location.
+   */
+  function getSubscribeUrl() {
+    var path = window.location.pathname;
+    // If on the newsletter product page itself
+    if (path.indexOf('/products/maritime-newsletter/') !== -1) {
+      return 'subscribe.html';
+    }
+    // If on a different product page (e.g. /products/bqs/)
+    if (path.indexOf('/products/') !== -1) {
+      return '../maritime-newsletter/subscribe.html';
+    }
+    // Root / any other location
+    return 'products/maritime-newsletter/subscribe.html';
+  }
+
+  /**
+   * Validate email string format.
+   */
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+  }
+
+  /**
+   * Show an inline error below a form.
+   * Creates the error container if not already present.
+   */
+  function showFormError(form, message) {
+    var errorEl = form.parentElement.querySelector('.nl-form-error');
+    if (!errorEl) {
+      errorEl = document.createElement('div');
+      errorEl.className = 'nl-form-error';
+      errorEl.setAttribute('role', 'alert');
+      errorEl.setAttribute('aria-live', 'polite');
+      errorEl.innerHTML =
+        '<svg class="nl-form-error-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
+        '<circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>' +
+        '<path d="M8 5v3.5M8 10.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
+        '</svg>' +
+        '<span class="nl-form-error-text"></span>';
+      form.parentElement.insertBefore(errorEl, form.nextSibling);
+    }
+    errorEl.querySelector('.nl-form-error-text').textContent = message;
+    errorEl.classList.add('is-visible');
+    // Shake the form — force reflow so animation re-triggers
+    form.classList.remove('has-error');
+    void form.offsetWidth;
+    form.classList.add('has-error');
+  }
+
+  /**
+   * Clear inline error from a form.
+   */
+  function clearFormError(form) {
+    var errorEl = form.parentElement && form.parentElement.querySelector('.nl-form-error');
+    if (errorEl) errorEl.classList.remove('is-visible');
+    form.classList.remove('has-error');
+  }
+
+  /**
+   * Wire up a single newsletter subscription form.
+   */
+  function wireHeroForm(form) {
+    var input = form.querySelector('input[type="email"]');
+    var btn = form.querySelector('button[type="submit"]');
+    if (!input || !btn) return;
+
+    // Clear error when user starts typing
+    input.addEventListener('input', function () {
+      clearFormError(form);
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = input.value.trim();
+
+      if (!email) {
+        showFormError(form, 'Please enter your email address.');
+        input.focus();
+        return;
+      }
+      if (!isValidEmail(email)) {
+        showFormError(form, 'Please enter a valid email address.');
+        input.focus();
+        return;
+      }
+
+      // Valid — save and navigate
+      clearFormError(form);
+      sessionStorage.setItem('newsletterEmail', email);
+      window.location.href = getSubscribeUrl();
+    });
+  }
+
+  // Wire all newsletter forms found on the page
+  function initHeroForms() {
+    document.querySelectorAll('.nlp-hero-form, .nl-cta-form').forEach(wireHeroForm);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroForms);
+  } else {
+    initHeroForms();
+  }
+})();
+
+/* =============================================
+   SUBSCRIPTION PAGE LOGIC
+   Only runs when #sub-form is present.
+   ============================================= */
+(function () {
+  'use strict';
+
+  // ── Category data (extensible) ──
+  var newsletterCategories = [
+    { id: 'maritime', label: 'Maritime', selected: true },
+    { id: 'cybersecurity', label: 'Cybersecurity', selected: false }
+    // Future: Finance, Regulatory, Technology, Safety, Sustainability, Ports & Logistics
+  ];
+
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+  }
+
+  function setError(input, errorEl, message) {
+    if (input) input.classList.add('is-error');
+    if (errorEl) {
+      errorEl.querySelector('.sub-error-text').textContent = message;
+      errorEl.classList.add('is-visible');
+    }
+  }
+
+  function clearError(input, errorEl) {
+    if (input) input.classList.remove('is-error');
+    if (errorEl) errorEl.classList.remove('is-visible');
+  }
+
+  function escapeHtml(str) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function initSubscribePage() {
+    var form = document.getElementById('sub-form');
+    var formCard = document.getElementById('sub-form-card');
+    var successEl = document.getElementById('sub-success');
+    if (!form) return;
+
+    var nameInput = document.getElementById('sub-name');
+    var emailInput = document.getElementById('sub-email');
+    var nameError = document.getElementById('sub-name-error');
+    var emailError = document.getElementById('sub-email-error');
+    var categoryError = document.getElementById('sub-category-error');
+    var chipsContainer = document.getElementById('sub-chips');
+    var submitBtn = document.getElementById('sub-submit-btn');
+    var changeEmailBtn = document.getElementById('sub-change-email-btn');
+
+    // ── Prefill email from sessionStorage ──
+    var storedEmail = sessionStorage.getItem('newsletterEmail');
+    if (storedEmail && storedEmail.trim() && emailInput) {
+      emailInput.value = storedEmail.trim();
+    }
+
+    // ── Change email button ──
+    if (changeEmailBtn && emailInput) {
+      changeEmailBtn.addEventListener('click', function () {
+        emailInput.focus();
+        emailInput.select();
+      });
+    }
+
+    // ── Render chips ──
+    function renderChips() {
+      if (!chipsContainer) return;
+      chipsContainer.innerHTML = '';
+      newsletterCategories.forEach(function (cat) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'sub-chip' + (cat.selected ? ' is-selected' : '');
+        btn.setAttribute('role', 'checkbox');
+        btn.setAttribute('aria-checked', cat.selected ? 'true' : 'false');
+        btn.setAttribute('data-category-id', cat.id);
+        btn.id = 'sub-chip-' + cat.id;
+
+        btn.innerHTML =
+          '<svg class="sub-chip-check" viewBox="0 0 15 15" fill="none" aria-hidden="true">' +
+          '<path d="M3 7.5l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+          '</svg>' +
+          '<span class="sub-chip-label">' + escapeHtml(cat.label) + '</span>';
+
+        btn.addEventListener('click', function () {
+          cat.selected = !cat.selected;
+          btn.classList.toggle('is-selected', cat.selected);
+          btn.setAttribute('aria-checked', cat.selected ? 'true' : 'false');
+          if (newsletterCategories.some(function (c) { return c.selected; })) {
+            clearError(null, categoryError);
+          }
+        });
+
+        btn.addEventListener('keydown', function (e) {
+          if (e.key === ' ' || e.key === 'Enter') {
+            e.preventDefault();
+            btn.click();
+          }
+        });
+
+        chipsContainer.appendChild(btn);
+      });
+    }
+
+    renderChips();
+
+    // ── Clear errors on input ──
+    if (nameInput) {
+      nameInput.addEventListener('input', function () { clearError(nameInput, nameError); });
+    }
+    if (emailInput) {
+      emailInput.addEventListener('input', function () { clearError(emailInput, emailError); });
+    }
+
+    // ── Form submission ──
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var valid = true;
+
+      // Name
+      if (!nameInput || !nameInput.value.trim()) {
+        setError(nameInput, nameError, 'Please enter your name.');
+        valid = false;
+      } else {
+        clearError(nameInput, nameError);
+      }
+
+      // Email
+      var emailVal = emailInput ? emailInput.value.trim() : '';
+      if (!emailVal) {
+        setError(emailInput, emailError, 'Please enter your email address.');
+        valid = false;
+      } else if (!isValidEmail(emailVal)) {
+        setError(emailInput, emailError, 'Please enter a valid email address.');
+        valid = false;
+      } else {
+        clearError(emailInput, emailError);
+      }
+
+      // Categories
+      var selectedCategories = newsletterCategories.filter(function (c) { return c.selected; });
+      if (selectedCategories.length === 0) {
+        if (categoryError) {
+          categoryError.querySelector('.sub-error-text').textContent = 'Please select at least one topic.';
+          categoryError.classList.add('is-visible');
+        }
+        valid = false;
+      } else {
+        clearError(null, categoryError);
+      }
+
+      if (!valid) {
+        if (nameInput && nameInput.classList.contains('is-error')) {
+          nameInput.focus();
+        } else if (emailInput && emailInput.classList.contains('is-error')) {
+          emailInput.focus();
+        }
+        return;
+      }
+
+      // ── Loading state ──
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML =
+          '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" ' +
+          'style="flex-shrink:0;animation:sub-spin 0.8s linear infinite">' +
+          '<circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.35)" stroke-width="2.5"/>' +
+          '<path d="M12 2a10 10 0 0 1 10 10" stroke="white" stroke-width="2.5" stroke-linecap="round"/>' +
+          '</svg>' +
+          'Creating your personalized brief\u2026';
+      }
+
+      // Simulate async submission (900ms)
+      setTimeout(function () {
+        showSuccess(emailVal, selectedCategories);
+      }, 900);
+    });
+
+    // ── Success state ──
+    function showSuccess(email, categories) {
+      if (!formCard || !successEl) return;
+
+      var topicsHtml = categories.map(function (c) {
+        return '<span class="sub-summary-topic-chip">' +
+          '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">' +
+          '<path d="M2 6l2.5 2.5L10 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>' +
+          '</svg>' +
+          escapeHtml(c.label) +
+          '</span>';
+      }).join('');
+
+      successEl.innerHTML =
+        '<div class="sub-success-icon" aria-hidden="true">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+        '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>' +
+        '<polyline points="22 4 12 14.01 9 11.01"/>' +
+        '</svg>' +
+        '</div>' +
+        '<h2 class="sub-success-h2">You\'re all set.</h2>' +
+        '<p class="sub-success-sub">Your personalized AI brief will be delivered every morning.</p>' +
+        '<div class="sub-summary-box">' +
+        '<div class="sub-summary-item">' +
+        '<span class="sub-summary-label">Email</span>' +
+        '<span class="sub-summary-value">' + escapeHtml(email) + '</span>' +
+        '</div>' +
+        '<div class="sub-summary-item">' +
+        '<span class="sub-summary-label">Topics</span>' +
+        '<div class="sub-summary-topics">' + topicsHtml + '</div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="sub-success-actions">' +
+        '<a href="../../index.html" class="sub-btn-primary">' +
+        'Back to MaritimeConnect 360' +
+        '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">' +
+        '<path d="M7 1.5l5.5 5.5-5.5 5.5M12.5 7H1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>' +
+        '</svg>' +
+        '</a>' +
+        '<button type="button" class="sub-btn-secondary" id="sub-edit-prefs-btn">Edit preferences</button>' +
+        '</div>';
+
+      // Hide form, show success
+      formCard.style.display = 'none';
+      successEl.classList.add('is-visible');
+
+      // Wire "Edit preferences"
+      var editBtn = document.getElementById('sub-edit-prefs-btn');
+      if (editBtn) {
+        editBtn.addEventListener('click', function () {
+          successEl.classList.remove('is-visible');
+          successEl.innerHTML = '';
+          formCard.style.display = '';
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML =
+              'Subscribe to AI-Newsletter\u00a0\u2192' +
+              '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">' +
+              '<path d="M7 1.5l5.5 5.5-5.5 5.5M12.5 7H1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>' +
+              '</svg>';
+          }
+          renderChips();
+          formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSubscribePage);
+  } else {
+    initSubscribePage();
+  }
+})();
