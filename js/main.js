@@ -898,42 +898,18 @@ if (document.readyState === 'loading') {
    ========================================================================== */
 
 /* =============================================
-   HERO EMAIL VALIDATION & NAVIGATION
-   Handles all ".nlp-hero-form" and ".nl-cta-form"
-   newsletter subscription forms across the site.
+   AI NEWSLETTER IN-PAGE MODAL SUBSCRIPTION FLOW
+   Handles all ".nlp-hero-form", ".nl-cta-form",
+   and ".mb-subscribe-form" newsletter subscription
+   forms with an in-page 2-step modal.
    ============================================= */
 (function () {
   'use strict';
 
-  /**
-   * Determine the correct path to subscribe.html
-   * based on current page location.
-   */
-  function getSubscribeUrl() {
-    var path = window.location.pathname;
-    // If on the newsletter product page itself
-    if (path.indexOf('/products/maritime-newsletter/') !== -1) {
-      return 'subscribe.html';
-    }
-    // If on a different product page (e.g. /products/bqs/)
-    if (path.indexOf('/products/') !== -1) {
-      return '../maritime-newsletter/subscribe.html';
-    }
-    // Root / any other location
-    return 'products/maritime-newsletter/subscribe.html';
-  }
-
-  /**
-   * Validate email string format.
-   */
   function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
   }
 
-  /**
-   * Show an inline error below a form.
-   * Creates the error container if not already present.
-   */
   function showFormError(form, message) {
     var errorEl = form.parentElement.querySelector('.nl-form-error');
     if (!errorEl) {
@@ -957,17 +933,417 @@ if (document.readyState === 'loading') {
     form.classList.add('has-error');
   }
 
-  /**
-   * Clear inline error from a form.
-   */
   function clearFormError(form) {
     var errorEl = form.parentElement && form.parentElement.querySelector('.nl-form-error');
     if (errorEl) errorEl.classList.remove('is-visible');
     form.classList.remove('has-error');
   }
 
+  // ── Modal State & References ──
+  var modalEl = null;
+  var isModalSubmitted = false;
+  var lastActiveElement = null;
+  var activeTriggerForm = null;
+
+  function createModal() {
+    var backdrop = document.createElement('div');
+    backdrop.id = 'nl-subscription-modal';
+    backdrop.className = 'nl-modal-backdrop';
+    backdrop.setAttribute('role', 'dialog');
+    backdrop.setAttribute('aria-modal', 'true');
+    backdrop.setAttribute('aria-labelledby', 'nl-modal-title');
+    backdrop.setAttribute('aria-describedby', 'nl-modal-sub');
+    backdrop.tabIndex = -1;
+
+    backdrop.innerHTML =
+      '<div class="nl-modal-dialog" role="document">' +
+        '<button type="button" class="nl-modal-close-btn" id="nl-modal-close-btn" aria-label="Close dialog">' +
+          '<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+            '<line x1="3" y1="3" x2="13" y2="13"></line>' +
+            '<line x1="13" y1="3" x2="3" y2="13"></line>' +
+          '</svg>' +
+        '</button>' +
+
+        '<!-- STEP 2: SUBSCRIPTION FORM -->' +
+        '<div class="nl-modal-view nl-modal-form-view" id="nl-modal-form-view">' +
+          '<div class="nl-modal-header">' +
+            '<div class="nl-modal-eyebrow">' +
+              '<span class="nl-modal-eyebrow-dot" aria-hidden="true"></span>' +
+              'AI-Powered Newsletter' +
+            '</div>' +
+            '<h2 class="nl-modal-title" id="nl-modal-title">Complete your subscription</h2>' +
+            '<p class="nl-modal-sub" id="nl-modal-sub">Personalize your daily AI Maritime Brief delivered to your inbox.</p>' +
+          '</div>' +
+
+          '<form id="nl-modal-step2-form" class="nl-modal-form" novalidate aria-label="Subscription details">' +
+            '<!-- Username -->' +
+            '<div class="nl-modal-field">' +
+              '<label class="nl-modal-label" for="nl-modal-username">' +
+                'Username<span class="nl-modal-required" aria-label="required">*</span>' +
+              '</label>' +
+              '<input class="nl-modal-input" id="nl-modal-username" name="username" type="text" placeholder="Enter your username" autocomplete="username" required aria-describedby="nl-modal-username-error" aria-required="true">' +
+              '<div class="nl-modal-field-error" id="nl-modal-username-error" role="alert" aria-live="polite">' +
+                '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
+                  '<circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>' +
+                  '<path d="M8 5v3.5M8 10.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
+                '</svg>' +
+                '<span class="nl-modal-error-text">Please enter your username.</span>' +
+              '</div>' +
+            '</div>' +
+
+            '<!-- Email -->' +
+            '<div class="nl-modal-field">' +
+              '<label class="nl-modal-label" for="nl-modal-email">' +
+                'Email address<span class="nl-modal-required" aria-label="required">*</span>' +
+              '</label>' +
+              '<input class="nl-modal-input" id="nl-modal-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required aria-describedby="nl-modal-email-error" aria-required="true">' +
+              '<div class="nl-modal-field-error" id="nl-modal-email-error" role="alert" aria-live="polite">' +
+                '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
+                  '<circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>' +
+                  '<path d="M8 5v3.5M8 10.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
+                '</svg>' +
+                '<span class="nl-modal-error-text">Please enter a valid email address.</span>' +
+              '</div>' +
+            '</div>' +
+
+            '<!-- Category (Multi-select chips - Maritime default) -->' +
+            '<div class="nl-modal-field">' +
+              '<label class="nl-modal-label" id="nl-modal-category-label">Category</label>' +
+              '<div class="nl-modal-chips-wrap" role="group" aria-labelledby="nl-modal-category-label">' +
+                '<button type="button" class="nl-modal-chip is-selected" role="checkbox" aria-checked="true" data-category="Maritime">' +
+                  '<svg class="nl-modal-chip-check" viewBox="0 0 15 15" fill="none" aria-hidden="true">' +
+                    '<path d="M3 7.5l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+                  '</svg>' +
+                  '<span>Maritime</span>' +
+                '</button>' +
+                '<button type="button" class="nl-modal-chip" role="checkbox" aria-checked="false" data-category="Cybersecurity">' +
+                  '<svg class="nl-modal-chip-check" viewBox="0 0 15 15" fill="none" aria-hidden="true">' +
+                    '<path d="M3 7.5l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+                  '</svg>' +
+                  '<span>Cybersecurity</span>' +
+                '</button>' +
+                '<button type="button" class="nl-modal-chip" role="checkbox" aria-checked="false" data-category="Finance">' +
+                  '<svg class="nl-modal-chip-check" viewBox="0 0 15 15" fill="none" aria-hidden="true">' +
+                    '<path d="M3 7.5l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+                  '</svg>' +
+                  '<span>Finance</span>' +
+                '</button>' +
+              '</div>' +
+              '<div class="nl-modal-field-error" id="nl-modal-category-error" role="alert" aria-live="polite">' +
+                '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
+                  '<circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>' +
+                  '<path d="M8 5v3.5M8 10.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
+                '</svg>' +
+                '<span class="nl-modal-error-text">Please select at least one category.</span>' +
+              '</div>' +
+            '</div>' +
+
+            '<!-- Submit Row -->' +
+            '<div class="nl-modal-submit-row">' +
+              '<button type="submit" class="nl-modal-submit-btn" id="nl-modal-submit-btn">' +
+                '<span>Subscribe to AI-Newsletter</span>&nbsp;&rarr;' +
+              '</button>' +
+              '<p class="nl-modal-submit-note">Your personalized brief will be delivered every morning.</p>' +
+            '</div>' +
+          '</form>' +
+        '</div>' +
+
+        '<!-- STEP 3: SUCCESS STATE -->' +
+        '<div class="nl-modal-view nl-modal-success" id="nl-modal-success-view" aria-live="polite" style="display:none;">' +
+          '<div class="nl-modal-success-icon" aria-hidden="true">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
+              '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>' +
+              '<polyline points="22 4 12 14.01 9 11.01"/>' +
+            '</svg>' +
+          '</div>' +
+          '<h2 class="nl-modal-success-h2">You’re subscribed</h2>' +
+          '<p class="nl-modal-success-sub">Your AI Maritime Brief subscription is confirmed. Your curated maritime intelligence will be delivered to your inbox.</p>' +
+          '<div class="nl-modal-summary-box">' +
+            '<div class="nl-modal-summary-row">' +
+              '<span class="nl-modal-summary-label">Username</span>' +
+              '<span class="nl-modal-summary-value" id="nl-modal-summary-username"></span>' +
+            '</div>' +
+            '<div class="nl-modal-summary-row">' +
+              '<span class="nl-modal-summary-label">Email</span>' +
+              '<span class="nl-modal-summary-value" id="nl-modal-summary-email"></span>' +
+            '</div>' +
+            '<div class="nl-modal-summary-row">' +
+              '<span class="nl-modal-summary-label">Category</span>' +
+              '<span class="nl-modal-summary-value" id="nl-modal-summary-category" style="color:var(--blue, #0057B8);font-weight:700;">Maritime</span>' +
+            '</div>' +
+          '</div>' +
+          '<button type="button" class="nl-modal-done-btn" id="nl-modal-done-btn">' +
+            'Back to MaritimeConnect 360' +
+            '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">' +
+              '<path d="M7 1.5l5.5 5.5-5.5 5.5M12.5 7H1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>' +
+            '</svg>' +
+          '</button>' +
+        '</div>' +
+      '</div>';
+
+    document.body.appendChild(backdrop);
+    bindModalEvents(backdrop);
+    return backdrop;
+  }
+
+  function bindModalEvents(backdrop) {
+    var dialog = backdrop.querySelector('.nl-modal-dialog');
+    var closeBtn = backdrop.querySelector('#nl-modal-close-btn');
+    var doneBtn = backdrop.querySelector('#nl-modal-done-btn');
+    var form = backdrop.querySelector('#nl-modal-step2-form');
+    var usernameInput = backdrop.querySelector('#nl-modal-username');
+    var emailInput = backdrop.querySelector('#nl-modal-email');
+    var usernameError = backdrop.querySelector('#nl-modal-username-error');
+    var emailError = backdrop.querySelector('#nl-modal-email-error');
+    var submitBtn = backdrop.querySelector('#nl-modal-submit-btn');
+    var catChips = backdrop.querySelectorAll('.nl-modal-chip');
+    var catError = backdrop.querySelector('#nl-modal-category-error');
+
+    // Multi-select category chips
+    catChips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var isSelected = chip.classList.toggle('is-selected');
+        chip.setAttribute('aria-checked', isSelected ? 'true' : 'false');
+        if (catError && isSelected) {
+          catError.classList.remove('is-visible');
+        }
+      });
+    });
+
+    // Close button click
+    closeBtn.addEventListener('click', function () {
+      closeNewsletterModal();
+    });
+
+    // Done button click (success state)
+    doneBtn.addEventListener('click', function () {
+      closeNewsletterModal();
+    });
+
+    // Backdrop click
+    backdrop.addEventListener('click', function (e) {
+      if (e.target === backdrop) {
+        if (!isModalSubmitted) {
+          // Prevent accidental outside-click dismissal while filling the form;
+          // provide tactile wiggle feedback
+          dialog.classList.remove('is-wiggling');
+          void dialog.offsetWidth;
+          dialog.classList.add('is-wiggling');
+        } else {
+          // On success state: outside click closes modal
+          closeNewsletterModal();
+        }
+      }
+    });
+
+    // Escape key closes modal in both states
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && backdrop.classList.contains('is-visible')) {
+        closeNewsletterModal();
+      }
+    });
+
+    // Focus trap inside modal
+    backdrop.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab') return;
+      var focusable = backdrop.querySelectorAll('button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])');
+      var visible = Array.prototype.filter.call(focusable, function (el) {
+        return el.offsetParent !== null;
+      });
+      if (visible.length === 0) return;
+
+      var firstEl = visible[0];
+      var lastEl = visible[visible.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstEl) {
+          e.preventDefault();
+          lastEl.focus();
+        }
+      } else {
+        if (document.activeElement === lastEl) {
+          e.preventDefault();
+          firstEl.focus();
+        }
+      }
+    });
+
+    // Clear error states on typing
+    usernameInput.addEventListener('input', function () {
+      usernameInput.classList.remove('is-error');
+      usernameError.classList.remove('is-visible');
+    });
+
+    emailInput.addEventListener('input', function () {
+      emailInput.classList.remove('is-error');
+      emailError.classList.remove('is-visible');
+    });
+
+    // Step 2 Form Submission
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var valid = true;
+
+      var username = usernameInput.value.trim();
+      var email = emailInput.value.trim();
+
+      // Validate Username
+      if (!username) {
+        usernameInput.classList.add('is-error');
+        usernameError.classList.add('is-visible');
+        valid = false;
+      } else {
+        usernameInput.classList.remove('is-error');
+        usernameError.classList.remove('is-visible');
+      }
+
+      // Validate Email
+      if (!email) {
+        emailError.querySelector('.nl-modal-error-text').textContent = 'Please enter your email address.';
+        emailInput.classList.add('is-error');
+        emailError.classList.add('is-visible');
+        valid = false;
+      } else if (!isValidEmail(email)) {
+        emailError.querySelector('.nl-modal-error-text').textContent = 'Please enter a valid email address.';
+        emailInput.classList.add('is-error');
+        emailError.classList.add('is-visible');
+        valid = false;
+      } else {
+        emailInput.classList.remove('is-error');
+        emailError.classList.remove('is-visible');
+      }
+
+      // Validate Categories (multi-select)
+      var selectedCategories = [];
+      catChips.forEach(function (chip) {
+        if (chip.classList.contains('is-selected')) {
+          selectedCategories.push(chip.getAttribute('data-category'));
+        }
+      });
+
+      if (selectedCategories.length === 0) {
+        if (catError) catError.classList.add('is-visible');
+        valid = false;
+      } else {
+        if (catError) catError.classList.remove('is-visible');
+      }
+
+      if (!valid) {
+        if (usernameInput.classList.contains('is-error')) {
+          usernameInput.focus();
+        } else if (emailInput.classList.contains('is-error')) {
+          emailInput.focus();
+        }
+        return;
+      }
+
+      // Show loading spinner
+      submitBtn.disabled = true;
+      submitBtn.innerHTML =
+        '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex-shrink:0;animation:sub-spin 0.8s linear infinite">' +
+          '<circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.35)" stroke-width="2.5"/>' +
+          '<path d="M12 2a10 10 0 0 1 10 10" stroke="white" stroke-width="2.5" stroke-linecap="round"/>' +
+        '</svg>' +
+        '<span>Confirming subscription…</span>';
+
+      // Simulate async processing (600ms)
+      setTimeout(function () {
+        isModalSubmitted = true;
+        var formView = backdrop.querySelector('#nl-modal-form-view');
+        var successView = backdrop.querySelector('#nl-modal-success-view');
+
+        backdrop.querySelector('#nl-modal-summary-username').textContent = username;
+        backdrop.querySelector('#nl-modal-summary-email').textContent = email;
+        var summaryCategory = backdrop.querySelector('#nl-modal-summary-category');
+        if (summaryCategory) summaryCategory.textContent = selectedCategories.join(', ');
+
+        formView.style.display = 'none';
+        successView.style.display = 'flex';
+        successView.classList.add('is-visible');
+
+        // Reset submit button text for potential re-use
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span>Subscribe to AI-Newsletter</span>&nbsp;&rarr;';
+
+        // Clear triggering input on the page
+        if (activeTriggerForm) {
+          var triggerInput = activeTriggerForm.querySelector('input[type="email"]');
+          if (triggerInput) triggerInput.value = '';
+        }
+
+        // Focus close button for accessibility
+        closeBtn.focus();
+      }, 600);
+    });
+  }
+
+  function openNewsletterModal(email, triggerForm) {
+    if (!modalEl) {
+      modalEl = createModal();
+    }
+
+    lastActiveElement = document.activeElement;
+    activeTriggerForm = triggerForm;
+    isModalSubmitted = false;
+
+    var formView = modalEl.querySelector('#nl-modal-form-view');
+    var successView = modalEl.querySelector('#nl-modal-success-view');
+    var usernameInput = modalEl.querySelector('#nl-modal-username');
+    var emailInput = modalEl.querySelector('#nl-modal-email');
+    var usernameError = modalEl.querySelector('#nl-modal-username-error');
+    var emailError = modalEl.querySelector('#nl-modal-email-error');
+    var submitBtn = modalEl.querySelector('#nl-modal-submit-btn');
+    var catChips = modalEl.querySelectorAll('.nl-modal-chip');
+    var catError = modalEl.querySelector('#nl-modal-category-error');
+
+    // Show form view, hide success view
+    formView.style.display = 'block';
+    successView.style.display = 'none';
+    successView.classList.remove('is-visible');
+
+    // Reset inputs and errors
+    usernameInput.value = '';
+    usernameInput.classList.remove('is-error');
+    usernameError.classList.remove('is-visible');
+
+    emailInput.value = email || '';
+    emailInput.classList.remove('is-error');
+    emailError.classList.remove('is-visible');
+
+    // Reset categories: Maritime selected by default, others deselected
+    catChips.forEach(function (chip) {
+      var isMaritime = chip.getAttribute('data-category') === 'Maritime';
+      chip.classList.toggle('is-selected', isMaritime);
+      chip.setAttribute('aria-checked', isMaritime ? 'true' : 'false');
+    });
+    if (catError) catError.classList.remove('is-visible');
+
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = '<span>Subscribe to AI-Newsletter</span>&nbsp;&rarr;';
+
+    // Show modal & prevent background scroll
+    modalEl.classList.add('is-visible');
+    document.body.classList.add('nl-modal-open');
+
+    // Auto-focus username input
+    setTimeout(function () {
+      if (usernameInput) usernameInput.focus();
+    }, 60);
+  }
+
+  function closeNewsletterModal() {
+    if (!modalEl) return;
+    modalEl.classList.remove('is-visible');
+    document.body.classList.remove('nl-modal-open');
+
+    // Restore focus to triggering element
+    if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
+      try { lastActiveElement.focus(); } catch (err) {}
+    }
+  }
+
   /**
-   * Wire up a single newsletter subscription form.
+   * Wire up a newsletter subscription form.
    */
   function wireHeroForm(form) {
     var input = form.querySelector('input[type="email"]');
@@ -994,16 +1370,16 @@ if (document.readyState === 'loading') {
         return;
       }
 
-      // Valid — save and navigate
+      // Valid email -> open in-page modal
       clearFormError(form);
       sessionStorage.setItem('newsletterEmail', email);
-      window.location.href = getSubscribeUrl();
+      openNewsletterModal(email, form);
     });
   }
 
   // Wire all newsletter forms found on the page
   function initHeroForms() {
-    document.querySelectorAll('.nlp-hero-form, .nl-cta-form').forEach(wireHeroForm);
+    document.querySelectorAll('.nlp-hero-form, .nl-cta-form, .mb-subscribe-form').forEach(wireHeroForm);
   }
 
   if (document.readyState === 'loading') {
