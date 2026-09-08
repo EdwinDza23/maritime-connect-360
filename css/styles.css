@@ -9727,7 +9727,7 @@ ul {
 .nlp-pin-card {
   --rot: 0deg;
   --tint-bg: #EDF6FF;
-  --icon-bg: #DBEAFE;
+  --icon-bg: #BFDBFE;
   --icon-color: #0284C7;
 
   position: relative;
@@ -9795,7 +9795,7 @@ ul {
 /* Blue */
 .nlp-pin-card--blue {
   --tint-bg: #EDF6FF;
-  --icon-bg: #DBEAFE;
+  --icon-bg: #BFDBFE;
   --icon-color: #0284C7;
 }
 
@@ -9819,7 +9819,7 @@ ul {
 /* Green */
 .nlp-pin-card--green {
   --tint-bg: #EDFAF1;
-  --icon-bg: #DCFCE7;
+  --icon-bg: #BBF7D0;
   --icon-color: #059669;
 }
 
@@ -9843,7 +9843,7 @@ ul {
 /* Amber */
 .nlp-pin-card--amber {
   --tint-bg: #FEF7EB;
-  --icon-bg: #FEF3C7;
+  --icon-bg: #FDE68A;
   --icon-color: #D97706;
 }
 
@@ -9867,7 +9867,7 @@ ul {
 /* Purple */
 .nlp-pin-card--purple {
   --tint-bg: #F4F0FF;
-  --icon-bg: #EDE9FE;
+  --icon-bg: #DDD6FE;
   --icon-color: #7C3AED;
 }
 
@@ -9891,7 +9891,7 @@ ul {
 /* Rose */
 .nlp-pin-card--rose {
   --tint-bg: #FDF1F3;
-  --icon-bg: #FFE4E6;
+  --icon-bg: #FECDD3;
   --icon-color: #E11D48;
 }
 
