@@ -957,128 +957,128 @@ if (document.readyState === 'loading') {
 
     backdrop.innerHTML =
       '<div class="nl-modal-dialog" role="document">' +
-        '<button type="button" class="nl-modal-close-btn" id="nl-modal-close-btn" aria-label="Close dialog">' +
-          '<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-            '<line x1="3" y1="3" x2="13" y2="13"></line>' +
-            '<line x1="13" y1="3" x2="3" y2="13"></line>' +
-          '</svg>' +
-        '</button>' +
+      '<button type="button" class="nl-modal-close-btn" id="nl-modal-close-btn" aria-label="Close dialog">' +
+      '<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<line x1="3" y1="3" x2="13" y2="13"></line>' +
+      '<line x1="13" y1="3" x2="3" y2="13"></line>' +
+      '</svg>' +
+      '</button>' +
 
-        '<!-- STEP 2: SUBSCRIPTION FORM -->' +
-        '<div class="nl-modal-view nl-modal-form-view" id="nl-modal-form-view">' +
-          '<div class="nl-modal-header">' +
-            '<div class="nl-modal-eyebrow">' +
-              '<span class="nl-modal-eyebrow-dot" aria-hidden="true"></span>' +
-              'AI-Powered Newsletter' +
-            '</div>' +
-            '<h2 class="nl-modal-title" id="nl-modal-title">Complete your subscription</h2>' +
-            '<p class="nl-modal-sub" id="nl-modal-sub">Personalize your daily AI Maritime Brief delivered to your inbox.</p>' +
-          '</div>' +
+      '<!-- STEP 2: SUBSCRIPTION FORM -->' +
+      '<div class="nl-modal-view nl-modal-form-view" id="nl-modal-form-view">' +
+      '<div class="nl-modal-header">' +
+      '<div class="nl-modal-eyebrow">' +
+      '<span class="nl-modal-eyebrow-dot" aria-hidden="true"></span>' +
+      'AI-Powered Newsletter' +
+      '</div>' +
+      '<h2 class="nl-modal-title" id="nl-modal-title">Complete your subscription</h2>' +
+      '<p class="nl-modal-sub" id="nl-modal-sub">Personalize your daily AI Maritime Brief delivered to your inbox.</p>' +
+      '</div>' +
 
-          '<form id="nl-modal-step2-form" class="nl-modal-form" novalidate aria-label="Subscription details">' +
-            '<!-- Username -->' +
-            '<div class="nl-modal-field">' +
-              '<label class="nl-modal-label" for="nl-modal-username">' +
-                'Username<span class="nl-modal-required" aria-label="required">*</span>' +
-              '</label>' +
-              '<input class="nl-modal-input" id="nl-modal-username" name="username" type="text" placeholder="Enter your username" autocomplete="username" required aria-describedby="nl-modal-username-error" aria-required="true">' +
-              '<div class="nl-modal-field-error" id="nl-modal-username-error" role="alert" aria-live="polite">' +
-                '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
-                  '<circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>' +
-                  '<path d="M8 5v3.5M8 10.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
-                '</svg>' +
-                '<span class="nl-modal-error-text">Please enter your username.</span>' +
-              '</div>' +
-            '</div>' +
+      '<form id="nl-modal-step2-form" class="nl-modal-form" novalidate aria-label="Subscription details">' +
+      '<!-- Username -->' +
+      '<div class="nl-modal-field">' +
+      '<label class="nl-modal-label" for="nl-modal-username">' +
+      'Username<span class="nl-modal-required" aria-label="required">*</span>' +
+      '</label>' +
+      '<input class="nl-modal-input" id="nl-modal-username" name="username" type="text" placeholder="Enter your username" autocomplete="username" required aria-describedby="nl-modal-username-error" aria-required="true">' +
+      '<div class="nl-modal-field-error" id="nl-modal-username-error" role="alert" aria-live="polite">' +
+      '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
+      '<circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>' +
+      '<path d="M8 5v3.5M8 10.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
+      '</svg>' +
+      '<span class="nl-modal-error-text">Please enter your username.</span>' +
+      '</div>' +
+      '</div>' +
 
-            '<!-- Email -->' +
-            '<div class="nl-modal-field">' +
-              '<label class="nl-modal-label" for="nl-modal-email">' +
-                'Email address<span class="nl-modal-required" aria-label="required">*</span>' +
-              '</label>' +
-              '<input class="nl-modal-input" id="nl-modal-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required aria-describedby="nl-modal-email-error" aria-required="true">' +
-              '<div class="nl-modal-field-error" id="nl-modal-email-error" role="alert" aria-live="polite">' +
-                '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
-                  '<circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>' +
-                  '<path d="M8 5v3.5M8 10.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
-                '</svg>' +
-                '<span class="nl-modal-error-text">Please enter a valid email address.</span>' +
-              '</div>' +
-            '</div>' +
+      '<!-- Email -->' +
+      '<div class="nl-modal-field">' +
+      '<label class="nl-modal-label" for="nl-modal-email">' +
+      'Email address<span class="nl-modal-required" aria-label="required">*</span>' +
+      '</label>' +
+      '<input class="nl-modal-input" id="nl-modal-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required aria-describedby="nl-modal-email-error" aria-required="true">' +
+      '<div class="nl-modal-field-error" id="nl-modal-email-error" role="alert" aria-live="polite">' +
+      '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
+      '<circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>' +
+      '<path d="M8 5v3.5M8 10.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
+      '</svg>' +
+      '<span class="nl-modal-error-text">Please enter a valid email address.</span>' +
+      '</div>' +
+      '</div>' +
 
-            '<!-- Category (Multi-select chips - Maritime default) -->' +
-            '<div class="nl-modal-field">' +
-              '<label class="nl-modal-label" id="nl-modal-category-label">Category</label>' +
-              '<div class="nl-modal-chips-wrap" role="group" aria-labelledby="nl-modal-category-label">' +
-                '<button type="button" class="nl-modal-chip is-selected" role="checkbox" aria-checked="true" data-category="Maritime">' +
-                  '<svg class="nl-modal-chip-check" viewBox="0 0 15 15" fill="none" aria-hidden="true">' +
-                    '<path d="M3 7.5l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
-                  '</svg>' +
-                  '<span>Maritime</span>' +
-                '</button>' +
-                '<button type="button" class="nl-modal-chip" role="checkbox" aria-checked="false" data-category="Cybersecurity">' +
-                  '<svg class="nl-modal-chip-check" viewBox="0 0 15 15" fill="none" aria-hidden="true">' +
-                    '<path d="M3 7.5l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
-                  '</svg>' +
-                  '<span>Cybersecurity</span>' +
-                '</button>' +
-                '<button type="button" class="nl-modal-chip" role="checkbox" aria-checked="false" data-category="Finance">' +
-                  '<svg class="nl-modal-chip-check" viewBox="0 0 15 15" fill="none" aria-hidden="true">' +
-                    '<path d="M3 7.5l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
-                  '</svg>' +
-                  '<span>Finance</span>' +
-                '</button>' +
-              '</div>' +
-              '<div class="nl-modal-field-error" id="nl-modal-category-error" role="alert" aria-live="polite">' +
-                '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
-                  '<circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>' +
-                  '<path d="M8 5v3.5M8 10.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
-                '</svg>' +
-                '<span class="nl-modal-error-text">Please select at least one category.</span>' +
-              '</div>' +
-            '</div>' +
+      '<!-- Category (Multi-select chips - Maritime default) -->' +
+      '<div class="nl-modal-field">' +
+      '<label class="nl-modal-label" id="nl-modal-category-label">Category</label>' +
+      '<div class="nl-modal-chips-wrap" role="group" aria-labelledby="nl-modal-category-label">' +
+      '<button type="button" class="nl-modal-chip is-selected" role="checkbox" aria-checked="true" data-category="Maritime">' +
+      '<svg class="nl-modal-chip-check" viewBox="0 0 15 15" fill="none" aria-hidden="true">' +
+      '<path d="M3 7.5l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+      '</svg>' +
+      '<span>Maritime</span>' +
+      '</button>' +
+      '<button type="button" class="nl-modal-chip" role="checkbox" aria-checked="false" data-category="Cybersecurity">' +
+      '<svg class="nl-modal-chip-check" viewBox="0 0 15 15" fill="none" aria-hidden="true">' +
+      '<path d="M3 7.5l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+      '</svg>' +
+      '<span>Cybersecurity</span>' +
+      '</button>' +
+      '<button type="button" class="nl-modal-chip" role="checkbox" aria-checked="false" data-category="Finance">' +
+      '<svg class="nl-modal-chip-check" viewBox="0 0 15 15" fill="none" aria-hidden="true">' +
+      '<path d="M3 7.5l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+      '</svg>' +
+      '<span>Finance</span>' +
+      '</button>' +
+      '</div>' +
+      '<div class="nl-modal-field-error" id="nl-modal-category-error" role="alert" aria-live="polite">' +
+      '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
+      '<circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>' +
+      '<path d="M8 5v3.5M8 10.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
+      '</svg>' +
+      '<span class="nl-modal-error-text">Please select at least one category.</span>' +
+      '</div>' +
+      '</div>' +
 
-            '<!-- Submit Row -->' +
-            '<div class="nl-modal-submit-row">' +
-              '<button type="submit" class="nl-modal-submit-btn" id="nl-modal-submit-btn">' +
-                '<span>Subscribe to AI-Newsletter</span>&nbsp;&rarr;' +
-              '</button>' +
-              '<p class="nl-modal-submit-note">Your personalized brief will be delivered every morning.</p>' +
-            '</div>' +
-          '</form>' +
-        '</div>' +
+      '<!-- Submit Row -->' +
+      '<div class="nl-modal-submit-row">' +
+      '<button type="submit" class="nl-modal-submit-btn" id="nl-modal-submit-btn">' +
+      '<span>Subscribe to AI-Newsletter</span>&nbsp;&rarr;' +
+      '</button>' +
+      '<p class="nl-modal-submit-note">Your personalized brief will be delivered every morning.</p>' +
+      '</div>' +
+      '</form>' +
+      '</div>' +
 
-        '<!-- STEP 3: SUCCESS STATE -->' +
-        '<div class="nl-modal-view nl-modal-success" id="nl-modal-success-view" aria-live="polite" style="display:none;">' +
-          '<div class="nl-modal-success-icon" aria-hidden="true">' +
-            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
-              '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>' +
-              '<polyline points="22 4 12 14.01 9 11.01"/>' +
-            '</svg>' +
-          '</div>' +
-          '<h2 class="nl-modal-success-h2">You’re subscribed</h2>' +
-          '<p class="nl-modal-success-sub">Your AI Maritime Brief subscription is confirmed. Your curated maritime intelligence will be delivered to your inbox.</p>' +
-          '<div class="nl-modal-summary-box">' +
-            '<div class="nl-modal-summary-row">' +
-              '<span class="nl-modal-summary-label">Username</span>' +
-              '<span class="nl-modal-summary-value" id="nl-modal-summary-username"></span>' +
-            '</div>' +
-            '<div class="nl-modal-summary-row">' +
-              '<span class="nl-modal-summary-label">Email</span>' +
-              '<span class="nl-modal-summary-value" id="nl-modal-summary-email"></span>' +
-            '</div>' +
-            '<div class="nl-modal-summary-row">' +
-              '<span class="nl-modal-summary-label">Category</span>' +
-              '<span class="nl-modal-summary-value" id="nl-modal-summary-category" style="color:var(--blue, #0057B8);font-weight:700;">Maritime</span>' +
-            '</div>' +
-          '</div>' +
-          '<button type="button" class="nl-modal-done-btn" id="nl-modal-done-btn">' +
-            'Back to MaritimeConnect 360' +
-            '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">' +
-              '<path d="M7 1.5l5.5 5.5-5.5 5.5M12.5 7H1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>' +
-            '</svg>' +
-          '</button>' +
-        '</div>' +
+      '<!-- STEP 3: SUCCESS STATE -->' +
+      '<div class="nl-modal-view nl-modal-success" id="nl-modal-success-view" aria-live="polite" style="display:none;">' +
+      '<div class="nl-modal-success-icon" aria-hidden="true">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
+      '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>' +
+      '<polyline points="22 4 12 14.01 9 11.01"/>' +
+      '</svg>' +
+      '</div>' +
+      '<h2 class="nl-modal-success-h2">You’re subscribed</h2>' +
+      '<p class="nl-modal-success-sub">Your AI Maritime Brief subscription is confirmed. Your curated maritime intelligence will be delivered to your inbox.</p>' +
+      '<div class="nl-modal-summary-box">' +
+      '<div class="nl-modal-summary-row">' +
+      '<span class="nl-modal-summary-label">Username</span>' +
+      '<span class="nl-modal-summary-value" id="nl-modal-summary-username"></span>' +
+      '</div>' +
+      '<div class="nl-modal-summary-row">' +
+      '<span class="nl-modal-summary-label">Email</span>' +
+      '<span class="nl-modal-summary-value" id="nl-modal-summary-email"></span>' +
+      '</div>' +
+      '<div class="nl-modal-summary-row">' +
+      '<span class="nl-modal-summary-label">Category</span>' +
+      '<span class="nl-modal-summary-value" id="nl-modal-summary-category" style="color:var(--blue, #0057B8);font-weight:700;">Maritime</span>' +
+      '</div>' +
+      '</div>' +
+      '<button type="button" class="nl-modal-done-btn" id="nl-modal-done-btn">' +
+      'Back to MaritimeConnect 360' +
+      '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">' +
+      '<path d="M7 1.5l5.5 5.5-5.5 5.5M12.5 7H1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>' +
+      '</svg>' +
+      '</button>' +
+      '</div>' +
       '</div>';
 
     document.body.appendChild(backdrop);
@@ -1241,8 +1241,8 @@ if (document.readyState === 'loading') {
       submitBtn.disabled = true;
       submitBtn.innerHTML =
         '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex-shrink:0;animation:sub-spin 0.8s linear infinite">' +
-          '<circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.35)" stroke-width="2.5"/>' +
-          '<path d="M12 2a10 10 0 0 1 10 10" stroke="white" stroke-width="2.5" stroke-linecap="round"/>' +
+        '<circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.35)" stroke-width="2.5"/>' +
+        '<path d="M12 2a10 10 0 0 1 10 10" stroke="white" stroke-width="2.5" stroke-linecap="round"/>' +
         '</svg>' +
         '<span>Confirming subscription…</span>';
 
@@ -1338,7 +1338,7 @@ if (document.readyState === 'loading') {
 
     // Restore focus to triggering element
     if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
-      try { lastActiveElement.focus(); } catch (err) {}
+      try { lastActiveElement.focus(); } catch (err) { }
     }
   }
 
@@ -1785,5 +1785,242 @@ if (document.readyState === 'loading') {
     initMaritimeBrief();
   }
 })();
+
+/* ==========================================================================
+   MODERN APPLICATION-WIDE TOOLTIP ENGINE (.mc-tooltip)
+   - Universal support for [data-tooltip], [title], and .logo-item
+   - Auto-replaces native browser title tooltips to suppress browser UI
+   - Smart viewport collision detection, caret alignment, and smooth spring animation
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  function initModernTooltips() {
+    if (document.getElementById('mc-global-tooltip')) return;
+
+    const tooltip = document.createElement('div');
+    tooltip.className = 'mc-tooltip';
+    tooltip.id = 'mc-global-tooltip';
+    tooltip.setAttribute('role', 'tooltip');
+    tooltip.setAttribute('aria-hidden', 'true');
+
+    const contentEl = document.createElement('span');
+    contentEl.className = 'mc-tooltip-content';
+
+    const caretEl = document.createElement('span');
+    caretEl.className = 'mc-tooltip-caret';
+    caretEl.setAttribute('aria-hidden', 'true');
+
+    tooltip.appendChild(contentEl);
+    tooltip.appendChild(caretEl);
+    document.body.appendChild(tooltip);
+
+    let activeTarget = null;
+    let showTimer = null;
+    let hideTimer = null;
+
+    function getTargetData(el) {
+      if (!el || el.nodeType !== Node.ELEMENT_NODE) return null;
+
+      // 1. Direct [data-tooltip]
+      if (el.hasAttribute('data-tooltip')) {
+        return {
+          text: el.getAttribute('data-tooltip').trim(),
+          pos: el.getAttribute('data-tooltip-pos') || 'top',
+          badge: el.getAttribute('data-tooltip-badge') || null,
+          icon: el.getAttribute('data-tooltip-icon') || null
+        };
+      }
+
+      // 2. Logo item with .logo-tooltip inside
+      if (el.classList.contains('logo-item')) {
+        const span = el.querySelector('.logo-tooltip');
+        if (span && span.textContent.trim()) {
+          return {
+            text: span.textContent.trim(),
+            pos: el.getAttribute('data-tooltip-pos') || 'top',
+            badge: null,
+            icon: null
+          };
+        }
+      }
+
+      // 3. Elements with [title]
+      if (el.hasAttribute('title')) {
+        const titleText = el.getAttribute('title').trim();
+        if (titleText) {
+          // Suppress native browser tooltip but retain for screen readers
+          el.setAttribute('data-tooltip', titleText);
+          if (!el.hasAttribute('aria-label')) {
+            el.setAttribute('aria-label', titleText);
+          }
+          el.removeAttribute('title');
+          return {
+            text: titleText,
+            pos: el.getAttribute('data-tooltip-pos') || 'top',
+            badge: null,
+            icon: null
+          };
+        }
+      }
+
+      return null;
+    }
+
+    function positionTooltip(target, preferredPos) {
+      const rect = target.getBoundingClientRect();
+      const GAP = 8;
+
+      tooltip.style.top = '-9999px';
+      tooltip.style.left = '-9999px';
+      tooltip.removeAttribute('data-pos');
+
+      const pw = tooltip.offsetWidth;
+      const ph = tooltip.offsetHeight;
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+
+      let pos = preferredPos;
+      let left = 0;
+      let top = 0;
+
+      // Determine ideal placement with boundary collision checks
+      if (pos === 'top' && rect.top - ph - GAP < 8) {
+        pos = 'bottom';
+      } else if (pos === 'bottom' && rect.bottom + ph + GAP > vh - 8) {
+        pos = 'top';
+      } else if (pos === 'left' && rect.left - pw - GAP < 8) {
+        pos = 'right';
+      } else if (pos === 'right' && rect.right + pw + GAP > vw - 8) {
+        pos = 'left';
+      }
+
+      if (pos === 'top') {
+        top = rect.top - ph - GAP;
+        left = rect.left + (rect.width - pw) / 2;
+      } else if (pos === 'bottom') {
+        top = rect.bottom + GAP;
+        left = rect.left + (rect.width - pw) / 2;
+      } else if (pos === 'left') {
+        left = rect.left - pw - GAP;
+        top = rect.top + (rect.height - ph) / 2;
+      } else if (pos === 'right') {
+        left = rect.right + GAP;
+        top = rect.top + (rect.height - ph) / 2;
+      }
+
+      // Clamp coordinates to stay visible in viewport
+      left = Math.max(10, Math.min(left, vw - pw - 10));
+      top = Math.max(8, Math.min(top, vh - ph - 8));
+
+      // Calculate caret position pointing to the target center
+      if (pos === 'top' || pos === 'bottom') {
+        const caretX = rect.left + rect.width / 2 - left;
+        const clampedCaretX = Math.max(12, Math.min(caretX, pw - 12));
+        tooltip.style.setProperty('--caret-x', clampedCaretX + 'px');
+      } else {
+        const caretY = rect.top + rect.height / 2 - top;
+        const clampedCaretY = Math.max(12, Math.min(caretY, ph - 12));
+        tooltip.style.setProperty('--caret-y', clampedCaretY + 'px');
+      }
+
+      tooltip.setAttribute('data-pos', pos);
+      tooltip.style.top = top + 'px';
+      tooltip.style.left = left + 'px';
+    }
+
+    function show(target) {
+      const data = getTargetData(target);
+      if (!data || !data.text) return;
+
+      clearTimeout(hideTimer);
+      clearTimeout(showTimer);
+
+      showTimer = setTimeout(function () {
+        activeTarget = target;
+
+        // Build content (supports optional icon and badge)
+        let html = '';
+        if (data.icon) {
+          html += '<span class="mc-tooltip-icon" aria-hidden="true">' + data.icon + '</span> ';
+        }
+        html += '<span>' + data.text + '</span>';
+        if (data.badge) {
+          html += ' <span class="mc-tooltip-badge">' + data.badge + '</span>';
+        }
+
+        contentEl.innerHTML = html;
+        tooltip.setAttribute('aria-hidden', 'false');
+
+        requestAnimationFrame(function () {
+          positionTooltip(target, data.pos);
+          tooltip.classList.add('is-visible');
+        });
+      }, 40);
+    }
+
+    function hide() {
+      clearTimeout(showTimer);
+      clearTimeout(hideTimer);
+
+      if (!activeTarget) return;
+
+      tooltip.classList.remove('is-visible');
+      tooltip.setAttribute('aria-hidden', 'true');
+      hideTimer = setTimeout(function () {
+        tooltip.style.top = '-9999px';
+        tooltip.style.left = '-9999px';
+        activeTarget = null;
+      }, 160);
+    }
+
+    // Event delegation on document
+    document.addEventListener('mouseover', function (e) {
+      const el = e.target.closest('[data-tooltip], [title], .logo-item');
+      if (el) {
+        if (el !== activeTarget) show(el);
+      } else if (activeTarget) {
+        hide();
+      }
+    });
+
+    document.addEventListener('mouseout', function (e) {
+      if (activeTarget && (!e.relatedTarget || !activeTarget.contains(e.relatedTarget))) {
+        hide();
+      }
+    });
+
+    // Keyboard accessibility
+    document.addEventListener('focusin', function (e) {
+      const el = e.target.closest('[data-tooltip], [title], .logo-item');
+      if (el) show(el);
+    });
+
+    document.addEventListener('focusout', function () {
+      hide();
+    });
+
+    // Dismiss on scroll or escape key
+    window.addEventListener('scroll', hide, { passive: true });
+    window.addEventListener('resize', hide, { passive: true });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') hide();
+    });
+
+    // Dismiss immediately on touch outside
+    document.addEventListener('touchstart', function (e) {
+      if (activeTarget && !activeTarget.contains(e.target)) {
+        hide();
+      }
+    }, { passive: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initModernTooltips);
+  } else {
+    initModernTooltips();
+  }
+})();
+
 
 

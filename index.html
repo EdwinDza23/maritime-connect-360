@@ -278,20 +278,24 @@
       </div>
 
       <!-- Floating Data Buoys -->
-      <div class="hero-buoy buoy-1" aria-hidden="true">
-        <div class="buoy-card">
+      <div class="hero-buoy buoy-1">
+        <div class="buoy-card" tabindex="0" role="status" aria-label="24 Vessels Active"
+          data-tooltip="Live AIS Fleet Telemetry — 24 vessels active across key corridors" data-tooltip-pos="top">
           <span class="buoy-dot" style="background:#22c55e"></span>
           24 Vessels Active
         </div>
       </div>
-      <div class="hero-buoy buoy-2" aria-hidden="true">
-        <div class="buoy-card">
+      <div class="hero-buoy buoy-2">
+        <div class="buoy-card" tabindex="0" role="status" aria-label="98.2% Compliance"
+          data-tooltip="Fleet Compliance Index — Verified against IMO & Flag State rules" data-tooltip-pos="top">
           <span class="buoy-dot" style="background:#0057B8"></span>
           98.2% Compliance
         </div>
       </div>
-      <div class="hero-buoy buoy-3" aria-hidden="true">
-        <div class="buoy-card">
+      <div class="hero-buoy buoy-3">
+        <div class="buoy-card" tabindex="0" role="status" aria-label="AI Monitoring Live"
+          data-tooltip="Continuous AI Surveillance — Automated anomaly & sanctions detection" data-tooltip-icon="✦"
+          data-tooltip-pos="top">
           <span class="buoy-dot" style="background:#00B4D8"></span>
           AI Monitoring Live
         </div>
@@ -450,7 +454,8 @@
         <!-- Inner orbit — Chip A (Inspections) at top, rotates CW -->
         <div class="orb-path orb-path-1-a">
           <div class="orb-arm">
-            <div class="orb-chip" title="Vessel Inspections">
+            <div class="orb-chip" tabindex="0" role="link" aria-label="Vessel Inspections"
+              data-tooltip="Vessel Inspections (VIS) — End-to-end digital auditing" data-tooltip-pos="top">
               <div class="orb-chip-icon">
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
                   <rect width="30" height="30" rx="8" fill="#EEF4FF" />
@@ -470,7 +475,8 @@
         <!-- Inner orbit — Chip B (BQS) at bottom (180° offset) -->
         <div class="orb-path orb-path-1-b">
           <div class="orb-arm">
-            <div class="orb-chip" title="Bunker Quality Survey">
+            <div class="orb-chip" tabindex="0" role="link" aria-label="Bunker Quality Survey"
+              data-tooltip="Bunker Quality Survey (BQS) — Fuel quality assurance & testing" data-tooltip-pos="top">
               <div class="orb-chip-icon">
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
                   <rect width="30" height="30" rx="8" fill="#FFF7ED" />
@@ -491,7 +497,8 @@
         <!-- Outer orbit — Chip A (Sanctions) at top, rotates CCW -->
         <div class="orb-path orb-path-2-a">
           <div class="orb-arm">
-            <div class="orb-chip" title="Sanctions Compliance">
+            <div class="orb-chip" tabindex="0" role="link" aria-label="Sanctions Compliance"
+              data-tooltip="Sanctions Compliance — Global automated sanctions screening" data-tooltip-pos="top">
               <div class="orb-chip-icon">
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
                   <rect width="30" height="30" rx="8" fill="#EEF4FF" />
@@ -508,8 +515,9 @@
         <!-- Outer orbit — Chip C (AI-powered Newsletter) at right (90° offset) -->
         <div class="orb-path orb-path-2-c">
           <div class="orb-arm">
-            <a href="products/maritime-newsletter/index.html" class="orb-chip" title="AI-powered Newsletter"
-              aria-label="AI-powered Newsletter" style="cursor:pointer; text-decoration:none">
+            <a href="products/maritime-newsletter/index.html" class="orb-chip"
+              data-tooltip="AI-powered Newsletter — Weekly curated maritime intelligence" data-tooltip-icon="✦"
+              data-tooltip-pos="left" aria-label="AI-powered Newsletter" style="cursor:pointer; text-decoration:none">
               <div class="orb-chip-icon">
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
                   <rect width="30" height="30" rx="8" fill="#E0F2FE" />
@@ -525,9 +533,9 @@
         <!-- Outer orbit — Chip B (VCS) at bottom (180° offset) -->
         <div class="orb-path orb-path-2-b">
           <div class="orb-arm">
-            <div class="orb-chip" title="Vessel Condition Survey"
-              onclick="window.location.href='products/vcs/index.html'" style="cursor:pointer" tabindex="0" role="link"
-              aria-label="Vessel Condition Survey"
+            <div class="orb-chip" data-tooltip="Vessel Condition Survey (VCS) — Standardized condition reporting"
+              data-tooltip-pos="top" onclick="window.location.href='products/vcs/index.html'" style="cursor:pointer"
+              tabindex="0" role="link" aria-label="Vessel Condition Survey"
               onkeydown="if(event.key==='Enter'){window.location.href='products/vcs/index.html'}">
               <div class="orb-chip-icon">
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
@@ -552,36 +560,169 @@
            - Smooth scroll to #newsletter-cta
            ────────────────────────────────────────────────────────────────── -->
       <div class="brief-teaser" id="brief-teaser" role="region" aria-label="AI-powered Newsletter">
+        <!-- Subtle periodic glossy sheen sweep overlay -->
+        <div class="brief-gloss-shimmer" aria-hidden="true"></div>
+
         <!-- Close / Minimize 'X' Button -->
-        <button type="button" class="brief-t-close" id="brief-close-btn" aria-label="Minimize AI-powered Newsletter card" title="Minimize card">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <button type="button" class="brief-t-close" id="brief-close-btn"
+          aria-label="Minimize AI-powered Newsletter card" data-tooltip="Minimize newsletter card"
+          data-tooltip-pos="bottom">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
 
-        <a href="#newsletter-cta" class="brief-t-link" id="brief-cta-link"
-          aria-label="AI-powered Newsletter — read this week's AI-curated maritime intelligence">
-          <div class="brief-t-label">
-            <span aria-hidden="true">✦</span>
-            <span>AI-powered Newsletter</span>
+        <div class="brief-teaser-body">
+          <!-- Top Row: Eyebrow Badge, Headline, Subtitle & Mini 3D Preview Art -->
+          <div class="brief-top-row">
+            <div class="brief-header-text">
+              <div class="brief-t-badge" id="brief-cta-link" role="link" tabindex="0"
+                title="Explore AI-Powered Newsletter" style="cursor:pointer">
+                <span class="brief-badge-spark" aria-hidden="true">✦</span>
+                <span>AI-powered Newsletter</span>
+              </div>
+              <h2 class="brief-t-headline">Stay ahead in a connected world.</h2>
+              <p class="brief-t-desc">
+                AI-curated intelligence across <strong>Maritime</strong>, <strong>Cybersecurity</strong> and
+                <strong>Finance</strong> — delivered to your inbox.
+              </p>
+            </div>
+
+            <!-- Mini 3D Envelope + Newsletter Teaser Art -->
+            <div class="brief-teaser-art" aria-hidden="true">
+              <div class="brief-art-glow"></div>
+              <!-- Decorative contour lines in background -->
+              <svg class="brief-art-contours" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 70 Q 50 10, 100 25" stroke="rgba(0, 140, 255, 0.20)" stroke-width="1" />
+                <path d="M0 50 Q 60 0, 100 10" stroke="rgba(0, 140, 255, 0.14)" stroke-width="1" />
+              </svg>
+              <div class="brief-art-envelope">
+                <div class="brief-art-card">
+                  <div class="brief-art-card-top">
+                    <img src="assets/logos/MC360logo.png" alt="" class="brief-art-logo">
+                    <span class="brief-art-freq">Weekly Brief</span>
+                  </div>
+                  <div class="brief-art-card-img">
+                    <img src="assets/images/maritime.jpg" alt="" class="brief-art-ship-photo" loading="lazy">
+                  </div>
+                  <div class="brief-art-lines">
+                    <span class="brief-art-line l1"></span>
+                    <span class="brief-art-line l2"></span>
+                  </div>
+                </div>
+                <!-- 3D Glossy AI Badge -->
+                <div class="brief-art-ai-badge">
+                  <span class="brief-ai-spark">✦</span>
+                  <span class="brief-ai-text">AI</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <p class="brief-t-headline">What's changing across maritime?</p>
-          <p class="brief-t-desc">AI-curated intelligence across regulations, compliance, vessels and the maritime
-            industry.</p>
-          <span class="brief-t-cta">Read this week's brief →</span>
-        </a>
+
+          <!-- Cohesive 3-Category Dock: Maritime, Cybersecurity, Finance (EQUAL WEIGHT) -->
+          <div class="brief-categories-dock" role="list" aria-label="Curated Categories">
+            <!-- 01 Maritime -->
+            <div class="brief-cat-col" role="listitem">
+              <div class="brief-cat-icon-wrap cat-maritime">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M2 20a2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1" />
+                  <path d="M4 18 3 13h18l-1 5" />
+                  <path d="M12 4v9" />
+                  <path d="M8 8h8" />
+                </svg>
+              </div>
+              <div class="brief-cat-info">
+                <span class="brief-cat-name">Maritime</span>
+                <span class="brief-cat-sub">Fleet & Ops</span>
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="brief-cat-divider" aria-hidden="true"></div>
+
+            <!-- 02 Cybersecurity -->
+            <div class="brief-cat-col" role="listitem">
+              <div class="brief-cat-icon-wrap cat-cyber">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+              </div>
+              <div class="brief-cat-info">
+                <span class="brief-cat-name">Cybersecurity</span>
+                <span class="brief-cat-sub">Threat & Defense</span>
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="brief-cat-divider" aria-hidden="true"></div>
+
+            <!-- 03 Finance -->
+            <div class="brief-cat-col" role="listitem">
+              <div class="brief-cat-icon-wrap cat-finance">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                  <polyline points="16 7 22 7 22 13" />
+                </svg>
+              </div>
+              <div class="brief-cat-info">
+                <span class="brief-cat-name">Finance</span>
+                <span class="brief-cat-sub">Markets & Risk</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Email Input & CTA Form -->
+          <!-- <form class="brief-teaser-form nlp-hero-form" novalidate aria-label="Subscribe to AI-powered Newsletter"> -->
+          <div class="brief-input-group">
+            <div class="brief-input-wrap">
+              <svg class="brief-mail-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="20" height="16" x="2" y="4" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L1 7" />
+              </svg>
+              <input type="email" class="brief-email-input" placeholder="Enter your work email..."
+                aria-label="Work email address" autocomplete="email" required />
+            </div>
+            <button type="submit" class="brief-submit-btn" id="brief-submit-btn" aria-label="Subscribe →">
+              <span>Subscribe</span>
+              <span class="brief-btn-arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+
+          <!-- Bottom Row: Reassurance & Social Proof -->
+          <!-- <div class="brief-footer-row">
+              <div class="brief-reassurance">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="m9 12 2 2 4-4"/>
+                </svg>
+                <span>Unsubscribe anytime.</span>
+              </div>
+
+              <div class="brief-social-proof">
+                <div class="brief-avatar-group" aria-hidden="true">
+                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=72&h=72&fit=crop&crop=faces&q=80" alt="" class="brief-avatar" loading="lazy">
+                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=72&h=72&fit=crop&crop=faces&q=80" alt="" class="brief-avatar" loading="lazy">
+                  <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=72&h=72&fit=crop&crop=faces&q=80" alt="" class="brief-avatar" loading="lazy">
+                </div>
+                <span class="brief-proof-text">Join <strong>1,000+</strong> maritime professionals</span>
+              </div>
+            </div> -->
+          </form>
+        </div>
       </div>
 
       <!-- Minimized Edge Glimpse Tab (shows when card is closed/minimized) -->
-      <button type="button" class="brief-glimpse" id="brief-glimpse-btn" aria-label="Expand AI-powered Newsletter" title="Expand AI-powered Newsletter">
+      <button type="button" class="brief-glimpse" id="brief-glimpse-btn" aria-label="Expand AI-powered Newsletter"
+        data-tooltip="Click to Expand" data-tooltip-pos="left" data-tooltip-icon="✦">
         <span class="brief-glimpse-spark" aria-hidden="true">✦</span>
-        <span class="brief-glimpse-text">AI Newsletter</span>
-        <span class="brief-glimpse-arr" aria-hidden="true">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </span>
       </button>
 
     </section>
@@ -2079,7 +2220,7 @@
           </p>
           <div class="footer-socials">
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-soc"
-              aria-label="LinkedIn" title="LinkedIn">
+              aria-label="LinkedIn" data-tooltip="Follow MaritimeConnect on LinkedIn" data-tooltip-pos="top">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
@@ -2088,7 +2229,7 @@
               </svg>
             </a>
             <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-soc"
-              aria-label="YouTube" title="YouTube">
+              aria-label="YouTube" data-tooltip="Watch product demos on YouTube" data-tooltip-pos="top">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <path
@@ -2097,7 +2238,8 @@
                 <polygon points="10 15 15 12 10 9 10 15" fill="currentColor"></polygon>
               </svg>
             </a>
-            <a href="tel:+18005550199" class="footer-soc" aria-label="Call Us" title="Call Us">
+            <a href="tel:+18005550199" class="footer-soc" aria-label="Call Us"
+              data-tooltip="Call Support: +1 (800) 555-0199" data-tooltip-pos="top">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <path
@@ -2165,7 +2307,8 @@
   <div id="cb-widget" aria-label="MC360 AI Assistant">
 
     <!-- FAB (always visible fixed in bottom-right corner) -->
-    <button class="cb-fab" id="cb-fab" aria-label="Open MC360 AI Assistant">
+    <button class="cb-fab" id="cb-fab" aria-label="Open MC360 AI Assistant" data-tooltip="MC360 AI Assistant"
+      data-tooltip-pos="left" data-tooltip-icon="✦">
       <img src="assets/logos/MC360logo.png" alt="MC360 AI">
       <span class="cb-fab-badge">AI</span>
     </button>
@@ -2183,7 +2326,8 @@
             <div class="cb-status"><span class="cb-status-dot"></span>Online &middot; Ask me anything</div>
           </div>
         </div>
-        <button class="cb-close" id="cb-close" aria-label="Close chat">
+        <button class="cb-close" id="cb-close" aria-label="Close chat" data-tooltip="Close chat"
+          data-tooltip-pos="bottom">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M12 4L4 12M4 4l8 8" stroke="rgba(255,255,255,.7)" stroke-width="1.8" stroke-linecap="round" />
           </svg>
@@ -2214,7 +2358,7 @@
   <!-- =============================================
      BACK TO TOP BUTTON
      ============================================= -->
-  <button id="back-to-top" aria-label="Back to top">
+  <button id="back-to-top" aria-label="Back to top" data-tooltip="Back to top" data-tooltip-pos="left">
     <img class="btt-icon" src="assets/icon/back to top.png" alt="" aria-hidden="true" width="28" height="28" />
     <span class="btt-label">Back to top</span>
   </button>
@@ -2222,105 +2366,29 @@
 
   <script src="js/main.js" defer></script>
 
-  <!-- ── Logo carousel: gloss sweep + fixed-position tooltip ── -->
+  <!-- ── Logo carousel: gloss sweep interaction ── -->
   <script>
     (function () {
       'use strict';
 
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      /* ── Create single shared tooltip popup ─────────────────── */
-      const popup = document.createElement('div');
-      popup.className = 'logo-tooltip-popup';
-      popup.setAttribute('role', 'tooltip');
-      popup.setAttribute('aria-hidden', 'true');
-      document.body.appendChild(popup);
-
-      let hideTimer = null;
-
-      function showTooltip(item) {
-        const label = item.querySelector('.logo-tooltip');
-        if (!label) return;
-
-        const text = label.textContent.trim();
-        if (!text) return;
-
-        clearTimeout(hideTimer);
-
-        popup.textContent = text;
-        popup.classList.remove('is-visible');
-
-        /* Position: centered above the card, in viewport coords */
-        const rect = item.getBoundingClientRect();
-        const GAP = 10;
-
-        /* Force a layout read before measuring popup width */
-        popup.style.top = '-9999px';
-        popup.style.left = '-9999px';
-        popup.style.removeProperty('display');
-
-        requestAnimationFrame(function () {
-          const pw = popup.offsetWidth;
-          const ph = popup.offsetHeight;
-
-          let left = rect.left + rect.width / 2 - pw / 2;
-          let top = rect.top - ph - GAP; /* fixed: viewport coords only */
-
-          /* Clamp horizontally to viewport */
-          left = Math.max(8, Math.min(left, window.innerWidth - pw - 8));
-
-          /* If no room above, flip below */
-          if (rect.top - ph - GAP < 0) {
-            top = rect.bottom + GAP;
-            popup.style.setProperty('--caret-top', '100%');
-          }
-
-          popup.style.top = top + 'px';
-          popup.style.left = left + 'px';
-          popup.classList.add('is-visible');
-        });
-      }
-
-      function hideTooltip() {
-        popup.classList.remove('is-visible');
-        hideTimer = setTimeout(function () {
-          popup.style.top = '-9999px';
-          popup.style.left = '-9999px';
-        }, 200);
-      }
-
       /* ── Gloss sweep: reset animation so it re-fires each hover ─ */
       function triggerGloss(item) {
         if (reducedMotion) return;
-        const before = item; /* animation is on ::before, toggled via CSS */
-        /* Remove & re-add hover class trick via a data attr */
         item.dataset.glossPlaying = '1';
-        /* The CSS :hover already fires the animation; we just need to
-           ensure it re-runs if the user re-hovers quickly.
-           Force a reflow to restart the animation: */
         item.style.setProperty('--gloss-run', '0');
         void item.offsetWidth; /* reflow */
         item.style.removeProperty('--gloss-run');
       }
 
-      /* ── Wire up all logo-item elements ─────────────────────── */
+      /* ── Wire up all logo-item elements for gloss sweep ─────────────────────── */
       const items = document.querySelectorAll('.s-marquee .logo-item');
-
       items.forEach(function (item) {
-        /* Tooltip on mouse */
         item.addEventListener('mouseenter', function () {
-          showTooltip(item);
           triggerGloss(item);
         });
-        item.addEventListener('mouseleave', hideTooltip);
-
-        /* Tooltip on keyboard focus */
-        item.addEventListener('focusin', function () { showTooltip(item); });
-        item.addEventListener('focusout', hideTooltip);
       });
-
-      /* Hide tooltip on scroll (marquee moves) */
-      document.querySelector('.marquee-track')?.addEventListener('scroll', hideTooltip, { passive: true });
 
     })();
   </script>
