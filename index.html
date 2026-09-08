@@ -679,42 +679,30 @@
           </div>
 
           <!-- Email Input & CTA Form -->
-          <!-- <form class="brief-teaser-form nlp-hero-form" novalidate aria-label="Subscribe to AI-powered Newsletter"> -->
-          <div class="brief-input-group">
-            <div class="brief-input-wrap">
-              <svg class="brief-mail-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect width="20" height="16" x="2" y="4" rx="2" />
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L1 7" />
-              </svg>
-              <input type="email" class="brief-email-input" placeholder="Enter your work email..."
-                aria-label="Work email address" autocomplete="email" required />
-            </div>
-            <button type="submit" class="brief-submit-btn" id="brief-submit-btn" aria-label="Subscribe →">
-              <span>Subscribe</span>
-              <span class="brief-btn-arrow" aria-hidden="true">→</span>
-            </button>
-          </div>
-
-          <!-- Bottom Row: Reassurance & Social Proof -->
-          <!-- <div class="brief-footer-row">
-              <div class="brief-reassurance">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                  <path d="m9 12 2 2 4-4"/>
+          
+            <div class="brief-input-group" id="brief-input-group">
+              <div class="brief-input-wrap">
+                <svg class="brief-mail-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L1 7" />
                 </svg>
-                <span>Unsubscribe anytime.</span>
+                <input type="email" id="brief-email-input" name="email" class="brief-email-input"
+                  placeholder="Enter your work email..." autocomplete="email" required aria-required="true"
+                  aria-invalid="false" aria-describedby="brief-email-error" />
               </div>
-
-              <div class="brief-social-proof">
-                <div class="brief-avatar-group" aria-hidden="true">
-                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=72&h=72&fit=crop&crop=faces&q=80" alt="" class="brief-avatar" loading="lazy">
-                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=72&h=72&fit=crop&crop=faces&q=80" alt="" class="brief-avatar" loading="lazy">
-                  <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=72&h=72&fit=crop&crop=faces&q=80" alt="" class="brief-avatar" loading="lazy">
-                </div>
-                <span class="brief-proof-text">Join <strong>1,000+</strong> maritime professionals</span>
-              </div>
-            </div> -->
+              <button type="submit" class="brief-submit-btn" id="brief-submit-btn" aria-label="Subscribe to AI-powered Newsletter">
+                <span>Subscribe</span>
+                <span class="brief-btn-arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+            <div class="brief-form-error nl-form-error" id="brief-email-error" role="alert" aria-live="assertive">
+              <svg class="brief-error-icon nl-form-error-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M8 4.5v4M8 11v.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              <span class="brief-error-text nl-form-error-text"></span>
+            </div>
           </form>
         </div>
       </div>
@@ -2187,11 +2175,12 @@
             Read this week's AI-powered Newsletter →
           </a>
         </div> -->
-        <form class="nl-cta-form" onsubmit="return false;" role="search" aria-label="Newsletter subscription">
-          <!-- <label for="nl-email-input" class="sr-only">Your work email address</label> -->
-          <input id="nl-email-input" class="nl-cta-input" type="email" placeholder="yourmail@gmail.com"
-            autocomplete="email" aria-label="Work email address" />
-          <button type="submit" class="nl-cta-btn" id="nl-subscribe-btn">
+        <form class="nl-cta-form" id="nl-cta-form" onsubmit="return false;" novalidate aria-label="Newsletter subscription">
+          <label for="nl-email-input" class="sr-only">Work email address</label>
+          <input id="nl-email-input" name="email" class="nl-cta-input" type="email" placeholder="yourmail@gmail.com"
+            autocomplete="email" required aria-required="true" aria-invalid="false" aria-describedby="nl-cta-email-error"
+            aria-label="Work email address" />
+          <button type="submit" class="nl-cta-btn" id="nl-subscribe-btn" aria-label="Subscribe to AI-Newsletter">
             Subscribe to AI-Newsletter
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M7 1.5l5.5 5.5-5.5 5.5M12.5 7H1.5" stroke="currentColor" stroke-width="1.6"
@@ -2199,6 +2188,13 @@
             </svg>
           </button>
         </form>
+        <div class="nl-form-error" id="nl-cta-email-error" role="alert" aria-live="assertive">
+          <svg class="nl-form-error-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M8 4.5v4M8 11v.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <span class="nl-form-error-text"></span>
+        </div>
       </div>
     </div>
   </section>

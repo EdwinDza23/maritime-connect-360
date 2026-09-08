@@ -259,10 +259,11 @@
             newsletter delivered straight to your inbox.
           </p>
           <div class="nlp-hero-actions">
-            <form class="nlp-hero-form" onsubmit="return false;" role="search" aria-label="Subscribe to AI-Newsletter">
-              <input class="nlp-hero-input" type="email" placeholder="yourmail@gmail.com" autocomplete="email"
-                aria-label="Work email address" />
-              <button type="submit" class="nlp-hero-btn">
+            <form class="nlp-hero-form" onsubmit="return false;" novalidate aria-label="Subscribe to AI-Newsletter">
+              <label for="nlp-hero-email" class="sr-only">Work email address</label>
+              <input id="nlp-hero-email" name="email" class="nlp-hero-input" type="email" placeholder="yourmail@gmail.com" autocomplete="email"
+                required aria-required="true" aria-invalid="false" aria-describedby="nlp-hero-email-error" aria-label="Work email address" />
+              <button type="submit" class="nlp-hero-btn" aria-label="Subscribe to AI-Newsletter">
                 Subscribe to AI-Newsletter
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                   <path d="M7 1.5l5.5 5.5-5.5 5.5M12.5 7H1.5" stroke="currentColor" stroke-width="1.6"
@@ -270,6 +271,13 @@
                 </svg>
               </button>
             </form>
+            <div class="nl-form-error" id="nlp-hero-email-error" role="alert" aria-live="assertive">
+              <svg class="nl-form-error-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M8 4.5v4M8 11v.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              <span class="nl-form-error-text"></span>
+            </div>
           </div>
           <div class="nlp-hero-pills">
             <div class="nlp-hero-pill-item">Daily delivery</div>

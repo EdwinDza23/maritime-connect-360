@@ -12332,6 +12332,11 @@ ul {
   transform: translateY(0);
 }
 
+.brief-submit-btn:focus-visible {
+  outline: 2px solid var(--blue, #0057B8);
+  outline-offset: 2px;
+}
+
 .brief-btn-arrow {
   font-size: 13px;
   line-height: 1;
@@ -12418,16 +12423,52 @@ ul {
 
 /* Form error within brief-teaser */
 .brief-teaser .nl-form-error {
-  margin-top: 2px;
-  font-size: 10px;
-  color: #dc2626;
+  margin-top: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #b91c1c; /* WCAG 2.2 AA compliant contrast: 5.9:1 against white */
   display: none;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
+  padding: 1px 4px;
+  line-height: 1.35;
 }
 
 .brief-teaser .nl-form-error.is-visible {
   display: flex;
+  animation: nl-error-appear 0.2s ease-out;
+}
+
+.brief-teaser .nl-form-error-icon {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  color: #b91c1c;
+}
+
+.brief-input-group.is-error {
+  border-color: #b91c1c !important;
+  box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.18) !important;
+}
+
+.brief-input-group.is-error .brief-mail-icon {
+  color: #b91c1c !important;
+}
+
+.brief-teaser-form.has-error .brief-input-group {
+  border-color: #b91c1c !important;
+  animation: nl-shake 0.38s ease;
+}
+
+@keyframes nl-error-appear {
+  0% { opacity: 0; transform: translateY(-2px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brief-teaser-form.has-error .brief-input-group {
+    animation: none;
+  }
 }
 
 /* ── Collapsed State (minimized off-screen right) ────────────────────────── */
@@ -12871,9 +12912,20 @@ body.nl-modal-open {
   box-shadow: 0 0 0 3px rgba(0, 87, 184, 0.12);
 }
 
+.nl-modal-input:focus-visible {
+  outline: 2px solid var(--blue, #0057B8);
+  outline-offset: 1px;
+  border-color: var(--blue, #0057B8);
+}
+
 .nl-modal-input.is-error {
-  border-color: rgba(220, 38, 38, 0.7);
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.08);
+  border-color: #b91c1c;
+  box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.14);
+}
+
+.nl-modal-input.is-error:focus-visible {
+  outline: 2px solid #b91c1c;
+  border-color: #b91c1c;
 }
 
 /* Field inline error */
@@ -12883,8 +12935,8 @@ body.nl-modal-open {
   gap: 4px;
   margin-top: 4px;
   font-size: 11.5px;
-  font-weight: 500;
-  color: var(--red, #DC2626);
+  font-weight: 600;
+  color: #b91c1c;
 }
 
 .nl-modal-field-error.is-visible {
@@ -12893,6 +12945,8 @@ body.nl-modal-open {
 
 .nl-modal-field-error svg {
   flex-shrink: 0;
+  color: #b91c1c;
+}
 }
 
 /* ── Category Multi-select Chips (Maritime, Cybersecurity, Finance) ── */

@@ -907,26 +907,46 @@ if (document.readyState === 'loading') {
   'use strict';
 
   function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+    if (!email || typeof email !== 'string') return false;
+    var trimmed = email.trim();
+    return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/.test(trimmed) && trimmed.length <= 254;
   }
 
   function showFormError(form, message) {
-    var errorEl = form.parentElement.querySelector('.nl-form-error');
+    var errorEl = form.querySelector('.nl-form-error') || (form.parentElement && form.parentElement.querySelector('.nl-form-error'));
+    var input = form.querySelector('input[type="email"]');
+    var inputGroup = form.querySelector('.brief-input-group');
+
     if (!errorEl) {
       errorEl = document.createElement('div');
       errorEl.className = 'nl-form-error';
       errorEl.setAttribute('role', 'alert');
-      errorEl.setAttribute('aria-live', 'polite');
+      errorEl.setAttribute('aria-live', 'assertive');
       errorEl.innerHTML =
         '<svg class="nl-form-error-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
-        '<circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>' +
-        '<path d="M8 5v3.5M8 10.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
+        '<circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.6"/>' +
+        '<path d="M8 4.5v4M8 11v.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>' +
         '</svg>' +
         '<span class="nl-form-error-text"></span>';
-      form.parentElement.insertBefore(errorEl, form.nextSibling);
+      form.appendChild(errorEl);
     }
-    errorEl.querySelector('.nl-form-error-text').textContent = message;
+
+    var textEl = errorEl.querySelector('.nl-form-error-text');
+    if (textEl) textEl.textContent = message;
     errorEl.classList.add('is-visible');
+
+    if (input) {
+      input.setAttribute('aria-invalid', 'true');
+      input.classList.add('is-error');
+      if (!input.hasAttribute('aria-describedby') && errorEl.id) {
+        input.setAttribute('aria-describedby', errorEl.id);
+      }
+    }
+
+    if (inputGroup) {
+      inputGroup.classList.add('is-error');
+    }
+
     // Shake the form — force reflow so animation re-triggers
     form.classList.remove('has-error');
     void form.offsetWidth;
@@ -934,9 +954,21 @@ if (document.readyState === 'loading') {
   }
 
   function clearFormError(form) {
-    var errorEl = form.parentElement && form.parentElement.querySelector('.nl-form-error');
+    var errorEl = form.querySelector('.nl-form-error') || (form.parentElement && form.parentElement.querySelector('.nl-form-error'));
+    var input = form.querySelector('input[type="email"]');
+    var inputGroup = form.querySelector('.brief-input-group');
+
     if (errorEl) errorEl.classList.remove('is-visible');
     form.classList.remove('has-error');
+
+    if (input) {
+      input.setAttribute('aria-invalid', 'false');
+      input.classList.remove('is-error');
+    }
+
+    if (inputGroup) {
+      inputGroup.classList.remove('is-error');
+    }
   }
 
   // ── Modal State & References ──
@@ -1171,11 +1203,13 @@ if (document.readyState === 'loading') {
     // Clear error states on typing
     usernameInput.addEventListener('input', function () {
       usernameInput.classList.remove('is-error');
+      usernameInput.setAttribute('aria-invalid', 'false');
       usernameError.classList.remove('is-visible');
     });
 
     emailInput.addEventListener('input', function () {
       emailInput.classList.remove('is-error');
+      emailInput.setAttribute('aria-invalid', 'false');
       emailError.classList.remove('is-visible');
     });
 
@@ -1190,10 +1224,12 @@ if (document.readyState === 'loading') {
       // Validate Username
       if (!username) {
         usernameInput.classList.add('is-error');
+        usernameInput.setAttribute('aria-invalid', 'true');
         usernameError.classList.add('is-visible');
         valid = false;
       } else {
         usernameInput.classList.remove('is-error');
+        usernameInput.setAttribute('aria-invalid', 'false');
         usernameError.classList.remove('is-visible');
       }
 
@@ -1201,15 +1237,18 @@ if (document.readyState === 'loading') {
       if (!email) {
         emailError.querySelector('.nl-modal-error-text').textContent = 'Please enter your email address.';
         emailInput.classList.add('is-error');
+        emailInput.setAttribute('aria-invalid', 'true');
         emailError.classList.add('is-visible');
         valid = false;
       } else if (!isValidEmail(email)) {
-        emailError.querySelector('.nl-modal-error-text').textContent = 'Please enter a valid email address.';
+        emailError.querySelector('.nl-modal-error-text').textContent = 'Please enter a valid email address (e.g., name@company.com).';
         emailInput.classList.add('is-error');
+        emailInput.setAttribute('aria-invalid', 'true');
         emailError.classList.add('is-visible');
         valid = false;
       } else {
         emailInput.classList.remove('is-error');
+        emailInput.setAttribute('aria-invalid', 'false');
         emailError.classList.remove('is-visible');
       }
 
@@ -1304,10 +1343,12 @@ if (document.readyState === 'loading') {
     // Reset inputs and errors
     usernameInput.value = '';
     usernameInput.classList.remove('is-error');
+    usernameInput.setAttribute('aria-invalid', 'false');
     usernameError.classList.remove('is-visible');
 
     emailInput.value = email || '';
     emailInput.classList.remove('is-error');
+    emailInput.setAttribute('aria-invalid', 'false');
     emailError.classList.remove('is-visible');
 
     // Reset categories: Maritime selected by default, others deselected
@@ -1360,12 +1401,12 @@ if (document.readyState === 'loading') {
       var email = input.value.trim();
 
       if (!email) {
-        showFormError(form, 'Please enter your email address.');
+        showFormError(form, 'Please enter your work email address.');
         input.focus();
         return;
       }
       if (!isValidEmail(email)) {
-        showFormError(form, 'Please enter a valid email address.');
+        showFormError(form, 'Please enter a valid email address (e.g., name@company.com).');
         input.focus();
         return;
       }
